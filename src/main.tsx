@@ -1,6 +1,15 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+// ─── Self-hosted Manrope (BC4 character font) ─────────────────────────────
+// Bundled přes @fontsource — LCP lepší než Google Fonts CDN, ~150ms úspora.
+import '@fontsource/manrope/400.css';
+import '@fontsource/manrope/500.css';
+import '@fontsource/manrope/600.css';
+import '@fontsource/manrope/700.css';
+import '@fontsource/manrope/800.css';
+
 import './index.css';
 import App from './App.tsx';
 import { LocaleProvider } from './contexts/LocaleProvider';

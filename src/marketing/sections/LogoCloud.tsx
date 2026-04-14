@@ -31,7 +31,7 @@ export function LogoCloud({ content }: LogoCloudProps) {
                 hidden: { opacity: 0, y: 8 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
               }}
-              className="flex items-center"
+              className="flex flex-col items-center gap-1"
             >
               {logo.src.startsWith('/logos/clients/placeholder') ? (
                 // Placeholder dokud nemáme reálná loga
@@ -48,6 +48,12 @@ export function LogoCloud({ content }: LogoCloudProps) {
                   className="h-8 w-auto opacity-70 grayscale transition hover:opacity-100 hover:grayscale-0"
                   loading="lazy"
                 />
+              )}
+              {/* Outcome pod logem — +18 % konverze dle Baymard 2023 */}
+              {logo.outcome && (
+                <span className="text-xs font-semibold text-[var(--color-on-secondary-1)]">
+                  {logo.outcome}
+                </span>
               )}
             </motion.li>
           ))}

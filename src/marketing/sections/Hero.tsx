@@ -1,9 +1,16 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
+import { ShieldCheck, MapPin, Headphones } from 'lucide-react';
 import { Button } from '@/components/Button';
 import { Container } from '@/marketing/primitives/Container';
 import { EyebrowLabel } from '@/marketing/primitives/EyebrowLabel';
 import type { HomeContent } from '@/content/types';
+
+const trustBadges = [
+  { icon: ShieldCheck, label: 'GDPR ready' },
+  { icon: MapPin, label: 'Data v EU' },
+  { icon: Headphones, label: 'Česká podpora' },
+];
 
 interface HeroProps {
   content: HomeContent['hero'];
@@ -67,6 +74,27 @@ export function Hero({ content }: HeroProps) {
                 </Link>
               )}
             </motion.div>
+
+            {/* Trust badges — GDPR, EU data, česká podpora */}
+            <motion.ul
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.24 }}
+              className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-[var(--color-on-surface-subtle-1)]"
+              aria-label="Trust signály"
+            >
+              {trustBadges.map(badge => (
+                <li key={badge.label} className="inline-flex items-center gap-1.5">
+                  <badge.icon className="h-4 w-4 text-[var(--color-on-secondary-1)]" aria-hidden="true" />
+                  <span className="font-medium">{badge.label}</span>
+                </li>
+              ))}
+              <li className="inline-flex items-center gap-1.5">
+                <span className="font-mono text-xs text-[var(--color-on-surface-subtle-2)]">
+                  Od 490 Kč / agent / měsíc
+                </span>
+              </li>
+            </motion.ul>
           </div>
 
           {/* Pravý sloupec — hero visual */}

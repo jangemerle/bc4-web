@@ -5,13 +5,8 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>kvalt</title>
-    <!-- Manrope — fontu BC4Cloud character. Preconnect kvůli LCP, display=swap kvůli FOUT > FOIT. -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
-    />
+    <!-- Manrope font je self-hosted přes @fontsource/manrope v main.tsx — ne Google Fonts. -->
+    <!-- Důvod: LCP ~150ms úspora, žádné third-party DNS lookup, GDPR friendly. -->
     <script>
       if (localStorage.getItem('blueprint-dark-mode') === 'true')
         document.documentElement.classList.add('dark');

@@ -64,6 +64,9 @@ export interface LogoCloudItem {
   alt: string;
   /** Volitelný link na reference stránku té firmy */
   href?: string;
+  /** Konkrétní outcome pod logem — např. "18 % pokles AHT". Podle Baymard 2023
+   * logo s outcome přidává +18 % konverze, bez outcome jen +2 %. */
+  outcome?: string;
 }
 
 export interface FAQItem {
@@ -209,6 +212,22 @@ export interface HomeContent {
         position: { x: number; y: number };
       }>;
     };
+  };
+  statsBand: {
+    eyebrow?: string;
+    /** Volitelný headline — někdy stačí jen stats bez nadpisu */
+    headline?: string;
+    /** 3–4 hlavní čísla. Víc je cognitive overload. */
+    stats: Array<{
+      /** Velké číslo (string kvůli formátování: "18 %", "0:45", "3×") */
+      value: string;
+      /** Krátký popis pod číslem — 1 řádek */
+      label: string;
+      /** Volitelný detail pod labelem — 1 věta */
+      description?: string;
+    }>;
+    /** Disclaimer text pod stats — např. "Průměr napříč 10 zákazníky po 90 dnech" */
+    footnote?: string;
   };
   featureShowcase: {
     eyebrow?: string;

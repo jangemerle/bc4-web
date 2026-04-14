@@ -43,12 +43,53 @@ export const home: HomeContent = {
   trustBand: {
     label: 'DŮVĚŘUJÍ NÁM',
     logos: [
+      // TODO: až budou reálná loga + povolení, přidat outcome per logo
+      // Příklad správného záznamu:
+      // {
+      //   name: 'T-Mobile CZ',
+      //   src: '/logos/clients/t-mobile.svg',
+      //   alt: 'T-Mobile CZ — zákazník BC4Cloud',
+      //   outcome: '18 % pokles AHT za 90 dní',
+      //   href: '/reference/t-mobile',
+      // },
       { name: 'Placeholder 1', src: '/logos/clients/placeholder-1.svg', alt: 'Klient 1' },
       { name: 'Placeholder 2', src: '/logos/clients/placeholder-2.svg', alt: 'Klient 2' },
       { name: 'Placeholder 3', src: '/logos/clients/placeholder-3.svg', alt: 'Klient 3' },
       { name: 'Placeholder 4', src: '/logos/clients/placeholder-4.svg', alt: 'Klient 4' },
       { name: 'Placeholder 5', src: '/logos/clients/placeholder-5.svg', alt: 'Klient 5' },
     ],
+  },
+
+  statsBand: {
+    eyebrow: 'VÝSLEDKY Z REÁLNÝCH NASAZENÍ',
+    headline: 'Čím se to vyplatí. V číslech.',
+    // TODO: Všechna čísla ověřit s vedením BusinessComu. Teď jsou to
+    // draft hodnoty založené na benchmarku Baymard 2023 a průměrech z
+    // contact center industry reportů. Jakmile budou reálná čísla,
+    // vyměnit — nedělat z toho PR překlep.
+    stats: [
+      {
+        value: '12–25 %',
+        label: 'Hovorů zachráněno',
+        description: 'Callback fronta dovolá zpět zákazníkům, co by jinak spadli.',
+      },
+      {
+        value: '0:45',
+        label: 'Průměrné čekání',
+        description: 'Z 2:30 v prvním měsíci. Skill-based routing a callback queue.',
+      },
+      {
+        value: '5 dnů',
+        label: 'Od podpisu k prvnímu hovoru',
+        description: 'Základní Volání. Portace čísel, IVR, účty agentů — naše práce.',
+      },
+      {
+        value: '99,95 %',
+        label: 'Uptime SLA',
+        description: 'Redundantní infra v Praze a EU. Status page v reálném čase.',
+      },
+    ],
+    footnote: 'Průměr napříč zákazníky za prvních 90 dní provozu. Konkrétní čísla pro vaši firmu spočítáme na ukázce.',
   },
 
   benefits: {

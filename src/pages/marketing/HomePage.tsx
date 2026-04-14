@@ -3,6 +3,7 @@ import { home } from '@/content/cs/home';
 import { useSEO, organizationSchema, faqPageSchema } from '@/marketing/seo';
 import { Hero } from '@/marketing/sections/Hero';
 import { LogoCloud } from '@/marketing/sections/LogoCloud';
+import { StatsBand } from '@/marketing/sections/StatsBand';
 import { BenefitTriplet } from '@/marketing/sections/BenefitTriplet';
 import { ProductVideo } from '@/marketing/sections/ProductVideo';
 import { FeatureShowcase } from '@/marketing/sections/FeatureShowcase';
@@ -78,6 +79,7 @@ export default function HomePage() {
       <Hero content={content.hero} />
       <LogoCloud content={content.trustBand} />
       <BenefitTriplet content={content.benefits} />
+      <StatsBand content={content.statsBand} />
       <ProductVideo content={content.productVideo} />
       <HowItWorks content={content.howItWorks} />
       <FeatureShowcase content={content.featureShowcase} />

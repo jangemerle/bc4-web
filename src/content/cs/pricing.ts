@@ -136,6 +136,10 @@ export const pricing: PricingContent = {
     headline: 'Otázky kolem ceny',
     items: [
       {
+        question: 'Proč neukazujete cenu pro celou firmu rovnou?',
+        answer: 'Cena se počítá z počtu agentů krát tarif. Minimum je 5 agentů, add-ons (WhatsApp, AI voicebot, prediktivní dialer) si volíte samostatně. Rádi vám ji spočítáme přímo na ukázce — trvá to 60 sekund a pošleme vám ji do hodiny emailem.',
+      },
+      {
         question: 'Počítá se agent, když je na dovolené?',
         answer: 'Fakturujeme podle maximálního počtu aktivních účtů v měsíci. Deaktivovaný účet se nepočítá — a deaktivaci provedete sami za dva kliky v administraci.',
       },
