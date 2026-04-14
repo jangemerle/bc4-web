@@ -1,0 +1,226 @@
+{
+  "meta": {
+    "source": "Icons8 Ouch — Hand-drawn animation style",
+    "url": "https://icons8.com/illustrations/style--hand-drawn-animation",
+    "license": "Icons8 Universal License (subscription required for download)",
+    "format": "PNG + GIF (animated) with transparent background",
+    "style": "Hand-drawn watercolor with black outlines"
+  },
+  "illustrations": [
+    {
+      "file": "building-blocks-assembled-creative-project-planning-finding-solutions-and-fixing-problems.png",
+      "gif": "building-blocks-assembled-creative-project-planning-finding-solutions-and-fixing-problems.gif",
+      "name": "Building Blocks",
+      "tags": ["build", "create", "planning", "solution", "project", "blocks", "assemble", "fix", "problem", "creative"],
+      "context": "Project planning, creative process, assembling components, problem-solving, building features",
+      "colors": ["blue", "dark"],
+      "animated": true
+    },
+    {
+      "file": "checklist-with-all-tasks-marked-complete-productivity-and-goal-achievement.png",
+      "gif": "checklist-with-all-tasks-marked-complete-productivity-and-goal-achievement.gif",
+      "name": "Checklist Complete",
+      "tags": ["checklist", "tasks", "complete", "done", "productivity", "goal", "achievement", "todo", "success"],
+      "context": "Task completion, productivity features, goal tracking, all-done states, success confirmation",
+      "colors": ["blue", "dark"],
+      "animated": true
+    },
+    {
+      "file": "delivering-or-sending-a-letter-email-that-is-a-flying-hot-air-balloon-2.png",
+      "name": "Hot Air Balloon Letter",
+      "tags": ["email", "letter", "send", "deliver", "balloon", "fly", "message", "mail"],
+      "context": "Email delivery, sending messages, newsletter features, mail confirmation",
+      "colors": ["blue", "dark"],
+      "animated": false
+    },
+    {
+      "file": "envelope.png",
+      "gif": "envelope.gif",
+      "name": "Envelope",
+      "tags": ["email", "message", "mail", "notification", "inbox", "communication", "send", "letter", "contact", "verify"],
+      "context": "Email features, messaging UIs, notification states, contact forms, newsletter signups, email verification",
+      "colors": ["blue", "dark"],
+      "animated": true
+    },
+    {
+      "file": "eyes-following-star-goal-tracking-and-achievement-focus-trend-monitoring-and-analysis.png",
+      "gif": "eyes-following-star-goal-tracking-and-achievement-focus-trend-monitoring-and-analysis.gif",
+      "name": "Eyes Following Star",
+      "tags": ["goal", "track", "achievement", "focus", "star", "trend", "monitoring", "analysis", "watch"],
+      "context": "Goal tracking, analytics dashboards, trend monitoring, focus states, achievement tracking",
+      "colors": ["blue", "dark"],
+      "animated": true
+    },
+    {
+      "file": "finishing-a-puzzle-brainstorm-coming-up-with-the-ideas-working-on-a-project-or-solutions-to-a-problem.png",
+      "gif": "finishing-a-puzzle-brainstorm-coming-up-with-the-ideas-working-on-a-project-or-solutions-to-a-problem.gif",
+      "name": "Finishing Puzzle",
+      "tags": ["puzzle", "brainstorm", "idea", "solution", "project", "think", "problem", "creative", "finish"],
+      "context": "Brainstorming, idea generation, problem-solving, completing tasks, creative workflows",
+      "colors": ["blue", "dark"],
+      "animated": true
+    },
+    {
+      "file": "hand-drawn-circle-avatars-outline-minimalist-portraits.png",
+      "gif": "hand-drawn-circle-avatars-outline-minimalist-portraits.gif",
+      "name": "Circle Avatars",
+      "tags": ["avatar", "portrait", "user", "profile", "people", "team", "group", "minimalist"],
+      "context": "User profiles, team pages, avatar placeholders, people/contacts features",
+      "colors": ["blue", "dark"],
+      "animated": true
+    },
+    {
+      "file": "hand-drawn-high-five-gesture-celebrating-achievement-peer-encouragement-and-recognition-1.png",
+      "gif": "hand-drawn-high-five-gesture-celebrating-achievement-peer-encouragement-and-recognition-1.gif",
+      "name": "High Five",
+      "tags": ["celebrate", "achievement", "high-five", "encouragement", "recognition", "success", "team", "peer"],
+      "context": "Success celebrations, team achievements, peer recognition, encouragement states",
+      "colors": ["blue", "dark"],
+      "animated": true
+    },
+    {
+      "file": "hand-flipping-through-documents-contract-analysis-or-paperwork-review.png",
+      "gif": "hand-flipping-through-documents-contract-analysis-or-paperwork-review.gif",
+      "name": "Flipping Documents",
+      "tags": ["document", "contract", "review", "paperwork", "analysis", "flip", "read", "browse"],
+      "context": "Document review, contract analysis, browsing content, paperwork processing",
+      "colors": ["blue", "dark"],
+      "animated": true
+    },
+    {
+      "file": "hand-walking-on-analog-clock-time-management-planning-tasks-and-doing-work-on-time.png",
+      "gif": "hand-walking-on-analog-clock-time-management-planning-tasks-and-doing-work-on-time.gif",
+      "name": "Walking on Clock",
+      "tags": ["time", "clock", "management", "planning", "schedule", "deadline", "punctual", "work"],
+      "context": "Time management, scheduling, deadlines, time-tracking features, calendar views",
+      "colors": ["blue", "dark"],
+      "animated": true
+    },
+    {
+      "file": "megaphone-with-social-media-reactions-digital-marketing-and-online-promotion.png",
+      "gif": "megaphone-with-social-media-reactions-digital-marketing-and-online-promotion.gif",
+      "name": "Megaphone Reactions",
+      "tags": ["megaphone", "social", "marketing", "promotion", "announcement", "reactions", "broadcast", "share"],
+      "context": "Announcements, social features, marketing pages, broadcast notifications, sharing content",
+      "colors": ["blue", "dark"],
+      "animated": true
+    },
+    {
+      "file": "number-one-trophy-cup-achievement-and-success-award-celebration-and-leadership-motivation.png",
+      "gif": "number-one-trophy-cup-achievement-and-success-award-celebration-and-leadership-motivation.gif",
+      "name": "Trophy Cup",
+      "tags": ["trophy", "award", "achievement", "success", "winner", "first", "celebration", "leader", "motivation"],
+      "context": "Achievement unlocked, leaderboards, awards, success states, gamification features",
+      "colors": ["blue", "dark"],
+      "animated": true
+    },
+    {
+      "file": "open-file-cabinet-with-drawers-data-storage-and-document-organization.png",
+      "gif": "open-file-cabinet-with-drawers-data-storage-and-document-organization.gif",
+      "name": "File Cabinet",
+      "tags": ["file", "cabinet", "storage", "data", "organize", "drawer", "archive", "folder", "document"],
+      "context": "File management, data storage, document organization, archive features, folder views",
+      "colors": ["blue", "dark"],
+      "animated": true
+    },
+    {
+      "file": "open-gift-box-with-confetti-burst-celebration-and-surprise-event.png",
+      "gif": "open-gift-box-with-confetti-burst-celebration-and-surprise-event.gif",
+      "name": "Gift Box Confetti",
+      "tags": ["gift", "confetti", "celebration", "surprise", "reward", "unbox", "event", "party"],
+      "context": "Rewards, surprise reveals, celebration moments, gift features, special events",
+      "colors": ["blue", "dark"],
+      "animated": true
+    },
+    {
+      "file": "open-treasure-chest-with-sparkles-reward-or-achievement-unlocked.png",
+      "gif": "open-treasure-chest-with-sparkles-reward-or-achievement-unlocked.gif",
+      "name": "Treasure Chest",
+      "tags": ["treasure", "chest", "reward", "achievement", "unlock", "sparkle", "discover", "valuable"],
+      "context": "Achievement unlocked, reward systems, discovering features, premium content reveal",
+      "colors": ["blue", "dark"],
+      "animated": true
+    },
+    {
+      "file": "outstretched-hand-holding-key-access-or-security-concept.png",
+      "gif": "outstretched-hand-holding-key-access-or-security-concept.gif",
+      "name": "Hand Holding Key",
+      "tags": ["key", "access", "security", "unlock", "permission", "hand", "auth", "login"],
+      "context": "Authentication, access control, security features, login/unlock, permission management",
+      "colors": ["blue", "dark"],
+      "animated": true
+    },
+    {
+      "file": "people-facing-each-other-and-talking-mental-health-counseling-session.png",
+      "gif": "people-facing-each-other-and-talking-mental-health-counseling-session.gif",
+      "name": "People Talking",
+      "tags": ["people", "talk", "conversation", "counseling", "meeting", "discuss", "collaborate", "chat"],
+      "context": "Conversations, meetings, collaboration, chat features, feedback sessions",
+      "colors": ["blue", "dark"],
+      "animated": true
+    },
+    {
+      "file": "person-looking-at-the-phone-scrolling-living-in-a-cyber-space-digital-immersion-and-screen-time.png",
+      "gif": "person-looking-at-the-phone-scrolling-living-in-a-cyber-space-digital-immersion-and-screen-time.gif",
+      "name": "Person Scrolling Phone",
+      "tags": ["phone", "scroll", "mobile", "digital", "browse", "screen", "app", "user"],
+      "context": "Mobile experience, app browsing, screen time, digital engagement, mobile UI previews",
+      "colors": ["blue", "dark"],
+      "animated": true
+    },
+    {
+      "file": "person-looking-through-a-magnifying-glass-to-find-information-searching-for-something.png",
+      "gif": "person-looking-through-a-magnifying-glass-to-find-information-searching-for-something.gif",
+      "name": "Magnifying Glass Search",
+      "tags": ["search", "find", "magnifying", "glass", "look", "discover", "investigate", "explore"],
+      "context": "Search features, discovery, exploring content, no-results states, investigation",
+      "colors": ["blue", "dark"],
+      "animated": true
+    },
+    {
+      "file": "person-with-tangled-thoughts-problem-solving-and-brainstorming.png",
+      "gif": "person-with-tangled-thoughts-problem-solving-and-brainstorming.gif",
+      "name": "Tangled Thoughts",
+      "tags": ["think", "thought", "problem", "brainstorm", "confused", "tangle", "complex", "mind"],
+      "context": "Complex problems, brainstorming, confusion states, thinking process, error states",
+      "colors": ["blue", "dark"],
+      "animated": true
+    },
+    {
+      "file": "simple-flower-in-hand-mental-health-support-and-encouragement-wellness-and-emotional-care-concept.png",
+      "gif": "simple-flower-in-hand-mental-health-support-and-encouragement-wellness-and-emotional-care-concept.gif",
+      "name": "Flower in Hand",
+      "tags": ["flower", "care", "support", "wellness", "encouragement", "gentle", "kind", "health"],
+      "context": "Wellness features, support pages, encouragement messages, gentle empty states",
+      "colors": ["blue", "dark"],
+      "animated": true
+    },
+    {
+      "file": "simple-hand-drawn-handshake-business-agreement-and-partnership-successful-deal-and-cooperation-1.png",
+      "gif": "simple-hand-drawn-handshake-business-agreement-and-partnership-successful-deal-and-cooperation-1.gif",
+      "name": "Handshake",
+      "tags": ["handshake", "agreement", "partnership", "deal", "cooperation", "business", "trust", "welcome"],
+      "context": "Partnerships, agreements, onboarding welcome, business deals, cooperation features",
+      "colors": ["blue", "dark"],
+      "animated": true
+    },
+    {
+      "file": "success-finishing-a-project-reaching-a-top-of-a-mountain-and-putting-a-flag.png",
+      "gif": "success-finishing-a-project-reaching-a-top-of-a-mountain-and-putting-a-flag.gif",
+      "name": "Mountain Flag",
+      "tags": ["success", "finish", "project", "mountain", "flag", "top", "achievement", "milestone", "complete"],
+      "context": "Project completion, milestone reached, success states, achievement celebrations",
+      "colors": ["blue", "dark"],
+      "animated": true
+    },
+    {
+      "file": "walking-up-the-stairs-climbing-to-success-personal-development-and-progress.png",
+      "gif": "walking-up-the-stairs-climbing-to-success-personal-development-and-progress.gif",
+      "name": "Walking Up Stairs",
+      "tags": ["stairs", "climb", "success", "progress", "development", "growth", "loading", "walk", "step"],
+      "context": "Loading states, progress indicators, personal development, step-by-step processes, onboarding flows",
+      "colors": ["blue", "dark"],
+      "animated": true
+    }
+  ]
+}

@@ -66,8 +66,14 @@ public/recraft-output/_staging
 # ── Kvalt DS heavy binární assets (regenerovatelné, do gitu nepatří) ──────
 # Pokud Kvalt DS docs site potřebuje tyto assety v produkci, řešit přes
 # CDN (R2 / S3) nebo Git LFS, ne přímo v repu.
-public/illustrations
-!public/illustrations/_catalog.json
+# public/illustrations — ignorujeme PNG/GIF/WEBP, ale _catalog.json a optimized/
+# adresář ponecháme tracked (Kvalt SidebarSearch je build-time importuje)
+public/illustrations/*.png
+public/illustrations/*.gif
+public/illustrations/*.webp
+public/illustrations/*.jpg
+public/illustrations/*.jpeg
+public/illustrations/optimized
 public/recraft-output
 knowledge/design-inspiration
 knowledge/recraft-styles
