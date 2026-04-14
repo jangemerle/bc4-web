@@ -83,3 +83,8 @@ pencil/*.pen
 
 # ── Velké standalone assety v public root ─────────────────────────────────
 public/code-panel-gradient.png
+
+# ── BC4 video assety (upload přes Vercel CLI nebo CDN, ne přes git) ───────
+public/videos/*.mp4
+public/videos/*.webm
+public/videos/*.mov

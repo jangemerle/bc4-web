@@ -210,6 +210,28 @@ export interface HomeContent {
       }>;
     };
   };
+  productVideo: {
+    eyebrow?: string;
+    headline: string;
+    subheadline: string;
+    /** Video zdroj. MP4/WebM self-hosted nebo YouTube/Vimeo URL */
+    videoSrc?: string;
+    /** Poster image (první frame nebo klíčový snímek). Zobrazí se než user klikne play. */
+    posterSrc: string;
+    /** Alt/aria-label pro screen reader popisující, co video obsahuje */
+    alt: string;
+    /** Délka videa v "m:ss" formátu — zobrazí se na poster overlay */
+    duration: string;
+    /** Chapter markers — tři highlights pod videem pro skimmers co nepustí play */
+    chapters: Array<{
+      /** Timestamp "0:15" kde chapter začíná (volitelné, pro seek links) */
+      timestamp?: string;
+      title: string;
+      description: string;
+    }>;
+    /** Inline CTA hned po videu */
+    cta: CTA;
+  };
   howItWorks: {
     eyebrow?: string;
     headline: string;

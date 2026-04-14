@@ -85,6 +85,41 @@ export const home: HomeContent = {
     },
   },
 
+  productVideo: {
+    eyebrow: 'VIDEO UKÁZKA',
+    headline: 'Minuta a víte, jak BC4Cloud běží.',
+    subheadline: 'Nahrávka obrazovky, voiceover, zhmotnělé animace. Bez prodejního skriptu — jen jak aplikace skutečně funguje.',
+    // TODO: po nahrání videa vyměnit. Self-hosted MP4 nebo YouTube/Vimeo URL.
+    // Příklad self-hosted: '/videos/bc4-showcase.mp4'
+    // Příklad YouTube embed: 'https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbranding=1'
+    videoSrc: undefined,
+    posterSrc: '/videos/bc4-showcase-poster.png', // TODO: dodat poster (1920×1080)
+    alt: 'Minutový walkthrough BC4Cloud — přijetí hovoru, zákaznická historie, AI shrnutí a předání obchodníkovi.',
+    duration: '1:00',
+    chapters: [
+      {
+        timestamp: '0:00',
+        title: 'Přijetí hovoru',
+        description: 'Agent zvedne telefon. Historie zákazníka, skript a akce naskočí ve stejném okně.',
+      },
+      {
+        timestamp: '0:20',
+        title: 'Omnichannel v jedné obrazovce',
+        description: 'Vedle hovoru: email, chat, WhatsApp. Kontext se nikam nepromítá.',
+      },
+      {
+        timestamp: '0:40',
+        title: 'AI shrnutí a předání',
+        description: 'Po zavěšení: automatický zápis do CRM a předání obchodníkovi s notifikací.',
+      },
+    ],
+    cta: {
+      label: 'Domluvit ukázku',
+      href: '/poptavka?source=home_video',
+      trackingId: 'cta_video_primary',
+    },
+  },
+
   howItWorks: {
     eyebrow: 'JAK TO FUNGUJE',
     headline: 'Tři úrovně. Začnete tam, kde to dává smysl.',

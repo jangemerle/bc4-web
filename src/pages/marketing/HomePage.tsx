@@ -4,6 +4,7 @@ import { useSEO, organizationSchema, faqPageSchema } from '@/marketing/seo';
 import { Hero } from '@/marketing/sections/Hero';
 import { LogoCloud } from '@/marketing/sections/LogoCloud';
 import { BenefitTriplet } from '@/marketing/sections/BenefitTriplet';
+import { ProductVideo } from '@/marketing/sections/ProductVideo';
 import { ProductScreenshot } from '@/marketing/sections/ProductScreenshot';
 import { HowItWorks } from '@/marketing/sections/HowItWorks';
 import { SegmentCards } from '@/marketing/sections/SegmentCards';
@@ -77,6 +78,7 @@ export default function HomePage() {
       <Hero content={content.hero} />
       <LogoCloud content={content.trustBand} />
       <BenefitTriplet content={content.benefits} />
+      <ProductVideo content={content.productVideo} />
       <ProductScreenshot content={content.productShowcase} />
       <HowItWorks content={content.howItWorks} />
       <SegmentCards content={content.segments} />
