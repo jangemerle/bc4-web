@@ -1,0 +1,103 @@
+/**
+ * Ink — Character Variables
+ *
+ * Editorial design system — content-first, warm paper tones,
+ * serif headings, minimal decoration, optimized for reading.
+ *
+ * Color philosophy: Warm off-white backgrounds (like paper), amber/brown
+ * primary (ink on paper), stone neutrals for supporting text, subtle
+ * shadows, sharp radius (2px) for typographic clarity.
+ *
+ * Usage: loaded by the character system, applied to :root
+ */
+
+:root {
+  /* ── Colors ─────────────────────────────────────────────────────────────── */
+
+  /* Surface — warm paper tones */
+  --color-bg:                   #FAF9F6;
+  --color-surface-1:            #FFFFFF;
+  --color-surface-2:            #FAF9F6;
+  --color-surface-3:            #F5F5F0;
+  --color-surface-4:            #E7E5E4;
+  --color-surface-5:            #D6D3D1;
+  --color-surface-6:            #A8A29E;
+  --color-surface-7:            #78716C;
+  --color-on-surface:           #292524;
+  --color-on-surface-subtle-1:  #57534E;
+  --color-on-surface-subtle-2:  #78716C;
+  --color-inverted-surface:     #292524;
+  --color-on-inverted-surface:  #FAF9F6;
+
+  /* Primary — amber/brown (ink) */
+  --color-primary-1:            #92400E;
+  --color-primary-2:            #78350F;
+  --color-primary-3:            #451A03;
+  --color-on-primary:           #FFFFFF;
+
+  /* Secondary — warm amber */
+  --color-secondary-1:          #FFFBEB;
+  --color-secondary-2:          #FEF3C7;
+  --color-on-secondary-1:       #92400E;
+  --color-on-secondary-2:       #78350F;
+
+  /* Success — olive/sage green */
+  --color-success-1:            #4D7C0F;
+  --color-success-2:            #3F6212;
+  --color-success-3:            #365314;
+  --color-on-success:           #FFFFFF;
+  --color-success-secondary-1:  #ECFCCB;
+  --color-success-secondary-2:  #D9F99D;
+  --color-on-success-secondary: #1A2E05;
+
+  /* Warning — warm orange */
+  --color-warning-1:            #C2410C;
+  --color-warning-2:            #9A3412;
+  --color-warning-3:            #7C2D12;
+  --color-on-warning:           #FFFFFF;
+  --color-warning-secondary-1:  #FFEDD5;
+  --color-warning-secondary-2:  #FED7AA;
+  --color-on-warning-secondary: #431407;
+
+  /* Danger — warm red */
+  --color-danger-1:             #B91C1C;
+  --color-danger-2:             #991B1B;
+  --color-danger-3:             #7F1D1D;
+  --color-on-danger:            #FFFFFF;
+  --color-danger-secondary-1:   #FEE2E2;
+  --color-danger-secondary-2:   #FECACA;
+  --color-on-danger-secondary:  #450A0A;
+
+  /* Border — warm stone, subtle */
+  --color-border:               #E7E5E4;
+  --color-border-strong:        #D6D3D1;
+
+  /* Hero title — understated, warm dark */
+  --color-hero-title:           #292524;
+
+  /* ── Border Radius ──────────────────────────────────────────────────────── */
+  /* Sharp, editorial, typographic — minimal curves */
+  --radius-s:   2px;
+  --radius-m:   2px;
+  --radius-lg:  4px;
+  --radius-xl:  9999px;
+
+  /* ── Shadows ────────────────────────────────────────────────────────────── */
+  /* Barely there — warm stone alpha, subtle elevation only where needed */
+  --shadow-small-1:   0px 1px 2px 0px rgba(41,37,36,0.03);
+  --shadow-small-2:   0px 1px 2px 0px rgba(41,37,36,0.06);
+  --shadow-small-3:   0px 1px 2px 0px rgba(41,37,36,0.12);
+  --shadow-medium-1:  0px 4px 8px 0px rgba(41,37,36,0.03);
+  --shadow-medium-2:  0px 4px 8px 0px rgba(41,37,36,0.06);
+  --shadow-medium-3:  0px 4px 8px 0px rgba(41,37,36,0.12);
+  --shadow-large-1:   0px 8px 16px 0px rgba(41,37,36,0.04);
+  --shadow-large-2:   0px 8px 16px 0px rgba(41,37,36,0.08);
+  --shadow-large-3:   0px 8px 16px 0px rgba(41,37,36,0.14);
+
+  /* ── Typography ─────────────────────────────────────────────────────────── */
+  /* Lora serif for display — literary, authoritative, warm */
+  /* Inter sans for body — clear, comfortable reading */
+  --font-display:     'Lora', serif;
+  --font-body:        'Inter', sans-serif;
+  --font-brand:       'Lora', serif;
+}

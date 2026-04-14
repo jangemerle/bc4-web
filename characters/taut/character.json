@@ -1,0 +1,42 @@
+{
+  "$schema": "../character.schema.json",
+  "name": "taut",
+  "displayName": "Taut",
+  "version": "1.0.0",
+  "description": "Precision interface — sharp edges, deep indigo, data-dense layouts built for trust",
+  "personality": "We handle your money. Every pixel is deliberate. Nothing decorative, nothing wasted.",
+  "author": "Kvalt",
+  "license": "MIT",
+  "tags": ["fintech", "banking", "data", "precision", "dark", "professional"],
+  "tokens": {
+    "colors": "variables.css",
+    "motion": "tokens/motion.ts"
+  },
+  "fonts": {
+    "display": {
+      "family": "Inter",
+      "source": "google",
+      "weights": [600, 700],
+      "url": "https://fonts.googleapis.com/css2?family=Inter:wght@600;700&display=swap"
+    },
+    "body": {
+      "family": "Inter",
+      "source": "google",
+      "weights": [400, 500, 600],
+      "url": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+    },
+    "mono": {
+      "family": "JetBrains Mono",
+      "source": "google",
+      "weights": [400, 500],
+      "url": "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap"
+    }
+  },
+  "preview": {
+    "primaryColor": "#6366F1",
+    "accentColor": "#10B981",
+    "backgroundColor": "#0F172A",
+    "textColor": "#F8FAFC",
+    "radius": "4px"
+  }
+}

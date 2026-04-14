@@ -1,0 +1,70 @@
+/**
+ * Design System — Font Faces
+ *
+ * Borna (licensed, local OTF) — used for all Headlines and brand/hero text
+ * Inter (Google Fonts, loaded in globals.css) — used for all Body text
+ */
+
+/* ─── Borna Regular 400 ─────────────────────────────────────────────────── */
+@font-face {
+  font-family: 'Borna';
+  src: url('/fonts/borna/Borna-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Borna';
+  src: url('/fonts/borna/Borna-RegularItalic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ─── Borna Medium 500 ──────────────────────────────────────────────────── */
+@font-face {
+  font-family: 'Borna';
+  src: url('/fonts/borna/Borna-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Borna';
+  src: url('/fonts/borna/Borna-MediumItalic.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ─── Borna SemiBold 600 ────────────────────────────────────────────────── */
+@font-face {
+  font-family: 'Borna';
+  src: url('/fonts/borna/Borna-SemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Borna';
+  src: url('/fonts/borna/Borna-SemiBoldItalic.otf') format('opentype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ─── Borna Bold 700 ────────────────────────────────────────────────────── */
+@font-face {
+  font-family: 'Borna';
+  src: url('/fonts/borna/Borna-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Borna';
+  src: url('/fonts/borna/Borna-BoldItalic.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}

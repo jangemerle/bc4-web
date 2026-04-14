@@ -1,0 +1,152 @@
+/**
+ * Design System — Global Styles
+ * @import statements MUST come before @tailwind directives
+ */
+
+/* 1. Local fonts (Borna) */
+@import './fonts.css';
+
+/* 2. Google Fonts (Inter + Playwrite CZ + Noto Sans) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+CZ:wght@100..400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800&display=swap');
+
+/* 3. JetBrains Mono (npm package) */
+@import '@fontsource/jetbrains-mono/400.css';
+@import '@fontsource/jetbrains-mono/500.css';
+@import '@fontsource/jetbrains-mono/700.css';
+@import '@fontsource/jetbrains-mono/800.css';
+
+/* 4. Character fonts — Space Grotesk (Taut), Sora (Signal), Lora (Ink) already via fontsource */
+@import '@fontsource/space-grotesk/400.css';
+@import '@fontsource/space-grotesk/500.css';
+@import '@fontsource/space-grotesk/600.css';
+@import '@fontsource/space-grotesk/700.css';
+@import '@fontsource/space-mono/400.css';
+@import '@fontsource/space-mono/700.css';
+@import '@fontsource/dm-sans/400.css';
+@import '@fontsource/dm-sans/500.css';
+@import '@fontsource/dm-sans/600.css';
+@import '@fontsource/dm-sans/700.css';
+@import '@fontsource/playfair-display/400.css';
+@import '@fontsource/playfair-display/500.css';
+@import '@fontsource/playfair-display/600.css';
+@import '@fontsource/playfair-display/700.css';
+@import '@fontsource/playfair-display/800.css';
+@import '@fontsource/playfair-display/900.css';
+@import '@fontsource/sora/400.css';
+@import '@fontsource/sora/500.css';
+@import '@fontsource/sora/600.css';
+@import '@fontsource/sora/700.css';
+@import '@fontsource/lora/400.css';
+@import '@fontsource/lora/500.css';
+@import '@fontsource/lora/600.css';
+@import '@fontsource/lora/700.css';
+
+/* 5. Token CSS variables (light + dark themes) */
+@import './tokens.css';
+
+/* 3. Tailwind layers */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   BASE RESET & DEFAULTS
+───────────────────────────────────────────────────────────────────────────── */
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply font-sans text-base;
+    background-color: var(--color-bg);
+    background-image: var(--bg-pattern);
+    background-size: var(--bg-pattern-size);
+    color: var(--color-on-surface);
+  }
+
+  body.enable-transitions {
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  /* No opinionated heading defaults — components apply font-display/font-sans
+     and text-headline-* / text-* utilities explicitly. */
+  p { @apply font-sans text-base; }
+
+  a {
+    color: var(--color-on-secondary-1);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  a:hover { color: var(--color-on-secondary-2); }
+
+  :focus-visible {
+    outline: 2px solid var(--color-primary-1);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Focus ring for elements that use outline:none (inputs, textareas) —
+     these show focus via inset box-shadow instead, so suppress the outline */
+  input:focus-visible,
+  textarea:focus-visible,
+  [data-focus-ring="inset"]:focus-visible {
+    outline: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  ::selection {
+    background-color: var(--color-primary-1);
+    color: var(--color-on-primary);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   COMPONENT LAYER
+───────────────────────────────────────────────────────────────────────────── */
+@layer components {
+  .surface-1 { background-color: var(--color-surface-1); }
+  .surface-2 { background-color: var(--color-surface-2); }
+  .surface-3 { background-color: var(--color-surface-3); }
+
+  .divider       { height: 1px; background-color: var(--color-border); }
+  .divider-strong { height: 1px; background-color: var(--color-border-strong); }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   FONT FAMILY OVERRIDES
+   Explicit rules to guarantee font-family application regardless of
+   Tailwind JIT compilation. These sit outside @layer so they always win.
+   They defer to the active character via CSS variables — characters that
+   leave --font-display unset fall through to the :root default ('Borna').
+───────────────────────────────────────────────────────────────────────────── */
+.font-brand {
+  font-family: var(--font-brand);
+}
+.font-display {
+  font-family: var(--font-display);
+}
+.font-serif {
+  font-family: var(--font-display);
+}
+.font-sans {
+  font-family: var(--font-body);
+}
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}

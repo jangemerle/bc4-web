@@ -1,0 +1,32 @@
+# Every UI/UX Concept Explained in Under 10 Minutes
+
+**Source:** [Kole Jain — Every UI/UX Concept Explained in Under 10 Minutes](https://www.youtube.com/watch?v=EcbgbKtOELY)
+**Duration:** ~10 min
+**Date added:** 2026-04-14
+
+## What it is
+
+A fast, well-compressed tour of foundational UI/UX concepts with visual examples. Starts with **signifiers** — how containers, selection states, and disabled styling communicate behavior without copy (a container around "drinks and food" signals related-and-toggleable without explanation). **Visual hierarchy** uses size, position, and color as the three levers: images add a scannable pop of color, the most important datum gets the largest/boldest treatment at the top, price goes top-right in an accent color. **Grids** are guidelines, not dogma — 12-col alignment is useful for gallery/blog-style repeating content and responsive breakpoints; custom landing pages don't need to honor it. **Whitespace** beats grid precision: 32px between items, group related things tighter (announcement + heading, heading + subhead). The **4-point grid** works because multiples split evenly, creating consistency — not because 4 is magic. **Typography** — one good sans-serif is enough for most work. The "hack": tighten letter spacing to −2% to −3% and drop line-height to 110–120% on large headings, instantly reads more professional. Six font sizes max for marketing; dashboards compress that range dramatically (no text >24px because density matters). **Color** starts with one primary (usually brand), lightened for backgrounds, darkened for text — that's half a color ramp already. Semantic colors carry meaning: blue=trust, red=danger, yellow=warning, green=success. **Dark mode** requires different logic — lighter-card-than-background replaces shadow-for-depth, dim chip saturation, flip chip text for contrast. **Shadows** in light mode: reduce opacity, increase blur. If the shadow is the first thing you notice, you're using it wrong. **Icons** match font line-height (24px font → 24px icons). **Button rules**: primary + secondary CTA patterns, padding width = 2× height, sidebar "ghost buttons" are just backgroundless buttons with hover states. **States** — every button needs default/hover/active/disabled minimum, plus loading; inputs need focus/error/warning. **Micro-interactions** turn feedback into affordance (copy button that slides up a confirmation chip instead of silently copying). **Overlays** — linear gradients over hero images beat full-screen overlays; progressive blur over gradient is the modern finish.
+
+## Key takeaways
+
+- **Signifiers > instructions.** If your UI needs copy to explain how it works, the visual language is failing.
+- **Hierarchy has three levers: size, position, color.** Not five, not ten. Start there.
+- **Grids are tools, not rules.** Use them for repeating content and responsive; skip them for hero/marketing sections.
+- **32px between items, group related things tighter.** Whitespace as a consistent scale beats precise alignment.
+- **One typeface is enough.** Spend your time elsewhere.
+- **Letter-spacing −2% to −3% + line-height 110–120% on large headings.** Near-universal polish for display type.
+- **Dark mode inverts the depth logic.** Lighter-on-dark replaces shadow.
+- **Every interaction needs a response.** But "response" doesn't always mean animation.
+- **Overlays: gradient > flat scrim.** Progressive blur over gradient for a modern feel.
+
+## Notable comments
+
+- **Never reveal "this email already exists" — it's an OSINT attack vector** — @DanielBeecham (638 votes, top comment). Attackers probe for account existence to find what sites a target uses. Safer pattern: "if the email exists, we've sent a verification link," with timing-independent response whether or not the account exists. @silicalnz and @Veitclub add: keep the welcome-vs-returning-user distinction inside the email itself, not in the web UI. @88hznow pushes back — signup UX benefits from immediate "email already in use" feedback; real-world sites balance. Takeaway: login/password-reset flows should reveal nothing; signup may expose existence but can mitigate with rate limits and CAPTCHA.
+- **Accessibility is the glaring omission** — @geoded (84 votes): "Colour should be a secondary signifier, the primary signifier should always be something like a symbol / icon." Red/green for status fails colorblind users. Every semantic-color use needs a redundant non-color cue (icon, copy, position).
+- **"Intuitive" is culture- and age-specific** — @Ayofashakaa (53): "Right off the bat, I understand the UI of that food/drink/dessert thing — but someone older like my father wouldn't." Reminder that signifier literacy is learned; design for your actual users, not the designer-twitter baseline.
+- **Animating everything makes UI feel slow and unserious** — @HarrisonEpperson (25): "You can change states instantly without the user noticing or caring, and like shadows, if the thing that grabs the user's attention are your animations you need to dial it back." Directly relevant to motion-heavy systems.
+
+## Relevance to Kvalt
+
+Most of this is baseline territory for Kvalt (tokens already encode most of it — 4pt grid, semantic colors, type scale with tight tracking on display), but four concrete pulls: (1) **"Don't reveal email exists"** becomes a specific UX Copy skill rule for auth-adjacent messaging — worth codifying in `docs/philosophy.md` tone-of-voice section or the `ux-copy` skill so error states don't leak OSINT. (2) **Accessibility redundancy rule**: every semantic-color usage in Kvalt components needs an icon or textual counterpart. Audit existing error/success states — the `accessibility-review` skill should enforce "color is never the sole signifier" as a check. (3) **HarrisonEpperson's motion warning** validates Kvalt's existing motion philosophy (use duration tokens, don't animate state changes where invisibility is fine) — add it as a direct quote to `docs/philosophy.md` motion section as an outside-voice grounding. (4) **Ghost-button + CTA pattern** (width = 2× height padding, pairing primary + secondary) matches Kvalt's Button component but isn't documented as a *pattern*; worth a `patterns/cta-pairing.md` page showing the expected spacing and which variants pair well. Nice stash of quotable lines for Screen Vault callouts too ("if the shadow is the first thing you notice, you're using it wrong").

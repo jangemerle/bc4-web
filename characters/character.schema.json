@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Kvalt Character",
+  "description": "Schema for a Kvalt character — an opinionated design configuration bundle",
+  "type": "object",
+  "required": ["name", "version", "description", "personality"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Machine-readable identifier (lowercase, hyphens). Used in CLI and file paths.",
+      "pattern": "^[a-z][a-z0-9-]*$"
+    },
+    "displayName": {
+      "type": "string",
+      "description": "Human-readable name shown in UI and docs"
+    },
+    "version": {
+      "type": "string",
+      "description": "Semver version string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+"
+    },
+    "description": {
+      "type": "string",
+      "description": "One-line description of this character's design intent"
+    },
+    "personality": {
+      "type": "string",
+      "description": "The character's voice — a sentence that captures how this design feels to use"
+    },
+    "author": {
+      "type": "string",
+      "description": "Author name or organization"
+    },
+    "license": {
+      "type": "string",
+      "description": "SPDX license identifier",
+      "default": "MIT"
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Discovery tags: industry, mood, style keywords"
+    },
+    "tokens": {
+      "type": "object",
+      "description": "Token layer definitions. Each key maps to a file in the character folder.",
+      "properties": {
+        "colors": { "type": "string", "description": "Path to CSS file with color variables" },
+        "typography": { "type": "string", "description": "Path to typography token overrides" },
+        "spacing": { "type": "string", "description": "Path to spacing scale overrides" },
+        "radius": { "type": "string", "description": "Path to border radius overrides" },
+        "shadows": { "type": "string", "description": "Path to shadow token overrides" },
+        "motion": { "type": "string", "description": "Path to motion token overrides (TS/JS)" }
+      }
+    },
+    "fonts": {
+      "type": "object",
+      "description": "Font dependencies — what needs to be loaded for this character",
+      "properties": {
+        "display": {
+          "type": "object",
+          "properties": {
+            "family": { "type": "string" },
+            "source": { "type": "string", "enum": ["google", "local", "cdn"] },
+            "weights": { "type": "array", "items": { "type": "number" } },
+            "url": { "type": "string", "description": "Google Fonts URL or CDN link" }
+          }
+        },
+        "body": {
+          "type": "object",
+          "properties": {
+            "family": { "type": "string" },
+            "source": { "type": "string", "enum": ["google", "local", "cdn"] },
+            "weights": { "type": "array", "items": { "type": "number" } },
+            "url": { "type": "string" }
+          }
+        },
+        "mono": {
+          "type": "object",
+          "properties": {
+            "family": { "type": "string" },
+            "source": { "type": "string", "enum": ["google", "local", "cdn"] },
+            "weights": { "type": "array", "items": { "type": "number" } },
+            "url": { "type": "string" }
+          }
+        }
+      }
+    },
+    "preview": {
+      "type": "object",
+      "description": "Quick-preview metadata for character browsers and catalogs",
+      "properties": {
+        "primaryColor": { "type": "string", "description": "Hex color for thumbnails" },
+        "accentColor": { "type": "string" },
+        "backgroundColor": { "type": "string" },
+        "textColor": { "type": "string" },
+        "radius": { "type": "string", "description": "CSS value for preview card radius" }
+      }
+    }
+  }
+}

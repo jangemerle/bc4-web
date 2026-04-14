@@ -1,0 +1,36 @@
+{
+  "$schema": "../character.schema.json",
+  "name": "signal",
+  "displayName": "Signal",
+  "version": "1.0.0",
+  "description": "Bold creative expression — saturated colors, generous radius, bouncy motion that demands attention",
+  "personality": "Design is our product. The UI should feel like one of our projects — bold, intentional, unmistakably ours.",
+  "author": "Kvalt",
+  "license": "MIT",
+  "tags": ["creative", "agency", "bold", "playful", "colorful", "expressive"],
+  "tokens": {
+    "colors": "variables.css",
+    "motion": "tokens/motion.ts"
+  },
+  "fonts": {
+    "display": {
+      "family": "Sora",
+      "source": "google",
+      "weights": [600, 700, 800],
+      "url": "https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&display=swap"
+    },
+    "body": {
+      "family": "Inter",
+      "source": "google",
+      "weights": [400, 500, 600],
+      "url": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+    }
+  },
+  "preview": {
+    "primaryColor": "#F43F5E",
+    "accentColor": "#8B5CF6",
+    "backgroundColor": "#FFFBF5",
+    "textColor": "#1C1917",
+    "radius": "16px"
+  }
+}

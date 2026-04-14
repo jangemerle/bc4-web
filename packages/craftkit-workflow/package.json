@@ -1,0 +1,12 @@
+{
+  "name": "@craftkit/workflow",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Generic engineering discipline skills for Claude/Cowork (planner, commit, tdd, security-audit, etc.). Project-agnostic. PLACEHOLDER: skill migration in Phase 3.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kvalt-ds/kvalt.git",
+    "directory": "packages/craftkit-workflow"
+  }
+}

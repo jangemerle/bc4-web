@@ -1,0 +1,15 @@
+{
+  "name": "@kvalt/cli",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Kvalt CLI — init, add, update, migrate, audit commands. PLACEHOLDER: implementation in Phase 2.",
+  "license": "MIT",
+  "bin": {
+    "kvalt": "./dist/cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kvalt-ds/kvalt.git",
+    "directory": "packages/cli"
+  }
+}

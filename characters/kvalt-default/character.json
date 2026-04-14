@@ -1,0 +1,38 @@
+{
+  "$schema": "../character.schema.json",
+  "name": "kvalt-default",
+  "displayName": "Kvalt Default",
+  "version": "1.0.0",
+  "description": "The original Kvalt design system — clean, structured, with personality in the details",
+  "personality": "Professional but alive. Every interaction has weight, every transition has purpose. Green accents on cool neutrals. The kind of UI that makes you trust the product.",
+  "author": "Jan Gemerle",
+  "license": "MIT",
+  "tags": ["saas", "dashboard", "professional", "green", "motion"],
+  "tokens": {
+    "colors": "variables.css",
+    "typography": "tokens/typography.ts",
+    "radius": "tokens/radius.ts",
+    "shadows": "tokens/shadows.ts",
+    "motion": "tokens/motion.ts"
+  },
+  "fonts": {
+    "display": {
+      "family": "Borna",
+      "source": "local",
+      "weights": [500, 700]
+    },
+    "body": {
+      "family": "Inter",
+      "source": "google",
+      "weights": [500, 600, 700],
+      "url": "https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap"
+    }
+  },
+  "preview": {
+    "primaryColor": "#7DDB85",
+    "accentColor": "#4571AB",
+    "backgroundColor": "#F0F4F4",
+    "textColor": "#14263E",
+    "radius": "8px"
+  }
+}

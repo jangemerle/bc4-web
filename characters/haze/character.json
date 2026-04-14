@@ -1,0 +1,42 @@
+{
+  "$schema": "../character.schema.json",
+  "name": "haze",
+  "displayName": "Haze",
+  "version": "1.0.0",
+  "description": "Frosted glass over a lavender-peach sky — premium, soft, quietly confident",
+  "personality": "Everything feels like it's floating one layer above the surface. Warm gradients underneath, frosted panels on top. Precision that doesn't need to prove it.",
+  "author": "Kvalt",
+  "license": "MIT",
+  "tags": ["glassmorphism", "gradient", "premium", "fintech", "soft", "ai", "modern"],
+  "tokens": {
+    "colors": "variables.css",
+    "motion": "tokens/motion.ts"
+  },
+  "fonts": {
+    "display": {
+      "family": "Sora",
+      "source": "google",
+      "weights": [600, 700],
+      "url": "https://fonts.googleapis.com/css2?family=Sora:wght@600;700&display=swap"
+    },
+    "body": {
+      "family": "Inter",
+      "source": "google",
+      "weights": [400, 500, 600],
+      "url": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+    },
+    "mono": {
+      "family": "JetBrains Mono",
+      "source": "google",
+      "weights": [400, 500],
+      "url": "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap"
+    }
+  },
+  "preview": {
+    "primaryColor": "#9B7BC8",
+    "accentColor": "#D4A07A",
+    "backgroundColor": "#F6F0FA",
+    "textColor": "#2A1F3D",
+    "radius": "16px"
+  }
+}

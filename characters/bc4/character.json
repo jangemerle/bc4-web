@@ -1,0 +1,36 @@
+{
+  "$schema": "../character.schema.json",
+  "name": "bc4",
+  "displayName": "BC4Cloud",
+  "version": "1.0.0",
+  "description": "BusinessCom BC4Cloud brand character — cool professional blue primary, Manrope typography, neutral greys, light secondary tones derived from primary",
+  "personality": "Přehledná profesionalita. Tmavě modrá znamená stabilitu a spolehlivost. Světlé odstíny téže modré drží vizuální koherenci. Žádné křiklavé akcenty, žádná vata — jen čistý, čitelný kontaktní-centrum-grade UI.",
+  "author": "Jan Gemerle",
+  "license": "MIT",
+  "tags": ["saas", "b2b", "contact-center", "blue", "corporate", "manrope"],
+  "tokens": {
+    "colors": "variables.css",
+    "motion": "tokens/motion.ts"
+  },
+  "fonts": {
+    "display": {
+      "family": "Manrope",
+      "source": "google",
+      "weights": [500, 600, 700, 800],
+      "url": "https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap"
+    },
+    "body": {
+      "family": "Manrope",
+      "source": "google",
+      "weights": [400, 500, 600, 700],
+      "url": "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"
+    }
+  },
+  "preview": {
+    "primaryColor": "#3564EF",
+    "accentColor": "#143284",
+    "backgroundColor": "#F3F3F5",
+    "textColor": "#04123B",
+    "radius": "8px"
+  }
+}

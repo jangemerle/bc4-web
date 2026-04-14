@@ -1,0 +1,112 @@
+/**
+ * Haze — Character Variables
+ *
+ * Frosted glass over a lavender-peach gradient sky.
+ * Inspired by premium fintech dashboards with glassmorphism.
+ *
+ * Mood: soft, premium, quietly confident, AI-forward
+ * Surfaces: slightly warm tint, translucent feel
+ * Primary: muted purple (lavender side of the gradient)
+ * Radius: generous — 10-16px, everything feels cushioned
+ * Shadows: purple-tinted, soft, diffused
+ */
+
+:root {
+  /* ── Colors ─────────────────────────────────────────────────────────────── */
+
+  /* Surface — warm lavender-tinted whites */
+  --color-bg:                   #F6F0FA;
+  --color-surface-1:            #FFFFFF;
+  --color-surface-2:            #FAF7FC;
+  --color-surface-3:            #F2ECF6;
+  --color-surface-4:            #E4DCE8;
+  --color-surface-5:            #D0C6D6;
+  --color-surface-6:            #BAB0C0;
+  --color-surface-7:            #9E94A6;
+  --color-on-surface:           #2A1F3D;
+  --color-on-surface-subtle-1:  #6B6078;
+  --color-on-surface-subtle-2:  #8E849A;
+  --color-inverted-surface:     #2A1F3D;
+  --color-on-inverted-surface:  #FFFFFF;
+
+  /* Primary — muted purple/lavender */
+  --color-primary-1:            #9B7BC8;
+  --color-primary-2:            #8A6AB8;
+  --color-primary-3:            #7858A8;
+  --color-on-primary:           #FFFFFF;
+  --color-primary-subtle:       #F0E8F8;
+
+  /* Secondary — warm peach (the other end of the gradient) */
+  --color-secondary-1:          #FBF0E8;
+  --color-secondary-2:          #F0D8C8;
+  --color-on-secondary-1:       #A06840;
+  --color-on-secondary-2:       #7A4E30;
+
+  /* Success — cool green that complements lavender */
+  --color-success-1:            #34B870;
+  --color-success-2:            #2A9860;
+  --color-success-3:            #1C6E44;
+  --color-on-success:           #FFFFFF;
+  --color-success-subtle:       #E8F8F0;
+  --color-success-secondary-1:  #E0F8E8;
+  --color-success-secondary-2:  #B0ECC4;
+  --color-on-success-secondary: #0A3018;
+
+  /* Warning — soft amber */
+  --color-warning:              #D48A20;
+  --color-warning-1:            #D48A20;
+  --color-warning-2:            #B87418;
+  --color-warning-3:            #7A4E10;
+  --color-on-warning:           #FFFFFF;
+  --color-warning-secondary-1:  #FFF4E0;
+  --color-warning-secondary-2:  #FFE0A8;
+  --color-on-warning-secondary: #3A2508;
+
+  /* Danger — muted rose (not aggressive, stays in the palette) */
+  --color-error:                #C44A5C;
+  --color-danger-1:             #C44A5C;
+  --color-danger-2:             #A03848;
+  --color-danger-3:             #6A2030;
+  --color-on-danger:            #FFFFFF;
+  --color-danger-secondary-1:   #FDF0F2;
+  --color-danger-secondary-2:   #F8D0D8;
+  --color-on-danger-secondary:  #4A1018;
+
+  /* Border — soft purple-grey */
+  --color-border:               #E0D8E6;
+  --color-border-strong:        #C8BED0;
+
+  /* Hero title — deep purple */
+  --color-hero-title:           #1A0E30;
+
+  /* ── AI Gradient — the signature Haze gradient ─────────────────────────── */
+  --color-ai-from:    #C8ADE0;
+  --color-ai-to:      #E4BEA4;
+  --gradient-ai:        linear-gradient(135deg, var(--color-ai-from) 0%, var(--color-ai-to) 100%);
+  --gradient-ai-subtle: linear-gradient(135deg, rgba(200,173,224,0.16) 0%, rgba(228,190,164,0.16) 100%);
+  --gradient-ai-vivid:  linear-gradient(135deg, #B896D4 0%, #DA9E7C 100%);
+  --gradient-ai-border: linear-gradient(135deg, rgba(200,173,224,0.5) 0%, rgba(228,190,164,0.5) 100%);
+
+  /* ── Border Radius — generous, cushioned feel ──────────────────────────── */
+  --radius-s:   10px;
+  --radius-m:   14px;
+  --radius-lg:  18px;
+  --radius-2xl: 24px;
+  --radius-xl:  9999px;
+
+  /* ── Shadows — purple-tinted, soft, diffused ───────────────────────────── */
+  --shadow-small-1:   0px 1px 4px 0px rgba(42,31,61,0.06);
+  --shadow-small-2:   0px 1px 4px 0px rgba(42,31,61,0.12);
+  --shadow-small-3:   0px 1px 4px 0px rgba(42,31,61,0.24);
+  --shadow-medium-1:  0px 10px 20px 0px rgba(42,31,61,0.06);
+  --shadow-medium-2:  0px 10px 20px 0px rgba(42,31,61,0.12);
+  --shadow-medium-3:  0px 10px 20px 0px rgba(42,31,61,0.24);
+  --shadow-large-1:   0px 20px 40px 0px rgba(42,31,61,0.06);
+  --shadow-large-2:   0px 20px 40px 0px rgba(42,31,61,0.12);
+  --shadow-large-3:   0px 20px 40px 0px rgba(42,31,61,0.24);
+
+  /* ── Typography ─────────────────────────────────────────────────────────── */
+  --font-display:     'Sora', sans-serif;
+  --font-body:        'Inter', sans-serif;
+  --font-brand:       'Sora', sans-serif;
+}

@@ -1,0 +1,95 @@
+/**
+ * Kvalt Default — Character Variables
+ *
+ * This is the reference character. All values match the base design system.
+ * Other characters override these variables to transform the UI.
+ *
+ * Usage: loaded by the character system, applied to :root
+ */
+
+:root {
+  /* ── Colors ─────────────────────────────────────────────────────────────── */
+
+  /* Surface */
+  --color-bg:                   #F0F4F4;
+  --color-surface-1:            #FFFFFF;
+  --color-surface-2:            #F8FAFA;
+  --color-surface-3:            #F0F4F4;
+  --color-surface-4:            #D9E1E1;
+  --color-surface-5:            #C0C8C8;
+  --color-surface-6:            #B3BABA;
+  --color-surface-7:            #A3AAAA;
+  --color-on-surface:           #14263E;
+  --color-on-surface-subtle-1:  #6C7070;
+  --color-on-surface-subtle-2:  #898F8F;
+  --color-inverted-surface:     #14263E;
+  --color-on-inverted-surface:  #FFFFFF;
+
+  /* Primary (green) */
+  --color-primary-1:            #7DDB85;
+  --color-primary-2:            #74CC7C;
+  --color-primary-3:            #69BA70;
+  --color-on-primary:           #14263E;
+
+  /* Secondary (blue) */
+  --color-secondary-1:          #F0F4FC;
+  --color-secondary-2:          #D6E0F6;
+  --color-on-secondary-1:       #4571AB;
+  --color-on-secondary-2:       #325480;
+
+  /* Success */
+  --color-success-1:            #00A35A;
+  --color-success-2:            #008145;
+  --color-success-3:            #154127;
+  --color-on-success:           #FFFFFF;
+  --color-success-secondary-1:  #D7FDE2;
+  --color-success-secondary-2:  #93F4B5;
+  --color-on-success-secondary: #002D15;
+
+  /* Warning */
+  --color-warning-1:            #E36B00;
+  --color-warning-2:            #B45400;
+  --color-warning-3:            #602900;
+  --color-on-warning:           #FFFFFF;
+  --color-warning-secondary-1:  #FFF1ED;
+  --color-warning-secondary-2:  #FFD7CC;
+  --color-on-warning-secondary: #421A00;
+
+  /* Danger */
+  --color-danger-1:             #D23031;
+  --color-danger-2:             #9E2122;
+  --color-danger-3:             #310505;
+  --color-on-danger:            #FFFFFF;
+  --color-danger-secondary-1:   #FDF1F1;
+  --color-danger-secondary-2:   #F9D8D8;
+  --color-on-danger-secondary:  #4E0B0C;
+
+  /* Border */
+  --color-border:               #D9E1E1;
+  --color-border-strong:        #C0C8C8;
+
+  /* Hero title */
+  --color-hero-title:           #003204;
+
+  /* ── Border Radius ──────────────────────────────────────────────────────── */
+  --radius-s:   6px;
+  --radius-m:   8px;
+  --radius-lg:  12px;
+  --radius-xl:  9999px;
+
+  /* ── Shadows ────────────────────────────────────────────────────────────── */
+  --shadow-small-1:   0px 1px 4px 0px rgba(0,0,0,0.08);
+  --shadow-small-2:   0px 1px 4px 0px rgba(0,0,0,0.16);
+  --shadow-small-3:   0px 1px 4px 0px rgba(0,0,0,0.32);
+  --shadow-medium-1:  0px 10px 20px 0px rgba(0,0,0,0.08);
+  --shadow-medium-2:  0px 10px 20px 0px rgba(0,0,0,0.16);
+  --shadow-medium-3:  0px 10px 20px 0px rgba(0,0,0,0.32);
+  --shadow-large-1:   0px 20px 40px 0px rgba(0,0,0,0.08);
+  --shadow-large-2:   0px 20px 40px 0px rgba(0,0,0,0.16);
+  --shadow-large-3:   0px 20px 40px 0px rgba(0,0,0,0.32);
+
+  /* ── Typography ─────────────────────────────────────────────────────────── */
+  --font-display:     'Borna', sans-serif;
+  --font-body:        'Inter', sans-serif;
+  --font-brand:       'Borna', sans-serif;
+}

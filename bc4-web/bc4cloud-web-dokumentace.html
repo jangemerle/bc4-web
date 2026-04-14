@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BC4Cloud Web — Projektová dokumentace</title>
+<style>
+  :root {
+    --nav-width: 280px;
+    --color-bg: #f8f9fb;
+    --color-nav-bg: #1a1d27;
+    --color-nav-text: #b0b4c0;
+    --color-nav-active: #ffffff;
+    --color-nav-accent: #5b8def;
+    --color-text: #2c2f3a;
+    --color-text-muted: #6b7080;
+    --color-border: #e2e5ec;
+    --color-card: #ffffff;
+    --color-accent: #5b8def;
+    --color-accent-light: #eef3ff;
+    --color-warning: #f59e0b;
+    --color-warning-bg: #fffbeb;
+    --color-success: #10b981;
+    --color-success-bg: #ecfdf5;
+    --color-danger: #ef4444;
+    --color-danger-bg: #fef2f2;
+    --color-tag-blue: #dbeafe;
+    --color-tag-green: #d1fae5;
+    --color-tag-purple: #ede9fe;
+    --color-tag-orange: #ffedd5;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif;
+    background: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.65;
+    font-size: 15px;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; bottom: 0;
+    width: var(--nav-width);
+    background: var(--color-nav-bg);
+    overflow-y: auto;
+    padding: 24px 0;
+    z-index: 100;
+  }
+  nav::-webkit-scrollbar { width: 4px; }
+  nav::-webkit-scrollbar-thumb { background: #3a3e50; border-radius: 4px; }
+  .nav-header {
+    padding: 0 20px 20px;
+    border-bottom: 1px solid #2e3240;
+    margin-bottom: 16px;
+  }
+  .nav-header h1 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.02em;
+  }
+  .nav-header .subtitle {
+    font-size: 11px;
+    color: var(--color-nav-text);
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .nav-group { margin-bottom: 8px; }
+  .nav-group-label {
+    padding: 8px 20px 4px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #5a5e70;
+  }
+  nav a {
+    display: block;
+    padding: 7px 20px 7px 28px;
+    color: var(--color-nav-text);
+    text-decoration: none;
+    font-size: 13px;
+    transition: all 0.15s;
+    border-left: 3px solid transparent;
+  }
+  nav a:hover { color: var(--color-nav-active); background: rgba(255,255,255,0.04); }
+  nav a.active {
+    color: var(--color-nav-active);
+    border-left-color: var(--color-nav-accent);
+    background: rgba(91,141,239,0.08);
+  }
+
+  /* MAIN */
+  main {
+    margin-left: var(--nav-width);
+    padding: 40px 48px 80px;
+    max-width: 920px;
+  }
+
+  /* TYPOGRAPHY */
+  h2 {
+    font-size: 26px;
+    font-weight: 700;
+    margin: 56px 0 8px;
+    padding-top: 24px;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+    border-top: 2px solid var(--color-border);
+  }
+  h2:first-of-type { border-top: none; margin-top: 0; }
+  h3 {
+    font-size: 18px;
+    font-weight: 650;
+    margin: 32px 0 8px;
+    color: var(--color-text);
+  }
+  h4 {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 20px 0 6px;
+    color: var(--color-text-muted);
+  }
+  p { margin: 8px 0 16px; }
+
+  /* CARDS */
+  .card {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 16px 0;
+  }
+  .card h4 { margin-top: 0; }
+
+  /* TAGS */
+  .tag {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 500;
+    margin: 2px 4px 2px 0;
+  }
+  .tag-blue { background: var(--color-tag-blue); color: #1e40af; }
+  .tag-green { background: var(--color-tag-green); color: #065f46; }
+  .tag-purple { background: var(--color-tag-purple); color: #5b21b6; }
+  .tag-orange { background: var(--color-tag-orange); color: #9a3412; }
+
+  /* CALLOUTS */
+  .callout {
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 16px 0;
+    font-size: 14px;
+  }
+  .callout-warn { background: var(--color-warning-bg); border-left: 3px solid var(--color-warning); }
+  .callout-info { background: var(--color-accent-light); border-left: 3px solid var(--color-accent); }
+  .callout-success { background: var(--color-success-bg); border-left: 3px solid var(--color-success); }
+  .callout-danger { background: var(--color-danger-bg); border-left: 3px solid var(--color-danger); }
+  .callout strong { font-weight: 600; }
+
+  /* TABLES */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 14px;
+  }
+  th, td {
+    text-align: left;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--color-border);
+  }
+  th {
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-text-muted);
+    background: var(--color-bg);
+  }
+
+  /* LISTS */
+  ul, ol { margin: 8px 0 16px 20px; }
+  li { margin: 4px 0; }
+
+  /* GRID */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 16px 0;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+
+  /* PERSONA */
+  .persona-card {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 24px;
+    margin: 16px 0;
+  }
+  .persona-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .persona-avatar {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: var(--color-accent-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+  }
+
+  /* STATUS */
+  .status { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500; }
+  .status-dot { width: 8px; height: 8px; border-radius: 50%; }
+  .status-open .status-dot { background: var(--color-warning); }
+  .status-done .status-dot { background: var(--color-success); }
+  .status-todo .status-dot { background: var(--color-text-muted); }
+
+  /* META */
+  .meta {
+    display: flex;
+    gap: 24px;
+    font-size: 13px;
+    color: var(--color-text-muted);
+    margin: 8px 0 24px;
+  }
+
+  /* FLOW */
+  .flow-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin: 12px 0;
+  }
+  .flow-num {
+    flex-shrink: 0;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .flow-content { flex: 1; padding-top: 4px; }
+
+  /* COMPETITOR TABLE */
+  .competitor-logo {
+    font-weight: 600;
+    color: var(--color-accent);
+  }
+
+  /* Scroll spy highlight - JS will handle this */
+  .version-badge {
+    display: inline-block;
+    background: var(--color-accent);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 100px;
+    margin-left: 8px;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav id="sidebar">
+  <div class="nav-header">
+    <h1>BC4Cloud Web</h1>
+    <div class="subtitle">Projektová dokumentace</div>
+  </div>
+
+  <div class="nav-group">
+    <div class="nav-group-label">Přehled</div>
+    <a href="#uvod">Úvod a cíle projektu</a>
+    <a href="#faze">Fáze projektu</a>
+    <a href="#cilovka">Cílová skupina</a>
+    <a href="#persona">Persony</a>
+  </div>
+
+  <div class="nav-group">
+    <div class="nav-group-label">Strategie</div>
+    <a href="#komunikace">Komunikační strategie</a>
+    <a href="#klicova-slova">Klíčová slova &amp; SEO</a>
+    <a href="#konkurence">Konkurence</a>
+  </div>
+
+  <div class="nav-group">
+    <div class="nav-group-label">Obsah webu</div>
+    <a href="#sitemap">Struktura webu (sitemap)</a>
+    <a href="#homepage">Homepage</a>
+    <a href="#produkt-volani">Produkt: Volání</a>
+    <a href="#produkt-cc">Produkt: Kontaktní centrum</a>
+    <a href="#produkt-ai">Produkt: AI Voicebot &amp; Chatbot</a>
+    <a href="#features">Přehled features</a>
+    <a href="#moduly">Moduly aplikace</a>
+    <a href="#integrace">Integrační API</a>
+    <a href="#cenik">Ceník</a>
+    <a href="#reference">Reference &amp; případové studie</a>
+    <a href="#kontakt">Kontakt &amp; formuláře</a>
+  </div>
+
+  <div class="nav-group">
+    <div class="nav-group-label">Technické</div>
+    <a href="#soucasny-web">Audit současného webu</a>
+    <a href="#produkty-bc4">Přehled produktů BC4</a>
+  </div>
+
+  <div class="nav-group">
+    <div class="nav-group-label">Řízení</div>
+    <a href="#otazky">Otevřené otázky</a>
+    <a href="#changelog">Changelog dokumentace</a>
+  </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main>
+
+<!-- ============================================= -->
+<h2 id="uvod">Úvod a cíle projektu</h2>
+<div class="meta">
+  <span>Poslední aktualizace: 27. 3. 2026</span>
+  <span>Verze: 0.1 — výchozí draft</span>
+</div>
+
+<p>Projekt se zabývá kompletním redesignem webových stránek <strong>BC4Cloud</strong> — SaaS platformy pro kontaktní centra od společnosti <strong>BusinessCom a.s.</strong> Současný web (bc4.cz) je koncipován primárně technicky, pro úzkou skupinu uživatelů, kteří již přesně vědí, co hledají. Cílem je web transformovat na obchodně zaměřený nástroj pro generování poptávek.</p>
+
+<h3>Primární cíl</h3>
+<p><strong>Generovat poptávky.</strong> Web musí návštěvníka provést od prvního kontaktu s produktem až k vyplnění poptávkového formuláře a následnému kontaktování obchodníkem.</p>
+
+<h3>Sekundární cíl</h3>
+<p><strong>Edukace trhu</strong> — vysvětlit, co je moderní kontaktní centrum a proč ho firmy potřebují. Mnoho potenciálních zákazníků si neuvědomuje, že jejich komunikační problémy řeší právě tento typ řešení.</p>
+
+<div class="callout callout-info">
+  <strong>Klíčový princip:</strong> Komunikaci stavět na features (funkce produktu), používat co nejvíc ukázek z aplikace, zdůrazňovat přehlednost, snadnost obsluhy (dobré UX) a modularitu řešení.
+</div>
+
+<!-- ============================================= -->
+<h2 id="faze">Fáze projektu</h2>
+
+<div class="flow-step">
+  <div class="flow-num">1</div>
+  <div class="flow-content">
+    <strong>Fáze 1 — Lead generation přes formulář</strong>
+    <p>Návštěvník vyplní poptávkový formulář → systém validuje údaje (IČ přes ARES, email, telefon) → obchodník kontaktuje v co nejkratší době → uzavření obchodu.</p>
+  </div>
+</div>
+<div class="flow-step">
+  <div class="flow-num">2</div>
+  <div class="flow-content">
+    <strong>Fáze 2 — Self-service objednávka</strong>
+    <p>Zákazník si vykliká požadovanou konfiguraci (licence) → cenová nabídka → odsouhlasení smluvních podmínek → přesměrování na platební bránu → zaplacení → automatizované zřízení služby.</p>
+  </div>
+</div>
+
+<div class="callout callout-warn">
+  <strong>Poznámka:</strong> Demo prostředí se zatím neplánuje — zákazníci si s ním nevědí moc rady. Možná do budoucna.
+</div>
+
+<!-- ============================================= -->
+<h2 id="cilovka">Cílová skupina</h2>
+
+<h3>Typické firmy</h3>
+<div class="grid-3">
+  <div class="card">
+    <h4>🛒 E-shopy</h4>
+    <p>Rychlá zákaznická podpora při objednávkách, řešení reklamací a dotazů.</p>
+  </div>
+  <div class="card">
+    <h4>✈️ Cestovní kanceláře</h4>
+    <p>Vysoký objem dotazů, sezónní špičky, potřeba rychlé obsluhy.</p>
+  </div>
+  <div class="card">
+    <h4>🏢 B2B firmy</h4>
+    <p>Servisní požadavky, obchodní komunikace, řízení vztahů se zákazníky.</p>
+  </div>
+</div>
+
+<h3>Další segmenty (z docx)</h3>
+<div class="grid-2">
+  <div class="card">
+    <h4>Servisní firmy</h4>
+    <p>Řízení servisních požadavků a dispečink.</p>
+  </div>
+  <div class="card">
+    <h4>Banky a finance</h4>
+    <p>Bezpečná komunikace se zákazníky, compliance.</p>
+  </div>
+  <div class="card">
+    <h4>Telekomunikační operátoři</h4>
+    <p>Vysoké objemy komunikace, odchozí kampaně.</p>
+  </div>
+  <div class="card">
+    <h4>Obecně</h4>
+    <p>Firmy všech velikostí — od malých týmů po velká call centra.</p>
+  </div>
+</div>
+
+<h3>Velikost</h3>
+<p>Primární zaměření: firmy <strong>do 20 uživatelů call centra</strong>. Platforma je škálovatelná od 5 do 500 agentů, ale komunikace na webu cílí zejména na menší a střední nasazení.</p>
+
+<!-- ============================================= -->
+<h2 id="persona">Persony</h2>
+
+<div class="persona-card">
+  <div class="persona-header">
+    <div class="persona-avatar">👩‍💼</div>
+    <div>
+      <strong style="font-size:17px;">Jana, vedoucí call centra</strong><br>
+      <span style="color:var(--color-text-muted); font-size:13px;">Žena, 35–55 let · Má konkrétní představu, co potřebuje</span>
+    </div>
+  </div>
+
+  <h4>Role</h4>
+  <p>Vedoucí call centra nebo manažerka pro komunikaci. Rozhoduje o nákupu CC řešení nebo má silný vliv na rozhodování.</p>
+
+  <h4>Zkušenosti</h4>
+  <p>Má historickou zkušenost s call centrem. Hledá řešení, které nemá 100 funkcí, ale <strong>základy provedené dobře</strong>.</p>
+
+  <h4>Potřeby</h4>
+  <ul>
+    <li>Dobrý poměr cena / výkon</li>
+    <li>Jednoduché na ovládání i pro BFU (běžného firemního uživatele)</li>
+  </ul>
+
+  <h4>Pain points — varianta „Mám call centrum"</h4>
+  <div class="callout callout-danger">
+    <ul>
+      <li>Současné CC je zastaralé, chaotické, se spoustou zbytečných funkcí</li>
+      <li>Končí podpora stávajícího řešení</li>
+      <li>Přechází k jinému operátorovi a potřebuje novou ústřednu</li>
+      <li>Není možná customizace (nové moduly apod.)</li>
+      <li>Chybí integrace na jiné systémy (CRM, ERP…)</li>
+    </ul>
+  </div>
+
+  <h4>Pain points — varianta „Nemám call centrum"</h4>
+  <div class="callout callout-danger">
+    <ul>
+      <li>Chaoticky řeší komunikaci jen přes telefony a nemají o ničem přehled</li>
+      <li>Ztrácejí hovory a tím i zakázky</li>
+      <li>Nemají data o výkonu týmu ani spokojenosti zákazníků</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============================================= -->
+<h2 id="komunikace">Komunikační strategie</h2>
+
+<h3>Hlavní sdělení (value proposition)</h3>
+<div class="card">
+  <p style="font-size:18px; font-weight:600; margin-bottom:8px;">„BC4Cloud — Získejte pod kontrolu veškerou komunikaci se zákazníky"</p>
+  <p style="color:var(--color-text-muted); margin:0;">Jedno řešení pro firmy všech velikostí, bez složité infrastruktury.</p>
+</div>
+
+<h3>Podpůrná sdělení</h3>
+<ol>
+  <li><strong>Jedno řešení pro firmy všech velikostí</strong> — bez složité infrastruktury</li>
+  <li><strong>Zvyšte zákaznickou spokojenost</strong> — kratší čekací doby, méně ztracených hovorů</li>
+  <li><strong>Spravujte hovory, týmy i výkon v reálném čase</strong> — odkudkoliv</li>
+  <li><strong>Sjednoťte veškerou komunikaci</strong> — telefon, email, SMS, chat, WhatsApp v jednom rozhraní</li>
+</ol>
+
+<h3>Co BC4Cloud přinese (benefity pro HP)</h3>
+<table>
+  <tr><th>Benefit</th><th>Popis</th></tr>
+  <tr><td>Více vyřízených požadavků</td><td>Bez navýšení týmu — automatizace a chytré směrování</td></tr>
+  <tr><td>Méně ztracených hovorů</td><td>= více zakázek, automatické callbacky</td></tr>
+  <tr><td>Kratší čekací doby</td><td>IVR, skill-based routing, self-service</td></tr>
+  <tr><td>Vyšší produktivita</td><td>Jeden panel pro vše, bez přepínání mezi systémy</td></tr>
+  <tr><td>Lepší zákaznická zkušenost</td><td>Omnichannel — zákazník si vybere kanál</td></tr>
+  <tr><td>Plná kontrola nad komunikací</td><td>Reporting, nahrávky, real-time monitoring</td></tr>
+</table>
+
+<h3>Důvody proč firmy nasazují BC4</h3>
+<div class="grid-2">
+  <div class="card">
+    <h4>Rychlejší podpora</h4>
+    <p>Zkrácení čekání na lince, inteligentní směrování na správného agenta.</p>
+  </div>
+  <div class="card">
+    <h4>Nižší náklady</h4>
+    <p>Automatizace komunikace, VoIP bez drahé infrastruktury.</p>
+  </div>
+  <div class="card">
+    <h4>Lepší zákaznická zkušenost</h4>
+    <p>Rychlé řešení požadavků, omnichannel přístup.</p>
+  </div>
+  <div class="card">
+    <h4>Plná kontrola</h4>
+    <p>Detailní reporting, real-time dashboard, nahrávání hovorů.</p>
+  </div>
+</div>
+
+<!-- ============================================= -->
+<h2 id="klicova-slova">Klíčová slova &amp; SEO</h2>
+
+<p>Klíčová slova identifikovaná z myšlenkové mapy pro SEO a copywriting:</p>
+
+<div style="margin: 12px 0;">
+  <span class="tag tag-blue">Call centrum</span>
+  <span class="tag tag-blue">Kontaktní centrum</span>
+  <span class="tag tag-blue">Komunikační centrum</span>
+  <span class="tag tag-blue">Pobočková ústředna</span>
+  <span class="tag tag-green">Cloud kontaktní centrum</span>
+  <span class="tag tag-green">SaaS call centrum</span>
+  <span class="tag tag-purple">Omnichannel</span>
+  <span class="tag tag-purple">AI voicebot</span>
+  <span class="tag tag-purple">WebRTC</span>
+  <span class="tag tag-orange">Náhrada ústředny</span>
+  <span class="tag tag-orange">Chytrá telefonie</span>
+</div>
+
+<div class="callout callout-info">
+  <strong>Poznámka:</strong> SEO strategii a klíčová slova bude potřeba rozšířit o analýzu vyhledávanosti a konkurenčních klíčových slov (Daktela, IPEX atd.)
+</div>
+
+<!-- ============================================= -->
+<h2 id="konkurence">Konkurence</h2>
+
+<table>
+  <tr>
+    <th>Konkurent</th>
+    <th>URL</th>
+    <th>Poznámky</th>
+  </tr>
+  <tr>
+    <td class="competitor-logo">IPEX</td>
+    <td><a href="https://ipex.cz" target="_blank">ipex.cz</a></td>
+    <td>Český trh, tradiční řešení</td>
+  </tr>
+  <tr>
+    <td class="competitor-logo">Daktela</td>
+    <td><a href="https://www.daktela.com" target="_blank">daktela.com</a></td>
+    <td>Hlavní český konkurent, cloud CC</td>
+  </tr>
+  <tr>
+    <td class="competitor-logo">Spinoco</td>
+    <td><a href="https://www.spinoco.com/cz/home" target="_blank">spinoco.com</a></td>
+    <td>Český trh, SaaS model</td>
+  </tr>
+  <tr>
+    <td class="competitor-logo">Gorgias</td>
+    <td><a href="https://www.gorgias.com/product/voice" target="_blank">gorgias.com</a></td>
+    <td>Zahraniční, zaměřený na e-commerce</td>
+  </tr>
+</table>
+
+<div class="callout callout-warn">
+  <strong>TODO:</strong> Provést detailní konkurenční analýzu — cenové modely, feature comparison, UX přístup na webu, konverzní prvky.
+</div>
+
+<!-- ============================================= -->
+<h2 id="sitemap">Struktura webu (sitemap)</h2>
+
+<p>Navrhovaná struktura stránek na základě myšlenkové mapy a docx podkladů:</p>
+
+<table>
+  <tr><th>Stránka</th><th>Obsah</th><th>Priorita</th></tr>
+  <tr><td><strong>Homepage</strong></td><td>Value proposition, benefity, video, CTA formulář, segmenty, reference, důvěra</td><td><span class="tag tag-green">Kritická</span></td></tr>
+  <tr><td><strong>Produkt: Volání</strong></td><td>Náhrada ústředny, chytrá telefonie, přehled hovorů, statistiky, nahrávky, IVR</td><td><span class="tag tag-green">Kritická</span></td></tr>
+  <tr><td><strong>Produkt: Kontaktní centrum</strong></td><td>Omnichannel (telefon, email, chat, SMS, sociální sítě), smart routing</td><td><span class="tag tag-green">Kritická</span></td></tr>
+  <tr><td><strong>Produkt: AI</strong></td><td>Voicebot, Chatbot, Speech Analytics, automatizace</td><td><span class="tag tag-blue">Vysoká</span></td></tr>
+  <tr><td><strong>Features / Funkce</strong></td><td>Detailní přehled všech funkcí s ukázkami z aplikace</td><td><span class="tag tag-blue">Vysoká</span></td></tr>
+  <tr><td><strong>Ceník</strong></td><td>Interaktivní ceník / konfigurátor licencí</td><td><span class="tag tag-blue">Vysoká</span></td></tr>
+  <tr><td><strong>Reference</strong></td><td>Loga klientů, citace, případové studie</td><td><span class="tag tag-purple">Střední</span></td></tr>
+  <tr><td><strong>Případové studie</strong></td><td>Detailní příběhy zákazníků s čísly</td><td><span class="tag tag-purple">Střední</span></td></tr>
+  <tr><td><strong>Kontakt</strong></td><td>Poptávkový formulář s validací, kontaktní údaje</td><td><span class="tag tag-green">Kritická</span></td></tr>
+</table>
+
+<div class="callout callout-info">
+  <strong>Z myšlenkové mapy:</strong> Plánován i objednávkový systém (Fáze 2) a interaktivní ceník s možností konfigurace.
+</div>
+
+<!-- ============================================= -->
+<h2 id="homepage">Homepage</h2>
+
+<p>Detailní specifikace obsahu hlavní stránky na základě zadávacího docx:</p>
+
+<h3>Hero sekce</h3>
+<div class="card">
+  <h4>Nadpis</h4>
+  <p style="font-size:20px; font-weight:700;">BC4Cloud — Získejte pod kontrolu veškerou komunikaci se zákazníky</p>
+  <h4>Podnadpisy (rotace nebo sekce)</h4>
+  <ol>
+    <li>Jedno řešení pro firmy všech velikostí — bez složité infrastruktury <em>(+ obrázek)</em></li>
+    <li>Zvyšte zákaznickou spokojenost <em>(+ obrázek)</em></li>
+    <li>Spravujte hovory, týmy i výkon v reálném čase — odkudkoliv <em>(+ obrázek)</em></li>
+    <li>Sjednoťte veškerou komunikaci (telefon, email, SMS, chat, WhatsApp) do jednoho řešení <em>(+ obrázek)</em></li>
+  </ol>
+  <h4>CTA</h4>
+  <p><strong>„Domluvte si ukázku řešení pro Vaši firmu"</strong> → proklik na validační formulář</p>
+  <h4>Video</h4>
+  <p>Nahrané video z praktické ukázky hovoru a následné objednávky. Ukázka AI shrnutí hovoru a následný task — předání obchodníkovi.</p>
+</div>
+
+<h3>Sekce „Co Vám BC4Cloud přinese"</h3>
+<div class="card">
+  <p>Více vyřízených požadavků bez navýšení týmu · Méně ztracených hovorů = více zakázek · Kratší čekací doby zákazníků · Vyšší produktivita zaměstnanců · Lepší zákaznická zkušenost · Plná kontrola nad komunikací.</p>
+  <p><em>Pod textem:</em> „BC4 sjednocuje veškerou zákaznickou komunikaci do jednoho systému a umožňuje ji automatizovat."</p>
+  <p><strong>CTA:</strong> „Zjistit jak funguje BC4" → video</p>
+</div>
+
+<h3>Sekce „Jak BC4 funguje"</h3>
+<div class="card">
+  <p>Krátké vysvětlení tří úrovní produktu:</p>
+  <ol>
+    <li><strong>Volání</strong> — náhrada klasické ústředny, přehled hovorů, statistiky, nahrávky, IVR, rychlé nasazení</li>
+    <li><strong>Kontaktní centrum (Omnichannel)</strong> — telefon, email, chat, SMS, sociální sítě v jednom rozhraní, inteligentní směrování</li>
+    <li><strong>AI</strong> — voicebot a chatbot, automatizace rutinních požadavků</li>
+  </ol>
+  <p><strong>CTA:</strong> „Domluvte si ukázku řešení"</p>
+</div>
+
+<h3>Sekce „Pro jaké firmy je řešení vhodné"</h3>
+<div class="card">
+  <p>Segmenty: E-commerce, Servisní firmy, Banky a finance, Telekomunikační operátoři. Ke každému segmentu krátký text o typické potřebě.</p>
+</div>
+
+<h3>Reference</h3>
+<div class="card">
+  <p>Loga klientů + krátké citace. Příklad: <em>„Díky BC4 jsme zkrátili čekací dobu zákazníků a výrazně zlepšili zákaznickou spokojenost"</em></p>
+</div>
+
+<h3>Lead formulář (hlavní konverzní sekce)</h3>
+<div class="card">
+  <h4>Nadpis</h4>
+  <p><strong>„Zjistěte, jak může BC4 zlepšit vaši zákaznickou podporu"</strong></p>
+  <p>„Vyplňte krátký formulář a náš specialista vás bude kontaktovat."</p>
+  <h4>Pole formuláře</h4>
+  <ul>
+    <li>IČ — <em>validace přes ARES</em></li>
+    <li>Email — <em>validace formátu</em></li>
+    <li>Telefon — <em>validace</em></li>
+    <li>Kolik lidí komunikuje se zákazníky</li>
+  </ul>
+  <h4>Backend validace</h4>
+  <ul>
+    <li>Kontrola existence firmy</li>
+    <li>Kontrola, zda není stávajícím zákazníkem přes TM nebo O2</li>
+    <li>Kontrola, zda nemá od BC HW ústřednu</li>
+  </ul>
+  <p><strong>Po odeslání:</strong> „Po odeslání formuláře vás budeme kontaktovat obvykle do několika minut."</p>
+</div>
+
+<div class="callout callout-warn">
+  <strong>Důležité z docx:</strong> Formulář má být na stránce 2× (střed + konec), CTA tlačítko má být sticky (stále viditelné), video v polovině stránky.
+</div>
+
+<h3>Sekce „Proč spolupracovat s námi"</h3>
+<div class="card">
+  <ul>
+    <li>Desítky let zkušeností <span class="tag tag-orange">Ověřit přesná čísla</span></li>
+    <li>Stovky realizací <span class="tag tag-orange">Ověřit přesná čísla</span></li>
+    <li>Česká podpora</li>
+    <li>Flexibilní řešení</li>
+  </ul>
+</div>
+
+<!-- ============================================= -->
+<h2 id="produkt-volani">Produkt: Volání</h2>
+
+<p>Vstupní produktová úroveň — pro firmy, kterým dosloužila stará analogová ústředna nebo potřebují jednoduše volat.</p>
+
+<h3>Klíčové body</h3>
+<ul>
+  <li>Přehled všech hovorů ústředny</li>
+  <li>Chytrá telefonie — náhrada klasické ústředny</li>
+  <li>Přehled hovorů, statistiky a nahrávky hovorů</li>
+  <li>IVR hlasový průvodce</li>
+  <li>Rychlé nasazení bez velkých investic</li>
+  <li>Dashboardy a reporting výkonu týmu</li>
+</ul>
+
+<h3>Positioning</h3>
+<p>Cílit na firmy, které aktuálně nemají žádné CC řešení a řeší komunikaci chaoticky jen přes telefony. Toto je „vstupní brána" do ekosystému BC4.</p>
+
+<!-- ============================================= -->
+<h2 id="produkt-cc">Produkt: Kontaktní centrum (Omnichannel)</h2>
+
+<p>Hlavní produkt — plnohodnotné omnichannel kontaktní centrum.</p>
+
+<h3>Komunikační kanály</h3>
+<table>
+  <tr><th>Kanál</th><th>Směr</th><th>Popis</th></tr>
+  <tr><td>Hlas (telefon)</td><td>Inbound / Outbound</td><td>Agent Panel, IP telefony, mobilní aplikace, WebRTC dialer</td></tr>
+  <tr><td>Email</td><td>Inbound / Outbound</td><td>Správa příchozích a odchozích emailů</td></tr>
+  <tr><td>SMS</td><td>Inbound / Outbound</td><td>Odesílání, příjem, hromadné rozesílání</td></tr>
+  <tr><td>Chat</td><td>Inbound</td><td>Živý chat integrovaný na web zákazníka</td></tr>
+  <tr><td>WhatsApp</td><td>Inbound / Outbound</td><td>WhatsApp Business API s přílohami</td></tr>
+  <tr><td>Facebook Messenger</td><td>Inbound</td><td>Správa příchozích interakcí ze sociálních sítí</td></tr>
+</table>
+
+<h3>Inteligentní směrování</h3>
+<ul>
+  <li><strong>Skill-based routing</strong> — směrování podle dovedností agentů</li>
+  <li><strong>Data-driven routing</strong> — propojení s CRM, směrování na základě údajů o zákazníkovi</li>
+  <li><strong>Voicemail routing</strong> — hlasové zprávy a zpětná volání</li>
+  <li><strong>Automatické zpětné volání</strong> — místo čekání ve frontě</li>
+</ul>
+
+<h3>Proaktivní kampaně</h3>
+<ul>
+  <li>Odchozí dialery — prediktivní, proaktivní a progresivní varianty</li>
+  <li>Správa kampaní — cílené oslovení zákazníků</li>
+  <li>Import odchozích kampaní z xlsx</li>
+</ul>
+
+<!-- ============================================= -->
+<h2 id="produkt-ai">Produkt: AI Voicebot &amp; Chatbot</h2>
+
+<p>Konverzační AI napojená na generativní model ChatGPT. Trénování na vlastní datové sadě zákazníka.</p>
+
+<h3>Klíčové benefity</h3>
+<div class="grid-3">
+  <div class="card">
+    <h4>Širší obslužnost</h4>
+    <p>24/7 samoobslužné služby přes všechny digitální kanály.</p>
+  </div>
+  <div class="card">
+    <h4>Vyšší důvěra</h4>
+    <p>Rychlejší řešení bez zbytečného čekání.</p>
+  </div>
+  <div class="card">
+    <h4>Vyšší efektivita</h4>
+    <p>Kombinace lidských schopností s AI, více času na složité úkoly.</p>
+  </div>
+</div>
+
+<h3>Případy použití</h3>
+<ul>
+  <li>Automatizace rutinních dotazů</li>
+  <li>Rezervace a správa schůzek</li>
+  <li>Směrování hovorů</li>
+  <li>Ověření identity zákazníka</li>
+  <li>Odchozí volání (kampaně, připomenutí)</li>
+  <li>Helpdesk support</li>
+</ul>
+
+<h3>AI Speech Analytics</h3>
+<ul>
+  <li>Automatický přepis hovorů v reálném čase</li>
+  <li>Analýza sentimentu</li>
+  <li>Automatizované shrnutí konverzací</li>
+  <li>Identifikace trendů a klíčových témat</li>
+</ul>
+
+<!-- ============================================= -->
+<h2 id="features">Přehled features</h2>
+
+<p>Kompletní seznam funkcí z myšlenkové mapy, určený jako podklad pro stránku Features / Funkce:</p>
+
+<h3>Základní funkce (obsluha hovorů)</h3>
+<table>
+  <tr><th>Feature</th><th>Popis</th></tr>
+  <tr><td>Obsluha příchozích front</td><td>Příjem a distribuce frontových hovorů mezi agenty</td></tr>
+  <tr><td>Agentské a automatické pauzy</td><td>Řízení dostupnosti agentů</td></tr>
+  <tr><td>WebRTC dialer</td><td>Volání přímo z webového prohlížeče, bez instalace</td></tr>
+  <tr><td>Historie frontových hovorů</td><td>Kompletní přehled všech hovorů ve frontách</td></tr>
+  <tr><td>Poznámky k hovorům</td><td>Možnost přidat poznámky ke každému hovoru</td></tr>
+  <tr><td>Kategorie hovoru</td><td>Klasifikace hovorů pro reporting a analýzu</td></tr>
+  <tr><td>Adresář kontaktů</td><td>Sdílené a osobní adresáře, import z xlsx</td></tr>
+  <tr><td>Zmeškaná volání</td><td>Přehled zmeškaných + vyžádané a nevyžádané callbacky</td></tr>
+  <tr><td>Nahrávání hovoru</td><td>Záznam všech hovorů pro kontrolu kvality</td></tr>
+</table>
+
+<h3>Pokročilé call flow</h3>
+<table>
+  <tr><th>Feature</th><th>Popis</th></tr>
+  <tr><td>Časové podmínky</td><td>Nastavení chování dle pracovní doby, svátků atd.</td></tr>
+  <tr><td>IVR</td><td>Interaktivní hlasový průvodce / menu</td></tr>
+  <tr><td>Text-to-Speech</td><td>Automatické generování hlásek z textu (Microsoft TTS)</td></tr>
+</table>
+
+<!-- ============================================= -->
+<h2 id="moduly">Moduly aplikace</h2>
+
+<div class="grid-2">
+  <div class="card">
+    <h4>Agent / Operator Panel</h4>
+    <p>Jednotné pracoviště agenta s WebRTC, CTI integrace. Desktop (Windows, macOS) i mobilní verze. Příjem hovorů, přepojení, DTMF, textové služby, email, chat, SMS, WhatsApp, kampaně, karta zákazníka.</p>
+  </div>
+  <div class="card">
+    <h4>Supervizor Panel</h4>
+    <p>360° pohled na kontaktní centrum. Real-time monitoring agentů, front, kampaní. Náslech hovorů, koučování v reálném čase, výstrahy a alerty.</p>
+  </div>
+  <div class="card">
+    <h4>Mobile Client</h4>
+    <p>Nativní aplikace pro Android a iOS. Stejné funkce jako Agent Panel — fronty, přepojení, callback, kontakty, chat. VPN-less přes integrovaný SBC.</p>
+  </div>
+  <div class="card">
+    <h4>Realtime Wallboard</h4>
+    <p>Velké displeje s okamžitým přehledem výkonu týmu a stavu front.</p>
+  </div>
+</div>
+
+<h3>Statistiky a reporting</h3>
+<ul>
+  <li>Kompletní historie hovorů (CDR)</li>
+  <li>Statistiky a reporty s možností exportu do xlsx</li>
+  <li>Dashboardy v reálném čase</li>
+  <li>API pro business intelligence</li>
+</ul>
+
+<h3>Odchozí kampaně</h3>
+<ul>
+  <li>Prediktivní, proaktivní a progresivní dialery</li>
+  <li>Správa kampaní a kontaktních seznamů</li>
+  <li>Import z xlsx</li>
+</ul>
+
+<!-- ============================================= -->
+<h2 id="integrace">Integrační API</h2>
+
+<p>Otevřená API pro propojení s externími systémy (z myšlenkové mapy):</p>
+
+<table>
+  <tr><th>Funkce API</th><th>Popis</th></tr>
+  <tr><td>Informace o příchozích hovorech</td><td>Push notifikace / webhook o příchozím hovoru do externího systému</td></tr>
+  <tr><td>Click-to-call</td><td>Možnost zahájení volání ze systému třetích stran (CRM, ERP)</td></tr>
+  <tr><td>Import adresáře</td><td>Automatizovaný import kontaktů z externích zdrojů</td></tr>
+  <tr><td>Import odchozích kampaní</td><td>Napojení kampaní z CRM / marketingových systémů</td></tr>
+  <tr><td>API pro BI</td><td>Data export pro business intelligence a analytiku</td></tr>
+</table>
+
+<p>Podporované integrace: MS Teams, CRM systémy, ERP systémy, ticketovací systémy. Otevřené standardy — SIP, CSTA, REST API.</p>
+
+<!-- ============================================= -->
+<h2 id="cenik">Ceník</h2>
+
+<p>Na webu je plánován <strong>interaktivní ceník</strong>, kde si zákazník vykliká požadovanou konfiguraci.</p>
+
+<div class="callout callout-warn">
+  <strong>TODO:</strong> Získat podklady k ceníku — licenční model, cenové hladiny, moduly a jejich ceny. Z existujícího webu vyplývá, že existují modely CAPEX, OPEX a Subscription.
+</div>
+
+<p>Relevantní informace z produktových stránek:</p>
+<ul>
+  <li>Škálovatelnost: 5–500 agentů</li>
+  <li>Jednoduché licenční schéma — transparentní model na základě potřeb</li>
+  <li>Nasazení: cloud, on-premise, hybridní</li>
+  <li>Modely: CAPEX, OPEX, Subscription</li>
+</ul>
+
+<!-- ============================================= -->
+<h2 id="reference">Reference &amp; případové studie</h2>
+
+<div class="callout callout-warn">
+  <strong>TODO:</strong> Shromáždit reference a případové studie od zákazníků. Z docx je vzorová citace: <em>„Díky BC4 jsme zkrátili čekací dobu zákazníků a výrazně zlepšili zákaznickou spokojenost."</em>
+</div>
+
+<p>Plánovaný obsah:</p>
+<ul>
+  <li><strong>Loga klientů</strong> — řada firemních log pro důvěryhodnost</li>
+  <li><strong>Krátké citace</strong> — 2–3 věty od klíčových zákazníků</li>
+  <li><strong>Případové studie</strong> — detailní příběhy s čísly (kolik agentů, jaký problém řešili, výsledky)</li>
+</ul>
+
+<!-- ============================================= -->
+<h2 id="kontakt">Kontakt &amp; formuláře</h2>
+
+<h3>Poptávkový formulář (hlavní konverzní prvek)</h3>
+
+<div class="card">
+  <h4>Pole formuláře</h4>
+  <table>
+    <tr><th>Pole</th><th>Validace</th></tr>
+    <tr><td>IČ</td><td>Napojení na ARES — ověření existence firmy</td></tr>
+    <tr><td>Email</td><td>Validace formátu emailu</td></tr>
+    <tr><td>Telefon</td><td>Validace telefonního čísla</td></tr>
+    <tr><td>Počet lidí komunikujících se zákazníky</td><td>Číselná hodnota</td></tr>
+  </table>
+
+  <h4>Backend kontroly po odeslání</h4>
+  <ul>
+    <li>Kontrola existence firmy přes ARES</li>
+    <li>Kontrola, zda firma není stávajícím zákazníkem přes TM nebo O2</li>
+    <li>Kontrola, zda nemá od BC HW ústřednu</li>
+  </ul>
+
+  <h4>Po odeslání</h4>
+  <p>Poděkování + text: „Po odeslání formuláře vás budeme kontaktovat obvykle do několika minut." → obchodník kontaktuje co nejdříve.</p>
+</div>
+
+<h3>Kontaktní údaje</h3>
+<div class="card">
+  <p><strong>BusinessCom a.s.</strong><br>
+  Dobrušská 1797/1, 147 00 Praha 4<br>
+  Tel: +420 261 303 303<br>
+  Email: info@bc4.cz<br>
+  IČ: 27426653</p>
+</div>
+
+<!-- ============================================= -->
+<h2 id="soucasny-web">Audit současného webu</h2>
+
+<p>Současný web <a href="https://bc4.cz" target="_blank">bc4.cz</a> — shrnutí zjištění z procházení produktových stránek:</p>
+
+<h3>Struktura současného webu</h3>
+<ul>
+  <li><strong>Produktové stránky</strong> — BC4 Contact Center, AI Voicebot &amp; Chatbot, Mobile Client, Agent Panel, Supervizor Panel, SoftSwitch Server</li>
+  <li><strong>Jazyk</strong> — CZ/EN verze</li>
+  <li><strong>CTA</strong> — Registrace, Přihlášení, Kontakt (Obchod, Podpora, Technická podpora)</li>
+</ul>
+
+<h3>Problémy současného webu</h3>
+<div class="callout callout-danger">
+  <ul>
+    <li><strong>Příliš technický jazyk</strong> — SIP, SBC, CSTA, VMware, HyperV… Cílí na IT, ne na business decision makery</li>
+    <li><strong>Chybí jasná value proposition</strong> — nepřijdete rychle na to, proč byste BC4 měli chtít</li>
+    <li><strong>Slabé CTA</strong> — „Zjistit více" bez jasného call-to-action na poptávku</li>
+    <li><strong>Chybí reference a sociální důkaz</strong> — žádné citace, loga klientů, případové studie</li>
+    <li><strong>Chybí ceník</strong> — žádná představa o ceně</li>
+    <li><strong>Chybí video / demo</strong> — žádná ukázka, jak produkt vypadá v praxi</li>
+    <li><strong>Fragmentace</strong> — příliš mnoho produktových stránek, složitá navigace</li>
+  </ul>
+</div>
+
+<!-- ============================================= -->
+<h2 id="produkty-bc4">Přehled produktů BC4</h2>
+
+<p>Souhrn všech produktů z existujícího webu pro referenci při tvorbě nového obsahu:</p>
+
+<h3>BC4™ Contact Center</h3>
+<p>AI omnichannel kontaktní centrum — modulární platforma se zásuvnými stavebními prvky. Škálovatelnost 5–500 agentů. Komplexní all-in-one řešení pro správu všech komunikačních kanálů.</p>
+
+<h3>BC4™ Agent Panel s WebRTC a CTI</h3>
+<p>Jednotné pracoviště agenta — centralizovaný panel pro všechny interakce se zákazníky. Integrace CRM/ERP dat. Dostupný přes webový prohlížeč bez instalace. Tři pilíře: otevřenost, flexibilita nasazení, bezpečnost.</p>
+
+<h3>BC4™ Supervizor Panel</h3>
+<p>Řídicí panel správce CC — sledování klíčových metrik, 360° pohled na kontaktní centrum, real-time monitoring, náslech hovorů, koučování agentů.</p>
+
+<h3>BC4™ Mobile Client</h3>
+<p>Mobilní aplikace pro Android a iOS — stejné prostředí jako Agent Panel, WebRTC, VPN-less. Moduly: Dialer, Agent, CallBack, Kontakty.</p>
+
+<h3>BC4™ AI Voicebot a Chatbot</h3>
+<p>Konverzační AI napojená na ChatGPT. NLP, ASR, analýza sentimentu, NER. Speech Analytics — přepis hovorů, shrnutí konverzací, identifikace trendů.</p>
+
+<h3>BC4™ SoftSwitch Server</h3>
+<p>Komunikační platforma — kompletní multimediální systém na Linuxu. 50–500 uživatelů. HW server pro on-premise nasazení. Office Panel, Recepce, centrální správa. Podpora Htek SIP telefonů, DECT, Dinstar bran.</p>
+
+<!-- ============================================= -->
+<h2 id="otazky">Otevřené otázky</h2>
+
+<p>Otázky a rozhodnutí, které je potřeba dořešit:</p>
+
+<table>
+  <tr><th>#</th><th>Otázka</th><th>Zdroj</th><th>Status</th></tr>
+  <tr>
+    <td>1</td>
+    <td>Přesná čísla pro „desítky let zkušeností" a „stovky realizací" — ověřit s vedením</td>
+    <td>Zadávací docx (označeno ???)</td>
+    <td><span class="status status-open"><span class="status-dot"></span> Otevřené</span></td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>AI tiketovací systém — bude součástí nového webu? (v zadání označeno ???)</td>
+    <td>Docx</td>
+    <td><span class="status status-open"><span class="status-dot"></span> Otevřené</span></td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Ceníkové podklady — jaké jsou cenové modely, hladiny, moduly?</td>
+    <td>Myšlenková mapa</td>
+    <td><span class="status status-open"><span class="status-dot"></span> Otevřené</span></td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>Reference a případové studie — existují připravené materiály?</td>
+    <td>Docx + myšlenková mapa</td>
+    <td><span class="status status-open"><span class="status-dot"></span> Otevřené</span></td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>Video materiály — existuje natočené video z praktické ukázky hovoru?</td>
+    <td>Docx</td>
+    <td><span class="status status-open"><span class="status-dot"></span> Otevřené</span></td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td>Technický stack nového webu — jaký framework, CMS, hosting?</td>
+    <td>Projekt</td>
+    <td><span class="status status-open"><span class="status-dot"></span> Otevřené</span></td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td>Doména — zůstává bc4.cz nebo nová doména pro cloud verzi?</td>
+    <td>Projekt</td>
+    <td><span class="status status-open"><span class="status-dot"></span> Otevřené</span></td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td>ARES API integrace — kdo implementuje backend validaci formuláře?</td>
+    <td>Docx</td>
+    <td><span class="status status-open"><span class="status-dot"></span> Otevřené</span></td>
+  </tr>
+  <tr>
+    <td>9</td>
+    <td>Detailní konkurenční analýza — rozsah a hloubka?</td>
+    <td>Myšlenková mapa</td>
+    <td><span class="status status-open"><span class="status-dot"></span> Otevřené</span></td>
+  </tr>
+</table>
+
+<!-- ============================================= -->
+<h2 id="changelog">Changelog dokumentace</h2>
+
+<table>
+  <tr><th>Datum</th><th>Verze</th><th>Změny</th></tr>
+  <tr>
+    <td>27. 3. 2026</td>
+    <td>0.1</td>
+    <td>Výchozí draft — zpracování zadávacího docx, myšlenkové mapy, audit 6 produktových stránek bc4.cz. Kompletní struktura dokumentace.</td>
+  </tr>
+</table>
+
+</main>
+
+<!-- Scroll spy script -->
+<script>
+const sections = document.querySelectorAll('h2[id]');
+const navLinks = document.querySelectorAll('nav a');
+
+function updateActiveLink() {
+  let current = '';
+  sections.forEach(section => {
+    const top = section.getBoundingClientRect().top;
+    if (top < 120) current = section.id;
+  });
+  navLinks.forEach(link => {
+    link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+  });
+}
+
+window.addEventListener('scroll', updateActiveLink);
+updateActiveLink();
+</script>
+</body>
+</html>

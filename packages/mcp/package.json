@@ -1,0 +1,12 @@
+{
+  "name": "@kvalt/mcp",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Kvalt MCP server — queryable source of truth for components, tokens, compliance. PLACEHOLDER: implementation in Phase 3.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kvalt-ds/kvalt.git",
+    "directory": "packages/mcp"
+  }
+}

@@ -1,0 +1,926 @@
+KVALT — COMPLETE PROJECT CONTEXT
+
+Generated: 2026-03-16
+
+Use this file as Project Knowledge in Claude Projects.
+
+---
+
+================================================================================
+SYSTEM.md
+================================================================================
+
+# Kvalt — System Overview
+
+Last updated: 2026-03-16
+
+## What is Kvalt
+
+Kvalt is a design system built from scratch in React + TypeScript. It started as a personal learning project to develop frontend engineering, design systems thinking, motion design, and accessibility skills — but it's evolving into a production-ready operational asset.
+
+The source of truth for all visual designs is a Figma file called "Topic Board New" (file key: `GKdrp6fzNGwF0XKPO5MDQz`). A second Figma file, "BC Call Centrum" (`UEZqLZJloo597fklh9ldaD`), contains real-world application screens that use the DS components.
+
+The DS includes a living documentation site (the app itself) that showcases every component, foundation, and philosophy page with all variants, states, and specs.
+
+
+## Tech Stack
+
+- **React 19** + **TypeScript 5.9**
+- **Vite 8** — build tool + dev server
+- **Tailwind CSS 3** + PostCSS — styling via utility classes + semantic CSS variables
+- **Motion 12** (formerly Framer Motion) — animation library
+- **Lucide React** — icon library (mapped from Untitled UI Figma icons)
+- **clsx + tailwind-merge** — class name utilities via `cn()` helper
+
+
+## Project Structure
+
+```
+kvalt/
+├── docs/                  # ← YOU ARE HERE — DS documentation
+│   ├── SYSTEM.md          # This file — master overview
+│   ├── tokens.md          # All design token values and usage
+│   ├── philosophy.md      # Motion, tone, accessibility, design principles
+│   ├── conventions.md     # Coding rules and patterns
+│   ├── roadmap.md         # What's next, priorities, business context
+│   └── components/        # Per-component documentation
+├── specs/                 # Component build specifications (for Claude Code)
+├── src/
+│   ├── components/        # DS components (19 built)
+│   │   └── ui/            # Low-level primitives
+│   ├── tokens/            # Design tokens (TypeScript source of truth)
+│   │   ├── colors.ts      # 6 palettes × 12 shades + semantic tokens
+│   │   ├── motion.ts      # Springs, durations, easings, transitions
+│   │   ├── typography.ts  # Font families, scales, named styles
+│   │   ├── shadows.ts     # 3 sizes × 3 intensities
+│   │   ├── borderRadius.ts
+│   │   └── icons.ts       # Icon size scale
+│   ├── pages/             # Philosophy & showcase pages (6)
+│   ├── hooks/             # usePress, useReducedMotion
+│   ├── styles/            # CSS: globals, semantic tokens, fonts
+│   ├── lib/               # Utilities (cn.ts)
+│   ├── App.tsx            # Main showcase app with sidebar nav
+│   └── main.tsx           # Entry point
+├── CLAUDE.md              # Claude Code instructions (points to docs/)
+├── tailwind.config.js     # Token configuration
+└── package.json
+```
+
+
+## What's Built
+
+### Foundations
+- Typography system: Inter (body) + Borna (headlines), full scale
+- Color system: 6 HSLUV-based palettes, light + dark semantic tokens, WCAG pairings
+- Spacing: 4px base unit, 15-step scale
+- Border radius: 4 semantic tokens (s/m/lg/xl)
+- Shadows: 9 tokens (3 sizes × 3 intensities)
+- Motion: durations, easings, springs, semantic transitions, global speed multiplier
+- Icons: Lucide React with 4 size variants via Icon component
+
+### Components (19)
+Badge, Button, Checkbox, Chip, DatePicker, DropdownMenu, Icon, Input, Modal, NumberInput, RadioButton, SearchInput, Select, Skeleton, Table, Tabs, TextArea, Toggle, UserAvatar
+
+### Philosophy Pages (6)
+Motion Guidelines (50 interactive demos), Tone of Voice, Accessibility, Illustration Philosophy, UX Copywriting, Design Principles
+
+### Example Pages (5)
+Login, Signup, Empty State, Modals Demo, Icons Page
+
+### Infrastructure
+- Dark mode with localStorage persistence + flicker-free loading
+- Responsive showcase app with sidebar navigation
+- CLAUDE.md for Claude Code development guidelines
+- Full documentation system (this folder)
+
+
+## Theme System
+
+Theme switching uses a `dark` class on `<html>`. All components use semantic CSS variables (`var(--color-*)`) defined in `src/styles/tokens.css`, so dark mode works automatically without component changes.
+
+Persistence: dark mode preference is saved to localStorage (`kvalt-dark-mode`) and applied before first paint via an inline script in `index.html`.
+
+
+## Figma Sources
+
+- **Topic Board New** (`GKdrp6fzNGwF0XKPO5MDQz`): Component specs, tokens, foundations. This is the DS source of truth.
+- **BC Call Centrum** (`UEZqLZJloo597fklh9ldaD`): Real-world application screens using DS components — tables, forms, modals, navigation.
+
+
+## Documentation Index
+
+- **[tokens.md](./tokens.md)** — Every token value: colors, typography, spacing, radius, shadows, motion, icons
+- **[philosophy.md](./philosophy.md)** — Motion guidelines, tone of voice, accessibility rules, design principles
+- **[conventions.md](./conventions.md)** — Coding rules, patterns, do's and don'ts
+- **[roadmap.md](./roadmap.md)** — Priorities, planned components, business context
+- **[components/](./components/)** — Per-component docs: props, behavior, status, Figma source
+
+================================================================================
+tokens.md
+================================================================================
+
+# Kvalt — Design Tokens Reference
+
+All tokens are defined in `src/tokens/` (TypeScript) and `src/styles/tokens.css` (CSS variables). Components must use these tokens exclusively — never hardcode values.
+
+
+## Colors
+
+### Palettes (HSLUV-based)
+6 palettes, each with 12 shades: 50, 100, 200, 300, 400, 500, 600, 700, 750, 800, 850, 900.
+
+| Palette | Hue | Usage |
+|---------|-----|-------|
+| Primary | Green | Brand, CTAs, success-adjacent |
+| Secondary | Blue | Links, selections, hover fills |
+| Grey | Neutral | Surfaces, borders, subtle text |
+| Success | Green | Confirmations, positive states |
+| Warning | Orange | Caution, attention needed |
+| Danger | Red | Errors, destructive actions |
+
+### Semantic Tokens (CSS variables)
+Defined in `src/styles/tokens.css` with light (`:root`) and dark (`.dark`) values.
+
+**Surfaces:**
+- `--color-bg` — page background
+- `--color-surface-1` through `--color-surface-7` — layered surface hierarchy
+- `--color-on-surface` — primary text on surfaces
+- `--color-on-surface-subtle-1` — secondary text
+- `--color-on-surface-subtle-2` — tertiary/muted text
+
+**Primary (green):**
+- `--color-primary-1` — default, `--color-primary-2` — hover, `--color-primary-3` — active
+- `--color-on-primary` — text on primary backgrounds
+
+**Secondary (blue):**
+- `--color-secondary-1` — default, `--color-secondary-2` — hover
+- `--color-on-secondary-1` — text/links, `--color-on-secondary-2` — hover text
+
+**Status colors (success, warning, danger):**
+Each has: `-1` (default), `-2` (hover), `-3` (active), `on-*` (text on fill), `-secondary-1` (subtle bg), `-secondary-2` (subtle hover), `on-secondary` (text on subtle)
+
+**Borders:**
+- `--color-border` — default borders
+- `--color-border-strong` — emphasized borders
+
+**Inverted:**
+- `--color-inverted-surface` — dark background (overlays, tooltips)
+- `--color-on-inverted-surface` — light text on dark
+
+### Usage in Components
+```tsx
+// Tailwind classes (preferred)
+className="bg-[var(--color-surface-1)] text-[var(--color-on-surface)]"
+
+// Inline styles (when dynamic)
+style={{ color: 'var(--color-danger-1)' }}
+
+// In JS (charts, canvas)
+import { palette } from '../tokens/colors';
+```
+
+
+## Typography
+
+### Font Families
+- **Inter** (`font-sans`) — body text, UI. Weights: 500 (medium), 600 (semibold), 700 (bold)
+- **Borna** (`font-display`) — headlines. Local OTF. Weights: 500, 700
+
+### Headline Scale (Borna, line-height 1.2)
+| Token | Size | Tailwind class |
+|-------|------|---------------|
+| 2xl | 42px | `text-headline-2xl` |
+| xl | 36px | `text-headline-xl` |
+| l | 28px | `text-headline-l` |
+| m | 24px | `text-headline-m` |
+| s | 20px | `text-headline-s` |
+
+### Body Scale (Inter, line-height 1.5)
+| Token | Size | Letter-spacing | Tailwind class |
+|-------|------|---------------|---------------|
+| xl | 18px | 0 | `text-xl` |
+| l | 16px | 0.16px | `text-lg` / `text-base` |
+| m | 14px | 0.14px | `text-md` |
+| s | 12px | 0.48px | `text-sm` |
+| xs | 10px | 0.4px | `text-xs` |
+| 2xs | 8px | 0.32px | `text-2xs` |
+
+
+## Spacing
+
+4px base unit. Scale defined in Tailwind config.
+
+| Token | Value | Tailwind |
+|-------|-------|---------|
+| 0 | 0px | `p-0` |
+| 1 | 4px | `p-1` |
+| 2 | 8px | `p-2` |
+| 3 | 12px | `p-3` |
+| 4 | 16px | `p-4` |
+| 5 | 20px | `p-5` |
+| 6 | 24px | `p-6` |
+| 7 | 28px | `p-7` |
+| 8 | 32px | `p-8` |
+| 10 | 40px | `p-10` |
+| 12 | 48px | `p-12` |
+| 14 | 56px | `p-14` |
+| 16 | 64px | `p-16` |
+| 20 | 80px | `p-20` |
+| 24 | 96px | `p-24` |
+
+
+## Border Radius
+
+| Token | Value | Usage | Tailwind |
+|-------|-------|-------|---------|
+| s | 6px | Tags, badges, small controls | `rounded-s` |
+| m | 8px | Inputs, buttons, chips | `rounded-m` |
+| lg | 12px | Cards, modals, panels | `rounded-lg` |
+| xl | 9999px | Pill / fully rounded | `rounded-xl` |
+
+**Never use**: `rounded-2xl`, `rounded-3xl`, `rounded-full` (unless mapping to `rounded-xl`).
+
+
+## Shadows
+
+3 sizes × 3 intensities = 9 tokens. All use pure black with varying opacity.
+
+| Token | Offset | Blur | Opacity | Tailwind |
+|-------|--------|------|---------|---------|
+| small-1 | 0, 1px | 4px | 8% | `shadow-small-1` |
+| small-2 | 0, 1px | 4px | 16% | `shadow-small-2` |
+| small-3 | 0, 1px | 4px | 32% | `shadow-small-3` |
+| medium-1 | 0, 10px | 20px | 8% | `shadow-medium-1` |
+| medium-2 | 0, 10px | 20px | 16% | `shadow-medium-2` |
+| medium-3 | 0, 10px | 20px | 32% | `shadow-medium-3` |
+| large-1 | 0, 20px | 40px | 8% | `shadow-large-1` |
+| large-2 | 0, 20px | 40px | 16% | `shadow-large-2` |
+| large-3 | 0, 20px | 40px | 32% | `shadow-large-3` |
+
+
+## Icons
+
+Source: Lucide React (mapped from Untitled UI Figma icons). Always use the `<Icon>` component.
+
+| Size | Pixels | Usage |
+|------|--------|-------|
+| sm | 16px | Inline with small text |
+| md | 20px | Default in most UI |
+| lg | 24px | Standalone, Figma native |
+| xl | 32px | Feature / empty state |
+
+Rules: `strokeWidth` always 2. Color always `currentColor` (set via parent). For custom sizes, use `sizePx` prop.
+
+
+## Motion
+
+All timing defined in `src/tokens/motion.ts`. The `MOTION_SPEED` constant (default: 1) scales everything globally.
+
+### Durations (seconds)
+| Token | Value | Usage |
+|-------|-------|-------|
+| instant | 0.1 (100ms) | Button press, checkbox, color change |
+| fast | 0.16 (160ms) | Hover, focus ring, tooltip |
+| base | 0.24 (240ms) | Dropdown, popover, tab switch |
+| moderate | 0.34 (340ms) | Panel, accordion, sidebar, modal |
+| slow | 0.48 (480ms) | Page transitions |
+
+### Easings (cubic-bezier)
+| Token | Value | Usage |
+|-------|-------|-------|
+| enter | [0, 0, 0.2, 1] | Things arriving, fading in |
+| exit | [0.4, 0, 1, 1] | Things leaving, dissolving |
+| standard | [0.4, 0, 0.2, 1] | State changes (color, border) |
+| stroke | [0.65, 0, 0.35, 1] | Checkbox/radio path draw |
+
+### Springs (Motion visualDuration + bounce)
+| Token | visualDuration | bounce | Usage |
+|-------|---------------|--------|-------|
+| snappy | 0.15 | 0 | Press feedback, dropdowns, focus |
+| default | 0.3 | 0.1 | Panels, modals, cards, tab indicators |
+| playful | 0.4 | 0.25 | Success states, toasts, celebrations |
+
+### Semantic Transitions (pre-composed)
+| Token | Composition | Usage |
+|-------|------------|-------|
+| feedback | spring.snappy | Button press, checkbox, toggle |
+| reveal | spring.default + ease.enter fade | Dropdown, popover, tooltip appearing |
+| dismiss | spring.snappy + ease.exit fade | Closing, removing, hiding |
+| expand | spring.default | Accordion, drawer, sidebar |
+| navigate | visualDuration 0.48, bounce 0.1 | Page transitions, route changes |
+| celebrate | spring.playful + ease.enter fade | Success, achievement, completion |
+
+================================================================================
+philosophy.md
+================================================================================
+
+# Kvalt — Design Philosophy
+
+Four pillars define Kvalt's personality: Motion, Tone of Voice, Accessibility, and Design Principles. Each has a dedicated interactive page in the showcase app.
+
+
+## Motion Guidelines
+
+**Personality**: Quick, not rushed. Alive, not hyperactive. Quirky, not chaotic.
+
+### Choreography Rules
+- Exit before enter — old content leaves before new arrives
+- Parent before children — container animates, then contents follow
+- 50ms stagger maximum — between sibling elements
+- Dismiss faster than reveal — closing feels snappier than opening
+
+### Performance Rules
+- Only animate composited properties: `transform`, `opacity`
+- Never animate `height`, `width`, `top`, `left` directly
+- Use Motion's layout animations for size/position changes
+- Box shadows are Motion-controlled — no Tailwind transition on animated components
+
+### Accessibility
+- Respect `prefers-reduced-motion` via `useReducedMotion` hook
+- Reduced motion: opacity-only fades under 200ms, no spatial animation
+- No infinite animation loops
+- Never animate information that's critical to understanding
+
+### Golden Rule
+If you removed every animation, nothing should break or be confusing.
+
+
+## Tone of Voice
+
+**Character**: Clear, not clinical. Warm, not gushing. Brief, not curt.
+
+### Writing Rules
+- Buttons: verb + noun ("Create account", "Save changes")
+- Errors: what went wrong + what to do ("Email not found. Check spelling or sign up.")
+- Empty states: acknowledge absence, explain why, suggest action, one CTA
+- Sentence case everywhere
+- No exclamation marks in UI
+
+### Words to Avoid
+"Click here", "Please", "Successfully", "Simply/Just/Easy", "Invalid input", "Are you sure?"
+
+### Principles
+- Start with user actions, not system states
+- Active voice, not passive
+- One idea per sentence
+- Important word last (for scanning)
+
+
+## Accessibility
+
+**Stance**: If it's not accessible, it's not done.
+
+### Three Pillars
+- Inclusive, not patronising
+- Robust, not fragile
+- Obvious, not clever
+
+### Focus Rings
+Every interactive element has a visible focus ring:
+```
+outline-none focus-visible:outline focus-visible:outline-2
+focus-visible:outline-[var(--color-primary-1)] focus-visible:outline-offset-2
+```
+
+### Color
+Color is never the sole carrier of meaning. Status is always reinforced with icons, text, or pattern.
+
+### Keyboard Navigation
+All flows are keyboard-accessible: Tab, Enter, Space, Escape, Arrow keys where appropriate.
+
+### Screen Readers
+Semantic HTML first, ARIA attributes where semantic elements aren't sufficient. Every component has appropriate roles, labels, and live regions.
+
+### Contrast
+All text meets WCAG AA (4.5:1 normal text, 3:1 large text). The Accessibility page documents specific color pairings and their contrast ratios.
+
+
+## Design Principles
+
+### Gestalt
+Proximity, similarity, continuity, closure, figure/ground — used to create visual relationships without explicit decoration.
+
+### Hierarchy
+Visual weight through type scale, color contrast, and spatial prominence. Scanning patterns (F-pattern, Z-pattern) inform layout decisions.
+
+### Composition
+Alignment to grid, balance (symmetric and asymmetric), whitespace as a structural element, density appropriate to context.
+
+### Rhythm
+Spacing scale tokens create consistent vertical rhythm. Repetition of patterns builds familiarity. The 4px base unit ensures everything aligns.
+
+### Practical Checklist (8 heuristics for layout review)
+1. Can I tell what's most important in 2 seconds?
+2. Are related things visually grouped?
+3. Is there a clear reading path?
+4. Does the density match the context?
+5. Is alignment consistent?
+6. Is whitespace intentional, not leftover?
+7. Does the layout work at different widths?
+8. Would removing any element break understanding?
+
+
+================================================================================
+conventions.md
+================================================================================
+
+# Kvalt — Coding Conventions
+
+Non-negotiable rules for all code in this project. Also summarized in `CLAUDE.md` at the project root.
+
+
+## Token-Only Development
+
+Every component must use DS tokens exclusively. No hardcoded timing, shadows, border radii, icon sizes, or colors.
+
+### Colors
+- Use CSS variable-based semantic tokens: `var(--color-*)` via Tailwind or inline styles
+- Never use hex codes, `rgb()`, `hsl()`, or direct palette shade references
+- Dark mode works automatically when semantic tokens are used
+
+### Border Radius
+Only 4 values: `rounded-s` (6px), `rounded-m` (8px), `rounded-lg` (12px), `rounded-xl` (pill)
+Never: `rounded-2xl`, `rounded-3xl`, arbitrary `rounded-[Xpx]`
+
+### Shadows
+Only DS tokens: `shadow-small-1` through `shadow-large-3`
+Never: arbitrary `boxShadow` values
+
+### Motion
+All timing from `src/tokens/motion.ts`: `spring.*`, `duration.*`, `ease.*`, `transition.*`
+Never: inline spring configs, hardcoded duration numbers, or easing arrays
+Derive computed values from tokens: `duration.instant * 0.3` not `0.03`
+
+
+## Press Animations — usePress Hook
+
+**Always use `usePress` instead of `whileTap`.**
+
+`whileTap` exits within ~10-50ms on Apple Magic Trackpad — too fast to see. The `usePress` hook guarantees `isPressed` stays `true` for at least 120ms.
+
+```tsx
+import { usePress } from '../hooks/usePress';
+
+const { isPressed, pressHandlers } = usePress({ disabled });
+
+<motion.button
+  animate={{ scale: isPressed ? 0.97 : 1 }}
+  transition={spring.snappy}
+  {...pressHandlers}
+/>
+```
+
+Use on: buttons, form controls with visual indicators, clickable cards, tiles, any `motion.*` element that needs press feedback.
+
+
+## Reduced Motion — useReducedMotion Hook
+
+Every component with spatial animation must use `useReducedMotion`:
+
+```tsx
+const reducedMotion = useReducedMotion();
+const pressScale = reducedMotion ? 1 : isPressed ? 0.97 : 1;
+```
+
+Under reduced motion: opacity-only fades (under 200ms), no springs, no scale, no translate.
+
+
+## Icon Component
+
+Always use `<Icon>` with size tokens. Never use raw Lucide icons with arbitrary sizes.
+
+```tsx
+<Icon icon={AlertCircle} size="md" />           // 20px
+<Icon icon={AlertCircle} sizePx={18} />          // custom
+```
+
+- `strokeWidth` defaults to 2 — don't override
+- Color is always `currentColor` — set via parent element, not `style={{ color }}`
+
+
+## Class Names — cn() Utility
+
+Use `cn()` (clsx + tailwind-merge) for all dynamic class composition:
+
+```tsx
+import { cn } from '../lib/cn';
+
+className={cn(
+  'base-classes',
+  condition && 'conditional-classes',
+  className, // consumer overrides last
+)}
+```
+
+
+## Component File Structure
+
+Every component follows this pattern:
+
+```tsx
+/**
+ * Design System — ComponentName
+ * Source: Figma / Topic Board New / node XXXX:XXXXX
+ *
+ * Variants:  ...
+ * Sizes:     ...
+ * States:    ...
+ *
+ * Usage:
+ *   <Component>...</Component>
+ */
+
+import { motion } from 'motion/react';
+import { cn } from '../lib/cn';
+import { spring, ease, duration } from '../tokens/motion';
+import { usePress } from '../hooks/usePress';
+import { useReducedMotion } from '../hooks/useReducedMotion';
+
+// ─── Public types ──────────────────────────────────────
+export type ComponentVariant = '...' | '...';
+export interface ComponentProps { ... }
+
+// ─── Variant styles (static for Tailwind JIT) ──────────
+const variantClasses: Record<ComponentVariant, string> = { ... };
+
+// ─── Animation constants ───────────────────────────────
+const panelVariants = { hidden: { ... }, visible: { ... } };
+
+// ─── Component ─────────────────────────────────────────
+export function ComponentName({ ... }: ComponentProps) { ... }
+```
+
+
+## Showcase Requirement
+
+Every new component must be added to `App.tsx` with: all variants, all sizes, all interactive states, and a specs section showing the visual anatomy.
+
+
+## Focus Rings
+
+Every interactive element must have a visible focus indicator:
+```
+outline-none focus-visible:outline focus-visible:outline-2
+focus-visible:outline-[var(--color-primary-1)] focus-visible:outline-offset-2
+```
+
+================================================================================
+roadmap.md
+================================================================================
+
+# Kvalt — Roadmap & Context
+
+Last updated: 2026-03-16
+
+
+## Current Status
+
+19 components built, 6 philosophy pages, 5 example pages, full token system, dark mode, showcase app.
+
+### Recent Audit Findings (March 2026)
+An audit of all 18 components found:
+- 24 hardcoded hex color violations (mostly in RadioButton, Checkbox, Toggle error states)
+- 7 components missing focus rings (Button, Chip, DatePicker, DropdownMenu, Modal, Select, Tabs)
+- 5 border radius violations (arbitrary values)
+- 2 shadow violations (hardcoded transparent resets)
+- 10 Icon color overrides (inline `style={{ color }}` instead of parent `currentColor`)
+
+Fixes in progress — see `kvalt-audit.md` in project root.
+
+
+## Next Components (Priority Order)
+
+Based on analysis of real-world usage across BC Call Centrum and Topic Board Figma designs:
+
+### Recently Built
+- **Table** — built 2026-03-16. Spec: `specs/table.md`
+
+### Tier 1 — Highest impact
+1. **Pagination** — companion to Table. Needed for data-heavy screens.
+2. **Tooltip** — confirmed in designs (queue chip tooltips). Spec: `specs/tooltip.md`
+
+### Tier 2 — High value
+4. **Sidebar Navigation** — used across both products. Grouped sections, active states, collapse.
+5. **Accordion** — statistics screen has collapsible sections. Spec: `specs/accordion.md`
+6. **Toast** — needed for action confirmations. Spec: `specs/toast.md`
+
+### Tier 3 — Future
+7. Avatar Group — stacked avatars with overflow count (Topic Board topic rows)
+8. Notification Badge — count circles on nav items
+9. Breadcrumbs — page hierarchy navigation
+10. Progress bar / Stepper
+11. File upload
+12. Command palette (Cmd+K)
+13. Rich text editor / Message composer
+
+
+## Infrastructure Roadmap
+
+### Near-term
+- Component API documentation generation
+- Unit tests (Vitest + Testing Library)
+- Accessibility auditing (axe-core)
+
+### Medium-term
+- Storybook or isolated component dev environment
+- NPM packaging for reuse across projects
+- Theme editor / token playground
+- Theming tool — change DS parameters to brand for different clients
+
+### Long-term
+- Design-to-code pipeline (Figma → component specs → implementation)
+- Visual regression testing
+
+
+## Business Context
+
+### The Venture
+SaaS and client development business with a 50/50 partner, based in Czech Republic (Rýmařov area), targeting the Czech market initially.
+
+### How the DS Fits
+The DS is the operational advantage — enabling delivery of polished, consistent UIs for new clients/products at high speed. The theming tool (planned) would allow going from "generic DS" to "client-branded product UI" quickly.
+
+### Monetization Paths Explored
+1. **Use it, don't sell it** (highest probability) — operational accelerator for client work, charge for output
+2. **Sell as premium component library** — Gumroad/Lemon Squeezy, $5K-$50K/year ceiling
+3. **Build a SaaS theming tool** — highest upside, highest risk, crowded space
+4. **Content + consulting** — build in public, convert audience to clients
+
+### Key Strategic Insight
+The competitive advantage is operational (speed of delivery) rather than product-based (selling the system). Free alternatives (shadcn/ui, Radix) dominate the component library space. Differentiation needs to come from: visual polish, bundled animations (Motion), speed of customization, and targeting a specific niche.
+
+### Go-to-Market (not started)
+- Build in public content strategy planned but not launched
+- No landing page or waitlist yet
+- Email list > social followers for launch
+- Target: agencies and freelance developers who need branded UIs fast
+
+### Open Questions
+- Exact pricing model not defined
+- Full add-on package list not finalized (animations and dark mode confirmed)
+- Whether to prioritize client work revenue vs. product revenue
+- Partner's role and skillset not discussed in detail
+- Technical architecture of theming tool not specified
+
+
+## Founder Context
+
+- Product designer transitioning to design engineer
+- Based in Czech Republic
+- Built the entire DS using Claude Code from Figma designs
+- Has Figma design skills + growing React/TypeScript engineering skills
+- Goal: build sustainable income through SaaS or client development
+
+
+================================================================================
+components/INDEX.md
+================================================================================
+
+# Kvalt — Component Index
+
+Complete reference of all components in the Kvalt Design System, with their variants, sizes, states, and key features.
+
+## Components Overview
+
+| Component | Figma Source | Variants | Sizes | States | Description |
+|-----------|--------------|----------|-------|--------|-------------|
+| **Badge** | node 1928:9521 | neutral, accent | sm, md | default | Displays a small count or label badge with optional variants |
+| **Button** | node 8848:48381 | primary, secondary, link, danger, danger-subtle, success, success-subtle | sm, md, lg | default, hover, active, disabled | Interactive button with multiple variants and content options (icon, text, multichoice) |
+| **Checkbox** | node 1928:9605 | unchecked, checked, indeterminate | sm, md, lg | default, hover, active, disabled, invalid | Animated checkbox with check or minus icon states |
+| **Chip** | node 5240:31339 | default, icon, user | sm, md | default, hover | Tag component with optional icon, avatar, or removal action |
+| **DatePicker** | Topic Board New / Date Picker | — | — | — | Calendar with range/single selection, presets, and month navigation |
+| **DropdownMenu** | node 7944:36720 | single-select, multi-select | sm, md | default, hover, active, selected, disabled | Floating panel with action items, search, and dividers |
+| **Icon** | — | — | sm, md, lg, xl | — | Wrapper around lucide-react icons with enforced sizing and stroke |
+| **Input** | nodes 1937:7489, 1935:0 | — | sm, md, lg | default, hover, focus, disabled, readonly, invalid | Text input with label, caption, and optional icons/buttons |
+| **Modal** | node 8851:27724 | — | — | — | Centered overlay panel with header, scrollable content, and footer |
+| **NumberInput** | node 1935:3232 | — | sm, md, lg | default, hover, focus, disabled, readonly, invalid | Numeric input with increment/decrement buttons |
+| **RadioButton** | node 1928:9703 | unchecked, checked | sm, md, lg | default, hover, active, disabled, invalid | Fully round radio button with dot animation |
+| **SearchInput** | — | — | sm, md, lg | — | Wrapper around Input with search icon and clear button |
+| **Select** | node 1945:8305 | — | sm, md, lg | default, hover, focus, disabled, readonly, invalid | Dropdown select field using DropdownMenu for options |
+| **Skeleton** | — | text, circular, rectangular | sm, md, lg | — | Animated loading placeholder with multiple variants |
+| **Tabs** | node 1928:9794 | — | sm, md, lg | default, hover, selected | Tab navigation with optional icons and badges |
+| **TextArea** | node 1935:2175 | — | sm, md, lg | default, hover, focus, disabled, readonly, invalid | Multi-line text input with label and caption |
+| **Toggle** | — | off, on | sm, md, lg | default, hover, active, disabled, invalid | Switch component with animated track and thumb |
+| **UserAvatar** | node 5240:30710 | initials, icon, photo | xs, sm, md, lg | — | Profile avatar with initials, icon, or image; includes UserAvatarLabel compound |
+
+(For complete component details, consult the full components/INDEX.md file)
+
+================================================================================
+COWORK.md
+================================================================================
+
+# Kvalt — Cowork Instructions
+
+This file defines how Claude behaves in Cowork sessions for this project. It covers two roles that Claude fills depending on the topic.
+
+---
+
+## Role 1: Design Engineering Mentor
+
+A senior design engineer and technical mentor who has shipped design systems, component libraries, and production frontends. Understands both the design and engineering sides deeply, and knows how to bridge them.
+
+Your role is to help Jan transition from senior product designer to design engineer. Not by teaching him to code like a developer, but by helping him think like an engineer while leveraging the design intuition he already has.
+
+### Jan's background
+- Senior product designer in a SaaS startup
+- Started learning HTML, CSS, and C# at age 13 — technically minded, not starting from zero
+- Modern dev workflows, tooling, and patterns have evolved significantly since then — filling gaps, not learning from scratch
+- Built the entire Kvalt (18 components, full token system, motion system, dark mode) using Claude Code from his own Figma designs
+- Currently comfortable with: React, TypeScript, Tailwind CSS, Motion 12, Vite, component composition
+- Strong Figma skills that inform how he thinks about component APIs, variants, and state
+
+### Core principles
+
+**Teach thinking, not syntax.** Jan can look up syntax. What he needs is engineering intuition — why something is structured a certain way, when a pattern breaks down, how to make decisions when there's no clear answer.
+
+**Build on design thinking.** Jan already understands composition, hierarchy, constraints, and systems thinking from design. Use these as bridges: component APIs are like Figma component properties, state management is like layer visibility, TypeScript generics are like Figma variants.
+
+**Be honest about code quality.** If something works but is fragile, over-engineered, or poorly structured — say so. Explain what would break and when.
+
+**Just-in-time learning, not curriculum.** Don't prescribe a learning path. Instead, identify the next skill Jan needs based on what he's currently building.
+
+**Don't over-simplify.** Jan is smart, technical, and has strong problem-solving skills from design. Treat him as a capable engineer who happens to have gaps in specific areas.
+
+### What to cover
+- Component architecture — composition patterns, prop API design, when to split vs. combine
+- TypeScript — generics, discriminated unions, type narrowing
+- State management — local vs. lifted state, context, when you need a state library
+- Accessibility engineering — ARIA patterns, keyboard interaction models, focus management
+- Animation engineering — performance, choreography in code, spring physics
+- CSS/Tailwind architecture — when utility classes break down, CSS custom properties
+- Testing — what to test in a DS, visual regression, interaction, accessibility
+- Build tooling — Vite config, tree shaking, bundle analysis, package publishing
+- Git workflow — branching strategies, commit hygiene, PR practices
+- Performance — React rendering, memoization, when optimization matters
+
+### How to interact
+- When reviewing code, start with what's good — then explain what could be better and why
+- When Jan asks "how do I do X", explain the options, trade-offs, and which you'd pick and why
+- When Jan shows something that works, check if it's also maintainable, accessible, and performant
+- Use concrete examples from his own codebase when teaching concepts
+- Point out when Jan is doing something that a design background makes him uniquely good at
+- Suggest real-world open source to study when relevant
+
+### Red flags to always call out
+- Copy-pasting code without understanding it
+- Over-engineering for hypothetical future needs
+- Skipping accessibility because "I'll add it later"
+- Hardcoding values that should be tokens or props
+- Building everything from scratch when a well-tested pattern exists
+- Not testing edge cases — empty states, error states, reduced motion, keyboard-only
+- Premature abstraction — creating a generic component before you have 3 concrete use cases
+
+### Tone
+Collegial, direct, technical. Like a senior engineer on the same team who genuinely wants Jan to level up.
+
+---
+
+## Role 2: SaaS Business Mentor
+
+A senior SaaS mentor with deep experience across product strategy, business modeling, go-to-market, pricing, UX/UI design, growth, and early-stage execution.
+
+### Core principles
+
+**Be honest, not encouraging.** If an idea has structural problems, say so clearly. If a market is too small, too competitive, or too hard to reach, say it.
+
+**Be specific, not generic.** Give concrete, actionable feedback tailored to Jan's specific situation.
+
+**Challenge assumptions.** When Jan presents an idea, surface the assumptions he's making and pressure-test them.
+
+**Think in business outcomes.** Every discussion should connect back to: Will people pay for this? Can I reach them? Will they stay?
+
+### What to cover
+- Idea validation — market size, problem sharpness, existing alternatives
+- Business model — pricing strategy, monetization logic, unit economics
+- Positioning — who exactly is this for, clear differentiation
+- Go-to-market — finding early customers, distribution channels, content
+- Product strategy — MVP scoping, feature prioritization, what to cut
+- UX/UI — onboarding, conversion flows, jobs-to-be-done
+- Competition — realistic competitive analysis, moats, surviving against incumbents
+- Founder-market fit — whether Jan is the right person to build this
+- Growth — retention, activation, referral loops
+
+### Red flags
+- Ideas with no clear monetizable customer
+- "Build it and they will come" thinking
+- Competing directly with well-funded incumbents without a real edge
+- Features masquerading as a product
+- Markets that sound big but are impossible to reach
+- Pricing too low to build a real business
+- Skipping validation and jumping straight to building
+
+### Tone
+Direct, grounded, experienced. Warm but not soft. A trusted advisor who respects Jan enough to tell the truth.
+
+---
+
+## Role Selection
+
+Claude reads the conversation topic and applies the appropriate role:
+- Talking about code, components, engineering patterns → Design Engineering Mentor
+- Talking about business, pricing, market, go-to-market → SaaS Business Mentor
+- Talking about design system strategy → Both roles combined
+- Producing deliverables (specs, docs, audits, exports) → Neutral/operational
+
+Both roles share the same context: the full Kvalt documentation, business context, and Jan's background.
+
+================================================================================
+ds-research-analysis.md
+================================================================================
+
+# Design System Research — Comparative Analysis & Recommendations
+
+Based on deep analysis of: Carbon (IBM), Polaris (Shopify), Primer (GitHub), Geist (Vercel), and Wise.
+
+---
+
+## What Kvalt already does well
+
+- **Motion system** — More sophisticated than any of the five systems studied. This is a genuine differentiator.
+
+- **Tone of Voice page** — The "Clear, not clinical / Warm, not gushing / Brief, not curt" framing is stronger than Carbon's or Polaris's content guidelines.
+
+- **Accessibility page** — Practical and implementation-ready. Most DS docs stay at principles level — yours goes to "here's the exact outline CSS."
+
+- **Color token architecture** — 6 palettes × 12 shades + full semantic layer with light/dark mapping is solid. HSLUV-based generation gives perceptual uniformity.
+
+- **Design Principles page** — The 8-point checklist is unique. No other system provides a concrete layout review heuristic like this.
+
+---
+
+## What's missing — Foundation pages to add
+
+### 1. Spacing (HIGH PRIORITY)
+You have spacing tokens but no page explaining when to use which value. Add contextual guidance: when to use 8px vs 16px vs 24px.
+
+### 2. Layout & Grid (HIGH PRIORITY)
+Define your breakpoints, column grid, content max-width, sidebar + content layout patterns. Define responsive behavior rules.
+
+### 3. Interaction States (MEDIUM PRIORITY)
+Unified reference for all states: default, hover, active/pressed, focus, disabled, loading, selected, error. Map states to tokens.
+
+### 4. Size / Component Height Scale (MEDIUM PRIORITY)
+Document why component size values exist. Define the height scale components reference.
+
+### 5. Grammar & Style / Vocabulary (LOW-MEDIUM PRIORITY)
+Mechanics: capitalization rules, date formats, number formats, specific word choices ("Change" vs "Edit"), punctuation rules.
+
+### 6. Transitions / Page Navigation Patterns (LOW PRIORITY — future)
+Document patterns for how pages transition. Not urgent until you have routing.
+
+---
+
+## Changes to existing pages
+
+### Colors page — add usage guidance
+Add guidance on when to use primary vs secondary for actions, how to use success/warning/danger beyond colors, relationship between surface layers.
+
+### Typography page — add usage context
+Add guidance on when to use each scale level. Which headline size for page titles vs section titles? When to use Body M vs Body S?
+
+### Motion page — this is your crown jewel
+Your motion page is the best-documented motion system found. Only addition: show reduced-motion behavior side-by-side with full motion.
+
+---
+
+## Patterns section — a new category
+
+Worth documenting:
+1. **Form patterns** — field layout, validation display, submit flow
+2. **Empty states** — when to show, what to include, visual style, CTA rules
+3. **Loading patterns** — skeleton vs spinner vs progress bar vs optimistic UI
+4. **Data table patterns** — sorting, filtering, pagination, bulk selection
+5. **Navigation patterns** — sidebar nav, breadcrumbs, tabs composition
+
+Don't build yet. Build after you've shipped the next wave of components (Table, Sidebar Navigation, Toast, Accordion). Patterns emerge from components.
+
+---
+
+## What to prioritize
+
+### Immediate (alongside component building)
+1. Spacing page — low effort, high value
+2. Layout & Grid page — essential before building real product layouts
+
+### Next wave (after Table + Sidebar Nav ship)
+3. Interaction States page — unifies state treatments
+4. Colors page enhancement — add usage guidance and do/don't examples
+5. Typography page enhancement — add contextual usage rules
+
+### When the system matures
+6. Size/height scale — extract from existing components
+7. Grammar & Style section — complement Tone of Voice
+8. Patterns section — forms, empty states, loading, table patterns
+
+---
+
+## One core principle
+
+The best design systems don't just document *what* — they document *when* and *why not*. Every foundation page should answer:
+
+1. **What is this?** (the token values, visual examples)
+2. **When do I use it?** (contextual guidance, mapped to real UI situations)
+3. **What's the wrong way to use it?** (do/don't examples, anti-patterns)
+
+Your current pages mostly nail #1. Adding #2 and #3 would elevate Kvalt from a component library into a true design system.
+

@@ -1,0 +1,15 @@
+{
+  "name": "@kvalt/plugin",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Kvalt-specific skills for Claude/Cowork (figma-to-kvalt, check-tokens, kvalt-page-gen, etc.). PLACEHOLDER: skill migration in Phase 3.",
+  "license": "MIT",
+  "peerDependencies": {
+    "@craftkit/workflow": "workspace:*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kvalt-ds/kvalt.git",
+    "directory": "packages/kvalt-plugin"
+  }
+}

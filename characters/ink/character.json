@@ -1,0 +1,36 @@
+{
+  "$schema": "../character.schema.json",
+  "name": "ink",
+  "displayName": "Ink",
+  "version": "1.0.0",
+  "description": "Content-first editorial — serif headings, warm paper tones, minimal decoration, reading-optimized",
+  "personality": "The content is the product. Everything else gets out of the way. Quiet confidence, like a well-designed book.",
+  "author": "Kvalt",
+  "license": "MIT",
+  "tags": ["editorial", "content", "serif", "minimal", "warm", "literary", "reading"],
+  "tokens": {
+    "colors": "variables.css",
+    "motion": "tokens/motion.ts"
+  },
+  "fonts": {
+    "display": {
+      "family": "Lora",
+      "source": "google",
+      "weights": [500, 600, 700],
+      "url": "https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&display=swap"
+    },
+    "body": {
+      "family": "Inter",
+      "source": "google",
+      "weights": [400, 500, 600],
+      "url": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+    }
+  },
+  "preview": {
+    "primaryColor": "#92400E",
+    "accentColor": "#B45309",
+    "backgroundColor": "#FAF9F6",
+    "textColor": "#292524",
+    "radius": "2px"
+  }
+}

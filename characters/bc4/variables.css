@@ -1,0 +1,101 @@
+/**
+ * BC4Cloud — Character Variables
+ *
+ * Zdroj pravdy: Figma Call Centrum Design System
+ * - Colors: node 1927:4 (palette) + 3429:14996 (semantic tokens)
+ * - Brand: BusinessCom a.s. / BC4Cloud SaaS
+ *
+ * Strategie mapování:
+ * - Primary palette = modrá (`#3564EF` → `#04123B`)
+ * - Secondary tokeny = světlé odstíny TÉŽE modré (primary-100/200), podle požadavku Jana
+ * - Surface paleta = Figma grey (#F3F3F5, #F9F9FA, #FFFFFF, #DEDFE4 …)
+ * - on-surface = Primary-900 (#04123B), nikoliv pure black — v souladu s Figma guidelines
+ * - Success = zelená z Figmy, Warning = oranžová z Figmy, Danger = červená z Figmy
+ *
+ * Struktura Kvalt DS tokens je zachována. Character jen přepisuje hodnoty, nikoliv tokens.
+ *
+ * Font: Manrope (Google Fonts), hlavičky i body — viz character.json pro import URL.
+ *
+ * Dark theme není pro BC4 marketing web MVP cílem — ponechán defaultní Kvalt dark pro
+ * případné budoucí použití. Tento character přepisuje pouze LIGHT variantu.
+ */
+
+:root {
+  /* ── Surface ────────────────────────────────────────────────────────────── */
+  /* Ve Figmě: bg = grey-100, surface-i1 = white, surface-i2 = grey-50, surface-i3 = grey-100 */
+  --color-bg:                   #F3F3F5;   /* grey-100 */
+  --color-surface-1:            #FFFFFF;   /* white */
+  --color-surface-2:            #F9F9FA;   /* grey-50 */
+  --color-surface-3:            #F3F3F5;   /* grey-100 */
+  --color-surface-4:            #DEDFE4;   /* grey-200 */
+  --color-surface-5:            #C3C6CF;   /* grey-300 */
+  --color-surface-6:            #B4B9C4;   /* grey-400 */
+  --color-surface-7:            #A3A9B6;   /* grey-500 */
+  --color-on-surface:           #04123B;   /* primary-900 — "never pure black", použit nejtmavší primary */
+  --color-on-surface-subtle-1:  #69707E;   /* grey-700 */
+  --color-on-surface-subtle-2:  #868EA0;   /* grey-600 */
+  --color-surface-subtle-grid:  rgba(105, 112, 126, 0.08);  /* subtle grid lines */
+  --color-inverted-surface:     #04123B;   /* primary-900 */
+  --color-on-inverted-surface:  #FFFFFF;
+
+  /* ── Primary — modrá ───────────────────────────────────────────────────── */
+  /* Jan: "primární barva je ta modrá" */
+  --color-primary-1:            #3564EF;   /* primary-700 (default) */
+  --color-primary-2:            #143284;   /* primary-800 (hover) */
+  --color-primary-3:            #04123B;   /* primary-900 (active) */
+  --color-on-primary:           #FFFFFF;
+
+  /* ── Secondary — světlé odstíny primary ─────────────────────────────────── */
+  /* Jan: "sekundární tokeny jsou ve stejné barvě, jen světlé odstíny" */
+  --color-secondary-1:          #F2F3FE;   /* primary-100 */
+  --color-secondary-2:          #DADEFC;   /* primary-200 */
+  --color-on-secondary-1:       #0B215C;   /* primary-850 — dark blue text on light bg */
+  --color-on-secondary-2:       #143284;   /* primary-800 */
+
+  /* ── Success — zelená z Figmy ──────────────────────────────────────────── */
+  --color-success-1:            #00A35A;   /* success-600 */
+  --color-success-2:            #008145;   /* success-700 */
+  --color-success-3:            #154127;   /* success-800 */
+  --color-on-success:           #FFFFFF;
+  --color-success-secondary-1:  #D7FDE2;   /* success-100 */
+  --color-success-secondary-2:  #93F4B5;   /* success-200 */
+  --color-on-success-secondary: #002D14;   /* success-850 */
+
+  /* ── Warning — oranžová z Figmy ────────────────────────────────────────── */
+  --color-warning-1:            #E36B00;   /* warning-600 */
+  --color-warning-2:            #B45400;   /* warning-700 */
+  --color-warning-3:            #602900;   /* warning-800 */
+  --color-on-warning:           #FFFFFF;
+  --color-warning-secondary-1:  #FFF1ED;   /* warning-100 */
+  --color-warning-secondary-2:  #FFD7CC;   /* warning-200 */
+  --color-on-warning-secondary: #421A00;   /* warning-850 */
+
+  /* ── Danger — červená z Figmy ──────────────────────────────────────────── */
+  --color-danger-1:             #D23031;   /* danger-700 (default) */
+  --color-danger-2:             #9E2123;   /* danger-750 (hover) */
+  --color-danger-3:             #310505;   /* danger-900 (active) */
+  --color-on-danger:            #FFFFFF;
+  --color-danger-secondary-1:   #FDF1F1;   /* danger-100 */
+  --color-danger-secondary-2:   #F9D8D8;   /* danger-200 */
+  --color-on-danger-secondary:  #4E0B0C;   /* danger-850 */
+
+  /* ── Borders ────────────────────────────────────────────────────────────── */
+  --color-border:               #DEDFE4;   /* grey-200 (border-i1 v Figmě) */
+  --color-border-strong:        #C3C6CF;   /* grey-300 (border-i2 v Figmě) */
+
+  /* ── Hero a overlay ────────────────────────────────────────────────────── */
+  --color-hero-title:           #04123B;   /* primary-900 pro hero headliny */
+  --color-modal-overlay:        rgba(4, 18, 59, 0.7);  /* primary-900 @ 70% */
+
+  /* ── Typography — Manrope namísto Inter/Borna ──────────────────────────── */
+  /* Character font config v character.json už registruje Manrope přes Google Fonts.
+     Tady jen přepisujeme font-family proměnné. */
+  --font-display: 'Manrope', 'Inter', system-ui, sans-serif;
+  --font-body:    'Manrope', 'Inter', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, monospace;
+
+  /* ── Background pattern ───────────────────────────────────────────────── */
+  /* BC4 je cleanly corporate, žádný patternový background — flat, nechť fotky a screenshoty mluví. */
+  --bg-pattern:      none;
+  --bg-pattern-size: auto;
+}
