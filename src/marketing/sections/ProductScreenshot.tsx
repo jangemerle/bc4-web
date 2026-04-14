@@ -39,7 +39,7 @@ export function ProductScreenshot({ content }: ProductScreenshotProps) {
 
         <motion.div
           style={{ y }}
-          className="relative overflow-hidden rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-1)] shadow-2xl"
+          className="relative overflow-hidden rounded-m border border-[var(--color-border)] bg-[var(--color-surface-1)] shadow-2xl"
         >
           {isImage ? (
             <img

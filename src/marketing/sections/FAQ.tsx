@@ -31,7 +31,7 @@ export function FAQ({ eyebrow, headline, items }: FAQProps) {
             return (
               <li
                 key={item.question}
-                className="overflow-hidden rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-1)]"
+                className="overflow-hidden rounded-m border border-[var(--color-border)] bg-[var(--color-surface-1)]"
               >
                 <button
                   type="button"

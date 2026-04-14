@@ -40,7 +40,7 @@ export function BenefitTriplet({ content }: BenefitTripletProps) {
                   hidden: { opacity: 0, y: 16 },
                   visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0, 0, 0.2, 1] } },
                 }}
-                className="rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-1)] p-6 transition hover:border-[var(--color-border-strong)]"
+                className="rounded-m border border-[var(--color-border)] bg-[var(--color-surface-1)] p-6 transition hover:border-[var(--color-border-strong)]"
               >
                 <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-m bg-[var(--color-secondary-1)] text-[var(--color-on-secondary-1)]">
                   <Icon className="h-5 w-5" aria-hidden="true" />

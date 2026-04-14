@@ -12,7 +12,7 @@ import type { CommonContent } from '../types';
 export const common: CommonContent = {
   brand: {
     name: 'BC4Cloud',
-    tagline: 'Omnichannel kontaktní centrum pro české firmy',
+    tagline: 'Kontaktní centrum, co šetří hodiny denně',
     logoDark: '/logos/bc4cloud-dark.svg',   // TODO: získat od BusinessComu
     logoLight: '/logos/bc4cloud-light.svg', // TODO: získat od BusinessComu
   },
@@ -38,7 +38,7 @@ export const common: CommonContent = {
     },
   },
   footer: {
-    tagline: 'Kontaktní centrum od BusinessCom a.s. Vyvinuto v Praze pro české a evropské firmy.',
+    tagline: 'BC4Cloud je od BusinessComu. Postavené v Praze pro české a evropské firmy, které nechtějí další enterprise bludiště.',
     columns: [
       {
         title: 'Produkt',
@@ -86,8 +86,8 @@ export const common: CommonContent = {
     ],
   },
   preFooterCta: {
-    headline: 'Připravte se na méně ztracených hovorů.',
-    subheadline: 'Ukážeme vám, jak BC4Cloud funguje v praxi pro firmy jako je ta vaše. Žádný prodejní tlak, jen ukázka.',
+    headline: 'Ať vám přestanou utíkat hovory.',
+    subheadline: 'Ukážeme vám BC4Cloud na reálném příkladu, který sedí vašemu byznysu. Bez prodejních skriptů, bez závazku.',
     cta: {
       label: 'Domluvit ukázku',
       href: '/poptavka',
@@ -96,7 +96,7 @@ export const common: CommonContent = {
   },
   legal: {
     gdprConsentLabel: 'Souhlasím se zpracováním osobních údajů',
-    gdprConsentDetails: 'Vaše údaje použijeme pouze pro kontaktování ohledně BC4Cloud. Nesdílíme je s třetími stranami. Více v [Zásadách ochrany osobních údajů](/gdpr).',
+    gdprConsentDetails: 'Vaše údaje použijeme jen k tomu, abychom vám zavolali ohledně BC4Cloudu. Nikomu je nepřeprodáme. Detaily v [zásadách ochrany osobních údajů](/gdpr).',
     privacyPolicyUrl: '/gdpr',
   },
 };

@@ -23,10 +23,10 @@ export default function NotFoundPage() {
           className="font-display text-5xl font-extrabold tracking-tight text-[var(--color-on-surface)] mb-4"
           style={{ fontFamily: 'var(--font-display)' }}
         >
-          Tahle adresa u nás není.
+          Tuhle adresu nemáme.
         </h1>
         <p className="text-lg text-[var(--color-on-surface-subtle-1)] max-w-xl mx-auto mb-8">
-          Možná jste klikli na starý odkaz nebo se překlepli v URL. Vraťte se na úvod, nebo nám napište — rádi pomůžeme.
+          Buď někdo linkoval starou URL, nebo se stal překlep v adresním řádku. Vraťte se na úvod — anebo nám napište, co jste hledali.
         </p>
         <div className="flex flex-wrap gap-3 justify-center">
           <Link to="/">

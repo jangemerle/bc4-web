@@ -205,7 +205,7 @@ function ProductsDropdown({ label, items, open, onOpenChange }: ProductsDropdown
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -4 }}
             transition={{ duration: 0.15 }}
-            className="absolute left-0 top-full mt-1 min-w-[220px] rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-1)] p-2 shadow-lg"
+            className="absolute left-0 top-full mt-1 min-w-[220px] rounded-m border border-[var(--color-border)] bg-[var(--color-surface-1)] p-2 shadow-lg"
             role="menu"
           >
             {items.map(item => (

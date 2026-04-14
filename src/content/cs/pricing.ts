@@ -17,17 +17,17 @@ export const pricing: PricingContent = {
   hero: {
     eyebrow: 'CENÍK',
     headline: 'Férové ceny. Bez měsíčních překvapení.',
-    subheadline: 'Fakturujeme per agent za měsíc. Funkce, které zahrnuje váš plán, používáte bez limitů a bez dodatečných poplatků za hovor.',
+    subheadline: 'Platíte per agent za měsíc. Funkce, které tarif obsahuje, používáte bez limitů a bez příplatků za každý hovor.',
   },
 
   model: {
-    explanation: 'Základem ceny je počet aktivních agentů. Agent = jedna pracovní pozice — uživatel, který může přijímat nebo volat. Supervizor Panel se započítává jako agent. Minimum je 5 agentů, licence jdou navyšovat kdykoli přes administraci.',
+    explanation: 'Základem ceny je počet aktivních agentů. Agent je jedna pracovní pozice — uživatel, který přijímá nebo volá. Supervizor Panel se počítá jako agent. Minimum je 5 agentů, licence přidáváte i odebíráte v administraci kdykoli.',
     fineprint: [
       'Minimum 5 agentů',
       'Fakturace měsíčně dopředu',
-      'Smlouva s výpovědní lhůtou 3 měsíce',
+      'Smlouva s výpovědní lhůtou 3 měsíce — žádné lock-in na roky',
       'Ceny uvedené bez DPH',
-      'Slevy pro 50+ agentů — kontaktujte obchod',
+      'Slevy pro 50+ agentů řešíme individuálně — ozvěte se',
     ],
   },
 
@@ -136,35 +136,35 @@ export const pricing: PricingContent = {
     headline: 'Otázky kolem ceny',
     items: [
       {
-        question: 'Počítá se agent, který je na dovolené?',
-        answer: 'Fakturujeme podle maximálního počtu aktivních účtů v měsíci. Deaktivovaný účet se nepočítá — deaktivaci provádíte sami přes administraci.',
+        question: 'Počítá se agent, když je na dovolené?',
+        answer: 'Fakturujeme podle maximálního počtu aktivních účtů v měsíci. Deaktivovaný účet se nepočítá — a deaktivaci provedete sami za dva kliky v administraci.',
       },
       {
-        question: 'Co znamená "bez dodatečných poplatků za hovor"?',
-        answer: 'V ceně tarifu jsou zahrnuty jak příchozí, tak standardní odchozí hovory do ČR a SR. Mezinárodní hovory fakturujeme podle ceníku operátora — zobrazíme vám je předem.',
+        question: 'Co znamená „bez příplatků za hovor"?',
+        answer: 'V ceně tarifu jsou příchozí i odchozí hovory do ČR a SR. Volání do zahraničí fakturujeme podle ceníku operátora — ale zobrazíme vám je předem, žádné překvapení na faktuře.',
       },
       {
-        question: 'Můžu plán kdykoli změnit?',
-        answer: 'Ano. Upgrade (Volání → CC → Business) je okamžitý, aktivuje se do 24 hodin. Downgrade platí od dalšího fakturačního období.',
+        question: 'Dá se plán kdykoli změnit?',
+        answer: 'Ano. Upgrade (Volání → CC → Business) aktivujeme do 24 hodin. Downgrade platí od dalšího fakturačního období — nezablokuje vás v tom, co už jste zaplatili.',
       },
       {
         question: 'Jaká je výpovědní lhůta?',
-        answer: 'Smlouva má výpovědní lhůtu 3 měsíce. Žádné lock-in smlouvy na roky, žádné sankce za odchod.',
+        answer: 'Tři měsíce. Žádné smlouvy na 24 měsíců, žádné sankce za odchod. Když se rozhodnete odejít, vytáhneme vám data a hotovo.',
       },
       {
-        question: 'Nabízíte slevy pro větší týmy?',
-        answer: 'Ano. Pro 50+ agentů máme individuální nabídku. Kontaktujte obchod přes [poptávkový formulář](/poptavka?source=pricing_enterprise) a připravíme vám cenu na míru.',
+        question: 'Máte slevy pro větší týmy?',
+        answer: 'Pro 50+ agentů máme individuální nabídku. Ozvěte se přes [poptávkový formulář](/poptavka?source=pricing_enterprise) a cenu upravíme na míru.',
       },
       {
-        question: 'Jaká je cena onboardingu?',
-        answer: 'Onboarding a migrace dat jsou zahrnuté v cenách tarifů. Custom integrace s neznámým CRM účtujeme hodinově — odhad předem.',
+        question: 'Kolik stojí onboarding?',
+        answer: 'Onboarding a migraci dat máme v cenách tarifů. Custom integraci s neznámým CRM účtujeme hodinově — odhad dostanete předem, ne v šedé faktuře na konci.',
       },
     ],
   },
 
   customPlan: {
-    headline: 'Máte jiný use case?',
-    subheadline: 'Pro enterprise a hybridní nasazení (on-premise + cloud) vytváříme custom plán. Zavoláme si, probereme požadavky, pošleme nabídku.',
+    headline: 'Máte trochu jiný use case?',
+    subheadline: 'Pro enterprise a hybridní nasazení (on-premise + cloud) chystáme custom plán. Zavoláme si, probereme, co potřebujete, pošleme nabídku.',
     cta: {
       label: 'Domluvit hovor s obchodem',
       href: '/poptavka?source=pricing_custom',

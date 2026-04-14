@@ -12,7 +12,7 @@ export default function ContactPage() {
       <p className="text-lg text-[var(--color-on-surface-subtle-1)] mb-12 max-w-2xl">
         {contact.hero.subheadline}
       </p>
-      <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-1)] p-6">
+      <div className="rounded-m border border-[var(--color-border)] bg-[var(--color-surface-1)] p-6">
         <h2 className="font-display text-xl font-bold mb-3" style={{ fontFamily: 'var(--font-display)' }}>
           {contact.company.name}
         </h2>

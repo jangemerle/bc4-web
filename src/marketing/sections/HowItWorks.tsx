@@ -39,7 +39,7 @@ export function HowItWorks({ content }: HowItWorksProps) {
                 hidden: { opacity: 0, y: 24 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0, 0, 0.2, 1] } },
               }}
-              className="flex flex-col rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-1)] p-7 transition hover:border-[var(--color-primary-1)] hover:shadow-lg"
+              className="flex flex-col rounded-m border border-[var(--color-border)] bg-[var(--color-surface-1)] p-7 transition hover:border-[var(--color-primary-1)] hover:shadow-lg"
             >
               <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded-m bg-[var(--color-primary-1)] text-sm font-bold text-[var(--color-on-primary)]">
                 {tier.tier}

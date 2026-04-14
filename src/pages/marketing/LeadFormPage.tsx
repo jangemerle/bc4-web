@@ -7,15 +7,15 @@ import { useSEO } from '@/marketing/seo';
 
 const seo = {
   title: 'Domluvit ukázku | BC4Cloud',
-  description: 'Vyplňte krátký formulář a obchodník se vám ozve obvykle do několika minut. Bez prodejního tlaku, jen ukázka.',
+  description: 'Vyplňte pár polí a obchodník se vám ozve obvykle do pár minut. Žádný prodejní tlak — jen ukázka.',
   ogImage: '/og/lead-form.png',
 };
 
 const formContent = {
   seo,
   hero: {
-    headline: 'Zjistěte, jak BC4Cloud funguje u vás.',
-    subheadline: 'Vyplňte 4 pole. Ozveme se obvykle do několika minut v pracovní době.',
+    headline: 'Ukážeme, jak to funguje u vás.',
+    subheadline: 'Čtyři pole a jste hotovi. Ozveme se obvykle do pár minut v pracovní době — a bez prodejního skriptu.',
   },
   form: {
     icoLabel: 'IČ',
@@ -29,7 +29,7 @@ const formContent = {
     teamSizePlaceholder: 'Např. 12',
     gdprLabel: 'Souhlasím se zpracováním osobních údajů pro účely této poptávky',
     submitLabel: 'Odeslat poptávku',
-    disclaimer: 'Ozveme se obvykle do několika minut v pracovní době Po–Pá 8–17.',
+    disclaimer: 'Ozveme se obvykle do pár minut v pracovní době (Po–Pá 8–17).',
   },
   errors: {
     icoInvalid: '',
@@ -37,11 +37,11 @@ const formContent = {
     phoneInvalid: '',
     teamSizeInvalid: '',
     gdprRequired: '',
-    submissionFailed: 'Odeslání se nezdařilo. Zkuste to prosím znovu, nebo nám napište na obchod@bc4cloud.cz.',
+    submissionFailed: 'Odeslání se nepovedlo. Zkuste to znovu, nebo napište na obchod@bc4cloud.cz — pomůžeme vám ručně.',
   },
   ares: {
     companyFound: '✓ Firma: {companyName}',
-    companyNotFound: 'IČ jsme v ARES nenašli. Zkontrolujte prosím — můžete pokračovat i tak.',
+    companyNotFound: 'IČ jsme v ARES nenašli. Zkontrolujte ho — ale můžete pokračovat i tak.',
   },
 };
 
@@ -58,7 +58,7 @@ export default function LeadFormPage() {
             {formContent.hero.headline}
           </SectionHeading>
         </div>
-        <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-1)] p-6 sm:p-8 shadow-lg">
+        <div className="rounded-m border border-[var(--color-border)] bg-[var(--color-surface-1)] p-6 sm:p-8 shadow-lg">
           <LeadForm
             content={formContent}
             source="standalone"

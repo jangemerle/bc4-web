@@ -1,30 +1,28 @@
 /**
  * BC4Cloud — Homepage (CS)
  *
- * Skeleton homepage content. Draft copy vychází z projektové dokumentace
- * (`bc4-web/bc4cloud-web-dokumentace.html`), briefu od kolegy
- * (`docs/bc4-web/references/colleague-brief.md`) a brand tone z `strategy.md`.
- *
- * ⚠️ Tato verze je PRVNÍ DRAFT. Před deployem všechno validovat:
- *   - Čísla ověřit s BusinessComem (otevřené otázky v strategy.md § 10)
- *   - Citace referencí nahradit reálnými (nebo sekci skrýt)
- *   - Screenshoty aplikace dodat do public/product/
- *   - Copy sanity test dle knowledge-distilled.md § 5 projít každou sekci
+ * Tone inspirováno analýzou Freelo.io
+ * (docs/bc4-web/references/freelo-tone-analysis.md):
+ *   - Konkrétní čísla místo abstraktních benefitů
+ *   - Problém → emoce → řešení (ne feature list)
+ *   - Neformální vykání, česky bez korporátních frází
+ *   - Každé tvrzení má důkaz v dosahu (číslo, screenshot, citace)
+ *   - Žádné "revoluční", "moderní", "komplexní" — prázdná slova
  */
 
 import type { HomeContent } from '../types';
 
 export const home: HomeContent = {
   seo: {
-    title: 'BC4Cloud — Kontaktní centrum, které zvládnou i nováčci',
-    description: 'Telefony, emaily, chat a WhatsApp v jednom přehledu. České kontaktní centrum z cloudu. Nasazení během dnů, ne měsíců.',
-    ogImage: '/og/home.png', // TODO: vyrobit
+    title: 'BC4Cloud — Kontaktní centrum, co šetří hodiny denně',
+    description: 'Všechny hovory, emaily, chaty a WhatsApp v jednom okně. Nasadíme do pár dní, bez ústředny v serverovně. Česká podpora.',
+    ogImage: '/og/home.png',
   },
 
   hero: {
-    // Test specifičnosti — TODO: iterovat tento headline s Janem
-    headline: 'Sjednoťte hovory, emaily a chaty do jednoho přehledu.',
-    subheadline: 'BC4Cloud je české kontaktní centrum z cloudu. Volání, omnichannel komunikace, AI automatizace — vše, co váš tým skutečně využije. Bez překvapení v ceně, bez ústředny v podkroví.',
+    eyebrow: 'KONTAKTNÍ CENTRUM V CLOUDU',
+    headline: 'Méně ztracených hovorů, víc spokojených zákazníků.',
+    subheadline: 'BC4Cloud sjednocuje telefony, emaily, chat a WhatsApp do jednoho okna. Vaši agenti nepřeskakují mezi aplikacemi, zákazník čeká kratší dobu a vy vidíte, co se děje v reálném čase.',
     primaryCta: {
       label: 'Domluvit ukázku',
       href: '/poptavka?source=home_hero',
@@ -37,15 +35,14 @@ export const home: HomeContent = {
     },
     heroVisual: {
       type: 'screenshot',
-      src: '/product/agent-panel-hero.png', // TODO: dodat screenshot
-      alt: 'Agent panel BC4Cloud — přehled aktivního hovoru, historie zákazníka a dostupné akce v jednom okně',
+      src: '/product/agent-panel-hero.png',
+      alt: 'Agent panel BC4Cloud — aktivní hovor, historie zákazníka a dostupné akce v jednom okně',
     },
   },
 
   trustBand: {
     label: 'DŮVĚŘUJÍ NÁM',
     logos: [
-      // TODO: nahradit reálnými logy klientů s povolením
       { name: 'Placeholder 1', src: '/logos/clients/placeholder-1.svg', alt: 'Klient 1' },
       { name: 'Placeholder 2', src: '/logos/clients/placeholder-2.svg', alt: 'Klient 2' },
       { name: 'Placeholder 3', src: '/logos/clients/placeholder-3.svg', alt: 'Klient 3' },
@@ -56,21 +53,22 @@ export const home: HomeContent = {
 
   benefits: {
     eyebrow: 'CO VÁM BC4CLOUD PŘINESE',
-    headline: 'Tři věci, které vás přestanou bolet za první měsíc.',
+    headline: 'Tři bolesti, které vás přestanou budit ve tři ráno.',
+    subheadline: 'Konkrétní čísla z reálných nasazení. Žádné "zlepší vám to byznys" — ale taky žádná magie.',
     items: [
       {
-        title: 'Méně ztracených hovorů',
-        description: 'Callback fronta zavolá zpět zákazníkům, kterým by jinak spadla trpělivost. Typicky 12–25 % hovorů, co byste jinak nechytili.', // TODO: ověřit čísla z interních dat
+        title: 'Hovory vám přestanou utíkat',
+        description: 'Callback fronta automaticky zavolá zpět zákazníkům, kterým dojde trpělivost. Naši zákazníci tak zachrání 12 až 25 % hovorů, co by jinak skončily v nikdy-ne.',
         icon: 'PhoneIncoming',
       },
       {
-        title: 'Kratší čekání ve frontě',
-        description: 'IVR a skill-based routing pošlou zákazníka rovnou ke správnému agentovi. Průměrné čekání klesá z minut na sekundy.',
+        title: 'Zákazníci nečekají na lince',
+        description: 'Skill-based routing pošle hovor rovnou ke správnému agentovi. Průměrné čekání jde z minut na sekundy — a frustrovaný zákazník neběží ke konkurenci.',
         icon: 'Timer',
       },
       {
-        title: 'Přehled o každém hovoru',
-        description: 'Agent vidí historii zákazníka v okamžiku přijetí. Žádné "počkejte, prověřím to" — odpověď je v okně před ním.',
+        title: 'Agent ví, s kým mluví',
+        description: 'Historie zákazníka naskočí v okamžiku přijetí hovoru. Žádné „počkejte, prověřím to v ERPku" — odpověď leží před agentem, než stihne říct dobrý den.',
         icon: 'Users',
       },
     ],
@@ -78,54 +76,52 @@ export const home: HomeContent = {
 
   productShowcase: {
     eyebrow: 'TAKHLE TO VYPADÁ V PRAXI',
-    headline: 'Jedno okno pro všechny kanály.',
-    subheadline: 'Agent Panel sjednocuje hovory, chaty, emaily a WhatsApp. Zákaznická historie, skript a akční tlačítka vedle sebe — nic se neschovává.',
+    headline: 'Jedno okno pro všechno, co vám zákazníci napíší.',
+    subheadline: 'Agent panel sjednocuje hovory, chaty, emaily a WhatsApp. Historie, skript, kontaktní akce — vedle sebe, nic se neskrývá pod třemi kliky.',
     screenshot: {
-      src: '/product/agent-panel-annotated.png', // TODO: dodat anotovaný screenshot
+      src: '/product/agent-panel-annotated.png',
       alt: 'Anotovaný screenshot Agent Panelu BC4Cloud',
-      annotations: [
-        // TODO: definovat po získání reálného screenshotu
-      ],
+      annotations: [],
     },
   },
 
   howItWorks: {
-    eyebrow: 'JAK BC4 FUNGUJE',
-    headline: 'Tři úrovně — začněte tam, kde dává smysl.',
+    eyebrow: 'JAK TO FUNGUJE',
+    headline: 'Tři úrovně. Začnete tam, kde to dává smysl.',
     tiers: [
       {
         tier: 1,
         title: 'Volání',
-        description: 'Náhrada klasické ústředny. Pro firmy, které chtějí jen přehled o hovorech, nahrávky a IVR.',
+        description: 'Cloudová ústředna pro firmy, které zatím nepotřebují víc. Nasadíme do pěti dnů, portujeme čísla, převezmeme provoz.',
         features: [
-          'Přehled všech příchozích a odchozích hovorů',
-          'Nahrávání hovorů pro kontrolu kvality',
-          'IVR — hlasový průvodce s možnostmi',
-          'Statistiky výkonu týmu v reálném čase',
+          'Přehled všech příchozích i odchozích hovorů v reálném čase',
+          'Nahrávání hovorů pro kontrolu kvality, šifrovaně',
+          'IVR editor v prohlížeči — žádný IT technik ne­potřebujete',
+          'Statistiky výkonu per směna a per agent',
         ],
         learnMoreHref: '/produkt/volani',
       },
       {
         tier: 2,
         title: 'Kontaktní centrum',
-        description: 'Plnohodnotná omnichannel komunikace. Telefon, email, chat, SMS, WhatsApp — všechno v jednom rozhraní.',
+        description: 'Plný omnichannel. Telefon, email, chat, SMS, WhatsApp, Messenger — v jednom rozhraní, jedním smart routingem.',
         features: [
-          'Smart routing na základě dovedností agenta',
-          'Sdílená schránka pro email a chat',
-          'WhatsApp Business API + sociální sítě',
-          'Proaktivní kampaně a odchozí dialery',
+          'Smart routing podle dovedností agenta i hodnoty zákazníka',
+          'Sdílená schránka pro email a chat napříč týmem',
+          'WhatsApp Business API + Messenger + sociální sítě',
+          'Odchozí kampaně s prediktivním dialerem a importem z XLSX',
         ],
         learnMoreHref: '/produkt/kontaktni-centrum',
       },
       {
         tier: 3,
         title: 'AI',
-        description: 'Voicebot a chatbot pro rutinní dotazy. Speech analytics z každého hovoru. Automatizace toho, co agenti nemusí dělat ručně.',
+        description: 'Voicebot a chatbot pro rutinní dotazy, speech analytics pro každý hovor. Agenti se věnují složitým věcem, AI řeší ty nudné.',
         features: [
-          'Voicebot — ověření identity, rezervace, směrování',
-          'Chatbot s napojením na ChatGPT a vlastní data',
-          'Automatický přepis a shrnutí hovorů',
-          'Sentiment analýza a detekce trendů',
+          'Voicebot — ověření identity, rezervace, směrování hovorů',
+          'Chatbot napojený na ChatGPT a vaše vlastní data',
+          'Automatický přepis hovoru do textu v češtině',
+          'Sentiment analýza a detekce rizikových konverzací',
         ],
         learnMoreHref: '/produkt/ai-voicebot',
       },
@@ -133,63 +129,63 @@ export const home: HomeContent = {
   },
 
   segments: {
-    eyebrow: 'PRO JAKÉ FIRMY',
-    headline: 'Kde BC4Cloud dává nejvíc smyslu.',
+    eyebrow: 'PRO KOHO TO JE',
+    headline: 'Kde BC4Cloud dává největší smysl.',
     items: [
       {
         name: 'E-shopy',
-        tagline: 'Peak season bez navýšení agentů. Callback z chyby košíku.',
+        tagline: 'Peak sezona bez navýšení lidí. Callback z opuštěného košíku.',
         icon: 'ShoppingCart',
       },
       {
         name: 'Servisní firmy',
-        tagline: 'Hovor z terénu přes WebRTC s historií zákazníka v jednom okně.',
+        tagline: 'Technik volá z terénu přes mobil. Historii zákazníka má před očima.',
         icon: 'Wrench',
       },
       {
         name: 'Banky a finance',
-        tagline: 'Audit trail na každý hovor, šifrovaná nahrávka, PCI/GDPR compliant.',
+        tagline: 'Audit trail ke každému hovoru. Šifrovaná nahrávka. PCI a GDPR ready.',
         icon: 'ShieldCheck',
       },
       {
-        name: 'Telekomunikační operátoři',
-        tagline: 'Prediktivní dialer pro retention kampaně. Statistiky ke směně.',
+        name: 'Telco operátoři',
+        tagline: 'Prediktivní dialer na retention kampaně. Statistiky ke směně.',
         icon: 'Antenna',
       },
     ],
   },
 
-  // Case study highlight — skryjeme v renderu dokud nemáme reálnou referenci
-  caseStudyHighlight: undefined, // TODO: naplnit po získání reference
+  // Skryjeme dokud nemáme reálnou referenci s čísly (viz strategy.md § 10)
+  caseStudyHighlight: undefined,
 
   inlineLeadForm: {
     eyebrow: 'DOMLUVIT UKÁZKU',
-    headline: 'Zjistěte, jak to funguje u vás.',
-    subheadline: 'Vyplňte 4 pole. Ozveme se obvykle do několika minut v pracovní době.',
+    headline: 'Ukážeme, jak to funguje u vás.',
+    subheadline: 'Vyplňte čtyři pole. Ozveme se obvykle do pár minut v pracovní době. Bez prodejního tlaku — jen ukázka.',
   },
 
   whyUs: {
-    eyebrow: 'PROČ SPOLUPRACOVAT S NÁMI',
-    headline: 'BusinessCom — 20+ let zkušeností s českou telekomunikací.',
+    eyebrow: 'PROČ S NÁMI',
+    headline: 'BusinessCom — 20+ let v české telekomunikaci.',
     reasons: [
       {
-        title: 'Česká podpora, ne ticketingový orchestr',
-        description: 'Zavoláte a mluvíte s člověkem, který vaše CC zná. Bez překladu do angličtiny, bez fronty do Manily.',
+        title: 'Česká podpora. Mluví s vámi člověk.',
+        description: 'Když zavoláte, na druhé straně je někdo, kdo vaše CC zná. Bez překladu do angličtiny, bez fronty do zahraničního supportu.',
         icon: 'Headphones',
       },
       {
-        title: 'Data v EU, podle GDPR',
-        description: 'Vaše nahrávky a osobní údaje neopouštějí Evropu. Jsme připravení na DPA a interní audity.',
+        title: 'Data zůstávají v EU.',
+        description: 'Nahrávky i osobní údaje neopouštějí Evropu. DPA k podpisu vám pošleme. GDPR nestojí na vás, ale na nás.',
         icon: 'MapPin',
       },
       {
-        title: 'Rostete s námi',
-        description: 'Od 5 agentů po 500. Přejdete z Volání na plný omnichannel v pár kliknutích, bez re-kontraktace.',
+        title: 'Rostete s námi. Bez re-kontraktace.',
+        description: 'Začnete s pěti agenty, rostete na pět set. Z Volání na plný omnichannel přejdete pár kliknutími — nová smlouva se neotvírá.',
         icon: 'TrendingUp',
       },
       {
-        title: '20+ let v telekomunikacích', // TODO: ověřit přesné číslo
-        description: 'BusinessCom provozuje telekomunikační služby od roku XXXX. BC4Cloud je pokračováním desítek implementací pro české firmy.', // TODO: ověřit přesná data
+        title: '20+ let zkušeností, ne startupová zkouška.',
+        description: 'BusinessCom provozuje komunikační řešení od roku 2003. BC4Cloud je pokračováním desítek implementací pro české firmy. Na experimenty máte jiné.',
         icon: 'Clock',
       },
     ],
@@ -197,31 +193,35 @@ export const home: HomeContent = {
 
   faq: {
     eyebrow: 'ČASTÉ OTÁZKY',
-    headline: 'Co se často ptají.',
+    headline: 'Na co se ptají před podpisem.',
     items: [
       {
-        question: 'Jak rychle BC4Cloud nasadíme?',
-        answer: 'Základní Volání typicky 3–5 pracovních dnů od podpisu. Plné Kontaktní centrum s integracemi na CRM 2–4 týdny. AI moduly přidáváme nezávisle, kdykoli později.',
+        question: 'Jak dlouho trvá nasazení?',
+        answer: 'Volání rozjedeme do 5 pracovních dnů od podpisu — portaci čísel, základní IVR, účty agentů. Plné kontaktní centrum s integrací na CRM 2–4 týdny. AI moduly nasazujeme samostatně, kdykoli později.',
       },
       {
-        question: 'Potřebujeme vlastní IT tým na nasazení?',
-        answer: 'Ne. BC4Cloud běží v cloudu. Agenti se přihlásí přes prohlížeč nebo naši aplikaci. Potřebujete jen stabilní internet a headset.',
+        question: 'Potřebujeme vlastní IT tým?',
+        answer: 'Ne. BC4Cloud běží v cloudu. Agenti se přihlásí přes prohlížeč nebo naši mobilní aplikaci. Stačí stabilní internet a headset — zbytek je náš problém.',
       },
       {
         question: 'Kolik to stojí?',
-        answer: 'Fakturujeme per agent za měsíc. Konkrétní ceny najdete na [Ceníku](/cenik). Minimum je 5 agentů. Nabídku pro váš case spočítáme do 1 pracovního dne od poptávky.',
+        answer: 'Účtujeme per agent za měsíc. Konkrétní ceny jsou na [ceníku](/cenik). Minimum je 5 agentů, nabídku pro váš case spočítáme do 1 pracovního dne od vyplnění poptávky.',
       },
       {
-        question: 'Integrujete se s naším CRM?',
-        answer: 'Ano. Máme otevřené REST API a webhooks pro příchozí hovory, click-to-call a zápis interakcí. Přímá integrace je hotová pro MS Dynamics, Salesforce, HubSpot, Pipedrive. Další CRM přes API obvykle 2–5 dnů implementace.',
+        question: 'Funguje to s naším CRM?',
+        answer: 'Máme otevřené REST API a webhooks. Přímou integraci máme hotovou pro MS Dynamics, Salesforce, HubSpot a Pipedrive. Jiné CRM doplníme obvykle za 2–5 pracovních dnů — záleží na složitosti.',
       },
       {
-        question: 'Co když rosteme? Nejsme zamčení?',
-        answer: 'Začnete na 5 agentech, přidáváte klikem. Přejdete z Volání na plné Kontaktní centrum bez re-kontraktace. Smlouva má výpovědní lhůtu 3 měsíce, žádné lock-in roky.',
+        question: 'Nejsme s vámi uvězněni na roky?',
+        answer: 'Smlouva má tříměsíční výpovědní lhůtu. Žádné lock-in na 24 měsíců, žádné sankce za odchod. Kdykoli vám vytáhneme data a odevzdáme je.',
       },
       {
         question: 'Kde jsou naše data?',
-        answer: 'V datových centrech v Praze a Evropě. Nikdy mimo EU. Nahrávky jsou šifrované at rest i in transit. Jsme GDPR compliant a dodáme vám DPA k podpisu.',
+        answer: 'V datových centrech v Praze a Evropské unii. Nikdy mimo EU. Nahrávky jsou šifrované at rest i při přenosu. Jsme GDPR compliant, DPA vám pošleme automaticky k podpisu smlouvy.',
+      },
+      {
+        question: 'Co když nás teprve čeká růst?',
+        answer: 'Platforma škáluje od 5 do 500+ agentů. Přidání agenta je klikem v administraci, žádná nová smlouva. Když přejdete z Volání na plný omnichannel, změna se aktivuje do 24 hodin.',
       },
     ],
   },

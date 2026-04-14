@@ -37,7 +37,7 @@ export function SegmentCards({ content }: SegmentCardsProps) {
                   hidden: { opacity: 0, y: 12 },
                   visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
                 }}
-                className="rounded-lg bg-[var(--color-surface-2)] p-6 transition hover:bg-[var(--color-secondary-1)]"
+                className="rounded-m bg-[var(--color-surface-2)] p-6 transition hover:bg-[var(--color-secondary-1)]"
               >
                 <Icon className="mb-3 h-6 w-6 text-[var(--color-on-secondary-1)]" aria-hidden="true" />
                 <h3 className="mb-1.5 font-display text-base font-bold text-[var(--color-on-surface)]" style={{ fontFamily: 'var(--font-display)' }}>

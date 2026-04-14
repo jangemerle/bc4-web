@@ -33,7 +33,7 @@ const leadFormContent = {
     teamSizePlaceholder: 'Např. 12',
     gdprLabel: 'Souhlasím se zpracováním osobních údajů pro účely této poptávky',
     submitLabel: 'Odeslat poptávku',
-    disclaimer: 'Ozveme se obvykle do několika minut v pracovní době Po–Pá 8–17.',
+    disclaimer: 'Ozveme se obvykle do pár minut v pracovní době (Po–Pá 8–17).',
   },
   errors: {
     icoInvalid: '',
@@ -41,11 +41,11 @@ const leadFormContent = {
     phoneInvalid: '',
     teamSizeInvalid: '',
     gdprRequired: '',
-    submissionFailed: 'Odeslání se nezdařilo. Zkuste to prosím znovu, nebo nám napište na obchod@bc4cloud.cz.',
+    submissionFailed: 'Odeslání se nepovedlo. Zkuste to znovu, nebo napište na obchod@bc4cloud.cz — pomůžeme vám ručně.',
   },
   ares: {
     companyFound: '✓ Firma: {companyName}',
-    companyNotFound: 'IČ jsme v ARES nenašli. Zkontrolujte prosím — můžete pokračovat i tak.',
+    companyNotFound: 'IČ jsme v ARES nenašli. Zkontrolujte ho — ale můžete pokračovat i tak.',
   },
 };
 
@@ -92,7 +92,7 @@ export default function HomePage() {
               {content.inlineLeadForm.headline}
             </SectionHeading>
           </div>
-          <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-1)] p-6 sm:p-8 shadow-lg">
+          <div className="rounded-m border border-[var(--color-border)] bg-[var(--color-surface-1)] p-6 sm:p-8 shadow-lg">
             <LeadForm content={leadFormContent} source="home_inline" />
           </div>
         </Container>

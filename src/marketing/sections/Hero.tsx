@@ -76,7 +76,7 @@ export function Hero({ content }: HeroProps) {
             transition={{ duration: 0.6, delay: 0.1, ease: [0, 0, 0.2, 1] }}
             className="relative"
           >
-            <div className="overflow-hidden rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-1)] shadow-2xl">
+            <div className="overflow-hidden rounded-m border border-[var(--color-border)] bg-[var(--color-surface-1)] shadow-2xl">
               {content.heroVisual.src.endsWith('.png') || content.heroVisual.src.endsWith('.jpg') || content.heroVisual.src.endsWith('.webp') ? (
                 <img
                   src={content.heroVisual.src}

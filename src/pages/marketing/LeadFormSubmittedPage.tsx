@@ -14,17 +14,17 @@ const nextSteps = [
   {
     step: 1,
     title: 'Krátký telefonát',
-    description: 'Obchodník se ozve obvykle do několika minut v pracovní době Po–Pá 8–17. Probereme váš případ a co konkrétně řešíte.',
+    description: 'Ozveme se obvykle do pár minut v pracovní době (Po–Pá 8–17). Zeptáme se, co konkrétně řešíte, a potvrdíme, že vám BC4Cloud dává smysl.',
   },
   {
     step: 2,
-    title: 'Mini-ukázka přizpůsobená vám',
-    description: '20–30 minut online demo. Ukážeme přímo to, co potřebujete — žádné generické 90-minutové prezentace.',
+    title: 'Ukázka, která sedí vám',
+    description: '20 až 30 minut online. Ukážeme přesně to, co potřebujete — ne generickou 90minutovou prezentaci, ze které si odnesete tři slajdy.',
   },
   {
     step: 3,
-    title: 'Cenová nabídka na míru',
-    description: 'Do 1 pracovního dne pošleme nabídku přizpůsobenou velikosti týmu a požadovaným modulům.',
+    title: 'Nabídka na míru',
+    description: 'Do jednoho pracovního dne pošleme cenovku přesně pro vaši velikost týmu a moduly, co opravdu využijete.',
   },
 ];
 
@@ -42,10 +42,10 @@ export default function LeadFormSubmittedPage() {
             className="font-display text-4xl font-extrabold tracking-tight text-[var(--color-on-surface)] mb-4"
             style={{ fontFamily: 'var(--font-display)' }}
           >
-            Díky. Ozveme se obvykle do několika minut.
+            Díky. Ozveme se do pár minut.
           </h1>
           <p className="text-lg text-[var(--color-on-surface-subtle-1)]">
-            Pondělí–pátek 8:00–17:00 středoevropského času. Mimo tuto dobu voláme první následující pracovní den.
+            Pracujeme v čase Po–Pá 8:00–17:00 (středoevropský). Mimo něj voláme první další pracovní den — ale za klávesnicí sedíme i déle.
           </p>
         </div>
 
@@ -58,7 +58,7 @@ export default function LeadFormSubmittedPage() {
           </h2>
           <ol className="flex flex-col gap-4 mb-12">
             {nextSteps.map(step => (
-              <li key={step.step} className="flex gap-4 rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-1)] p-5">
+              <li key={step.step} className="flex gap-4 rounded-m border border-[var(--color-border)] bg-[var(--color-surface-1)] p-5">
                 <div className="shrink-0 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--color-secondary-1)] text-[var(--color-on-secondary-1)] font-bold text-sm">
                   {step.step}
                 </div>
