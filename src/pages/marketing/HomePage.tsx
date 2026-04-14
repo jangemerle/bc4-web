@@ -5,7 +5,7 @@ import { Hero } from '@/marketing/sections/Hero';
 import { LogoCloud } from '@/marketing/sections/LogoCloud';
 import { BenefitTriplet } from '@/marketing/sections/BenefitTriplet';
 import { ProductVideo } from '@/marketing/sections/ProductVideo';
-import { ProductScreenshot } from '@/marketing/sections/ProductScreenshot';
+import { FeatureShowcase } from '@/marketing/sections/FeatureShowcase';
 import { HowItWorks } from '@/marketing/sections/HowItWorks';
 import { SegmentCards } from '@/marketing/sections/SegmentCards';
 import { WhyUs } from '@/marketing/sections/WhyUs';
@@ -79,8 +79,8 @@ export default function HomePage() {
       <LogoCloud content={content.trustBand} />
       <BenefitTriplet content={content.benefits} />
       <ProductVideo content={content.productVideo} />
-      <ProductScreenshot content={content.productShowcase} />
       <HowItWorks content={content.howItWorks} />
+      <FeatureShowcase content={content.featureShowcase} />
       <SegmentCards content={content.segments} />
 
       {/* Inline lead form — druhý konverzní bod uprostřed homepage */}

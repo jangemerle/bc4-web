@@ -210,6 +210,34 @@ export interface HomeContent {
       }>;
     };
   };
+  featureShowcase: {
+    eyebrow?: string;
+    headline: string;
+    subheadline?: string;
+    items: Array<{
+      /** Identifikátor (anchor + tracking) */
+      id: string;
+      /** Short label — "Supervizor Panel", "IVR editor", atd. */
+      title: string;
+      /** Eyebrow nad headlinem — např. "MONITORING" */
+      eyebrow?: string;
+      /** Headline feature — jedno výstižné tvrzení */
+      headline: string;
+      /** 1–3 věty popis funkce */
+      description: string;
+      /** 3–4 highlights jako bullet list */
+      highlights: string[];
+      /** Screenshot aplikace ukazující tuto funkci */
+      screenshot: {
+        src: string;
+        alt: string;
+      };
+      /** Lucide icon jako fallback pokud screenshot není */
+      icon: string;
+      /** Volitelný odkaz "více o funkci" na produktovou stránku */
+      learnMoreHref?: string;
+    }>;
+  };
   productVideo: {
     eyebrow?: string;
     headline: string;

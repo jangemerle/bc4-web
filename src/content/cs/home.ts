@@ -85,6 +85,108 @@ export const home: HomeContent = {
     },
   },
 
+  featureShowcase: {
+    eyebrow: 'FUNKCE, CO SKUTEČNĚ POUŽIJETE',
+    headline: 'Pět věcí, které vám ušetří nejvíc času každý den.',
+    subheadline: 'Vybrali jsme funkce, na které se vaši agenti i vy budete dívat nejčastěji. Všechny v ceně tarifu Kontaktní centrum.',
+    items: [
+      {
+        id: 'supervizor-panel',
+        title: 'Supervizor Panel',
+        eyebrow: 'MONITORING A KOUČOVÁNÍ',
+        headline: 'Vidíte, co se děje, hned jak se to děje.',
+        description: 'Živý pohled na celé kontaktní centrum. Kolik lidí čeká ve frontě, kdo je na hovoru, kdo má pauzu, kdo překračuje průměrný čas. Problém vidíte před šéfem, ne na pondělní poradě.',
+        highlights: [
+          'Dashboard per agent, per fronta, per směna — vše v reálném čase',
+          'Whisper mode — poradíte agentovi bez toho, aby vás zákazník slyšel',
+          'Tichý náslech pro QA a koučování nováčků',
+          'Alerty na překročení KPI přímo do emailu nebo Slacku',
+        ],
+        screenshot: {
+          src: '/product/supervizor-panel.png',
+          alt: 'Supervizor Panel — dashboard s reálně-časovým přehledem front, agentů a KPI',
+        },
+        icon: 'Eye',
+        learnMoreHref: '/produkt/kontaktni-centrum#supervizor',
+      },
+      {
+        id: 'ivr-editor',
+        title: 'Vizuální IVR editor',
+        eyebrow: 'CALL FLOW BEZ PROGRAMOVÁNÍ',
+        headline: 'Hlasový průvodce, který si upravíte myší.',
+        description: 'Nový uvítací text, změna pracovní doby nebo přesměrování na svátky — všechno kliknutím. Žádný technik, žádné čekání týden na změnu.',
+        highlights: [
+          'Drag & drop editor call flow — přetáhnete uzel, propojíte čárou',
+          'Time conditions — jiná logika ve špičce, večer a o víkendu',
+          'Text-to-Speech přímo v editoru (Microsoft TTS, čeština)',
+          'Okamžitý preview — otestujete, než změna jde živě',
+        ],
+        screenshot: {
+          src: '/product/ivr-editor.png',
+          alt: 'Vizuální editor IVR call flow s drag-and-drop uzly',
+        },
+        icon: 'GitBranch',
+        learnMoreHref: '/produkt/volani#ivr',
+      },
+      {
+        id: 'queue-management',
+        title: 'Fronty a přihlašování',
+        eyebrow: 'SKILL-BASED ROUTING',
+        headline: 'Agent si vybere fronty. Systém ví, kdo co umí.',
+        description: 'Nováček zvedá jen jednoduché dotazy. Senior bere eskalace a VIP zákazníky. Jednací den? Agent odškrtne pauzu, systém ji respektuje.',
+        highlights: [
+          'Agent se přihlásí do front, do kterých má dovednosti',
+          'Skill-based routing — zákazník jde na agenta, co problém zvládne',
+          'Agentské pauzy s typem (oběd, školení, administrativa)',
+          'Automatické pauzy po hovoru pro wrap-up práci',
+        ],
+        screenshot: {
+          src: '/product/queue-management.png',
+          alt: 'Přehled front s přihlášenými agenty a jejich skill mapováním',
+        },
+        icon: 'Users',
+      },
+      {
+        id: 'predictive-dialer',
+        title: 'Prediktivní dialer',
+        eyebrow: 'VÝKONNÉ ODCHOZÍ KAMPANĚ',
+        headline: 'Voláte až tehdy, kdy někdo zvedne.',
+        description: 'Systém vytáčí víc čísel najednou a přepojí agenta teprve, když se ozve reálný člověk. Answering machine, obsazeno, neodpovídá — filtruje za vás. Agent volá 3× víc za hodinu.',
+        highlights: [
+          'Prediktivní, progresivní a proaktivní módy — pro různé kampaně',
+          'Answer detection — přeskočí záznamník nebo fax',
+          'Import kontaktů z XLSX nebo přes REST API',
+          'Live reporting — konverze per agent, per kampaň, per směna',
+        ],
+        screenshot: {
+          src: '/product/predictive-dialer.png',
+          alt: 'Rozhraní prediktivního dialeru s reportingem kampaní',
+        },
+        icon: 'Megaphone',
+        learnMoreHref: '/produkt/kontaktni-centrum#dialer',
+      },
+      {
+        id: 'ai-summary',
+        title: 'AI shrnutí hovoru',
+        eyebrow: 'AUTOMATIZACE PO HOVORU',
+        headline: 'Agent zavěsí. Zápis má hotový.',
+        description: 'Nahrávku přepíšeme do textu, AI shrne klíčové body, vytvoří task nebo předá obchodníkovi s kontextem. Agent šetří 5–10 minut po každém hovoru.',
+        highlights: [
+          'Automatický přepis v češtině (i angličtině)',
+          'AI shrnutí — problém, řešení, co má zákazník dále udělat',
+          'Sentiment analýza — označí rizikové konverzace pro reviews',
+          'Předání s kontextem — task v CRM s odkazem na nahrávku',
+        ],
+        screenshot: {
+          src: '/product/ai-summary.png',
+          alt: 'Automatické AI shrnutí hovoru s přepisem a akcemi',
+        },
+        icon: 'Sparkles',
+        learnMoreHref: '/produkt/ai-voicebot',
+      },
+    ],
+  },
+
   productVideo: {
     eyebrow: 'VIDEO UKÁZKA',
     headline: 'Minuta a víte, jak BC4Cloud běží.',
