@@ -67,6 +67,7 @@ public/recraft-output/_staging
 # Pokud Kvalt DS docs site potřebuje tyto assety v produkci, řešit přes
 # CDN (R2 / S3) nebo Git LFS, ne přímo v repu.
 public/illustrations
+!public/illustrations/_catalog.json
 public/recraft-output
 knowledge/design-inspiration
 knowledge/recraft-styles
