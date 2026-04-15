@@ -260,7 +260,7 @@ export interface HomeContent {
   productVideo: {
     eyebrow?: string;
     headline: string;
-    subheadline: string;
+    subheadline?: string;
     /** Video zdroj. MP4/WebM self-hosted nebo YouTube/Vimeo URL */
     videoSrc?: string;
     /** Poster image (první frame nebo klíčový snímek). Zobrazí se než user klikne play. */

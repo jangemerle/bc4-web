@@ -95,7 +95,6 @@ export const home: HomeContent = {
   benefits: {
     eyebrow: 'CO VÁM BC4CLOUD PŘINESE',
     headline: 'Tři starosti, které vás přestanou budit ve tři ráno.',
-    subheadline: 'Konkrétní čísla z reálných nasazení. Žádné "zlepší vám to byznys" — ale taky žádná magie.',
     items: [
       {
         title: 'Hovory vám přestanou utíkat',
@@ -231,7 +230,6 @@ export const home: HomeContent = {
   productVideo: {
     eyebrow: 'VIDEO UKÁZKA',
     headline: 'Minuta a víte, jak BC4Cloud běží.',
-    subheadline: 'Nahrávka obrazovky, voiceover, zhmotnělé animace. Bez prodejního skriptu — jen jak aplikace skutečně funguje.',
     // TODO: po nahrání videa vyměnit. Self-hosted MP4 nebo YouTube/Vimeo URL.
     // Příklad self-hosted: '/videos/bc4-showcase.mp4'
     // Příklad YouTube embed: 'https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbranding=1'

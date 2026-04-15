@@ -25,7 +25,7 @@
  */
 
 import { useState, useRef, useId } from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { motion, AnimatePresence } from 'motion/react';
 import { CheckCircle2 } from 'lucide-react';
@@ -54,6 +54,7 @@ export function LeadForm({ content, source, onSubmitSuccess }: LeadFormProps) {
   const {
     register,
     handleSubmit,
+    control,
     reset,
     formState: { errors, isSubmitting },
   } = useForm<LeadFormData>({
@@ -228,12 +229,21 @@ export function LeadForm({ content, source, onSubmitSuccess }: LeadFormProps) {
         {...register('teamSize', { valueAsNumber: true })}
       />
 
-      {/* GDPR */}
-      <Checkbox
-        label={content.form.gdprLabel}
-        invalid={!!errors.gdprConsent}
-        errorMessage={errors.gdprConsent?.message}
-        {...register('gdprConsent')}
+      {/* GDPR — Kvalt Checkbox je controlled (potřebuje checked + onChange),
+         takže místo register používáme Controller z RHF. */}
+      <Controller
+        name="gdprConsent"
+        control={control}
+        render={({ field }) => (
+          <Checkbox
+            label={content.form.gdprLabel}
+            checked={!!field.value}
+            onChange={(e) => field.onChange((e.target as HTMLInputElement).checked)}
+            onBlur={field.onBlur}
+            invalid={!!errors.gdprConsent}
+            errorMessage={errors.gdprConsent?.message}
+          />
+        )}
       />
 
       {/* Submit error */}
@@ -279,7 +289,7 @@ function SuccessOverlay({ onReset }: { onReset: () => void }) {
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3, ease: [0, 0, 0.2, 1] }}
-      className="absolute inset-0 flex flex-col items-center justify-center gap-4 text-center"
+      className="absolute inset-0 flex flex-col items-center justify-center gap-5 text-center px-6"
     >
       <motion.div
         initial={{ scale: 0, rotate: -10 }}
@@ -294,23 +304,44 @@ function SuccessOverlay({ onReset }: { onReset: () => void }) {
       >
         <CheckCircle2 className="h-9 w-9" aria-hidden="true" strokeWidth={2.2} />
       </motion.div>
+
       <div className="flex flex-col gap-1.5 max-w-sm">
         <h3
           className="font-display text-2xl font-extrabold text-[var(--color-on-surface)]"
           style={{ fontFamily: 'var(--font-display)' }}
         >
-          Díky. Ozveme se do pár minut.
+          Hotovo. Voláme do pár minut.
         </h3>
         <p className="text-[var(--color-on-surface-subtle-1)]">
-          V pracovní době Po–Pá 8–17. Mimo ni voláme první další pracovní den.
+          V pracovní době Po–Pá 8–17. Mimo ni první další pracovní den.
         </p>
       </div>
+
+      {/* Secondary actions — užitečný content pro člověka co čeká na hovor */}
+      <div className="mt-2 flex flex-col gap-2.5 sm:flex-row sm:gap-6">
+        <a
+          href="/#product-video"
+          className="text-sm font-semibold text-[var(--color-on-secondary-1)] hover:text-[var(--color-on-secondary-2)] inline-flex items-center gap-1.5"
+        >
+          Minutová ukázka aplikace
+          <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+        </a>
+        <a
+          href="/#faq"
+          className="text-sm font-semibold text-[var(--color-on-secondary-1)] hover:text-[var(--color-on-secondary-2)] inline-flex items-center gap-1.5"
+        >
+          Časté otázky
+          <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+        </a>
+      </div>
+
+      {/* Subtle reset link — kdyby user opravdu chtěl poslat za jinou firmu */}
       <button
         type="button"
         onClick={onReset}
-        className="mt-2 text-sm font-semibold text-[var(--color-on-secondary-1)] hover:text-[var(--color-on-secondary-2)] underline-offset-2 hover:underline"
+        className="mt-1 text-xs text-[var(--color-on-surface-subtle-2)] hover:text-[var(--color-on-surface-subtle-1)]"
       >
-        Odeslat další poptávku
+        Poslat poptávku za jinou firmu
       </button>
     </motion.div>
   );
