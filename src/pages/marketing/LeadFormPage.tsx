@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom';
 import { Container } from '@/marketing/primitives/Container';
 import { EyebrowLabel } from '@/marketing/primitives/EyebrowLabel';
 import { SectionHeading } from '@/marketing/primitives/SectionHeading';
@@ -46,7 +45,6 @@ const formContent = {
 };
 
 export default function LeadFormPage() {
-  const navigate = useNavigate();
   useSEO(seo, '/poptavka');
 
   return (
@@ -58,12 +56,9 @@ export default function LeadFormPage() {
             {formContent.hero.headline}
           </SectionHeading>
         </div>
-        <div className="rounded-m border border-[var(--color-border)] bg-[var(--color-surface-1)] p-6 sm:p-8 shadow-lg">
-          <LeadForm
-            content={formContent}
-            source="standalone"
-            onSubmitSuccess={() => navigate('/poptavka/odeslano')}
-          />
+        <div className="rounded-m border border-[var(--color-border)] bg-[var(--color-surface-1)] p-6 sm:p-8 shadow-lg min-h-[500px]">
+          {/* Inline success state (ne redirect) — user může pokračovat dolů po odeslání */}
+          <LeadForm content={formContent} source="standalone" />
         </div>
       </Container>
     </section>

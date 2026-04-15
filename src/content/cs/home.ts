@@ -94,7 +94,7 @@ export const home: HomeContent = {
 
   benefits: {
     eyebrow: 'CO VÁM BC4CLOUD PŘINESE',
-    headline: 'Tři bolesti, které vás přestanou budit ve tři ráno.',
+    headline: 'Tři starosti, které vás přestanou budit ve tři ráno.',
     subheadline: 'Konkrétní čísla z reálných nasazení. Žádné "zlepší vám to byznys" — ale taky žádná magie.',
     items: [
       {
@@ -294,7 +294,7 @@ export const home: HomeContent = {
       {
         tier: 3,
         title: 'AI',
-        description: 'Voicebot a chatbot pro rutinní dotazy, speech analytics pro každý hovor. Agenti se věnují složitým věcem, AI řeší ty nudné.',
+        description: 'Voicebot a chatbot pro rutinní dotazy, speech analytics pro každý hovor. Agenti se věnují složitým věcem, AI řeší ty opakované.',
         features: [
           'Voicebot — ověření identity, rezervace, směrování hovorů',
           'Chatbot napojený na ChatGPT a vaše vlastní data',
@@ -307,8 +307,9 @@ export const home: HomeContent = {
   },
 
   segments: {
-    eyebrow: 'PRO KOHO TO JE',
-    headline: 'Kde BC4Cloud dává největší smysl.',
+    eyebrow: 'PRO JAKÉ FIRMY',
+    headline: 'Pro firmy všech velikostí. Od 5 agentů po velká call centra.',
+    subheadline: 'BC4Cloud roste s vámi — ať obsluhujete 30 hovorů denně nebo 3 000. Pár scénářů, kde obzvlášť dává smysl:',
     items: [
       {
         name: 'E-shopy',
@@ -322,7 +323,7 @@ export const home: HomeContent = {
       },
       {
         name: 'Banky a finance',
-        tagline: 'Audit trail ke každému hovoru. Šifrovaná nahrávka. PCI a GDPR ready.',
+        tagline: 'Audit trail ke každému hovoru. Šifrovaná nahrávka. GDPR ready.',
         icon: 'ShieldCheck',
       },
       {
@@ -331,10 +332,46 @@ export const home: HomeContent = {
         icon: 'Antenna',
       },
     ],
+    footnote: 'Nepoznáváte svůj obor? Taky tam patříte. Většina našich zákazníků nesedí úplně do jedné kategorie — řekněte nám, co řešíte, a ukážeme vám, jak to funguje.',
   },
 
   // Skryjeme dokud nemáme reálnou referenci s čísly (viz strategy.md § 10)
   caseStudyHighlight: undefined,
+
+  testimonials: {
+    eyebrow: 'CO ŘÍKAJÍ ZÁKAZNÍCI',
+    headline: 'Slovem těch, co BC4Cloud denně používají.',
+    subheadline: 'Tři hlasy z různých odvětví. Konkrétní čísla, ne marketingové fráze.',
+    // TODO: nahradit reálnými citacemi se jménem, fotkou, firmou a souhlasem
+    // se zveřejněním. Šablona zachovává Baymard pattern: jméno + pozice + firma
+    // + konkrétní výsledek v citaci.
+    items: [
+      {
+        quote:
+          'Po nasazení BC4Cloudu jsme v prvním kvartálu zachránili 18 % hovorů, co by jinak skončily ve frontě bez odezvy. Callback funguje, agenti to mají rádi.',
+        author: 'Petra Nováková',
+        role: 'Vedoucí kontaktního centra',
+        company: '[Klient placeholder]',
+        authorPhoto: '/testimonials/placeholder-1.png',
+      },
+      {
+        quote:
+          'Přechod ze staré ústředny trval pět dní. Kompletní portace čísel, IVR, zaškolení agentů. Méně času, než jsme čekali — a žádný výpadek.',
+        author: 'Tomáš Dvořák',
+        role: 'IT manažer',
+        company: '[Klient placeholder]',
+        authorPhoto: '/testimonials/placeholder-2.png',
+      },
+      {
+        quote:
+          'Šlo nám o jednoduchost. Agenti zvládli zaškolení za dvě hodiny, supervizoři vidí všechno v reálném čase. Žádné Excely, žádná chaotická data.',
+        author: 'Jana Procházková',
+        role: 'Provozní ředitelka',
+        company: '[Klient placeholder]',
+        authorPhoto: '/testimonials/placeholder-3.png',
+      },
+    ],
+  },
 
   inlineLeadForm: {
     eyebrow: 'DOMLUVIT UKÁZKU',
@@ -357,8 +394,8 @@ export const home: HomeContent = {
         icon: 'MapPin',
       },
       {
-        title: 'Rostete s námi. Bez re-kontraktace.',
-        description: 'Začnete s pěti agenty, rostete na pět set. Z Volání na plný omnichannel přejdete pár kliknutími — nová smlouva se neotvírá.',
+        title: 'Rostete s námi. Od 5 do 500.',
+        description: 'Začnete s 5 agenty, rostete na 500. Z Volání na plný omnichannel přejdete pár kliknutími v administraci.',
         icon: 'TrendingUp',
       },
       {

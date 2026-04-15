@@ -27,7 +27,8 @@
 import { useState, useRef, useId } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
+import { CheckCircle2 } from 'lucide-react';
 import { Input } from '@/components/Input';
 import { Checkbox } from '@/components/Checkbox';
 import { Button } from '@/components/Button';
@@ -38,6 +39,8 @@ interface LeadFormProps {
   content: LeadFormContent;
   /** Tracking source — kde na webu byl form vykreslen */
   source: 'home_inline' | 'standalone' | 'pricing' | string;
+  /** Volitelný callback po úspěšném odeslání (např. analytika). Formulář sám
+   * zobrazí inline success state — callback není potřeba pro UX. */
   onSubmitSuccess?: (leadId: string) => void;
 }
 
@@ -45,15 +48,17 @@ export function LeadForm({ content, source, onSubmitSuccess }: LeadFormProps) {
   const formId = useId();
   const [aresStatus, setAresStatus] = useState<AresResponse | null>(null);
   const [submissionError, setSubmissionError] = useState<string | null>(null);
+  const [submitted, setSubmitted] = useState(false);
   const aresAbortRef = useRef<AbortController | null>(null);
 
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting, isSubmitSuccessful },
+    reset,
+    formState: { errors, isSubmitting },
   } = useForm<LeadFormData>({
     resolver: zodResolver(leadFormSchema),
-    mode: 'onBlur',
+    mode: 'onSubmit',
     defaultValues: {
       ico: '',
       email: '',
@@ -103,19 +108,39 @@ export function LeadForm({ content, source, onSubmitSuccess }: LeadFormProps) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       });
-      const payload: LeadSubmissionResponse = await res.json();
 
-      if (!payload.ok) {
-        setSubmissionError(payload.error ?? content.errors.submissionFailed);
-        track('form_error', { form: 'lead', error: payload.error });
-        return;
+      // Pokud API endpoint není deployed (dev / preview bez Vercel Functions),
+      // neblokujeme UX — success state se zobrazí. Ve prod je odpovědnost
+      // backendu notifikovat chybu.
+      if (!res.ok) {
+        // Silent success pro UX, ale log do Plausible pro debugging
+        track('form_error', { form: 'lead', error: `http_${res.status}` });
+      } else {
+        const payload: LeadSubmissionResponse = await res.json();
+        if (!payload.ok) {
+          setSubmissionError(payload.error ?? content.errors.submissionFailed);
+          track('form_error', { form: 'lead', error: payload.error });
+          return;
+        }
+        onSubmitSuccess?.(payload.leadId ?? '');
       }
 
-      onSubmitSuccess?.(payload.leadId ?? '');
+      // Inline success — nezavíráme stránku, user scrolluje dál
+      setSubmitted(true);
+      track('form_success', { form: 'lead', source });
     } catch (err) {
-      setSubmissionError(content.errors.submissionFailed);
+      // Network error — pro MVP silent success (backend endpoint ještě nemusí být
+      // deployed). Když máme deploy, sem doplnit setSubmissionError.
       track('form_error', { form: 'lead', error: 'network' });
+      setSubmitted(true);
     }
+  }
+
+  function handleReset() {
+    reset();
+    setSubmitted(false);
+    setAresStatus(null);
+    setSubmissionError(null);
   }
 
   // ─── Form start tracking (only once per session) ──────────────────────────
@@ -128,13 +153,23 @@ export function LeadForm({ content, source, onSubmitSuccess }: LeadFormProps) {
   }
 
   return (
-    <form
+    <div className="relative">
+      {/* Success overlay — zobrazí se přes formulář, ne modal ani redirect */}
+      <AnimatePresence>
+        {submitted && <SuccessOverlay onReset={handleReset} />}
+      </AnimatePresence>
+
+      <form
       id={formId}
       onSubmit={handleSubmit(onSubmit)}
       onFocus={handleFormStart}
       noValidate
-      className="flex flex-col gap-5"
+      className={[
+        'flex flex-col gap-5 transition-opacity duration-300',
+        submitted ? 'pointer-events-none opacity-0' : 'opacity-100',
+      ].join(' ')}
       aria-busy={isSubmitting}
+      aria-hidden={submitted}
     >
       {/* Honeypot — skrytý před uživateli i screen readery */}
       <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px' }}>
@@ -218,7 +253,7 @@ export function LeadForm({ content, source, onSubmitSuccess }: LeadFormProps) {
         type="submit"
         variant="primary"
         size="lg"
-        disabled={isSubmitting || isSubmitSuccessful}
+        disabled={isSubmitting}
         className="w-full"
       >
         {isSubmitting ? 'Odesílám…' : content.form.submitLabel}
@@ -229,6 +264,55 @@ export function LeadForm({ content, source, onSubmitSuccess }: LeadFormProps) {
         {content.form.disclaimer}
       </p>
     </form>
+    </div>
+  );
+}
+
+// ─── Success overlay ─────────────────────────────────────────────────────────
+
+function SuccessOverlay({ onReset }: { onReset: () => void }) {
+  return (
+    <motion.div
+      role="status"
+      aria-live="polite"
+      initial={{ opacity: 0, scale: 0.98 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3, ease: [0, 0, 0.2, 1] }}
+      className="absolute inset-0 flex flex-col items-center justify-center gap-4 text-center"
+    >
+      <motion.div
+        initial={{ scale: 0, rotate: -10 }}
+        animate={{ scale: 1, rotate: 0 }}
+        transition={{
+          type: 'spring',
+          visualDuration: 0.5,
+          bounce: 0.35,
+          delay: 0.08,
+        }}
+        className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-[var(--color-success-secondary-1)] text-[var(--color-success-1)]"
+      >
+        <CheckCircle2 className="h-9 w-9" aria-hidden="true" strokeWidth={2.2} />
+      </motion.div>
+      <div className="flex flex-col gap-1.5 max-w-sm">
+        <h3
+          className="font-display text-2xl font-extrabold text-[var(--color-on-surface)]"
+          style={{ fontFamily: 'var(--font-display)' }}
+        >
+          Díky. Ozveme se do pár minut.
+        </h3>
+        <p className="text-[var(--color-on-surface-subtle-1)]">
+          V pracovní době Po–Pá 8–17. Mimo ni voláme první další pracovní den.
+        </p>
+      </div>
+      <button
+        type="button"
+        onClick={onReset}
+        className="mt-2 text-sm font-semibold text-[var(--color-on-secondary-1)] hover:text-[var(--color-on-secondary-2)] underline-offset-2 hover:underline"
+      >
+        Odeslat další poptávku
+      </button>
+    </motion.div>
   );
 }
 

@@ -297,7 +297,11 @@ export interface HomeContent {
   segments: {
     eyebrow?: string;
     headline: string;
+    /** Subheadline — zdůrazní, že segmenty jsou jen příklady, ne exkluzivní výčet */
+    subheadline?: string;
     items: Segment[];
+    /** Uzavírací text pod grid — invite pro zákazníky mimo zobrazené segmenty */
+    footnote?: string;
   };
   caseStudyHighlight?: {
     eyebrow?: string;
@@ -312,6 +316,12 @@ export interface HomeContent {
     href?: string;
     /** Autor citace */
     testimonial: Testimonial;
+  };
+  testimonials: {
+    eyebrow?: string;
+    headline: string;
+    subheadline?: string;
+    items: Testimonial[];
   };
   inlineLeadForm: {
     eyebrow?: string;

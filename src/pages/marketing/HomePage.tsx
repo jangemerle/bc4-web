@@ -7,6 +7,7 @@ import { StatsBand } from '@/marketing/sections/StatsBand';
 import { BenefitTriplet } from '@/marketing/sections/BenefitTriplet';
 import { ProductVideo } from '@/marketing/sections/ProductVideo';
 import { FeatureShowcase } from '@/marketing/sections/FeatureShowcase';
+import { Testimonials } from '@/marketing/sections/Testimonials';
 import { HowItWorks } from '@/marketing/sections/HowItWorks';
 import { SegmentCards } from '@/marketing/sections/SegmentCards';
 import { WhyUs } from '@/marketing/sections/WhyUs';
@@ -83,6 +84,7 @@ export default function HomePage() {
       <ProductVideo content={content.productVideo} />
       <HowItWorks content={content.howItWorks} />
       <FeatureShowcase content={content.featureShowcase} />
+      <Testimonials content={content.testimonials} />
       <SegmentCards content={content.segments} />
 
       {/* Inline lead form — druhý konverzní bod uprostřed homepage */}

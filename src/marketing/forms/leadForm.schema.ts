@@ -12,46 +12,35 @@
 
 import { z } from 'zod';
 
-// ─── Validační regexy ────────────────────────────────────────────────────────
-
-const ICO_REGEX = /^\d{8}$/;
-/**
- * Telefonní číslo — české formáty:
- *   +420 123 456 789, +420123456789, 123 456 789, 123456789
- * Validace je permisivní — backend si pak vyčistí, ale frontend nesmí blokovat
- * platné formáty zadání.
- */
-const PHONE_REGEX = /^(\+?\d{1,3}[\s.-]?)?(\d{3}[\s.-]?\d{3}[\s.-]?\d{3}|\d{9})$/;
-
 // ─── Hlavní schéma ───────────────────────────────────────────────────────────
+//
+// Validujeme POUZE "není prázdné" — formát (IČ regex, email RFC, telefon) na
+// frontendu neřešíme. Důvod: nechceme uživateli bránit v odeslání kvůli
+// čárce navíc nebo jinému formátu telefonu. Backend data vyčistí před
+// uložením do CRM, ARES lookup napoví, zda IČ dává smysl.
 
 export const leadFormSchema = z.object({
   ico: z
     .string()
     .trim()
-    .regex(ICO_REGEX, 'IČ musí mít přesně 8 číslic'),
+    .min(1, 'Vyplňte IČ'),
 
   email: z
     .string()
     .trim()
-    .min(1, 'Vyplňte email')
-    .email('Email nemá platný formát')
-    .max(254, 'Email je příliš dlouhý'),
+    .min(1, 'Vyplňte email'),
 
   phone: z
     .string()
     .trim()
-    .min(1, 'Vyplňte telefon')
-    .regex(PHONE_REGEX, 'Telefon nemá platný formát (např. +420 123 456 789)'),
+    .min(1, 'Vyplňte telefon'),
 
   teamSize: z
     .number({ error: 'Vyplňte počet lidí' })
-    .int('Počet musí být celé číslo')
-    .min(1, 'Alespoň 1 osoba')
-    .max(10000, 'Maximum 10 000 osob — větší týmy řešíme přes obchod'),
+    .min(1, 'Vyplňte počet lidí'),
 
   gdprConsent: z.literal(true, {
-    error: 'Pro zpracování poptávky potřebujeme váš souhlas',
+    error: 'Potřebujeme váš souhlas',
   }),
 
   // Honeypot — prázdné pole skryté pro lidi, robot vyplní → spam

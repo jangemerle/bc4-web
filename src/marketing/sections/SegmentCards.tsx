@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import * as Icons from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
@@ -16,7 +17,7 @@ export function SegmentCards({ content }: SegmentCardsProps) {
       <Container width="wide">
         <div className="mb-12 max-w-3xl flex flex-col gap-3">
           {content.eyebrow && <EyebrowLabel>{content.eyebrow}</EyebrowLabel>}
-          <SectionHeading size="xl" id="segments-headline">
+          <SectionHeading size="xl" id="segments-headline" subheadline={content.subheadline}>
             {content.headline}
           </SectionHeading>
         </div>
@@ -48,6 +49,24 @@ export function SegmentCards({ content }: SegmentCardsProps) {
             );
           })}
         </motion.ul>
+
+        {content.footnote && (
+          <motion.p
+            initial={{ opacity: 0, y: 8 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+            className="mt-10 max-w-3xl text-base text-[var(--color-on-surface-subtle-1)]"
+          >
+            {content.footnote}{' '}
+            <Link
+              to="/poptavka?source=segments"
+              className="font-semibold text-[var(--color-on-secondary-1)] hover:text-[var(--color-on-secondary-2)] underline-offset-2 hover:underline"
+            >
+              Řekněte nám, co řešíte →
+            </Link>
+          </motion.p>
+        )}
       </Container>
     </section>
   );
