@@ -28,8 +28,9 @@ import { useState, useRef, useId } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { motion, AnimatePresence } from 'motion/react';
-import { CheckCircle2 } from 'lucide-react';
+import { CheckCircle2, ArrowRight, Plus } from 'lucide-react';
 import { Input } from '@/components/Input';
+import { TextArea } from '@/components/TextArea';
 import { Checkbox } from '@/components/Checkbox';
 import { Button } from '@/components/Button';
 import { leadFormSchema, type LeadFormData, type AresResponse, type LeadSubmissionResponse } from '@/marketing/forms/leadForm.schema';
@@ -49,13 +50,13 @@ export function LeadForm({ content, source, onSubmitSuccess }: LeadFormProps) {
   const [aresStatus, setAresStatus] = useState<AresResponse | null>(null);
   const [submissionError, setSubmissionError] = useState<string | null>(null);
   const [submitted, setSubmitted] = useState(false);
+  const [noteExpanded, setNoteExpanded] = useState(false);
   const aresAbortRef = useRef<AbortController | null>(null);
 
   const {
     register,
     handleSubmit,
     control,
-    reset,
     formState: { errors, isSubmitting },
   } = useForm<LeadFormData>({
     resolver: zodResolver(leadFormSchema),
@@ -137,12 +138,6 @@ export function LeadForm({ content, source, onSubmitSuccess }: LeadFormProps) {
     }
   }
 
-  function handleReset() {
-    reset();
-    setSubmitted(false);
-    setAresStatus(null);
-    setSubmissionError(null);
-  }
 
   // ─── Form start tracking (only once per session) ──────────────────────────
 
@@ -157,7 +152,7 @@ export function LeadForm({ content, source, onSubmitSuccess }: LeadFormProps) {
     <div className="relative">
       {/* Success overlay — zobrazí se přes formulář, ne modal ani redirect */}
       <AnimatePresence>
-        {submitted && <SuccessOverlay onReset={handleReset} />}
+        {submitted && <SuccessOverlay />}
       </AnimatePresence>
 
       <form
@@ -246,6 +241,46 @@ export function LeadForm({ content, source, onSubmitSuccess }: LeadFormProps) {
         )}
       />
 
+      {/* Expandable textarea pro doplňující informace — collapsed by default
+         aby form vypadal krátký. Engaged user klikne, dostane prostor.
+         Plausible event 'form_note_expanded' nám řekne, kolik % to využije. */}
+      <AnimatePresence initial={false}>
+        {noteExpanded ? (
+          <motion.div
+            key="note-expanded"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
+            className="overflow-hidden"
+          >
+            <TextArea
+              label={content.form.noteLabel}
+              placeholder={content.form.notePlaceholder}
+              rows={4}
+              {...register('note')}
+            />
+          </motion.div>
+        ) : (
+          <motion.button
+            key="note-toggle"
+            type="button"
+            onClick={() => {
+              setNoteExpanded(true);
+              track('form_note_expanded', { source });
+            }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="inline-flex items-center gap-1.5 self-start text-sm font-semibold text-[var(--color-on-secondary-1)] hover:text-[var(--color-on-secondary-2)]"
+          >
+            <Plus className="h-4 w-4" aria-hidden="true" />
+            {content.form.noteToggleLabel}
+          </motion.button>
+        )}
+      </AnimatePresence>
+
       {/* Submit error */}
       {submissionError && (
         <motion.div
@@ -280,7 +315,7 @@ export function LeadForm({ content, source, onSubmitSuccess }: LeadFormProps) {
 
 // ─── Success overlay ─────────────────────────────────────────────────────────
 
-function SuccessOverlay({ onReset }: { onReset: () => void }) {
+function SuccessOverlay() {
   return (
     <motion.div
       role="status"
@@ -335,14 +370,6 @@ function SuccessOverlay({ onReset }: { onReset: () => void }) {
         </a>
       </div>
 
-      {/* Subtle reset link — kdyby user opravdu chtěl poslat za jinou firmu */}
-      <button
-        type="button"
-        onClick={onReset}
-        className="mt-1 text-xs text-[var(--color-on-surface-subtle-2)] hover:text-[var(--color-on-surface-subtle-1)]"
-      >
-        Poslat poptávku za jinou firmu
-      </button>
     </motion.div>
   );
 }

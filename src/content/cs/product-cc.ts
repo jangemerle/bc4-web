@@ -134,7 +134,7 @@ export const productContactCenter: ProductContent = {
         category: 'Integrace',
         items: [
           { label: 'Protokoly', value: 'SIP, CSTA, WebRTC, REST API' },
-          { label: 'Přímé integrace', value: 'MS Teams, Salesforce, HubSpot, Dynamics, Pipedrive' },
+          { label: 'Přímé integrace', value: 'MS Teams + otevřené REST API/webhooks pro CRM, ERP a ticketing systémy' },
           { label: 'Webhooks', value: 'Příchozí hovor, konec hovoru, nová interakce' },
           { label: 'Import kontaktů', value: 'XLSX, CSV, REST API' },
         ],
@@ -153,7 +153,7 @@ export const productContactCenter: ProductContent = {
         items: [
           { label: 'Šifrování', value: 'TLS 1.3 při přenosu, AES-256 at rest' },
           { label: 'Autentizace', value: 'SSO (SAML, OIDC), dvoufaktorová' },
-          { label: 'Compliance', value: 'GDPR, ISO 27001' },
+          { label: 'Compliance', value: 'GDPR' },
           { label: 'Audit log', value: 'Kompletní, s retencí podle zákazníka' },
         ],
       },

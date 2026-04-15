@@ -326,7 +326,7 @@ export interface HomeContent {
   inlineLeadForm: {
     eyebrow?: string;
     headline: string;
-    subheadline: string;
+    subheadline?: string;
   };
   whyUs: {
     eyebrow?: string;
@@ -501,6 +501,12 @@ export interface LeadFormContent {
     teamSizeLabel: string;
     teamSizePlaceholder: string;
     gdprLabel: string;
+    /** Collapsed expand link — "Máte konkrétní otázku?" */
+    noteToggleLabel: string;
+    /** Label nad textareou (po expand) */
+    noteLabel: string;
+    /** Smart placeholder pro textareu — řeší decision paralysis */
+    notePlaceholder: string;
     submitLabel: string;
     disclaimer: string;
   };

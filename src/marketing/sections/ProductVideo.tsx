@@ -210,20 +210,10 @@ function VideoPlaceholder({ poster, alt }: { poster: string; alt: string }) {
           aria-hidden="true"
         />
       )}
-      <div className="relative text-center px-6 max-w-md">
-        <p className="font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-on-surface-subtle-2)] mb-2">
-          VIDEO PŘIPRAVUJEME
-        </p>
-        <p
-          className="font-display text-2xl font-extrabold text-[var(--color-on-surface)] mb-2"
-          style={{ fontFamily: 'var(--font-display)' }}
-        >
-          Tady za chvíli poběží minutový walkthrough aplikace.
-        </p>
-        <p className="text-sm text-[var(--color-on-surface-subtle-1)]">
-          Nahrávka obrazovky + voiceover + animace. Ukážeme příchozí hovor, historii zákazníka a AI shrnutí hovoru.
-        </p>
-      </div>
+      {/* Play ikonka v kruhu uprostřed — identický s reálným video play stavem */}
+      <span className="relative inline-flex h-20 w-20 items-center justify-center rounded-full bg-[var(--color-primary-1)] text-[var(--color-on-primary)] shadow-2xl">
+        <Play className="h-8 w-8 translate-x-0.5 fill-current" aria-hidden="true" />
+      </span>
     </div>
   );
 }

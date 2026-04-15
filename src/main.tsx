@@ -17,6 +17,7 @@ import { LocaleProvider } from './contexts/LocaleProvider';
 // ─── Marketing (BC4Cloud) ─────────────────────────────────────────────────
 import { MarketingLayout } from './marketing/layouts/MarketingLayout';
 import HomePage from './pages/marketing/HomePage';
+import FeaturesPage from './pages/marketing/FeaturesPage';
 import ProductContactCenterPage from './pages/marketing/ProductContactCenterPage';
 import ProductCallingPage from './pages/marketing/ProductCallingPage';
 import PricingPage from './pages/marketing/PricingPage';
@@ -33,6 +34,7 @@ createRoot(document.getElementById('root')!).render(
           {/* ── BC4Cloud marketing site ───────────────────────────────── */}
           <Route element={<MarketingLayout />}>
             <Route index element={<HomePage />} />
+            <Route path="funkce" element={<FeaturesPage />} />
             <Route path="produkt/kontaktni-centrum" element={<ProductContactCenterPage />} />
             <Route path="produkt/volani" element={<ProductCallingPage />} />
             <Route path="cenik" element={<PricingPage />} />

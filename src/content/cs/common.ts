@@ -18,17 +18,8 @@ export const common: CommonContent = {
   },
   nav: {
     primary: [
-      {
-        label: 'Produkty',
-        href: '#',
-        children: [
-          { label: 'Volání', href: '/produkt/volani' },
-          { label: 'Kontaktní centrum', href: '/produkt/kontaktni-centrum' },
-          { label: 'AI Voicebot & Chatbot', href: '/produkt/ai-voicebot' },
-        ],
-      },
+      { label: 'Funkce', href: '/funkce' },
       { label: 'Ceník', href: '/cenik' },
-      { label: 'Reference', href: '/reference' },
       { label: 'Kontakt', href: '/kontakt' },
     ],
     primaryCta: {
@@ -43,11 +34,9 @@ export const common: CommonContent = {
       {
         title: 'Produkt',
         links: [
-          { label: 'Kontaktní centrum', href: '/produkt/kontaktni-centrum' },
-          { label: 'Volání', href: '/produkt/volani' },
-          { label: 'AI Voicebot', href: '/produkt/ai-voicebot' },
+          { label: 'Funkce', href: '/funkce' },
           { label: 'Ceník', href: '/cenik' },
-          { label: 'Integrace', href: '/integrace' },
+          { label: 'Kontakt', href: '/kontakt' },
         ],
       },
       {

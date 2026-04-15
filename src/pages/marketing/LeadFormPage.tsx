@@ -19,7 +19,7 @@ const formContent = {
   form: {
     icoLabel: 'IČ',
     icoPlaceholder: 'Např. 27426653',
-    icoHelper: '8 číslic — automaticky ověříme v ARES',
+    icoHelper: '',
     emailLabel: 'Pracovní email',
     emailPlaceholder: 'jmeno@firma.cz',
     phoneLabel: 'Telefon',
@@ -27,6 +27,9 @@ const formContent = {
     teamSizeLabel: 'Kolik lidí komunikuje se zákazníky?',
     teamSizePlaceholder: 'Např. 12',
     gdprLabel: 'Souhlasím se zpracováním osobních údajů pro účely této poptávky',
+    noteToggleLabel: 'Máte konkrétní otázku?',
+    noteLabel: 'Vaše otázka nebo poznámka',
+    notePlaceholder: 'Např. Funguje to s naším Salesforce? Máme 25 agentů a chceme začít s callbackem. Jaká je doba nasazení?',
     submitLabel: 'Odeslat poptávku',
     disclaimer: 'Ozveme se obvykle do pár minut v pracovní době (Po–Pá 8–17).',
   },

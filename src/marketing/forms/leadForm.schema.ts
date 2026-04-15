@@ -43,6 +43,9 @@ export const leadFormSchema = z.object({
     error: 'Potřebujeme váš souhlas',
   }),
 
+  /** Volitelná otázka / poznámka — collapsed by default, lift na lead quality */
+  note: z.string().max(2000).optional(),
+
   // Honeypot — prázdné pole skryté pro lidi, robot vyplní → spam
   honeypot: z.string().max(0, 'spam').optional(),
 

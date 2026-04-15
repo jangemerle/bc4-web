@@ -1,6 +1,7 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { ShieldCheck, MapPin, Headphones } from 'lucide-react';
+import { ShieldCheck, MapPin, Headphones, Play } from 'lucide-react';
 import { Button } from '@/components/Button';
 import { Container } from '@/marketing/primitives/Container';
 import { EyebrowLabel } from '@/marketing/primitives/EyebrowLabel';
@@ -104,24 +105,49 @@ export function Hero({ content }: HeroProps) {
             transition={{ duration: 0.6, delay: 0.1, ease: [0, 0, 0.2, 1] }}
             className="relative"
           >
-            <div className="overflow-hidden rounded-m border border-[var(--color-border)] bg-[var(--color-surface-1)] shadow-2xl">
-              {content.heroVisual.src.endsWith('.png') || content.heroVisual.src.endsWith('.jpg') || content.heroVisual.src.endsWith('.webp') ? (
-                <img
-                  src={content.heroVisual.src}
-                  alt={content.heroVisual.alt}
-                  className="block h-auto w-full"
-                  loading="eager"
-                  fetchPriority="high"
-                />
-              ) : (
-                // Placeholder když screenshot ještě nemáme
-                <HeroPlaceholder alt={content.heroVisual.alt} />
-              )}
+            <div className="relative overflow-hidden rounded-m border border-[var(--color-border)] bg-[var(--color-surface-1)] shadow-2xl">
+              <HeroVisual src={content.heroVisual.src} alt={content.heroVisual.alt} />
+              {/* Play overlay — naznačuje, že hero vizuál vede k video ukázce */}
+              <a
+                href="#product-video"
+                aria-label="Přejít na video ukázku BC4Cloud"
+                className="absolute inset-0 flex items-center justify-center group"
+              >
+                <span className="inline-flex h-20 w-20 items-center justify-center rounded-full bg-[var(--color-primary-1)] text-[var(--color-on-primary)] shadow-2xl transition group-hover:scale-105">
+                  <Play className="h-8 w-8 translate-x-0.5 fill-current" aria-hidden="true" />
+                </span>
+              </a>
             </div>
           </motion.div>
         </div>
       </Container>
     </section>
+  );
+}
+
+/**
+ * HeroVisual — renderuje screenshot, ale s onError fallbackem na placeholder.
+ * Důvod: image src může být platná cesta, ale soubor ještě neexistuje
+ * (jsme v MVP fázi, screenshoty zatím nedodány).
+ */
+function HeroVisual({ src, alt }: { src: string; alt: string }) {
+  const [imageFailed, setImageFailed] = useState(false);
+  const isImageExtension =
+    src.endsWith('.png') || src.endsWith('.jpg') || src.endsWith('.webp');
+
+  if (!isImageExtension || imageFailed) {
+    return <HeroPlaceholder alt={alt} />;
+  }
+
+  return (
+    <img
+      src={src}
+      alt={alt}
+      className="block h-auto w-full"
+      loading="eager"
+      fetchPriority="high"
+      onError={() => setImageFailed(true)}
+    />
   );
 }
 
@@ -132,14 +158,10 @@ function HeroPlaceholder({ alt }: { alt: string }) {
       role="img"
       aria-label={alt}
     >
-      <div className="text-center px-6">
-        <p className="font-display text-sm font-semibold text-[var(--color-on-surface-subtle-2)] uppercase tracking-wider mb-2">
-          Screenshot aplikace
-        </p>
-        <p className="text-xs text-[var(--color-on-surface-subtle-2)] max-w-xs">
-          Tady bude reálný screenshot z BC4Cloud Agent Panelu — dodá se v dalším kroku.
-        </p>
-      </div>
+      {/* Play ikonka v kruhu — konzistentní s ProductVideo placeholderem */}
+      <span className="inline-flex h-20 w-20 items-center justify-center rounded-full bg-[var(--color-primary-1)] text-[var(--color-on-primary)] shadow-2xl">
+        <Play className="h-8 w-8 translate-x-0.5 fill-current" aria-hidden="true" />
+      </span>
     </div>
   );
 }

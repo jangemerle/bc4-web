@@ -67,7 +67,7 @@ export const pricing: PricingContent = {
         'Smart routing (skill + data)',
         'Odchozí kampaně s prediktivním dialerem',
         'Supervizor Panel s náslechem',
-        'Integrace do CRM (Salesforce, HubSpot, Dynamics)',
+        'Integrace do MS Teams + REST API/webhooks pro CRM, ERP a ticketing',
         'REST API a webhooks',
         'SLA 99,95 %',
       ],
