@@ -124,17 +124,13 @@ function FeatureItem({ item, reverse }: FeatureItemProps) {
           {item.description}
         </p>
 
-        <ul className="flex flex-col gap-2.5 text-sm text-[var(--color-on-surface)] mt-1">
-          {item.highlights.map(highlight => (
-            <li key={highlight} className="flex items-start gap-2.5">
-              <span
-                aria-hidden="true"
-                className="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-primary-1)]"
-              />
-              <span>{highlight}</span>
-            </li>
-          ))}
-        </ul>
+        {item.appStoreLinks && (
+          <StoreBadges
+            appStore={item.appStoreLinks.appStore}
+            googlePlay={item.appStoreLinks.googlePlay}
+            appName={item.title}
+          />
+        )}
 
         {item.learnMoreHref && (
           <Link
@@ -147,6 +143,69 @@ function FeatureItem({ item, reverse }: FeatureItemProps) {
         )}
       </motion.div>
     </motion.article>
+  );
+}
+
+interface StoreBadgesProps {
+  appStore?: string;
+  googlePlay?: string;
+  appName: string;
+}
+
+function StoreBadges({ appStore, googlePlay, appName }: StoreBadgesProps) {
+  if (!appStore && !googlePlay) return null;
+  return (
+    <div className="mt-3 flex flex-wrap gap-3">
+      {appStore && (
+        <a
+          href={appStore}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Stáhněte ${appName} z App Store`}
+          className="inline-flex h-12 items-center gap-2 rounded-md bg-black px-4 text-white transition hover:bg-neutral-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-primary-1)]"
+        >
+          <AppleMark className="h-6 w-6" />
+          <span className="flex flex-col leading-none text-left">
+            <span className="text-[10px] font-medium uppercase tracking-wide">Stáhněte z</span>
+            <span className="text-base font-semibold tracking-tight">App Store</span>
+          </span>
+        </a>
+      )}
+      {googlePlay && (
+        <a
+          href={googlePlay}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Získejte ${appName} na Google Play`}
+          className="inline-flex h-12 items-center gap-2 rounded-md bg-black px-4 text-white transition hover:bg-neutral-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-primary-1)]"
+        >
+          <GooglePlayMark className="h-6 w-6" />
+          <span className="flex flex-col leading-none text-left">
+            <span className="text-[10px] font-medium uppercase tracking-wide">Získejte na</span>
+            <span className="text-base font-semibold tracking-tight">Google Play</span>
+          </span>
+        </a>
+      )}
+    </div>
+  );
+}
+
+function AppleMark({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
+      <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
+    </svg>
+  );
+}
+
+function GooglePlayMark({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 512 512" aria-hidden="true" className={className}>
+      <path fill="#00C3FF" d="M325.3 234.3 104.6 13l280.8 161.2-60.1 60.1z" />
+      <path fill="#FF3A44" d="M104.6 499 325.3 277.7l60.1 60.1L104.6 499z" />
+      <path fill="#FFCE00" d="m480.6 256-95.2 81.8-60.1-60.1 60.1-60.1 95.2 38.4z" />
+      <path fill="#00F076" d="M104.6 13C97.3 16.8 92.2 23.7 92.2 32.6v446.8c0 8.9 5.1 15.8 12.4 19.6l220.7-221.3L104.6 13z" />
+    </svg>
   );
 }
 

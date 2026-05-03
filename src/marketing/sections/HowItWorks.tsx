@@ -30,7 +30,7 @@ export function HowItWorks({ content }: HowItWorksProps) {
           whileInView="visible"
           viewport={{ once: true, margin: '-50px' }}
           variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }}
-          className="grid gap-5 lg:grid-cols-3"
+          className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
         >
           {content.tiers.map(tier => (
             <motion.li

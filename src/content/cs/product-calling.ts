@@ -17,16 +17,11 @@ export const productCalling: ProductContent = {
   hero: {
     eyebrow: 'VOLÁNÍ',
     headline: 'Ústředna, co nepotřebuje místnost v suterénu.',
-    subheadline: 'Cloudová náhrada analogové ústředny. Přehled všech hovorů, nahrávky, IVR, statistiky — všechno z prohlížeče. Agenti volají z počítače nebo mobilu, vy vidíte, co se děje.',
+    subheadline: 'Cloudová náhrada analogové ústředny. Přehled všech hovorů, nahrávky, IVR, statistiky — všechno z prohlížeče. Operátoři volají z počítače nebo mobilu, vy vidíte, co se děje.',
     primaryCta: {
       label: 'Domluvit ukázku',
       href: '/poptavka?source=product_calling',
       trackingId: 'cta_product_calling_hero',
-    },
-    secondaryCta: {
-      label: 'Zobrazit cenu',
-      href: '/cenik#calling',
-      trackingId: 'cta_product_calling_pricing',
     },
     heroVisual: {
       type: 'screenshot',
@@ -44,12 +39,12 @@ export const productCalling: ProductContent = {
         resolution: 'Přejděte na cloud za 5 pracovních dnů. Žádný nový hardware, žádná instalace ve vaší serverovně. Portaci čísel si vyřídíme sami.',
       },
       {
-        pain: 'Nikdo pořádně neví, kolik hovorů nám skutečně přichází a kolik jich agenti nezvednou. Ptáte se dokola „kolik jsme jich zmeškali?".',
-        resolution: 'Kompletní reporting v reálném čase. Každý hovor v CDR, statistiky per agent i per směna, export do XLSX na čtyři kliky.',
+        pain: 'Nikdo pořádně neví, kolik hovorů nám skutečně přichází a kolik jich operátoři nezvednou. Ptáte se dokola „kolik jsme jich zmeškali?".',
+        resolution: 'Kompletní reporting v reálném čase. Každý hovor v CDR, statistiky per operátor i per směna, export do XLSX na čtyři kliky.',
       },
       {
         pain: 'Přidat pobočkovou klapku nebo změnit IVR znamená telefonát technikovi a týden čekání.',
-        resolution: 'Vizuální editor call flow přímo v administraci. Upravíte IVR, pracovní dobu i skupiny agentů sami. Tím techník ušetří deset hodin měsíčně.',
+        resolution: 'Vizuální editor call flow přímo v administraci. Upravíte IVR, pracovní dobu i skupiny operátorů sami. Tím techník ušetří deset hodin měsíčně.',
       },
     ],
   },
@@ -60,7 +55,7 @@ export const productCalling: ProductContent = {
     items: [
       {
         title: 'Dashboard a reporting',
-        description: 'Živý přehled příchozích i odchozích hovorů, čekajících zákazníků, obsazenosti agentů. Reporty po směnách, export do XLSX.',
+        description: 'Živý přehled příchozích i odchozích hovorů, čekajících zákazníků, obsazenosti operátorů. Reporty po směnách, export do XLSX.',
         screenshot: '/product/calling-dashboard.png',
         icon: 'BarChart3',
       },
@@ -78,13 +73,13 @@ export const productCalling: ProductContent = {
       },
       {
         title: 'Mobilní aplikace',
-        description: 'Agenti volají z telefonu jako z firmy — s firemním číslem, v historii hovorů, bez VPN. Android i iOS.',
+        description: 'Operátoři volají z telefonu jako z firmy — s firemním číslem, v historii hovorů, bez VPN. Android i iOS.',
         screenshot: '/product/calling-mobile.png',
         icon: 'Smartphone',
       },
       {
         title: 'Callback a zmeškané hovory',
-        description: 'Když zákazník zavěsí dřív, než agent stihne zvednout, dostane automatický callback jakmile bude fronta volná. Žádné ztracené hovory.',
+        description: 'Když zákazník zavěsí dřív, než operátor stihne zvednout, dostane automatický callback jakmile bude fronta volná. Žádné ztracené hovory.',
         screenshot: '/product/calling-callback.png',
         icon: 'PhoneOutgoing',
       },
@@ -128,11 +123,5 @@ export const productCalling: ProductContent = {
         icon: 'MessagesSquare',
       },
     ],
-  },
-
-  pricingReference: {
-    priceFrom: 'Od 490 Kč / agent / měsíc',
-    ctaLabel: 'Zobrazit detail ceny',
-    ctaHref: '/cenik#calling',
   },
 };

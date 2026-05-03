@@ -17,35 +17,30 @@ export const productContactCenter: ProductContent = {
   hero: {
     eyebrow: 'KONTAKTNÍ CENTRUM',
     headline: 'Jedno okno pro všechno, co vám zákazníci napíší.',
-    subheadline: 'Telefon, email, chat, SMS, WhatsApp a Messenger. Jedna historie, jeden smart routing, jedna aplikace. Agent nepřeskakuje mezi pěti okny a zákazník neříká poprvé to samé.',
+    subheadline: 'Telefon, email, chat, SMS, WhatsApp a Messenger. Jedna historie, jeden smart routing, jedna aplikace. Operátor nepřeskakuje mezi 5 okny a zákazník neříká poprvé to samé.',
     primaryCta: {
       label: 'Domluvit ukázku',
       href: '/poptavka?source=product_cc',
       trackingId: 'cta_product_cc_hero',
     },
-    secondaryCta: {
-      label: 'Zobrazit cenu',
-      href: '/cenik#contact-center',
-      trackingId: 'cta_product_cc_pricing',
-    },
     heroVisual: {
       type: 'screenshot',
       src: '/product/cc-omnichannel-hero.png',
-      alt: 'Omnichannel Agent Panel — aktivní hovor vedle vlákna WhatsApp a historie zákazníka',
+      alt: 'Omnichannel Panel operátora — aktivní hovor vedle vlákna WhatsApp a historie zákazníka',
     },
   },
 
   painPoints: {
     eyebrow: 'CO TO ŘEŠÍ',
-    headline: 'Tři vzorce, co vám kradou čas každý den.',
+    headline: '3 vzorce, co vám kradou čas každý den.',
     items: [
       {
         pain: 'Zákazník napíše na email, pak zavolá, pak zase na WhatsApp. Pokaždé začíná od začátku.',
-        resolution: 'Sjednocená historie napříč všemi kanály. Agent vidí, že paní Nováková už včera psala, i když dnes volá — a přesně ví, co řešila.',
+        resolution: 'Sjednocená historie napříč všemi kanály. Operátor vidí, že paní Nováková už včera psala, i když dnes volá — a přesně ví, co řešila.',
       },
       {
         pain: 'Nováček neví, kam hovor přepojit. Zákazníka přehodí třikrát, pak mu zavěsí na obličej.',
-        resolution: 'Smart routing rozhodne sám — podle dovedností agenta, jazyka zákazníka, historie nebo dat z CRM. Nováček jen zvedá telefon.',
+        resolution: 'Smart routing rozhodne sám — podle dovedností operátora, jazyka zákazníka, historie nebo dat z CRM. Nováček jen zvedá telefon.',
       },
       {
         pain: 'Odchozí kampaně jsou v Excelu, kvóty ve třetím nástroji, přepis hovoru nikde. A výsledky se ztrácejí mezi sešity.',
@@ -57,10 +52,10 @@ export const productContactCenter: ProductContent = {
   features: {
     eyebrow: 'CO V TOM JE',
     headline: 'Funkce, co skutečně používáte.',
-    subheadline: 'Žádné pomlácené "enterprise features" schované pod třemi menu. Všechno, co zmíníme, najdete za dva kliky.',
+    subheadline: 'Žádné pomlácené "enterprise features" schované pod 3 menu. Všechno, co zmíníme, najdete za 2 kliky.',
     items: [
       {
-        title: 'Omnichannel Agent Panel',
+        title: 'Omnichannel Panel operátora',
         description: 'Jedno okno pro hovory, emaily, chaty, SMS, WhatsApp i sociální sítě. Zákaznická historie a skript napravo, kontextové akce nahoře, nic se nezavírá.',
         screenshot: '/product/cc-agent-panel.png',
         icon: 'Monitor',
@@ -72,11 +67,11 @@ export const productContactCenter: ProductContent = {
       },
       {
         title: 'Smart routing',
-        description: 'Skill-based i data-driven. Zákazník s vysokou hodnotou se dostane na seniora, německy mluvící zákazník k německy mluvícímu agentovi, nový zákazník na onboarding tým.',
+        description: 'Skill-based i data-driven. Zákazník s vysokou hodnotou se dostane na seniora, německy mluvící zákazník k německy mluvícímu operátorovi, nový zákazník na onboarding tým.',
         screenshot: '/product/cc-routing.png',
         icon: 'GitBranch',
         bullets: [
-          'Skill-based — dovednosti agenta dají pořadí',
+          'Skill-based — dovednosti operátora dají pořadí',
           'Data-driven — propojení s CRM hodnotami',
           'Priority queueing a callback pro dlouhé fronty',
         ],
@@ -87,7 +82,7 @@ export const productContactCenter: ProductContent = {
         screenshot: '/product/cc-supervisor.png',
         icon: 'Eye',
         bullets: [
-          'Dashboard výkonu per agent a per fronta',
+          'Dashboard výkonu per operátor a per fronta',
           'Whisper, barge-in a tichý náslech hovoru',
           'Alerty na překročení průměrného času',
         ],
@@ -100,7 +95,7 @@ export const productContactCenter: ProductContent = {
         bullets: [
           'Prediktivní dialer s answer detection',
           'Import kampaní z XLSX / CRM',
-          'Reporting výsledků per agent a per kampaň',
+          'Reporting výsledků per operátor a per kampaň',
         ],
       },
       {
@@ -142,10 +137,10 @@ export const productContactCenter: ProductContent = {
       {
         category: 'Škálovatelnost',
         items: [
-          { label: 'Minimum agentů', value: '5' },
-          { label: 'Maximum agentů', value: '500+' },
+          { label: 'Minimum operátorů', value: '1' },
+          { label: 'Maximum operátorů', value: '500+' },
           { label: 'Počet kanálů', value: 'Neomezeně' },
-          { label: 'Jazyky agentů', value: 'Čeština, slovenština, angličtina, další na vyžádání' },
+          { label: 'Jazyky operátorů', value: 'Čeština, slovenština, angličtina, další na vyžádání' },
         ],
       },
       {
@@ -178,11 +173,5 @@ export const productContactCenter: ProductContent = {
         icon: 'Phone',
       },
     ],
-  },
-
-  pricingReference: {
-    priceFrom: 'Od 890 Kč / agent / měsíc',
-    ctaLabel: 'Zobrazit detail ceny',
-    ctaHref: '/cenik#contact-center',
   },
 };

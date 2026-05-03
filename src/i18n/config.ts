@@ -20,7 +20,6 @@ import { common as csCommon } from '@/content/cs/common';
 import { home as csHome } from '@/content/cs/home';
 import { productContactCenter as csProductCC } from '@/content/cs/product-cc';
 import { productCalling as csProductCalling } from '@/content/cs/product-calling';
-import { pricing as csPricing } from '@/content/cs/pricing';
 import { contact as csContact } from '@/content/cs/contact';
 
 import type { Locale } from '@/content/types';
@@ -33,7 +32,6 @@ const resources = {
     home: csHome as unknown as Record<string, unknown>,
     productContactCenter: csProductCC as unknown as Record<string, unknown>,
     productCalling: csProductCalling as unknown as Record<string, unknown>,
-    pricing: csPricing as unknown as Record<string, unknown>,
     contact: csContact as unknown as Record<string, unknown>,
   },
   // EN bude přidáno až bude content hotový — viz src/content/en/README.md

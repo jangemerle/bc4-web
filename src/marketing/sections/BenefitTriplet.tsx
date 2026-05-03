@@ -29,7 +29,7 @@ export function BenefitTriplet({ content }: BenefitTripletProps) {
             hidden: {},
             visible: { transition: { staggerChildren: 0.08 } },
           }}
-          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
         >
           {content.items.map(item => {
             const Icon = (Icons[item.icon as keyof typeof Icons] as LucideIcon | undefined) ?? Icons.Sparkles;

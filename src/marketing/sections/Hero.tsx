@@ -90,11 +90,6 @@ export function Hero({ content }: HeroProps) {
                   <span className="font-medium">{badge.label}</span>
                 </li>
               ))}
-              <li className="inline-flex items-center gap-1.5">
-                <span className="font-mono text-xs text-[var(--color-on-surface-subtle-2)]">
-                  Od 490 Kč / agent / měsíc
-                </span>
-              </li>
             </motion.ul>
           </div>
 
@@ -105,7 +100,7 @@ export function Hero({ content }: HeroProps) {
             transition={{ duration: 0.6, delay: 0.1, ease: [0, 0, 0.2, 1] }}
             className="relative"
           >
-            <div className="relative overflow-hidden rounded-m border border-[var(--color-border)] bg-[var(--color-surface-1)] shadow-2xl">
+            <div className="relative">
               <HeroVisual src={content.heroVisual.src} alt={content.heroVisual.alt} />
               {/* Play overlay — naznačuje, že hero vizuál vede k video ukázce */}
               <a

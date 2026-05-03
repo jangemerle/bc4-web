@@ -99,25 +99,6 @@ export interface Segment {
   href?: string;
 }
 
-export interface PricingTier {
-  /** Identifikátor pro tracking a selection */
-  id: string;
-  /** Zobrazovaný název — "Volání", "Kontaktní centrum", "Business" */
-  name: string;
-  /** Eyebrow label — např. "Pro začínající týmy" */
-  eyebrow?: string;
-  /** Cena jako string (obsahuje měnu a jednotku) — např. "Od 490 Kč / agent / měsíc" */
-  price: string;
-  /** Vysvětlení ceny pod hlavní cenou */
-  priceNote?: string;
-  /** Klíčové features — seznam řetězců, první řádek nejdůležitější */
-  features: string[];
-  /** Primary CTA per tier */
-  cta: CTA;
-  /** Highlight jako "Doporučené" — max jeden tier na stránku */
-  highlighted?: boolean;
-}
-
 export interface NavItem {
   label: string;
   href: string;
@@ -255,6 +236,11 @@ export interface HomeContent {
       icon: string;
       /** Volitelný odkaz "více o funkci" na produktovou stránku */
       learnMoreHref?: string;
+      /** Odkazy na oficiální mobilní apky — vykreslí se App Store a Google Play badge */
+      appStoreLinks?: {
+        appStore?: string;
+        googlePlay?: string;
+      };
     }>;
   };
   productVideo: {
@@ -283,7 +269,7 @@ export interface HomeContent {
     eyebrow?: string;
     headline: string;
     tiers: Array<{
-      tier: 1 | 2 | 3;
+      tier: 1 | 2 | 3 | 4;
       /** Název úrovně — "Volání", "Kontaktní centrum", "AI" */
       title: string;
       /** Krátký popis čemu úroveň slouží */
@@ -401,48 +387,6 @@ export interface ProductContent {
       icon: string;
     }>;
   };
-  pricingReference: {
-    /** Text jako "Od 490 Kč / agent / měsíc" */
-    priceFrom: string;
-    ctaLabel: string;
-    ctaHref: string;
-  };
-}
-
-// ─── Pricing page ───────────────────────────────────────────────────────────
-
-export interface PricingContent {
-  seo: SEOMeta;
-  hero: {
-    eyebrow?: string;
-    headline: string;
-    subheadline: string;
-  };
-  model: {
-    /** 1–2 věty vysvětlení per-agent modelu */
-    explanation: string;
-    /** Minimální podmínky (např. "Minimum 5 agentů") */
-    fineprint?: string[];
-  };
-  tiers: PricingTier[];
-  addOns: {
-    headline: string;
-    items: Array<{
-      name: string;
-      description: string;
-      price: string;
-      icon: string;
-    }>;
-  };
-  faq: {
-    headline: string;
-    items: FAQItem[];
-  };
-  customPlan: {
-    headline: string;
-    subheadline: string;
-    cta: CTA;
-  };
 }
 
 // ─── Contact page ───────────────────────────────────────────────────────────
@@ -509,6 +453,8 @@ export interface LeadFormContent {
     notePlaceholder: string;
     submitLabel: string;
     disclaimer: string;
+    /** Suffix připojený k labelu nepovinných polí (např. "(nepovinné)") */
+    optionalHint: string;
   };
   /** Chybové hlášky */
   errors: {
@@ -551,7 +497,6 @@ export interface LocaleContent {
   productContactCenter: ProductContent;
   productCalling: ProductContent;
   productAi: ProductContent; // Vlna 2
-  pricing: PricingContent;
   contact: ContactContent;
   leadForm: LeadFormContent;
   leadFormSubmitted: LeadFormSubmittedContent;

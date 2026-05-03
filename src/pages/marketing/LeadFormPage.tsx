@@ -29,9 +29,10 @@ const formContent = {
     gdprLabel: 'Souhlasím se zpracováním osobních údajů pro účely této poptávky',
     noteToggleLabel: 'Máte konkrétní otázku?',
     noteLabel: 'Vaše otázka nebo poznámka',
-    notePlaceholder: 'Např. Funguje to s naším Salesforce? Máme 25 agentů a chceme začít s callbackem. Jaká je doba nasazení?',
+    notePlaceholder: 'Např. Funguje to s naším Salesforce? Máme 25 operátorů a chceme začít s callbackem. Jaká je doba nasazení?',
     submitLabel: 'Odeslat poptávku',
     disclaimer: 'Ozveme se obvykle do pár minut v pracovní době (Po–Pá 8–17).',
+    optionalHint: '(nepovinné)',
   },
   errors: {
     icoInvalid: '',

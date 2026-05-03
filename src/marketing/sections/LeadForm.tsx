@@ -25,13 +25,12 @@
  */
 
 import { useState, useRef, useId } from 'react';
-import { useForm, Controller } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { motion, AnimatePresence } from 'motion/react';
 import { CheckCircle2, ArrowRight, Plus } from 'lucide-react';
 import { Input } from '@/components/Input';
 import { TextArea } from '@/components/TextArea';
-import { Checkbox } from '@/components/Checkbox';
 import { Button } from '@/components/Button';
 import { leadFormSchema, type LeadFormData, type AresResponse, type LeadSubmissionResponse } from '@/marketing/forms/leadForm.schema';
 import type { LeadFormContent } from '@/content/types';
@@ -56,17 +55,15 @@ export function LeadForm({ content, source, onSubmitSuccess }: LeadFormProps) {
   const {
     register,
     handleSubmit,
-    control,
     formState: { errors, isSubmitting },
   } = useForm<LeadFormData>({
     resolver: zodResolver(leadFormSchema),
     mode: 'onSubmit',
     defaultValues: {
-      ico: '',
       email: '',
       phone: '',
+      ico: '',
       // teamSize default undefined — nutí user explicit input, ne preselect
-      gdprConsent: undefined as unknown as true,
       honeypot: '',
       source,
       utm: readUTMFromStorage(),
@@ -172,24 +169,6 @@ export function LeadForm({ content, source, onSubmitSuccess }: LeadFormProps) {
         <input type="text" tabIndex={-1} autoComplete="off" {...register('honeypot')} />
       </div>
 
-      {/* IČ */}
-      <Input
-        label={content.form.icoLabel}
-        placeholder={content.form.icoPlaceholder}
-        caption={
-          aresStatus?.found && aresStatus.companyName
-            ? content.ares.companyFound.replace('{companyName}', aresStatus.companyName)
-            : aresStatus?.found === false
-              ? content.ares.companyNotFound
-              : content.form.icoHelper
-        }
-        invalid={!!errors.ico}
-        errorMessage={errors.ico?.message}
-        inputMode="numeric"
-        autoComplete="organization-id"
-        {...register('ico', { onBlur: handleIcoBlur })}
-      />
-
       {/* Email */}
       <Input
         label={content.form.emailLabel}
@@ -213,9 +192,10 @@ export function LeadForm({ content, source, onSubmitSuccess }: LeadFormProps) {
         {...register('phone')}
       />
 
-      {/* Počet lidí — používáme regular Input + valueAsNumber, NumberInput má jiný value type */}
+      {/* Počet lidí — volitelné, používáme regular Input + valueAsNumber */}
       <Input
         label={content.form.teamSizeLabel}
+        labelHint={content.form.optionalHint}
         placeholder={content.form.teamSizePlaceholder}
         type="number"
         inputMode="numeric"
@@ -224,21 +204,23 @@ export function LeadForm({ content, source, onSubmitSuccess }: LeadFormProps) {
         {...register('teamSize', { valueAsNumber: true })}
       />
 
-      {/* GDPR — Kvalt Checkbox je controlled (potřebuje checked + onChange),
-         takže místo register používáme Controller z RHF. */}
-      <Controller
-        name="gdprConsent"
-        control={control}
-        render={({ field }) => (
-          <Checkbox
-            label={content.form.gdprLabel}
-            checked={!!field.value}
-            onChange={(e) => field.onChange((e.target as HTMLInputElement).checked)}
-            onBlur={field.onBlur}
-            invalid={!!errors.gdprConsent}
-            errorMessage={errors.gdprConsent?.message}
-          />
-        )}
+      {/* IČ — volitelné, ARES lookup pomáhá obchoďákovi s přípravou */}
+      <Input
+        label={content.form.icoLabel}
+        labelHint={content.form.optionalHint}
+        placeholder={content.form.icoPlaceholder}
+        caption={
+          aresStatus?.found && aresStatus.companyName
+            ? content.ares.companyFound.replace('{companyName}', aresStatus.companyName)
+            : aresStatus?.found === false
+              ? content.ares.companyNotFound
+              : content.form.icoHelper
+        }
+        invalid={!!errors.ico}
+        errorMessage={errors.ico?.message}
+        inputMode="numeric"
+        autoComplete="organization-id"
+        {...register('ico', { onBlur: handleIcoBlur })}
       />
 
       {/* Expandable textarea pro doplňující informace — collapsed by default
@@ -304,9 +286,18 @@ export function LeadForm({ content, source, onSubmitSuccess }: LeadFormProps) {
         {isSubmitting ? 'Odesílám…' : content.form.submitLabel}
       </Button>
 
-      {/* Disclaimer */}
+      {/* GDPR + disclaimer — souhlas implicitně kliknutím na submit */}
       <p className="text-sm text-[var(--color-on-surface-subtle-1)] text-center">
-        {content.form.disclaimer}
+        Kliknutím na „{content.form.submitLabel}" souhlasíte se{' '}
+        <a
+          href="/gdpr"
+          target="_blank"
+          rel="noopener"
+          className="underline underline-offset-2 hover:no-underline"
+        >
+          zpracováním osobních údajů
+        </a>
+        . {content.form.disclaimer}
       </p>
     </form>
     </div>

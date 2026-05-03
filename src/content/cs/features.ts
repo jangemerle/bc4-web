@@ -3,7 +3,7 @@
  *
  * Detailní přehled jednotlivých částí aplikace, inspirováno strukturou
  * bronet.cz/cs/bc4-call-centrum/. Hlubší než homepage FeatureShowcase —
- * pokrývá Agent Panel, Karta hovoru, Panel Front, Callback, Statistiky,
+ * pokrývá Panel operátora, Karta hovoru, Panel Front, Callback, Statistiky,
  * Supervizor, CDR, Reporty, Wallboard, Mobile Client, AI Voicebot.
  */
 
@@ -12,28 +12,23 @@ import type { ProductContent } from '../types';
 export const features: ProductContent = {
   seo: {
     title: 'Funkce | BC4Cloud',
-    description: 'Detailní přehled funkcí BC4Cloud — Agent Panel, smart routing, supervizor panel, wallboard, mobilní aplikace, AI voicebot a další.',
+    description: 'Detailní přehled funkcí BC4Cloud — Panel operátora, smart routing, supervizor panel, wallboard, mobilní aplikace, AI voicebot a další.',
     ogImage: '/og/features.png',
   },
 
   hero: {
     eyebrow: 'FUNKCE APLIKACE',
     headline: 'Co najdete v BC4Cloud.',
-    subheadline: 'Modulární kontaktní centrum, kde si zapnete jen to, co opravdu používáte. Tady je přehled hlavních částí aplikace, jak je vidí váš agent, supervizor i administrátor.',
+    subheadline: 'Modulární kontaktní centrum, kde si zapnete jen to, co opravdu používáte. Tady je přehled hlavních částí aplikace, jak je vidí váš operátor, supervizor i administrátor.',
     primaryCta: {
       label: 'Domluvit ukázku',
       href: '/poptavka?source=features_hero',
       trackingId: 'cta_features_hero',
     },
-    secondaryCta: {
-      label: 'Zobrazit cenu',
-      href: '/cenik',
-      trackingId: 'cta_features_pricing',
-    },
     heroVisual: {
       type: 'screenshot',
       src: '/product/bronet/Agent Panel 1.png',
-      alt: 'BC4 Agent Panel — fronty, příchozí hovor a historie front',
+      alt: 'BC4 Panel operátora — fronty, příchozí hovor a historie front',
     },
   },
 
@@ -47,11 +42,11 @@ export const features: ProductContent = {
       },
       {
         pain: 'Někdo potřebuje desktop, jiný mobil, recepce zase něco jiného.',
-        resolution: 'Agent Panel, Mobile Client, Office Panel a Wallboard — různé moduly pro různé role. V ceně tarifu.',
+        resolution: 'Panel operátora, Mobile Client, Office Panel a Wallboard — různé moduly pro různé role. V ceně tarifu.',
       },
       {
         pain: 'Změny v produktu vyžadují technika a týdenní čekání.',
-        resolution: 'Většinu nastavení (fronty, IVR, agentské pauzy, kategorie hovorů) si měníte sami v centrální administraci.',
+        resolution: 'Většinu nastavení (fronty, IVR, operátorské pauzy, kategorie hovorů) si měníte sami v centrální administraci.',
       },
     ],
   },
@@ -62,7 +57,7 @@ export const features: ProductContent = {
     subheadline: 'Modulární stavebnice — všechny moduly v ceně tarifu Kontaktní centrum, mnohé i v základním Volání.',
     items: [
       {
-        title: 'Agent Panel',
+        title: 'Panel operátora',
         description: 'Modul pro obsluhu příchozích i odchozích hovorů, emailů, chatů a zpráv. Hovory přes WebRTC z prohlížeče nebo přes CTI ovládání pevného telefonu.',
         screenshot: '/product/bronet/Agent Panel 1.png',
         icon: 'Monitor',
@@ -74,18 +69,18 @@ export const features: ProductContent = {
       },
       {
         title: 'Karta hovoru',
-        description: 'Detail aktivního i historického hovoru. Agent zapíše poznámku, vybere hlavní kategorii a podkategorii, vidí historii volajícího a souvislosti z CRM.',
+        description: 'Detail aktivního i historického hovoru. Operátor zapíše poznámku, vybere hlavní kategorii a podkategorii, vidí historii volajícího a souvislosti z CRM.',
         screenshot: '/product/bronet/imgBCCP-small-6.fa9b9904_3840.webp',
         icon: 'FileText',
         bullets: [
-          'Poznámky k hovoru přímo z agentského panelu',
+          'Poznámky k hovoru přímo z operátorského panelu',
           'Hierarchická kategorizace pro reporting',
           'Historie volajícího + RealTask integrace',
         ],
       },
       {
         title: 'Panel front',
-        description: 'Agent se jedním klikem přihlašuje a odhlašuje z front podle svých dovedností. Pauzy s typem (oběd, školení, administrativa) systém respektuje při směrování.',
+        description: 'Operátor se jedním klikem přihlašuje a odhlašuje z front podle svých dovedností. Pauzy s typem (oběd, školení, administrativa) systém respektuje při směrování.',
         screenshot: '/product/bronet/imgBCCP-small-5.4295f61b_3840.webp',
         icon: 'Users',
         bullets: [
@@ -96,7 +91,7 @@ export const features: ProductContent = {
       },
       {
         title: 'Callback',
-        description: 'Zmeškané hovory a vyžádaná zpětná volání s možností přímého vytočení a označení jako vyřízené. Agent ani zákazník nepřijde o hovor.',
+        description: 'Zmeškané hovory a vyžádaná zpětná volání s možností přímého vytočení a označení jako vyřízené. Operátor ani zákazník nepřijde o hovor.',
         screenshot: '/product/bronet/imgBCCP-small-8.16ab9de4_3840.webp',
         icon: 'PhoneOutgoing',
         bullets: [
@@ -107,24 +102,24 @@ export const features: ProductContent = {
       },
       {
         title: 'Osobní statistiky',
-        description: 'Agent vidí svůj denní výkon — kolik hovorů přijal, kolik odbavil, jak dlouho byl ve frontě. Bez čekání na pondělní reporting.',
+        description: 'Operátor vidí svůj denní výkon — kolik hovorů přijal, kolik odbavil, jak dlouho byl ve frontě. Bez čekání na pondělní reporting.',
         screenshot: '/product/bronet/imgBCCP-small-9.6872f063_3840.webp',
         icon: 'BarChart3',
         bullets: [
-          'Denní souhrn agenta v aplikaci',
+          'Denní souhrn operátora v aplikaci',
           'Pie chart obsazení (hovor / pauza / volný)',
           'Souhrn pauz s typy',
         ],
       },
       {
         title: 'Supervizor Panel',
-        description: 'Vedoucí KC vidí v reálném čase celé centrum — KPI, fronty, agenty, kampaně. Tichý příposlech ongoing hovorů a okamžité akce.',
+        description: 'Vedoucí KC vidí v reálném čase celé centrum — KPI, fronty, operátory, kampaně. Tichý příposlech ongoing hovorů a okamžité akce.',
         screenshot: '/product/bronet/imgBCCP-full-3.d9e80df0_3840.webp',
         icon: 'Eye',
         bullets: [
           'KPI nahoře: celkem, dovolané, nedovolané, service level',
           'Tichý příposlech aktivních hovorů',
-          'Filtrování podle stavu (aktivní, čekající, agenti, fronty)',
+          'Filtrování podle stavu (aktivní, čekající, operátoři, fronty)',
         ],
       },
       {
@@ -140,11 +135,11 @@ export const features: ProductContent = {
       },
       {
         title: 'Reporty',
-        description: 'Výkonnostní reporty agentů, front a kampaní. Připravené pohledy plus měsíční report pro vedení.',
+        description: 'Výkonnostní reporty operátorů, front a kampaní. Připravené pohledy plus měsíční report pro vedení.',
         screenshot: '/product/bronet/imgBCCP-full-5.844b210b_3840.webp',
         icon: 'TrendingUp',
         bullets: [
-          'Report agentů, front, odchozích kampaní',
+          'Report operátorů, front, odchozích kampaní',
           'Měsíční reporty pro vedení',
           'Export a sdílení',
         ],
@@ -168,12 +163,12 @@ export const features: ProductContent = {
         bullets: [
           'Android + iOS aplikace',
           'VPN-less díky integrovanému SBC',
-          'Stejné funkce jako desktop Agent Panel',
+          'Stejné funkce jako desktop Panel operátora',
         ],
       },
       {
         title: 'AI Voicebot s ChatGPT',
-        description: 'Konverzační AI napojená na ChatGPT a vaše vlastní data. Vyřídí rutinní dotazy 24/7. Když nestačí, předá hovor agentovi s kontextem.',
+        description: 'Konverzační AI napojená na ChatGPT a vaše vlastní data. Vyřídí rutinní dotazy 24/7. Když nestačí, předá hovor operátorovi s kontextem.',
         screenshot: '/product/bronet/imgBCCP-small-4.05c00ce2_3840.webp',
         icon: 'Sparkles',
         bullets: [
@@ -220,11 +215,5 @@ export const features: ProductContent = {
         icon: 'Sparkles',
       },
     ],
-  },
-
-  pricingReference: {
-    priceFrom: 'Od 490 Kč / agent / měsíc',
-    ctaLabel: 'Zobrazit detail ceny',
-    ctaHref: '/cenik',
   },
 };

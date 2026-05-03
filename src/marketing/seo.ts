@@ -32,7 +32,7 @@ interface SEOOptions {
 /**
  * Hook pro nastavení všech SEO meta tagů aktuální stránky.
  * @param meta — SEO objekt z content file
- * @param path — aktuální URL path (bez locale prefixu, např. "/cenik")
+ * @param path — aktuální URL path (bez locale prefixu, např. "/funkce")
  * @param options — locale, alternates pro hreflang
  */
 export function useSEO(meta: SEOMeta, path: string, options: SEOOptions = {}): void {

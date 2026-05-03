@@ -19,7 +19,6 @@ export const common: CommonContent = {
   nav: {
     primary: [
       { label: 'Funkce', href: '/funkce' },
-      { label: 'Ceník', href: '/cenik' },
       { label: 'Kontakt', href: '/kontakt' },
     ],
     primaryCta: {
@@ -35,7 +34,6 @@ export const common: CommonContent = {
         title: 'Produkt',
         links: [
           { label: 'Funkce', href: '/funkce' },
-          { label: 'Ceník', href: '/cenik' },
           { label: 'Kontakt', href: '/kontakt' },
         ],
       },

@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import * as Icons from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
-import { ArrowRight } from 'lucide-react';
 import { useSEO } from '@/marketing/seo';
 import { features } from '@/content/cs/features';
 import { Container } from '@/marketing/primitives/Container';

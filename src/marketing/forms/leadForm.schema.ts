@@ -20,11 +20,6 @@ import { z } from 'zod';
 // uložením do CRM, ARES lookup napoví, zda IČ dává smysl.
 
 export const leadFormSchema = z.object({
-  ico: z
-    .string()
-    .trim()
-    .min(1, 'Vyplňte IČ'),
-
   email: z
     .string()
     .trim()
@@ -35,13 +30,12 @@ export const leadFormSchema = z.object({
     .trim()
     .min(1, 'Vyplňte telefon'),
 
-  teamSize: z
-    .number({ error: 'Vyplňte počet lidí' })
-    .min(1, 'Vyplňte počet lidí'),
+  teamSize: z.preprocess(
+    (v) => (typeof v === 'number' && Number.isNaN(v) ? undefined : v),
+    z.number().min(1).optional(),
+  ),
 
-  gdprConsent: z.literal(true, {
-    error: 'Potřebujeme váš souhlas',
-  }),
+  ico: z.string().trim().optional(),
 
   /** Volitelná otázka / poznámka — collapsed by default, lift na lead quality */
   note: z.string().max(2000).optional(),
