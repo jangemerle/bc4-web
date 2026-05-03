@@ -271,6 +271,7 @@ export const home: HomeContent = {
   howItWorks: {
     eyebrow: 'JAK TO FUNGUJE',
     headline: '4 úrovně. Začnete tam, kde to dává smysl.',
+    subheadline: 'Volání a Kontaktní centrum jsou základní úrovně. AI a Integrace jsou přídavné moduly — přidáte je k libovolné úrovni, kdykoli to bude potřeba.',
     tiers: [
       {
         tier: 1,
@@ -299,7 +300,7 @@ export const home: HomeContent = {
       {
         tier: 3,
         title: 'AI',
-        description: 'Voicebot a chatbot pro rutinní dotazy, speech analytics pro každý hovor. Operátoři se věnují složitým věcem, AI řeší ty opakované.',
+        description: 'Modul nad Voláním i Kontaktním centrem. Voicebot a chatbot pro rutinní dotazy, speech analytics pro každý hovor. Operátoři se věnují složitým věcem, AI řeší ty opakované.',
         features: [
           'Voicebot — ověření identity, rezervace, směrování hovorů',
           'Chatbot napojený na ChatGPT a vaše vlastní data',
@@ -307,17 +308,19 @@ export const home: HomeContent = {
           'Sentiment analýza a detekce rizikových konverzací',
         ],
         learnMoreHref: '/produkt/ai-voicebot',
+        addOn: true,
       },
       {
         tier: 4,
         title: 'Integrace',
-        description: 'Ústředna se napojí na CRM, ERP, ticketing nebo nemocniční informační systém. Kontakty tečou dovnitř, záznamy o hovorech zpátky — bez ručního přepisování.',
+        description: 'Modul, který napojí libovolnou úroveň na CRM, ERP, ticketing nebo nemocniční informační systém. Kontakty tečou dovnitř, záznamy o hovorech zpátky — bez ručního přepisování.',
         features: [
           'Import kontaktů z CRM, ERP, ticketing nebo NIS',
           'Záznamy hovorů (kdo, kdy, výsledek) zpět do CRM',
           'REST API a webhooks pro vlastní integrace',
           'Hotové konektory: MS Teams, SAP, Salesforce, HubSpot',
         ],
+        addOn: true,
         learnMoreHref: '/funkce',
       },
     ],

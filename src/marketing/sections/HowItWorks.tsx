@@ -20,7 +20,7 @@ export function HowItWorks({ content }: HowItWorksProps) {
       <Container width="wide">
         <div className="mb-14 flex flex-col items-center text-center gap-3">
           {content.eyebrow && <EyebrowLabel>{content.eyebrow}</EyebrowLabel>}
-          <SectionHeading size="xl" center id="how-it-works-headline">
+          <SectionHeading size="xl" center id="how-it-works-headline" subheadline={content.subheadline}>
             {content.headline}
           </SectionHeading>
         </div>
@@ -41,8 +41,22 @@ export function HowItWorks({ content }: HowItWorksProps) {
               }}
               className="flex flex-col rounded-m border border-[var(--color-border)] bg-[var(--color-surface-1)] p-7 transition hover:border-[var(--color-primary-1)] hover:shadow-lg"
             >
-              <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded-m bg-[var(--color-primary-1)] text-sm font-bold text-[var(--color-on-primary)]">
-                {tier.tier}
+              <div className="mb-4 flex items-center gap-2">
+                <div
+                  className={[
+                    'inline-flex h-9 w-9 items-center justify-center rounded-m text-sm font-bold',
+                    tier.addOn
+                      ? 'border border-[var(--color-border-strong)] bg-[var(--color-surface-2)] text-[var(--color-on-surface-subtle-1)]'
+                      : 'bg-[var(--color-primary-1)] text-[var(--color-on-primary)]',
+                  ].join(' ')}
+                >
+                  {tier.tier}
+                </div>
+                {tier.addOn && (
+                  <span className="text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--color-on-secondary-1)]">
+                    Přídavný modul
+                  </span>
+                )}
               </div>
               <h3
                 className="mb-2 font-display text-2xl font-extrabold text-[var(--color-on-surface)]"

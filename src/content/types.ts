@@ -268,6 +268,8 @@ export interface HomeContent {
   howItWorks: {
     eyebrow?: string;
     headline: string;
+    /** Subheadline — vysvětlí strukturu (core úrovně vs. přídavné moduly) */
+    subheadline?: string;
     tiers: Array<{
       tier: 1 | 2 | 3 | 4;
       /** Název úrovně — "Volání", "Kontaktní centrum", "AI" */
@@ -278,6 +280,8 @@ export interface HomeContent {
       features: string[];
       /** Link na dedicated product page */
       learnMoreHref: string;
+      /** True = přídavný modul (kombinuje se s libovolnou core úrovní) */
+      addOn?: boolean;
     }>;
   };
   segments: {
