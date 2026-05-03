@@ -29,6 +29,8 @@ export interface InputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
   /** Label text above the field */
   label?: string;
+  /** Optional muted suffix shown next to the label (e.g. "(volitelné)") */
+  labelHint?: string;
   /** Helper text below the field */
   caption?: string;
   /** Error message — shown instead of caption when invalid */
@@ -100,6 +102,7 @@ const sizeConfig: Record<InputSize, {
 export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
   {
     label,
+    labelHint,
     caption,
     errorMessage,
     invalid = false,
@@ -152,6 +155,17 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
       {label && (
         <FormLabel htmlFor={id} size={size} disabled={disabled} readOnly={readOnly}>
           {label}
+          {labelHint && (
+            <span
+              style={{
+                color: 'var(--color-on-surface-subtle-1)',
+                fontWeight: 400,
+                marginLeft: '0.4em',
+              }}
+            >
+              {labelHint}
+            </span>
+          )}
         </FormLabel>
       )}
 
