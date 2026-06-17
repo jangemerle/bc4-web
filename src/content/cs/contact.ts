@@ -16,7 +16,7 @@ export const contact: ContactContent = {
 
   hero: {
     eyebrow: 'KONTAKT',
-    headline: 'Ozvěte se tak, jak vám to vyhovuje.',
+    headline: 'Pojďme to probrat.',
   },
 
   channels: [
