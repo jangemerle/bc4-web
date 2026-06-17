@@ -16,7 +16,7 @@ export const productContactCenter: ProductContent = {
 
   hero: {
     eyebrow: 'KONTAKTNÍ CENTRUM',
-    headline: 'Jedno okno pro všechno, co vám zákazníci napíší.',
+    headline: 'Jedno okno pro všechno, co vám zákazníci napíší',
     subheadline: 'Telefon, email, chat, SMS, WhatsApp a Messenger. Jedna historie, jeden smart routing, jedna aplikace. Operátor nepřeskakuje mezi 5 okny a zákazník neříká poprvé to samé.',
     primaryCta: {
       label: 'Domluvit ukázku',
@@ -32,7 +32,7 @@ export const productContactCenter: ProductContent = {
 
   painPoints: {
     eyebrow: 'CO TO ŘEŠÍ',
-    headline: '3 vzorce, co vám kradou čas každý den.',
+    headline: '3 vzorce, co vám kradou čas každý den',
     items: [
       {
         pain: 'Zákazník napíše na email, pak zavolá, pak zase na WhatsApp. Pokaždé začíná od začátku.',
@@ -51,7 +51,7 @@ export const productContactCenter: ProductContent = {
 
   features: {
     eyebrow: 'CO V TOM JE',
-    headline: 'Funkce, co skutečně používáte.',
+    headline: 'Funkce, co skutečně používáte',
     subheadline: 'Žádné pomlácené "enterprise features" schované pod 3 menu. Všechno, co zmíníme, najdete za 2 kliky.',
     items: [
       {
@@ -114,7 +114,7 @@ export const productContactCenter: ProductContent = {
 
   technicalSpecs: {
     eyebrow: 'TECHNICKÉ PARAMETRY',
-    headline: 'Pro váš IT tým.',
+    headline: 'Pro váš IT tým',
     specs: [
       {
         category: 'Nasazení',

@@ -73,7 +73,7 @@ export const common: CommonContent = {
     ],
   },
   preFooterCta: {
-    headline: 'Ať vám přestanou utíkat hovory.',
+    headline: 'Ať vám přestanou utíkat hovory',
     subheadline: 'Ukážeme vám BC4Cloud na reálném příkladu, který sedí vašemu byznysu. Bez prodejních skriptů, bez závazku.',
     cta: {
       label: 'Domluvit ukázku',

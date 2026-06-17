@@ -20,7 +20,7 @@ export const home: HomeContent = {
   },
 
   hero: {
-    headline: 'Rychlejší zákaznická podpora bez chaosu a zbytečného čekání.',
+    headline: 'Rychlejší zákaznická podpora bez chaosu a zbytečného čekání',
     subheadline: 'BC4Cloud sjednocuje hovory, e-maily i chat do jednoho prostředí. Díky tomu zvýšíte efektivitu podpory až o 40 %, zrychlíte odbavení zákazníků a získáte plnou kontrolu nad komunikací.',
     primaryCta: {
       label: 'Domluvit ukázku',
@@ -93,7 +93,7 @@ export const home: HomeContent = {
 
   benefits: {
     eyebrow: 'CO VÁM BC4CLOUD PŘINESE',
-    headline: '4 starosti, které vás přestanou budit ve 4 ráno.',
+    headline: '4 starosti, které vás přestanou budit ve 4 ráno',
     items: [
       {
         title: 'Lepší zákaznická zkušenost',
@@ -120,7 +120,7 @@ export const home: HomeContent = {
 
   productShowcase: {
     eyebrow: 'TAKHLE TO VYPADÁ V PRAXI',
-    headline: 'Jedno okno pro všechno, co vám zákazníci napíší.',
+    headline: 'Jedno okno pro všechno, co vám zákazníci napíší',
     subheadline: 'Panel operátora sjednocuje hovory, chaty, emaily a WhatsApp. Historie, skript, kontaktní akce — vedle sebe, nic se neskrývá pod 3 kliky.',
     screenshot: {
       src: '/product/agent-panel-annotated.png',
@@ -131,14 +131,14 @@ export const home: HomeContent = {
 
   featureShowcase: {
     eyebrow: 'FUNKCE, CO SKUTEČNĚ POUŽIJETE',
-    headline: '5 věcí, které vám ušetří nejvíc času každý den.',
+    headline: '5 věcí, které vám ušetří nejvíc času každý den',
     subheadline: 'Vybrali jsme funkce, na které se vaši operátoři i vy budete dívat nejčastěji. Všechny v ceně tarifu Kontaktní centrum.',
     items: [
       {
         id: 'agent-panel',
         title: 'Panel operátora',
         eyebrow: 'OMNICHANNEL INBOX',
-        headline: 'Hovor, SMS a WhatsApp v jedné obrazovce.',
+        headline: 'Hovor, SMS a WhatsApp v jedné obrazovce',
         description: 'Operátor nepřeskakuje mezi aplikacemi. Hovor, SMS i vlákno z WhatsAppu má vedle sebe. Karta zákazníka s historií z CRM naskočí v okamžiku přijetí — žádné „počkejte, prověřím to v ERPku".',
         highlights: [
           'WebRTC dialer — volání z prohlížeče, bez instalace',
@@ -157,7 +157,7 @@ export const home: HomeContent = {
         id: 'smart-routing',
         title: 'Smart routing',
         eyebrow: 'ROUTING A CALL FLOW',
-        headline: 'Hovor jde tam, kam má. Podle pravidel, ne podle náhody.',
+        headline: 'Hovor jde tam, kam má — podle pravidel, ne podle náhody',
         description: 'Vy nastavíte pravidla v call flow, systém je dodrží u každého hovoru. Podle času, čísla volajícího, předvolby i historie. Když operátor nevezme nebo má dovolenou, hovor padá dál — nikdy nezmizí do ztracena.',
         highlights: [
           'Mimo pracovní dobu → hláška a callback ráno, ne vyzvánění do prázdna',
@@ -175,7 +175,7 @@ export const home: HomeContent = {
         id: 'supervizor-panel',
         title: 'Supervizor Panel + Wallboard',
         eyebrow: 'MONITORING A KOUČOVÁNÍ',
-        headline: 'Vidíte, co se děje, hned jak se to děje.',
+        headline: 'Vidíte, co se děje, hned jak se to děje',
         description: 'Real-time monitoring i historical reporting v jednom. 360° pohled na celé kontaktní centrum, náslech ongoing hovorů pro koučování, wallboard pro velký displej v open-space.',
         highlights: [
           'Real-time dashboard per operátor, per fronta, per směna',
@@ -194,7 +194,7 @@ export const home: HomeContent = {
         id: 'ai-voicebot',
         title: 'AI Voicebot s ChatGPT',
         eyebrow: 'AI AUTOMATIZACE',
-        headline: 'Voicebot, který umí vaši firmu.',
+        headline: 'Voicebot, který umí vaši firmu',
         description: 'Konverzační AI napojená na ChatGPT, trénovaná na vašich datech. Vyřídí rutinní dotazy. Když nestačí, předá hovor operátorovi s kontextem. Bonus: každý hovor přepíšeme do textu a vyhodnotíme sentiment.',
         highlights: [
           'Voicebot a chatbot napojené na ChatGPT',
@@ -213,7 +213,7 @@ export const home: HomeContent = {
         id: 'mobile-client',
         title: 'Mobile Client',
         eyebrow: 'MOBILITA, BEZ VPN',
-        headline: 'Operátor volá z mobilu jako z kanceláře.',
+        headline: 'Operátor volá z mobilu jako z kanceláře',
         description: 'Oficiální aplikace BC4 Agent Panel v App Store a Google Play — pro iOS i Android. Stejné funkce jako desktop Panel operátora: fronty, callback, kontakty, transfer. Bez VPN díky integrovanému SBC. Pro terénní techniky, hybridní práci nebo pohotovost.',
         highlights: [
           'Stáhnete přímo z App Store a Google Play, instalace za minutu',
@@ -236,7 +236,7 @@ export const home: HomeContent = {
 
   productVideo: {
     eyebrow: 'VIDEO UKÁZKA',
-    headline: 'Minuta a víte, jak BC4Cloud běží.',
+    headline: 'Minuta a víte, jak BC4Cloud běží',
     // TODO: po nahrání videa vyměnit. Self-hosted MP4 nebo YouTube/Vimeo URL.
     // Příklad self-hosted: '/videos/bc4-showcase.mp4'
     // Příklad YouTube embed: 'https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbranding=1'
@@ -270,7 +270,7 @@ export const home: HomeContent = {
 
   howItWorks: {
     eyebrow: 'JAK TO FUNGUJE',
-    headline: '4 úrovně. Začnete tam, kde to dává smysl.',
+    headline: '4 úrovně — začnete tam, kde to dává smysl',
     subheadline: 'Volání a Kontaktní centrum jsou základní úrovně. AI a Integrace jsou přídavné moduly — přidáte je k libovolné úrovni, kdykoli to bude potřeba.',
     tiers: [
       {
@@ -328,7 +328,7 @@ export const home: HomeContent = {
 
   segments: {
     eyebrow: 'PRO JAKÉ FIRMY',
-    headline: 'Pro firmy všech velikostí a oborů. Od 1 operátora po velká call centra.',
+    headline: 'Pro firmy všech velikostí a oborů — od 1 operátora po velká call centra',
     subheadline: 'BC4Cloud roste s vámi — ať řešíte desítky nebo tisíce hovorů denně.',
     items: [
       {
@@ -365,7 +365,7 @@ export const home: HomeContent = {
 
   testimonials: {
     eyebrow: 'CO ŘÍKAJÍ ZÁKAZNÍCI',
-    headline: 'Slovem těch, co BC4Cloud denně používají.',
+    headline: 'Slovem těch, co BC4Cloud denně používají',
     subheadline: '3 hlasy z různých odvětví. Konkrétní čísla, ne marketingové fráze.',
     // TODO: nahradit reálnými citacemi se jménem, fotkou, firmou a souhlasem
     // se zveřejněním. Šablona zachovává Baymard pattern: jméno + pozice + firma
@@ -400,7 +400,7 @@ export const home: HomeContent = {
 
   inlineLeadForm: {
     eyebrow: 'DOMLUVIT UKÁZKU',
-    headline: 'Ukážeme, jak to funguje u vás.',
+    headline: 'Ukážeme, jak to funguje u vás',
     // Subheadline odstraněn — disclaimer pod submit tlačítkem řeší totéž
     // ("Ozveme se obvykle do pár minut v pracovní době Po–Pá 8–17").
     subheadline: '',
@@ -408,7 +408,7 @@ export const home: HomeContent = {
 
   whyUs: {
     eyebrow: 'PROČ S NÁMI',
-    headline: 'BusinessCom — 20+ let v české telekomunikaci.',
+    headline: 'BusinessCom — 20+ let v české telekomunikaci',
     reasons: [
       {
         title: 'Česká podpora. Mluví s vámi člověk.',
@@ -435,7 +435,7 @@ export const home: HomeContent = {
 
   faq: {
     eyebrow: 'ČASTÉ OTÁZKY',
-    headline: 'Na co se ptají před podpisem.',
+    headline: 'Na co se ptají před podpisem',
     items: [
       {
         question: 'Jak dlouho trvá nasazení?',

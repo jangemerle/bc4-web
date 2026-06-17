@@ -18,7 +18,7 @@ export const features: ProductContent = {
 
   hero: {
     eyebrow: 'FUNKCE APLIKACE',
-    headline: 'Co najdete v BC4Cloud.',
+    headline: 'Co najdete v BC4Cloud',
     subheadline: 'Modulární kontaktní centrum, kde si zapnete jen to, co opravdu používáte. Tady je přehled hlavních částí aplikace, jak je vidí váš operátor, supervizor i administrátor.',
     primaryCta: {
       label: 'Domluvit ukázku',
@@ -34,7 +34,7 @@ export const features: ProductContent = {
 
   painPoints: {
     eyebrow: 'JAK TO POSKLÁDÁTE',
-    headline: 'Začnete s Voláním. Doplníte podle potřeby.',
+    headline: 'Začnete s Voláním, doplníte podle potřeby',
     items: [
       {
         pain: 'Nechcete platit za funkce, které nikdo nepoužívá.',
@@ -53,7 +53,7 @@ export const features: ProductContent = {
 
   features: {
     eyebrow: 'PŘEHLED MODULŮ',
-    headline: 'Hlavní části aplikace.',
+    headline: 'Hlavní části aplikace',
     subheadline: 'Modulární stavebnice — všechny moduly v ceně tarifu Kontaktní centrum, mnohé i v základním Volání.',
     items: [
       {

@@ -16,7 +16,7 @@ export const productCalling: ProductContent = {
 
   hero: {
     eyebrow: 'VOLÁNÍ',
-    headline: 'Ústředna, co nepotřebuje místnost v suterénu.',
+    headline: 'Ústředna, co nepotřebuje místnost v suterénu',
     subheadline: 'Cloudová náhrada analogové ústředny. Přehled všech hovorů, nahrávky, IVR, statistiky — všechno z prohlížeče. Operátoři volají z počítače nebo mobilu, vy vidíte, co se děje.',
     primaryCta: {
       label: 'Domluvit ukázku',
@@ -32,7 +32,7 @@ export const productCalling: ProductContent = {
 
   painPoints: {
     eyebrow: 'PROČ NÁHRADU',
-    headline: 'Stará ústředna vám krade víc, než si myslíte.',
+    headline: 'Stará ústředna vám krade víc, než si myslíte',
     items: [
       {
         pain: 'Stará ústředna dosluhuje a výrobce už nevydává aktualizace. IT stresuje, kdy to spadne natrvalo.',
@@ -51,7 +51,7 @@ export const productCalling: ProductContent = {
 
   features: {
     eyebrow: 'CO UMÍ',
-    headline: 'Všechno, co potřebujete. Nic navíc.',
+    headline: 'Všechno, co potřebujete — nic navíc',
     items: [
       {
         title: 'Dashboard a reporting',
@@ -88,7 +88,7 @@ export const productCalling: ProductContent = {
 
   technicalSpecs: {
     eyebrow: 'TECHNICKÉ PARAMETRY',
-    headline: 'Pro IT oddělení.',
+    headline: 'Pro IT oddělení',
     specs: [
       {
         category: 'Nasazení',

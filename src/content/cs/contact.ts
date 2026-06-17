@@ -16,7 +16,7 @@ export const contact: ContactContent = {
 
   hero: {
     eyebrow: 'KONTAKT',
-    headline: 'Pojďme to probrat.',
+    headline: 'Pojďme to probrat',
   },
 
   channels: [
