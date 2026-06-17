@@ -156,14 +156,14 @@ export const home: HomeContent = {
       {
         id: 'smart-routing',
         title: 'Smart routing',
-        eyebrow: 'ROUTING A FRONTY',
-        headline: 'Zákazník na správného operátora hned.',
-        description: 'Skill-based routing pošle hovor jen operátorovi, který má dovednosti. Data-driven routing využije údaje o zákazníkovi z CRM. Když všichni obsadí, zákazníkovi voláme zpět — nečeká ve frontě.',
+        eyebrow: 'ROUTING A CALL FLOW',
+        headline: 'Hovor jde tam, kam má. Podle pravidel, ne podle náhody.',
+        description: 'Vy nastavíte pravidla v call flow, systém je dodrží u každého hovoru. Podle času, čísla volajícího, předvolby i historie. Když operátor nevezme nebo má dovolenou, hovor padá dál — nikdy nezmizí do ztracena.',
         highlights: [
-          'Skill-based routing — podle dovedností operátora',
-          'Data-driven — využije údaje o zákazníkovi z CRM',
-          'Panel front — operátor se přihlásí jedním klikem, pauzy jsou součást',
-          'Callback queue — místo čekání zákazníkovi automaticky zavoláme zpět',
+          'Mimo pracovní dobu → hláška a callback ráno, ne vyzvánění do prázdna',
+          'Předvolba +49 → německá hláška a německy mluvící operátor',
+          'Stálý zákazník vždy na svého technika; když nevezme nebo má dovolenou, padá na centrálu',
+          'Číslo na blacklistu systém odmítne dřív, než kdokoli zvedne',
         ],
         screenshot: {
           src: '/product/bronet/imgBCCP-small-5.4295f61b_3840.webp',

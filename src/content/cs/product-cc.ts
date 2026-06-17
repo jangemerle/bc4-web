@@ -66,14 +66,14 @@ export const productContactCenter: ProductContent = {
         ],
       },
       {
-        title: 'Smart routing',
-        description: 'Skill-based i data-driven. Zákazník s vysokou hodnotou se dostane na seniora, německy mluvící zákazník k německy mluvícímu operátorovi, nový zákazník na onboarding tým.',
+        title: 'Routing a call flow',
+        description: 'Vy poskládáte pravidla ve vizuálním editoru, systém je dodrží u každého hovoru — podle času, předvolby, čísla volajícího i historie. Stálý zákazník jde vždy na svého technika; když nevezme nebo má dovolenou, hovor padá na centrálu.',
         screenshot: '/product/cc-routing.png',
         icon: 'GitBranch',
         bullets: [
-          'Skill-based — dovednosti operátora dají pořadí',
-          'Data-driven — propojení s CRM hodnotami',
-          'Priority queueing a callback pro dlouhé fronty',
+          'Time conditions — mimo pracovní dobu hláška a callback ráno',
+          'Routing podle předvolby — +49 na německou hlášku a operátora',
+          'Sticky agent s fallbackem — když technik nevezme, hovor jde dál',
         ],
       },
       {
