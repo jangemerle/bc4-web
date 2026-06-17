@@ -20,8 +20,8 @@ export const home: HomeContent = {
   },
 
   hero: {
-    headline: 'Spokojení zákazníci, vyšší konverze. Z jednoho kontaktního centra.',
-    subheadline: 'BC4Cloud sjednocuje telefony, emaily, chat a WhatsApp do jednoho okna. Vaši operátoři nepřeskakují mezi aplikacemi, zákazník čeká kratší dobu a vy vidíte, co se děje v reálném čase.',
+    headline: 'Rychlejší zákaznická podpora bez chaosu a zbytečného čekání.',
+    subheadline: 'BC4Cloud sjednocuje hovory, e-maily i chat do jednoho prostředí. Díky tomu zvýšíte efektivitu podpory až o 40 %, zrychlíte odbavení zákazníků a získáte plnou kontrolu nad komunikací.',
     primaryCta: {
       label: 'Domluvit ukázku',
       href: '/poptavka?source=home_hero',
@@ -276,7 +276,7 @@ export const home: HomeContent = {
       {
         tier: 1,
         title: 'Chytré volání',
-        description: 'Vaší staré analogové ústředně končí životnost? Cloudová náhrada bez nového hardwaru a bez investic. Nasadíme do 5 dnů, portujeme čísla, převezmeme provoz.',
+        description: 'Končí životnost vaší analogové ústředny? BC4 — moderní cloudová náhrada bez nového hardwaru. Rychlé a snadné nasazení bez investic a složitého IT.',
         features: [
           'Přehled všech příchozích i odchozích hovorů v reálném čase',
           'Nahrávání hovorů pro kontrolu kvality, šifrovaně',
