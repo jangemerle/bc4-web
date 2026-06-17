@@ -400,7 +400,7 @@ export interface ContactContent {
   hero: {
     eyebrow?: string;
     headline: string;
-    subheadline: string;
+    subheadline?: string;
   };
   channels: Array<{
     /** "Poptávka", "Obchod", "Podpora", "Tisk" */

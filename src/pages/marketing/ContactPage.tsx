@@ -6,12 +6,17 @@ export default function ContactPage() {
   useSEO(contact.seo, '/kontakt');
   return (
     <Container width="default" className="py-20">
-      <h1 className="font-display text-4xl font-extrabold mb-4" style={{ fontFamily: 'var(--font-display)' }}>
+      <h1
+        className={`font-display text-4xl font-extrabold ${contact.hero.subheadline ? 'mb-4' : 'mb-12'}`}
+        style={{ fontFamily: 'var(--font-display)' }}
+      >
         {contact.hero.headline}
       </h1>
-      <p className="text-lg text-[var(--color-on-surface-subtle-1)] mb-12 max-w-2xl">
-        {contact.hero.subheadline}
-      </p>
+      {contact.hero.subheadline && (
+        <p className="text-lg text-[var(--color-on-surface-subtle-1)] mb-12 max-w-2xl">
+          {contact.hero.subheadline}
+        </p>
+      )}
       <div className="rounded-m border border-[var(--color-border)] bg-[var(--color-surface-1)] p-6">
         <h2 className="font-display text-xl font-bold mb-3" style={{ fontFamily: 'var(--font-display)' }}>
           {contact.company.name}
