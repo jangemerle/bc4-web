@@ -1,100 +1,56 @@
-import { motion } from 'motion/react';
-import { Container } from '@/marketing/primitives/Container';
-import { EyebrowLabel } from '@/marketing/primitives/EyebrowLabel';
 import type { HomeContent } from '@/content/types';
+import { Reveal, RevealStagger, RevealItem } from '@/marketing/motion/Reveal';
+import { Bound, SECTION_PAD, SectionIntro } from './shared';
 
 interface StatsBandProps {
   content: HomeContent['statsBand'];
 }
 
-/**
- * StatsBand — aggregate statistiky napříč zákazníky.
- *
- * Pattern z Linear/Vercel/Stripe marketing pages. Stat band sedí jako
- * interstitial sekce mezi context (proč to chcete) a deep-dive (jak to
- * funguje). Pomáhá, když ještě nemáme jednu silnou case study — aggregate
- * čísla z 10+ klientů konvertují líp než 0 case studies.
- *
- * Design: 3–4 velká čísla vedle sebe, minimální chrom, barevný akcent.
- */
+/** Stats band — dark navy curtain panel. Big mono numerals in accent blue. */
 export function StatsBand({ content }: StatsBandProps) {
   return (
     <section
-      className="relative overflow-hidden bg-[var(--color-inverted-surface)] py-16 text-[var(--color-on-inverted-surface)] sm:py-20"
-      aria-labelledby={content.headline ? 'stats-band-headline' : undefined}
+      className={`relative overflow-hidden bg-[var(--color-inverted-surface)] ${SECTION_PAD}`}
+      aria-labelledby="stats-headline"
     >
-      {/* Subtle radial gradient — primary color @ 10% */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-40"
-        style={{
-          background:
-            'radial-gradient(60% 80% at 50% 100%, color-mix(in oklab, var(--color-primary-1) 25%, transparent) 0%, transparent 60%)',
-        }}
+        className="absolute inset-0"
+        style={{ background: 'radial-gradient(60% 90% at 85% 0%, rgba(53,100,239,0.32), rgba(53,100,239,0) 60%)' }}
       />
-
-      <Container width="wide" className="relative">
-        {(content.eyebrow || content.headline) && (
-          <div className="mb-10 max-w-2xl flex flex-col gap-3 sm:mb-14">
-            {content.eyebrow && (
-              <EyebrowLabel className="text-[var(--color-on-inverted-surface)]/70">
-                {content.eyebrow}
-              </EyebrowLabel>
-            )}
-            {content.headline && (
-              <h2
-                id="stats-band-headline"
-                className="font-display text-3xl font-extrabold tracking-tight text-balance sm:text-4xl"
-                style={{ fontFamily: 'var(--font-display)' }}
-              >
-                {content.headline}
-              </h2>
-            )}
-          </div>
-        )}
-
-        <motion.dl
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-60px' }}
-          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.08 } } }}
-          className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-12"
+      <Bound className="relative">
+        <Reveal>
+          <SectionIntro
+            eyebrow={content.eyebrow}
+            headline={content.headline}
+            tone="dark"
+            headingId="stats-headline"
+            className="mb-12 max-w-[720px]"
+          />
+        </Reveal>
+        <RevealStagger
+          className="grid gap-6"
+          style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))' }}
         >
-          {content.stats.map(stat => (
-            <motion.div
-              key={stat.label}
-              variants={{
-                hidden: { opacity: 0, y: 16 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.45 } },
-              }}
-              className="flex flex-col gap-1.5"
+          {content.stats.map((s) => (
+            <RevealItem
+              key={s.label}
+              className="flex flex-col gap-2 border-t border-white/[0.16] pt-6"
             >
-              <dt className="sr-only">{stat.label}</dt>
-              <dd
-                className="font-display text-4xl font-extrabold tracking-tight text-[var(--color-on-inverted-surface)] sm:text-5xl"
-                style={{ fontFamily: 'var(--font-display)' }}
-                aria-hidden="true"
-              >
-                {stat.value}
-              </dd>
-              <p className="font-display text-lg font-bold text-[var(--color-on-inverted-surface)]" style={{ fontFamily: 'var(--font-display)' }}>
-                {stat.label}
-              </p>
-              {stat.description && (
-                <p className="text-sm text-[var(--color-on-inverted-surface)]/70">
-                  {stat.description}
-                </p>
-              )}
-            </motion.div>
+              <span className="font-mono text-[clamp(2.5rem,1.5rem+2.2vw,3.4rem)] font-bold leading-none tracking-[-0.03em] text-[var(--bc4-accent)]">
+                {s.value}
+              </span>
+              <span className="text-[16.5px] font-bold text-white">{s.label}</span>
+              <span className="text-[14px] leading-[1.55] text-white/70">{s.description}</span>
+            </RevealItem>
           ))}
-        </motion.dl>
-
+        </RevealStagger>
         {content.footnote && (
-          <p className="mt-10 text-xs text-[var(--color-on-inverted-surface)]/60">
+          <p className="mt-10 max-w-[760px] text-[13.5px] leading-[1.6] text-white/70">
             {content.footnote}
           </p>
         )}
-      </Container>
+      </Bound>
     </section>
   );
 }

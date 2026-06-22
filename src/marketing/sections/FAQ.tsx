@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useState, type ReactNode } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronDown } from 'lucide-react';
-import { Container } from '@/marketing/primitives/Container';
-import { EyebrowLabel } from '@/marketing/primitives/EyebrowLabel';
-import { SectionHeading } from '@/marketing/primitives/SectionHeading';
 import type { FAQItem } from '@/content/types';
+import { duration, ease } from '@/tokens/motion';
+import { Reveal } from '@/marketing/motion/Reveal';
+import { SECTION_PAD, SectionIntro } from './shared';
 
 interface FAQProps {
   eyebrow?: string;
@@ -12,71 +12,78 @@ interface FAQProps {
   items: FAQItem[];
 }
 
+/** Render `[text](href)` markdown links inside an answer string. */
+function renderAnswer(text: string): ReactNode[] {
+  const parts: ReactNode[] = [];
+  const re = /\[([^\]]+)\]\(([^)]+)\)/g;
+  let last = 0;
+  let m: RegExpExecArray | null;
+  let key = 0;
+  while ((m = re.exec(text))) {
+    if (m.index > last) parts.push(text.slice(last, m.index));
+    parts.push(
+      <a key={key++} href={m[2]} className="font-semibold text-[var(--color-primary-1)] underline underline-offset-2">
+        {m[1]}
+      </a>,
+    );
+    last = re.lastIndex;
+  }
+  if (last < text.length) parts.push(text.slice(last));
+  return parts;
+}
+
+/** FAQ — single-open accordion. */
 export function FAQ({ eyebrow, headline, items }: FAQProps) {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [open, setOpen] = useState(0);
 
   return (
-    <section className="bg-[var(--color-surface-2)] py-20 sm:py-28" aria-labelledby="faq-headline">
-      <Container width="default">
-        <div className="mb-12 max-w-3xl flex flex-col gap-3">
-          {eyebrow && <EyebrowLabel>{eyebrow}</EyebrowLabel>}
-          <SectionHeading size="xl" id="faq-headline">
-            {headline}
-          </SectionHeading>
-        </div>
-
-        <ul className="flex flex-col gap-3">
-          {items.map((item, i) => {
-            const isOpen = openIndex === i;
-            return (
-              <li
-                key={item.question}
-                className="overflow-hidden rounded-m border border-[var(--color-border)] bg-[var(--color-surface-1)]"
-              >
-                <button
-                  type="button"
-                  onClick={() => setOpenIndex(isOpen ? null : i)}
-                  aria-expanded={isOpen}
-                  className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
-                >
-                  <span className="font-display text-base font-bold text-[var(--color-on-surface)] sm:text-lg" style={{ fontFamily: 'var(--font-display)' }}>
-                    {item.question}
-                  </span>
-                  <motion.span
-                    animate={{ rotate: isOpen ? 180 : 0 }}
-                    transition={{ duration: 0.2 }}
-                    className="shrink-0 text-[var(--color-on-surface-subtle-1)]"
-                    aria-hidden="true"
+    <section id="faq" className={`scroll-mt-[84px] bg-[var(--color-surface-2)] ${SECTION_PAD}`} aria-labelledby="faq-headline">
+      <div className="mx-auto w-full max-w-[820px] px-6">
+        <Reveal>
+          <SectionIntro eyebrow={eyebrow} headline={headline} headingId="faq-headline" className="mb-11" />
+        </Reveal>
+        <Reveal>
+          <div className="overflow-hidden rounded-[16px] border border-[var(--color-border)] bg-[var(--color-surface-1)]">
+            {items.map((q, i) => {
+              const isOpen = open === i;
+              return (
+                <div key={q.question} className="border-b border-[var(--bc4-border-light)] last:border-b-0">
+                  <button
+                    type="button"
+                    onClick={() => setOpen(isOpen ? -1 : i)}
+                    aria-expanded={isOpen}
+                    className="flex w-full cursor-pointer items-center justify-between gap-4 px-6 py-5 text-left transition-colors duration-200 hover:bg-[var(--color-surface-2)]"
                   >
-                    <ChevronDown className="h-5 w-5" />
-                  </motion.span>
-                </button>
-                <AnimatePresence initial={false}>
-                  {isOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
+                    <span className="text-[16.5px] font-bold text-[var(--color-on-surface)]">{q.question}</span>
+                    <motion.span
+                      animate={{ rotate: isOpen ? 180 : 0 }}
+                      transition={{ duration: duration.base, ease: ease.standard }}
+                      className="flex-none text-[var(--color-primary-1)]"
                     >
-                      <p
-                        className="px-6 pb-5 text-[var(--color-on-surface-subtle-1)]"
-                        // Markdown links — minimal parser, jen [text](url)
-                        dangerouslySetInnerHTML={{
-                          __html: item.answer.replace(
-                            /\[([^\]]+)\]\(([^)]+)\)/g,
-                            '<a href="$2" class="text-[var(--color-on-secondary-1)] hover:text-[var(--color-on-secondary-2)] underline">$1</a>',
-                          ),
-                        }}
-                      />
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </li>
-            );
-          })}
-        </ul>
-      </Container>
+                      <ChevronDown className="h-5 w-5" aria-hidden="true" />
+                    </motion.span>
+                  </button>
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: duration.moderate, ease: ease.standard }}
+                        className="overflow-hidden"
+                      >
+                        <p className="m-0 px-6 pb-[22px] text-[15px] leading-[1.62] text-[var(--color-on-surface-subtle-1)]">
+                          {renderAnswer(q.answer)}
+                        </p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
+          </div>
+        </Reveal>
+      </div>
     </section>
   );
 }

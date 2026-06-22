@@ -1,73 +1,54 @@
-import { Link } from 'react-router-dom';
-import { motion } from 'motion/react';
-import * as Icons from 'lucide-react';
-import type { LucideIcon } from 'lucide-react';
-import { Container } from '@/marketing/primitives/Container';
-import { EyebrowLabel } from '@/marketing/primitives/EyebrowLabel';
-import { SectionHeading } from '@/marketing/primitives/SectionHeading';
 import type { HomeContent } from '@/content/types';
+import { Reveal, RevealStagger, RevealItem } from '@/marketing/motion/Reveal';
+import { Bound, SECTION_PAD, SectionIntro, Icon } from './shared';
 
 interface SegmentCardsProps {
   content: HomeContent['segments'];
 }
 
+/** Segments — dark navy curtain panel. 5 industry cards. */
 export function SegmentCards({ content }: SegmentCardsProps) {
   return (
-    <section className="py-20 sm:py-28" aria-labelledby="segments-headline">
-      <Container width="wide">
-        <div className="mb-12 max-w-3xl flex flex-col gap-3">
-          {content.eyebrow && <EyebrowLabel>{content.eyebrow}</EyebrowLabel>}
-          <SectionHeading size="xl" id="segments-headline" subheadline={content.subheadline}>
-            {content.headline}
-          </SectionHeading>
-        </div>
-
-        <motion.ul
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-50px' }}
-          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.06 } } }}
-          className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
+    <section
+      className={`bg-[var(--color-inverted-surface)] ${SECTION_PAD}`}
+      aria-labelledby="segments-headline"
+    >
+      <Bound>
+        <Reveal>
+          <SectionIntro
+            eyebrow={content.eyebrow}
+            headline={content.headline}
+            tone="dark"
+            headingId="segments-headline"
+            className="mb-11 max-w-[780px]"
+          />
+        </Reveal>
+        <RevealStagger
+          className="grid gap-4"
+          style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))' }}
         >
-          {content.items.map(seg => {
-            const Icon = (Icons[seg.icon as keyof typeof Icons] as LucideIcon | undefined) ?? Icons.Building2;
-            return (
-              <motion.li
-                key={seg.name}
-                variants={{
-                  hidden: { opacity: 0, y: 12 },
-                  visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
-                }}
-                className="rounded-m bg-[var(--color-surface-2)] p-6 transition hover:bg-[var(--color-secondary-1)]"
-              >
-                <Icon className="mb-3 h-6 w-6 text-[var(--color-on-secondary-1)]" aria-hidden="true" />
-                <h3 className="mb-1.5 font-display text-base font-bold text-[var(--color-on-surface)]" style={{ fontFamily: 'var(--font-display)' }}>
-                  {seg.name}
-                </h3>
-                <p className="text-sm text-[var(--color-on-surface-subtle-1)]">{seg.tagline}</p>
-              </motion.li>
-            );
-          })}
-        </motion.ul>
-
-        {content.footnote && (
-          <motion.p
-            initial={{ opacity: 0, y: 8 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: 0.2 }}
-            className="mt-10 max-w-3xl text-base text-[var(--color-on-surface-subtle-1)]"
-          >
-            {content.footnote}{' '}
-            <Link
-              to="/poptavka?source=segments"
-              className="font-semibold text-[var(--color-on-secondary-1)] hover:text-[var(--color-on-secondary-2)] underline-offset-2 hover:underline"
+          {content.items.map((s) => (
+            <RevealItem
+              key={s.name}
+              className="flex flex-col gap-[13px] rounded-[14px] border border-white/[0.12] bg-white/[0.04] p-6 transition-colors duration-200 hover:border-[var(--bc4-accent-softer)]/50 hover:bg-white/[0.08]"
             >
-              Řekněte nám, co řešíte →
-            </Link>
-          </motion.p>
+              <span
+                className="flex h-11 w-11 items-center justify-center rounded-[11px] text-[var(--bc4-accent-softer)]"
+                style={{ background: 'rgba(53,100,239,0.22)' }}
+              >
+                <Icon name={s.icon} className="h-[22px] w-[22px]" aria-hidden="true" />
+              </span>
+              <span className="text-[17px] font-bold text-white">{s.name}</span>
+              <span className="text-[14px] leading-[1.55] text-[var(--bc4-accent-soft)]">{s.tagline}</span>
+            </RevealItem>
+          ))}
+        </RevealStagger>
+        {content.footnote && (
+          <p className="mt-9 max-w-[780px] text-[14.5px] leading-[1.6] text-[var(--bc4-accent)]">
+            {content.footnote}
+          </p>
         )}
-      </Container>
+      </Bound>
     </section>
   );
 }

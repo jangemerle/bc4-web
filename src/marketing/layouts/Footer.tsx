@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
 import { Linkedin, Github, Twitter, Youtube } from 'lucide-react';
-import { Button } from '@/components/Button';
-import { Container } from '@/marketing/primitives/Container';
 import { common } from '@/content/cs/common';
+import { RevealLines } from '@/marketing/motion/RevealLines';
+import { Reveal } from '@/marketing/motion/Reveal';
+import { CtaButton } from '@/marketing/primitives/CtaButton';
 
 const socialIcons = {
   linkedin: Linkedin,
@@ -11,117 +12,121 @@ const socialIcons = {
   youtube: Youtube,
 } as const;
 
+const legalSignals = ['GDPR ready', 'Data v EU', '99,95 % SLA'];
+
+// Dočasně skryté footer sloupce — placeholder odkazy, dokud stránky neexistují.
+const HIDDEN_FOOTER_COLUMNS = ['Společnost', 'Podpora', 'Právní'];
+
 export function Footer() {
   const year = new Date().getFullYear();
+  const cta = common.preFooterCta;
 
   return (
     <>
-      {/* Pre-footer CTA band */}
+      {/* CTA strip — primary */}
       <section
-        className="relative overflow-hidden bg-[var(--color-secondary-1)] py-16 sm:py-20"
-        aria-labelledby="pre-footer-cta"
+        className="relative overflow-hidden bg-[var(--color-primary-1)] py-[clamp(48px,6vw,80px)]"
+        aria-labelledby="footer-cta"
       >
-        {/* Subtle radial gradient pro depth */}
         <div
-          className="pointer-events-none absolute inset-0 opacity-60"
-          style={{
-            background:
-              'radial-gradient(60% 80% at 50% 0%, var(--color-secondary-2) 0%, transparent 70%)',
-          }}
           aria-hidden="true"
+          className="pointer-events-none absolute inset-0"
+          style={{ background: 'radial-gradient(50% 120% at 80% 0%, rgba(255,255,255,0.18), rgba(255,255,255,0) 60%)' }}
         />
-        <Container width="default" className="relative text-center">
-          <h2
-            id="pre-footer-cta"
-            className="mb-3 font-display text-3xl font-extrabold tracking-tight text-[var(--color-on-surface)] sm:text-4xl"
+        <div className="relative mx-auto flex max-w-[900px] flex-col items-center gap-[22px] px-6 text-center">
+          <RevealLines
+            as="h2"
+            id="footer-cta"
+            className="m-0 font-display text-[clamp(1.6rem,1rem+2vw,2.4rem)] font-extrabold leading-[1.15] tracking-[-0.02em] text-balance text-white"
             style={{ fontFamily: 'var(--font-display)' }}
           >
-            {common.preFooterCta.headline}
-          </h2>
-          <p className="mx-auto mb-8 max-w-2xl text-base text-[var(--color-on-surface-subtle-1)] sm:text-lg">
-            {common.preFooterCta.subheadline}
-          </p>
-          <Link to={common.preFooterCta.cta.href}>
-            <Button variant="primary" size="lg">
-              {common.preFooterCta.cta.label}
-            </Button>
-          </Link>
-        </Container>
+            {cta.headline}
+          </RevealLines>
+          {cta.subheadline && (
+            <Reveal as="p" className="m-0 max-w-[560px] text-[16px] leading-[1.6] text-white/80">
+              {cta.subheadline}
+            </Reveal>
+          )}
+          <Reveal>
+            <CtaButton href={cta.cta.href} variant="white" size="lg" arrow trackingId={cta.cta.trackingId}>
+              {cta.cta.label}
+            </CtaButton>
+          </Reveal>
+        </div>
       </section>
 
-      {/* Main footer */}
-      <footer className="border-t border-[var(--color-border)] bg-[var(--color-surface-1)] py-12 text-sm">
-        <Container width="wide">
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-5">
-            {/* Brand column */}
-            <div className="col-span-2 lg:col-span-1">
-              <Link
-                to="/"
-                className="mb-3 block font-display text-lg font-extrabold text-[var(--color-on-surface)]"
-                style={{ fontFamily: 'var(--font-display)' }}
-              >
-                {common.brand.name}
+      {/* Dark footer */}
+      <footer className="bg-[var(--color-inverted-surface)] pt-[clamp(48px,6vw,72px)] pb-9 text-[var(--bc4-accent-soft)]">
+        <div className="mx-auto max-w-[1200px] px-6">
+          <div className="grid gap-10 border-b border-white/[0.12] pb-10" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))' }}>
+            {/* Brand */}
+            <div className="flex max-w-[280px] flex-col gap-3.5">
+              <Link to="/" aria-label={common.brand.name} className="flex items-center gap-2.5 no-underline">
+                <img src="/logos/bc4cloud-mark.svg" alt="" aria-hidden="true" className="h-8 w-auto" />
+                <span className="relative top-[2px] font-display text-[19px] font-extrabold tracking-[-0.02em] text-white">
+                  BC4 Cloud
+                </span>
               </Link>
-              <p className="text-[var(--color-on-surface-subtle-1)]">{common.footer.tagline}</p>
+              <p className="m-0 text-[14px] leading-[1.6] text-[var(--bc4-accent)]">{common.footer.tagline}</p>
             </div>
 
-            {common.footer.columns.map(col => (
-              <div key={col.title}>
-                <h3 className="mb-3 text-xs font-bold uppercase tracking-wider text-[var(--color-on-surface-subtle-2)]">
-                  {col.title}
-                </h3>
-                <ul className="flex flex-col gap-2">
-                  {col.links.map(link => (
-                    <li key={link.href}>
-                      {link.external ? (
-                        <a
-                          href={link.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-[var(--color-on-surface-subtle-1)] hover:text-[var(--color-on-surface)]"
-                        >
-                          {link.label}
-                        </a>
-                      ) : (
-                        <Link
-                          to={link.href}
-                          className="text-[var(--color-on-surface-subtle-1)] hover:text-[var(--color-on-surface)]"
-                        >
-                          {link.label}
-                        </Link>
-                      )}
-                    </li>
-                  ))}
-                </ul>
+            {common.footer.columns
+              .filter((col) => !HIDDEN_FOOTER_COLUMNS.includes(col.title))
+              .map((col) => (
+              <div key={col.title} className="flex flex-col gap-3">
+                <span className="text-[13px] font-bold uppercase tracking-[0.08em] text-white">{col.title}</span>
+                {col.links.map((link) =>
+                  link.external ? (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[14.5px] text-[var(--bc4-accent-soft)] no-underline transition-colors hover:text-white"
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link
+                      key={link.href}
+                      to={link.href}
+                      className="text-[14.5px] text-[var(--bc4-accent-soft)] no-underline transition-colors hover:text-white"
+                    >
+                      {link.label}
+                    </Link>
+                  ),
+                )}
               </div>
             ))}
           </div>
 
           {/* Bottom row */}
-          <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-[var(--color-border)] pt-6 sm:flex-row sm:items-center">
-            <p className="text-[var(--color-on-surface-subtle-2)]">
-              {common.footer.copyright.replace('{year}', String(year))}
-            </p>
-            <ul className="flex items-center gap-3">
-              {common.footer.social.map(social => {
+          <div className="flex flex-wrap items-center justify-between gap-3.5 pt-6 text-[13px] text-[var(--bc4-accent)]">
+            <span>{common.footer.copyright.replace('{year}', String(year))}</span>
+            <div className="flex flex-wrap items-center gap-x-[18px] gap-y-2">
+              <span className="flex gap-x-[18px]">
+                {legalSignals.map((s) => (
+                  <span key={s}>{s}</span>
+                ))}
+              </span>
+              {common.footer.social.map((social) => {
                 const Icon = socialIcons[social.platform];
                 return (
-                  <li key={social.platform}>
-                    <a
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex h-8 w-8 items-center justify-center rounded-m text-[var(--color-on-surface-subtle-1)] hover:bg-[var(--color-secondary-1)] hover:text-[var(--color-on-surface)]"
-                      aria-label={social.platform}
-                    >
-                      <Icon className="h-4 w-4" />
-                    </a>
-                  </li>
+                  <a
+                    key={social.platform}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex h-8 w-8 items-center justify-center rounded-m text-[var(--bc4-accent-soft)] transition-colors hover:bg-white/[0.08] hover:text-white"
+                    aria-label={social.platform}
+                  >
+                    <Icon className="h-4 w-4" />
+                  </a>
                 );
               })}
-            </ul>
+            </div>
           </div>
-        </Container>
+        </div>
       </footer>
     </>
   );

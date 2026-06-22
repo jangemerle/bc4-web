@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script defer src="https://cdn.jsdelivr.net/npm/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; font-family: 'Manrope', system-ui, sans-serif; background: #F3F3F5; color: #04123B; -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+  ::selection { background: #3564EF; color: #fff; }
+  @keyframes bc4Rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes bc4Float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+  @keyframes bc4Pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+  @keyframes bc4WaveIn { from { transform: scale(.3); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+  @keyframes bc4WaveLoop { 0%,100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.07); opacity: .55; } }
+  [data-lucide] { display: block; }
+</style>
+</helmet>
+
+<div ref="{{ rootRef }}" style="font-family:'Manrope',system-ui,sans-serif;background:#fff;">
+
+  <div ref="{{ progressRef }}" aria-hidden="true" style="position:fixed;top:0;left:0;height:3px;width:100%;transform:scaleX(0);transform-origin:0 50%;background:linear-gradient(90deg,#3564EF,#6F86F4);z-index:60;will-change:transform;"></div>
+
+  <!-- ───────────── HEADER ───────────── -->
+  <header ref="{{ headerRef }}" style="position:sticky;top:0;z-index:50;overflow:hidden;transition:box-shadow .25s ease;background:rgba(255,255,255,0.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid #DEDFE4;">
+    <div style="max-width:1200px;margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px;">
+      <a href="#top" style="position:relative;display:flex;align-items:center;gap:10px;text-decoration:none;">
+        <span aria-hidden="true" style="position:absolute;left:17px;top:50%;z-index:0;pointer-events:none;">
+          <span style="position:absolute;width:70px;height:70px;margin-left:-35px;margin-top:-35px;border-radius:9999px;background:rgba(53,100,239,0.13);filter:blur(6px);animation:bc4WaveIn .6s 0s cubic-bezier(.22,.7,.3,1) both, bc4WaveLoop 3.4s .60s ease-in-out infinite;"></span>
+          <span style="position:absolute;width:132px;height:132px;margin-left:-66px;margin-top:-66px;border-radius:9999px;background:rgba(53,100,239,0.07);filter:blur(6px);animation:bc4WaveIn .6s .07s cubic-bezier(.22,.7,.3,1) both, bc4WaveLoop 3.4s .85s ease-in-out infinite;"></span>
+          <span style="position:absolute;width:198px;height:198px;margin-left:-99px;margin-top:-99px;border-radius:9999px;background:rgba(53,100,239,0.038);filter:blur(6px);animation:bc4WaveIn .6s .14s cubic-bezier(.22,.7,.3,1) both, bc4WaveLoop 3.4s 1.1s ease-in-out infinite;"></span>
+        </span>
+        <span style="position:relative;z-index:1;width:34px;height:34px;border-radius:9px;background:#3564EF;display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:0 4px 12px rgba(53,100,239,0.35);">
+          <i data-lucide="headset" width="19" height="19"></i>
+        </span>
+        <span style="position:relative;z-index:1;font-weight:800;font-size:20px;letter-spacing:-0.02em;color:#04123B;">BC4<span style="color:#3564EF;">Cloud</span></span>
+      </a>
+      <nav style="display:flex;align-items:center;gap:30px;">
+        <a href="#features" style="font-size:15px;font-weight:600;color:#69707E;text-decoration:none;" style-hover="color:#04123B;">Funkce</a>
+        <a href="#how-it-works" style="font-size:15px;font-weight:600;color:#69707E;text-decoration:none;" style-hover="color:#04123B;">Jak to funguje</a>
+        <a href="#why-us" style="font-size:15px;font-weight:600;color:#69707E;text-decoration:none;" style-hover="color:#04123B;">Proč my</a>
+        <a href="#faq" style="font-size:15px;font-weight:600;color:#69707E;text-decoration:none;" style-hover="color:#04123B;">FAQ</a>
+      </nav>
+      <a href="#poptavka" style="display:inline-flex;align-items:center;gap:8px;background:#3564EF;color:#fff;font-weight:600;font-size:15px;padding:11px 20px;border-radius:10px;text-decoration:none;box-shadow:0 4px 14px rgba(53,100,239,0.3);" style-hover="background:#143284;">
+        Domluvit ukázku
+      </a>
+    </div>
+  </header>
+
+  <!-- ───────────── HERO ───────────── -->
+  <section id="top" style="position:relative;overflow:hidden;background:#fff;padding:clamp(48px,6vw,84px) 0 clamp(56px,7vw,96px);">
+    <div aria-hidden="true" style="position:absolute;inset:0;overflow:hidden;pointer-events:none;">
+      <div style="position:absolute;left:20%;top:44%;">
+        <span style="position:absolute;width:320px;height:320px;margin-left:-160px;margin-top:-160px;border-radius:9999px;background:rgba(53,100,239,0.07);filter:blur(8px);animation:bc4WaveIn .8s 0s cubic-bezier(.22,.7,.3,1) both, bc4WaveLoop 5.2s .8s ease-in-out infinite;"></span>
+        <span style="position:absolute;width:560px;height:560px;margin-left:-280px;margin-top:-280px;border-radius:9999px;background:rgba(53,100,239,0.04);filter:blur(8px);animation:bc4WaveIn .8s .1s cubic-bezier(.22,.7,.3,1) both, bc4WaveLoop 5.2s 1.1s ease-in-out infinite;"></span>
+        <span style="position:absolute;width:820px;height:820px;margin-left:-410px;margin-top:-410px;border-radius:9999px;background:rgba(53,100,239,0.022);filter:blur(8px);animation:bc4WaveIn .8s .2s cubic-bezier(.22,.7,.3,1) both, bc4WaveLoop 5.2s 1.4s ease-in-out infinite;"></span>
+      </div>
+    </div>
+    <div aria-hidden="true" style="position:absolute;inset:0;background-image:radial-gradient(rgba(4,18,59,0.07) 1px, transparent 1px);background-size:26px 26px;-webkit-mask-image:radial-gradient(72% 62% at 62% 2%, #000 0%, transparent 72%);mask-image:radial-gradient(72% 62% at 62% 2%, #000 0%, transparent 72%);pointer-events:none;"></div>
+    <div style="position:relative;max-width:1200px;margin:0 auto;padding:0 24px;display:grid;gap:clamp(40px,5vw,72px);grid-template-columns:repeat(auto-fit,minmax(380px,1fr));align-items:center;">
+      <div data-reveal-lines style="display:flex;flex-direction:column;gap:24px;">
+        <span data-reveal style="display:inline-flex;align-items:center;gap:8px;align-self:flex-start;background:#F2F3FE;color:#143284;font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;padding:8px 14px;border-radius:9999px;border:1px solid #DADEFC;">
+          <span style="width:7px;height:7px;border-radius:9999px;background:#00A35A;display:inline-block;"></span>
+          Omnichannel kontaktní centrum
+        </span>
+        <h1 style="margin:0;font-weight:800;font-size:clamp(2.3rem,1.2rem+3vw,3.7rem);line-height:1.04;letter-spacing:-0.025em;color:#04123B;text-wrap:balance;">
+          Rychlejší zákaznická podpora bez chaosu a zbytečného čekání
+        </h1>
+        <p style="margin:0;font-size:clamp(1.05rem,0.95rem+0.5vw,1.25rem);line-height:1.6;color:#69707E;max-width:560px;text-wrap:pretty;">
+          BC4Cloud sjednocuje hovory, e-maily i chat do jednoho prostředí. Díky tomu zvýšíte efektivitu podpory až o 40 %, zrychlíte odbavení zákazníků a získáte plnou kontrolu nad komunikací.
+        </p>
+        <div data-reveal style="display:flex;flex-wrap:wrap;gap:12px;margin-top:4px;">
+          <a href="#poptavka" style="display:inline-flex;align-items:center;gap:9px;background:#3564EF;color:#fff;font-weight:600;font-size:16px;padding:15px 26px;border-radius:11px;text-decoration:none;box-shadow:0 8px 22px rgba(53,100,239,0.32);" style-hover="background:#143284;">
+            Domluvit ukázku
+            <i data-lucide="arrow-right" width="18" height="18"></i>
+          </a>
+          <a href="#how-it-works" style="display:inline-flex;align-items:center;gap:9px;background:#fff;color:#04123B;font-weight:600;font-size:16px;padding:15px 24px;border-radius:11px;text-decoration:none;border:1px solid #C3C6CF;" style-hover="background:#F2F3FE;border-color:#3564EF;">
+            Jak to funguje
+          </a>
+        </div>
+        <ul data-reveal style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px;margin:8px 0 0;padding:0;list-style:none;">
+          <li style="display:inline-flex;align-items:center;gap:7px;font-size:14.5px;font-weight:600;color:#69707E;"><i data-lucide="shield-check" width="17" height="17"></i>GDPR ready</li>
+          <li style="display:inline-flex;align-items:center;gap:7px;font-size:14.5px;font-weight:600;color:#69707E;"><i data-lucide="map-pin" width="17" height="17"></i>Data v EU</li>
+          <li style="display:inline-flex;align-items:center;gap:7px;font-size:14.5px;font-weight:600;color:#69707E;"><i data-lucide="headphones" width="17" height="17"></i>Česká podpora</li>
+        </ul>
+      </div>
+      <div data-reveal style="position:relative;">
+        <div aria-hidden="true" style="position:absolute;inset:-6% -4% -10% -4%;background:radial-gradient(60% 60% at 50% 40%, rgba(53,100,239,0.22), rgba(53,100,239,0) 70%);filter:blur(8px);"></div>
+        <div style="position:relative;border-radius:16px;overflow:hidden;box-shadow:0 30px 70px -28px rgba(4,18,59,0.5), 0 8px 24px -12px rgba(4,18,59,0.25);border:1px solid #DEDFE4;background:#fff;">
+          <img src="assets/product/header.png" alt="BC4Cloud — kontaktní centrum v prohlížeči" loading="eager" style="display:block;width:100%;height:auto;" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── TRUST BAND ───────────── -->
+  <sc-if value="{{ showTrust }}" hint-placeholder-val="{{ true }}">
+  <section style="background:#F9F9FA;border-top:1px solid #DEDFE4;border-bottom:1px solid #DEDFE4;padding:36px 0;">
+    <div style="max-width:1200px;margin:0 auto;padding:0 24px;display:flex;flex-direction:column;align-items:center;gap:22px;">
+      <span style="font-size:12.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#868EA0;">Důvěřují nám</span>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:18px 40px;">
+        <sc-for list="{{ trustLogos }}" as="logo" hint-placeholder-count="5">
+          <div style="height:30px;min-width:120px;display:flex;align-items:center;justify-content:center;color:#B4B9C4;font-weight:800;font-size:17px;letter-spacing:-0.01em;opacity:0.85;">{{ logo.name }}</div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+  </sc-if>
+
+  <!-- ───────────── CURTAIN ① · BENEFITS + STATS ───────────── -->
+  <div style="position:relative;">
+  <section style="position:sticky;top:0;z-index:0;background:#fff;padding:clamp(56px,8vw,104px) 0;">
+    <div style="max-width:1200px;margin:0 auto;padding:0 24px;">
+      <div data-reveal-lines style="max-width:760px;margin-bottom:48px;display:flex;flex-direction:column;gap:14px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#3564EF;">Co vám BC4Cloud přinese</span>
+        <h2 style="margin:0;font-weight:800;font-size:clamp(1.75rem,1rem+2vw,2.5rem);line-height:1.12;letter-spacing:-0.02em;color:#04123B;text-wrap:balance;">4 starosti, které vás přestanou budit ve 4 ráno</h2>
+      </div>
+      <div data-reveal-stagger style="display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));">
+        <sc-for list="{{ benefits }}" as="b" hint-placeholder-count="4">
+          <div style="background:#fff;border:1px solid #DEDFE4;border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:16px;transition:box-shadow .2s,transform .2s,border-color .2s;" style-hover="box-shadow:0 18px 40px -22px rgba(4,18,59,0.35);transform:translateY(-3px);border-color:#BBC3FA;">
+            <span style="width:48px;height:48px;border-radius:12px;background:#F2F3FE;color:#3564EF;display:flex;align-items:center;justify-content:center;"><i data-lucide="{{ b.icon }}" width="24" height="24"></i></span>
+            <h3 style="margin:0;font-weight:700;font-size:18.5px;line-height:1.3;letter-spacing:-0.01em;color:#04123B;">{{ b.title }}</h3>
+            <p style="margin:0;font-size:15px;line-height:1.58;color:#69707E;">{{ b.description }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="position:sticky;top:0;z-index:1;background:#04123B;padding:clamp(64px,8vw,104px) 0;overflow:hidden;">
+    <div aria-hidden="true" style="position:absolute;inset:0;background:radial-gradient(60% 90% at 85% 0%, rgba(53,100,239,0.32), rgba(53,100,239,0) 60%);"></div>
+    <div style="position:relative;max-width:1200px;margin:0 auto;padding:0 24px;">
+      <div data-reveal-lines style="max-width:720px;margin-bottom:48px;display:flex;flex-direction:column;gap:14px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#AAB5F8;">Výsledky z reálných nasazení</span>
+        <h2 style="margin:0;font-weight:800;font-size:clamp(1.75rem,1rem+2vw,2.5rem);line-height:1.12;letter-spacing:-0.02em;color:#fff;text-wrap:balance;">Jak se BC4Cloud vyplatí v číslech</h2>
+      </div>
+      <div data-reveal-stagger style="display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));">
+        <sc-for list="{{ stats }}" as="s" hint-placeholder-count="4">
+          <div style="display:flex;flex-direction:column;gap:8px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.16);">
+            <span style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:clamp(2.5rem,1.5rem+2.2vw,3.4rem);line-height:1;letter-spacing:-0.03em;color:#6F86F4;">{{ s.value }}</span>
+            <span style="font-weight:700;font-size:16.5px;color:#fff;">{{ s.label }}</span>
+            <span style="font-size:14px;line-height:1.55;color:#95A3F7;">{{ s.description }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <p style="margin:40px 0 0;font-size:13.5px;line-height:1.6;color:#6F86F4;max-width:760px;">Průměr napříč zákazníky za prvních 90 dní provozu. Konkrétní čísla pro vaši firmu spočítáme na ukázce.</p>
+    </div>
+  </section>
+  </div>
+
+  <!-- ───────────── PRODUCT VIDEO ───────────── -->
+  <sc-if value="{{ showVideo }}" hint-placeholder-val="{{ true }}">
+  <section id="product-video" style="background:#F9F9FA;padding:clamp(56px,8vw,104px) 0;scroll-margin-top:84px;">
+    <div style="max-width:1100px;margin:0 auto;padding:0 24px;">
+      <div data-reveal-lines style="text-align:center;max-width:680px;margin:0 auto 44px;display:flex;flex-direction:column;gap:14px;align-items:center;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#3564EF;">Video ukázka</span>
+        <h2 style="margin:0;font-weight:800;font-size:clamp(1.75rem,1rem+2vw,2.5rem);line-height:1.12;letter-spacing:-0.02em;color:#04123B;">Minuta a víte, jak BC4Cloud běží</h2>
+      </div>
+      <div data-reveal style="position:relative;border-radius:18px;overflow:hidden;aspect-ratio:16/9;background:linear-gradient(135deg,#0B215C,#04123B);box-shadow:0 30px 70px -30px rgba(4,18,59,0.55);display:flex;align-items:center;justify-content:center;">
+        <div aria-hidden="true" style="position:absolute;inset:0;background:radial-gradient(50% 60% at 50% 50%, rgba(53,100,239,0.4), rgba(53,100,239,0) 70%);"></div>
+        <button style="position:relative;width:84px;height:84px;border-radius:9999px;border:none;background:#3564EF;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 12px 36px rgba(53,100,239,0.55);" style-hover="background:#fff;color:#3564EF;">
+          <i data-lucide="play" width="34" height="34" fill="currentColor"></i>
+        </button>
+        <span style="position:absolute;bottom:18px;right:18px;background:rgba(4,18,59,0.7);color:#fff;font-size:13px;font-weight:600;padding:6px 12px;border-radius:8px;backdrop-filter:blur(6px);">1:00</span>
+      </div>
+      <div data-reveal-stagger style="display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:24px;">
+        <sc-for list="{{ chapters }}" as="c" hint-placeholder-count="3">
+          <div style="background:#fff;border:1px solid #DEDFE4;border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:7px;">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;color:#3564EF;letter-spacing:0.01em;">{{ c.timestamp }}</span>
+            <span style="font-weight:700;font-size:16px;color:#04123B;">{{ c.title }}</span>
+            <span style="font-size:14px;line-height:1.55;color:#69707E;">{{ c.description }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+  </sc-if>
+
+  <!-- ───────────── HOW IT WORKS ───────────── -->
+  <section id="how-it-works" style="background:#fff;padding:clamp(56px,8vw,104px) 0;scroll-margin-top:84px;">
+    <div style="max-width:1200px;margin:0 auto;padding:0 24px;">
+      <div data-reveal-lines style="max-width:760px;margin-bottom:48px;display:flex;flex-direction:column;gap:14px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#3564EF;">Jak to funguje</span>
+        <h2 style="margin:0;font-weight:800;font-size:clamp(1.75rem,1rem+2vw,2.5rem);line-height:1.12;letter-spacing:-0.02em;color:#04123B;text-wrap:balance;">4 úrovně — začnete tam, kde to dává smysl</h2>
+        <p style="margin:0;font-size:17px;line-height:1.6;color:#69707E;">Volání a Kontaktní centrum jsou základní úrovně. AI a Integrace jsou přídavné moduly — přidáte je k libovolné úrovni, kdykoli to bude potřeba.</p>
+      </div>
+      <div data-reveal-stagger style="display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));">
+        <sc-for list="{{ tiers }}" as="t" hint-placeholder-count="4">
+          <div style="position:relative;background:#fff;border:1px solid #DEDFE4;border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:16px;" style-hover="border-color:#BBC3FA;box-shadow:0 18px 40px -24px rgba(4,18,59,0.3);">
+            <div style="display:flex;align-items:center;justify-content:space-between;">
+              <span style="width:40px;height:40px;border-radius:11px;background:#04123B;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:17px;">{{ t.tier }}</span>
+              <sc-if value="{{ t.addOn }}" hint-placeholder-val="{{ false }}">
+                <span style="font-size:11.5px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#143284;background:#F2F3FE;padding:5px 10px;border-radius:9999px;">Přídavný modul</span>
+              </sc-if>
+            </div>
+            <h3 style="margin:0;font-weight:800;font-size:20px;letter-spacing:-0.01em;color:#04123B;">{{ t.title }}</h3>
+            <p style="margin:0;font-size:14.5px;line-height:1.55;color:#69707E;">{{ t.description }}</p>
+            <ul style="margin:4px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;">
+              <sc-for list="{{ t.features }}" as="f" hint-placeholder-count="4">
+                <li style="display:flex;gap:9px;font-size:14px;line-height:1.45;color:#04123B;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3564EF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:1px;"><path d="M20 6 9 17l-5-5"/></svg>
+                  <span>{{ f }}</span>
+                </li>
+              </sc-for>
+            </ul>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── FEATURE SHOWCASE ───────────── -->
+  <section id="features" style="background:#F9F9FA;padding:clamp(56px,8vw,104px) 0;scroll-margin-top:84px;">
+    <div style="max-width:1200px;margin:0 auto;padding:0 24px;">
+      <div data-reveal-lines style="max-width:760px;margin-bottom:56px;display:flex;flex-direction:column;gap:14px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#3564EF;">Funkce, co skutečně použijete</span>
+        <h2 style="margin:0;font-weight:800;font-size:clamp(1.75rem,1rem+2vw,2.5rem);line-height:1.12;letter-spacing:-0.02em;color:#04123B;text-wrap:balance;">5 věcí, které vám ušetří nejvíc času každý den</h2>
+        <p style="margin:0;font-size:17px;line-height:1.6;color:#69707E;">Vybrali jsme funkce, na které se vaši operátoři i vy budete dívat nejčastěji. Všechny v ceně tarifu Kontaktní centrum.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:clamp(48px,6vw,80px);">
+        <sc-for list="{{ features }}" as="f" hint-placeholder-count="5">
+          <div style="{{ f.rowStyle }}">
+            <div style="flex:1 1 320px;min-width:300px;display:flex;flex-direction:column;gap:18px;">
+              <span data-reveal style="display:inline-flex;align-items:center;gap:9px;align-self:flex-start;">
+                <span style="width:38px;height:38px;border-radius:10px;background:#fff;border:1px solid #DEDFE4;color:#3564EF;display:flex;align-items:center;justify-content:center;"><i data-lucide="{{ f.icon }}" width="20" height="20"></i></span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:#3564EF;">{{ f.eyebrow }}</span>
+              </span>
+              <h3 data-reveal-lines style="margin:0;font-weight:800;font-size:clamp(1.4rem,1rem+1.2vw,1.95rem);line-height:1.18;letter-spacing:-0.02em;color:#04123B;text-wrap:balance;">{{ f.headline }}</h3>
+              <p data-reveal-lines style="margin:0;font-size:16px;line-height:1.6;color:#69707E;">{{ f.description }}</p>
+              <ul data-reveal-stagger style="margin:4px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px;">
+                <sc-for list="{{ f.highlights }}" as="hl" hint-placeholder-count="4">
+                  <li style="display:flex;gap:11px;font-size:15px;line-height:1.5;color:#04123B;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3564EF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:1px;"><path d="M20 6 9 17l-5-5"/></svg>
+                    <span>{{ hl }}</span>
+                  </li>
+                </sc-for>
+              </ul>
+            </div>
+            <div data-reveal style="flex:1 1 380px;min-width:320px;position:relative;">
+              <div aria-hidden="true" style="position:absolute;inset:4% 2% -8% 2%;background:radial-gradient(60% 60% at 50% 40%, rgba(53,100,239,0.16), rgba(53,100,239,0) 70%);filter:blur(6px);"></div>
+              <div style="position:relative;border-radius:14px;overflow:hidden;border:1px solid #DEDFE4;background:#fff;box-shadow:0 26px 56px -28px rgba(4,18,59,0.42);">
+                <div style="height:34px;background:#fff;border-bottom:1px solid #EDEEF1;display:flex;align-items:center;gap:7px;padding:0 14px;">
+                  <span style="width:10px;height:10px;border-radius:9999px;background:#E0726B;"></span>
+                  <span style="width:10px;height:10px;border-radius:9999px;background:#E9B44C;"></span>
+                  <span style="width:10px;height:10px;border-radius:9999px;background:#5BBF7B;"></span>
+                </div>
+                <img src="{{ f.img }}" alt="{{ f.alt }}" loading="lazy" style="display:block;width:100%;height:auto;" />
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── CURTAIN ② · TESTIMONIALS + SEGMENTS ───────────── -->
+  <div style="position:relative;">
+  <section style="position:sticky;top:0;z-index:0;background:#fff;padding:clamp(56px,8vw,104px) 0;">
+    <div style="max-width:1200px;margin:0 auto;padding:0 24px;">
+      <div data-reveal-lines style="max-width:720px;margin-bottom:48px;display:flex;flex-direction:column;gap:14px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#3564EF;">Co říkají zákazníci</span>
+        <h2 style="margin:0;font-weight:800;font-size:clamp(1.75rem,1rem+2vw,2.5rem);line-height:1.12;letter-spacing:-0.02em;color:#04123B;text-wrap:balance;">Slovem těch, co BC4Cloud denně používají</h2>
+      </div>
+      <div data-reveal-stagger style="display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));">
+        <sc-for list="{{ testimonials }}" as="t" hint-placeholder-count="3">
+          <figure style="margin:0;background:#F9F9FA;border:1px solid #DEDFE4;border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:20px;">
+            <span style="font-weight:800;font-size:40px;line-height:0.6;color:#BBC3FA;">&ldquo;</span>
+            <blockquote style="margin:0;font-size:16.5px;line-height:1.6;color:#04123B;flex:1;">{{ t.quote }}</blockquote>
+            <figcaption style="display:flex;align-items:center;gap:13px;border-top:1px solid #DEDFE4;padding-top:18px;">
+              <span style="width:44px;height:44px;border-radius:9999px;background:#143284;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;flex:none;">{{ t.initials }}</span>
+              <span style="display:flex;flex-direction:column;">
+                <span style="font-weight:700;font-size:15px;color:#04123B;">{{ t.author }}</span>
+                <span style="font-size:13.5px;color:#69707E;">{{ t.role }}</span>
+              </span>
+            </figcaption>
+          </figure>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="position:sticky;top:0;z-index:1;background:#04123B;padding:clamp(64px,8vw,104px) 0;">
+    <div style="max-width:1200px;margin:0 auto;padding:0 24px;">
+      <div data-reveal-lines style="max-width:780px;margin-bottom:44px;display:flex;flex-direction:column;gap:14px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#AAB5F8;">Pro jaké firmy</span>
+        <h2 style="margin:0;font-weight:800;font-size:clamp(1.75rem,1rem+2vw,2.5rem);line-height:1.12;letter-spacing:-0.02em;color:#fff;text-wrap:balance;">Pro firmy všech velikostí a oborů — od 1 operátora po velká call centra</h2>
+      </div>
+      <div style="display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));">
+        <sc-for list="{{ segments }}" as="s" hint-placeholder-count="5">
+          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:13px;" style-hover="background:rgba(255,255,255,0.08);border-color:rgba(170,181,248,0.5);">
+            <span style="width:44px;height:44px;border-radius:11px;background:rgba(53,100,239,0.22);color:#AAB5F8;display:flex;align-items:center;justify-content:center;"><i data-lucide="{{ s.icon }}" width="22" height="22"></i></span>
+            <span style="font-weight:700;font-size:17px;color:#fff;">{{ s.name }}</span>
+            <span style="font-size:14px;line-height:1.55;color:#95A3F7;">{{ s.tagline }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <p style="margin:36px 0 0;font-size:14.5px;line-height:1.6;color:#6F86F4;max-width:780px;">Váš obor v seznamu není? Nevadí — BC4Cloud používají firmy z desítek odvětví. Řekněte nám, co řešíte, a ukážeme vám, jak to funguje konkrétně u vás.</p>
+    </div>
+  </section>
+  </div>
+
+  <!-- ───────────── INLINE LEAD FORM ───────────── -->
+  <section id="poptavka" style="background:#F9F9FA;padding:clamp(56px,8vw,104px) 0;scroll-margin-top:84px;">
+    <div style="max-width:680px;margin:0 auto;padding:0 24px;">
+      <div data-reveal-lines style="text-align:center;margin-bottom:32px;display:flex;flex-direction:column;align-items:center;gap:12px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#3564EF;">Domluvit ukázku</span>
+        <h2 style="margin:0;font-weight:800;font-size:clamp(1.6rem,1rem+2vw,2.3rem);line-height:1.12;letter-spacing:-0.02em;color:#04123B;">Ukážeme, jak to funguje u vás</h2>
+      </div>
+      <div data-reveal style="background:#fff;border:1px solid #DEDFE4;border-radius:18px;padding:clamp(24px,4vw,38px);box-shadow:0 24px 50px -32px rgba(4,18,59,0.35);">
+        <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;padding:24px 0;">
+            <span style="width:60px;height:60px;border-radius:9999px;background:#D7FDE2;color:#00A35A;display:flex;align-items:center;justify-content:center;">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            </span>
+            <h3 style="margin:0;font-weight:800;font-size:22px;color:#04123B;">Děkujeme, poptávka odešla</h3>
+            <p style="margin:0;font-size:15px;line-height:1.6;color:#69707E;max-width:380px;">Ozveme se obvykle do pár minut v pracovní době (Po–Pá 8–17).</p>
+          </div>
+        </sc-if>
+        <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
+        <form onSubmit="{{ onSubmit }}" style="display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));">
+          <label style="display:flex;flex-direction:column;gap:7px;">
+            <span style="font-size:14px;font-weight:600;color:#04123B;">IČ</span>
+            <input type="text" placeholder="Např. 27426653" style="font-family:'Manrope';font-size:15px;padding:12px 14px;border:1px solid #C3C6CF;border-radius:10px;outline:none;color:#04123B;background:#fff;" style-focus="border-color:#3564EF;box-shadow:0 0 0 3px rgba(53,100,239,0.16);" />
+          </label>
+          <label style="display:flex;flex-direction:column;gap:7px;">
+            <span style="font-size:14px;font-weight:600;color:#04123B;">Pracovní email</span>
+            <input type="email" placeholder="jmeno@firma.cz" style="font-family:'Manrope';font-size:15px;padding:12px 14px;border:1px solid #C3C6CF;border-radius:10px;outline:none;color:#04123B;background:#fff;" style-focus="border-color:#3564EF;box-shadow:0 0 0 3px rgba(53,100,239,0.16);" />
+          </label>
+          <label style="display:flex;flex-direction:column;gap:7px;">
+            <span style="font-size:14px;font-weight:600;color:#04123B;">Telefon</span>
+            <input type="tel" placeholder="+420 123 456 789" style="font-family:'Manrope';font-size:15px;padding:12px 14px;border:1px solid #C3C6CF;border-radius:10px;outline:none;color:#04123B;background:#fff;" style-focus="border-color:#3564EF;box-shadow:0 0 0 3px rgba(53,100,239,0.16);" />
+          </label>
+          <label style="display:flex;flex-direction:column;gap:7px;">
+            <span style="font-size:14px;font-weight:600;color:#04123B;">Kolik lidí komunikuje se zákazníky?</span>
+            <input type="number" placeholder="Např. 12" style="font-family:'Manrope';font-size:15px;padding:12px 14px;border:1px solid #C3C6CF;border-radius:10px;outline:none;color:#04123B;background:#fff;" style-focus="border-color:#3564EF;box-shadow:0 0 0 3px rgba(53,100,239,0.16);" />
+          </label>
+          <label style="grid-column:1/-1;display:flex;align-items:flex-start;gap:11px;cursor:pointer;">
+            <input type="checkbox" required style="width:18px;height:18px;margin-top:2px;accent-color:#3564EF;flex:none;" />
+            <span style="font-size:14px;line-height:1.5;color:#69707E;">Souhlasím se zpracováním osobních údajů pro účely této poptávky</span>
+          </label>
+          <div style="grid-column:1/-1;display:flex;flex-direction:column;gap:12px;">
+            <button type="submit" style="display:inline-flex;align-items:center;justify-content:center;gap:9px;background:#3564EF;color:#fff;font-family:'Manrope';font-weight:700;font-size:16px;padding:15px 24px;border-radius:11px;border:none;cursor:pointer;box-shadow:0 8px 22px rgba(53,100,239,0.3);" style-hover="background:#143284;">
+              Odeslat poptávku
+              <i data-lucide="arrow-right" width="18" height="18"></i>
+            </button>
+            <span style="font-size:13px;color:#868EA0;text-align:center;">Ozveme se obvykle do pár minut v pracovní době (Po–Pá 8–17).</span>
+          </div>
+        </form>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── WHY US ───────────── -->
+  <section id="why-us" style="background:#fff;padding:clamp(56px,8vw,104px) 0;scroll-margin-top:84px;">
+    <div style="max-width:1200px;margin:0 auto;padding:0 24px;">
+      <div data-reveal-lines style="max-width:720px;margin-bottom:48px;display:flex;flex-direction:column;gap:14px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#3564EF;">Proč s námi</span>
+        <h2 style="margin:0;font-weight:800;font-size:clamp(1.75rem,1rem+2vw,2.5rem);line-height:1.12;letter-spacing:-0.02em;color:#04123B;text-wrap:balance;">BusinessCom — 20+ let v české telekomunikaci</h2>
+      </div>
+      <div data-reveal-stagger style="display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));">
+        <sc-for list="{{ whyUs }}" as="w" hint-placeholder-count="4">
+          <div style="display:flex;gap:18px;align-items:flex-start;">
+            <span style="width:48px;height:48px;border-radius:12px;background:#F2F3FE;color:#3564EF;display:flex;align-items:center;justify-content:center;flex:none;"><i data-lucide="{{ w.icon }}" width="24" height="24"></i></span>
+            <div style="display:flex;flex-direction:column;gap:7px;">
+              <h3 style="margin:0;font-weight:700;font-size:18px;letter-spacing:-0.01em;color:#04123B;">{{ w.title }}</h3>
+              <p style="margin:0;font-size:15px;line-height:1.58;color:#69707E;">{{ w.description }}</p>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── FAQ ───────────── -->
+  <section id="faq" style="background:#F9F9FA;padding:clamp(56px,8vw,104px) 0;scroll-margin-top:84px;">
+    <div style="max-width:820px;margin:0 auto;padding:0 24px;">
+      <div data-reveal-lines style="margin-bottom:44px;display:flex;flex-direction:column;gap:14px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#3564EF;">Časté otázky</span>
+        <h2 style="margin:0;font-weight:800;font-size:clamp(1.75rem,1rem+2vw,2.5rem);line-height:1.12;letter-spacing:-0.02em;color:#04123B;">Na co se ptají před podpisem</h2>
+      </div>
+      <div data-reveal-stagger style="background:#fff;border:1px solid #DEDFE4;border-radius:16px;overflow:hidden;">
+        <sc-for list="{{ faqItems }}" as="q" hint-placeholder-count="7">
+          <div style="border-bottom:1px solid #EDEEF1;">
+            <button onClick="{{ q.toggle }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;background:none;border:none;cursor:pointer;text-align:left;padding:20px 24px;font-family:'Manrope';" style-hover="background:#F9F9FA;">
+              <span style="font-weight:700;font-size:16.5px;color:#04123B;">{{ q.question }}</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3564EF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="{{ q.iconStyle }}"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div style="{{ q.panelStyle }}">
+              <p style="margin:0;padding:0 24px 22px;font-size:15px;line-height:1.62;color:#69707E;">{{ q.answer }}</p>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── CTA STRIP ───────────── -->
+  <section style="background:#3564EF;padding:clamp(48px,6vw,80px) 0;position:relative;overflow:hidden;">
+    <div aria-hidden="true" style="position:absolute;inset:0;background:radial-gradient(50% 120% at 80% 0%, rgba(255,255,255,0.18), rgba(255,255,255,0) 60%);"></div>
+    <div data-reveal-lines style="position:relative;max-width:900px;margin:0 auto;padding:0 24px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:22px;">
+      <h2 style="margin:0;font-weight:800;font-size:clamp(1.6rem,1rem+2vw,2.4rem);line-height:1.15;letter-spacing:-0.02em;color:#fff;text-wrap:balance;">Spočítáme vám, kolik BC4Cloud ušetří přesně u vás</h2>
+      <a href="#poptavka" style="display:inline-flex;align-items:center;gap:9px;background:#fff;color:#143284;font-weight:700;font-size:16px;padding:15px 28px;border-radius:11px;text-decoration:none;box-shadow:0 12px 30px rgba(4,18,59,0.3);" style-hover="background:#F2F3FE;">
+        Domluvit ukázku
+        <i data-lucide="arrow-right" width="18" height="18"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- ───────────── FOOTER ───────────── -->
+  <footer style="background:#04123B;color:#95A3F7;padding:clamp(48px,6vw,72px) 0 36px;">
+    <div style="max-width:1200px;margin:0 auto;padding:0 24px;">
+      <div style="display:grid;gap:40px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,0.12);">
+        <div style="display:flex;flex-direction:column;gap:14px;max-width:280px;">
+          <span style="display:flex;align-items:center;gap:10px;">
+            <span style="width:32px;height:32px;border-radius:9px;background:#3564EF;display:flex;align-items:center;justify-content:center;color:#fff;"><i data-lucide="headset" width="18" height="18"></i></span>
+            <span style="font-weight:800;font-size:19px;color:#fff;letter-spacing:-0.02em;">BC4Cloud</span>
+          </span>
+          <p style="margin:0;font-size:14px;line-height:1.6;color:#6F86F4;">Cloudové kontaktní centrum od BusinessCom a.s. Hovory, e-maily, chat a WhatsApp v jednom okně.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <span style="font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#fff;">Produkt</span>
+          <a href="#features" style="font-size:14.5px;color:#95A3F7;text-decoration:none;" style-hover="color:#fff;">Funkce</a>
+          <a href="#how-it-works" style="font-size:14.5px;color:#95A3F7;text-decoration:none;" style-hover="color:#fff;">Jak to funguje</a>
+          <a href="#product-video" style="font-size:14.5px;color:#95A3F7;text-decoration:none;" style-hover="color:#fff;">Video ukázka</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <span style="font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#fff;">Společnost</span>
+          <a href="#why-us" style="font-size:14.5px;color:#95A3F7;text-decoration:none;" style-hover="color:#fff;">Proč my</a>
+          <a href="#faq" style="font-size:14.5px;color:#95A3F7;text-decoration:none;" style-hover="color:#fff;">Časté otázky</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <span style="font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#fff;">Kontakt</span>
+          <span style="font-size:14.5px;color:#95A3F7;">obchod@bc4cloud.cz</span>
+          <a href="#poptavka" style="font-size:14.5px;color:#AAB5F8;text-decoration:none;font-weight:600;" style-hover="color:#fff;">Domluvit ukázku →</a>
+        </div>
+      </div>
+      <div style="padding-top:24px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;font-size:13px;color:#6F86F4;">
+        <span>© 2026 BusinessCom a.s. — 20+ let v české telekomunikaci.</span>
+        <span style="display:flex;gap:18px;"><span>GDPR ready</span><span>Data v EU</span><span>99,95 % SLA</span></span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900},&quot;showProductVideo&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;showTrustBand&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  state = { openFaq: 0, submitted: false };
+
+  componentDidMount() {
+    this._icons();
+    this._reduced = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    if (!this._reduced && this._root) this._root.querySelectorAll('[data-reveal-lines]').forEach((c) => { c.style.opacity = '0'; });
+    this._setupMotion();
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    window.addEventListener('resize', this._onResize, { passive: true });
+    this._onScroll();
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this._onScroll); window.removeEventListener('resize', this._onResize); clearTimeout(this._rz); (this._timers || []).forEach(clearTimeout); }
+  componentDidUpdate() { if (window.lucide) try { window.lucide.createIcons(); } catch (e) {} }
+  _icons() {
+    if (window.lucide) { try { window.lucide.createIcons(); } catch (e) {} }
+    else { setTimeout(() => this._icons(), 60); }
+  }
+
+  _kidsOf(el) {
+    let kids = Array.from(el.children);
+    if (kids.length <= 1 && kids[0]) { const inner = Array.from(kids[0].children); if (inner.length > 1) kids = inner; }
+    return kids;
+  }
+
+  _onScroll = () => {
+    const se = document.scrollingElement || document.documentElement;
+    const max = se.scrollHeight - window.innerHeight;
+    const p = max > 0 ? Math.min(se.scrollTop / max, 1) : 0;
+    if (this._progress) this._progress.style.transform = 'scaleX(' + p + ')';
+    if (this._header) this._header.style.boxShadow = se.scrollTop > 8 ? '0 8px 30px -16px rgba(4,18,59,0.28)' : 'none';
+    this._revealCheck();
+  };
+
+  _revealKids(el) {
+    const kids = el.hasAttribute('data-reveal-stagger') ? this._kidsOf(el) : [el];
+    kids.forEach((k, i) => { k.style.transitionDelay = (i * 85) + 'ms'; k.style.opacity = '1'; k.style.transform = 'none'; });
+    el.setAttribute('data-shown', '1');
+  }
+
+  _revealLines(el) {
+    el.querySelectorAll('[data-rl-inner]').forEach((inner) => {
+      const i = parseInt(inner.getAttribute('data-rl-i') || '0', 10);
+      inner.style.transitionDelay = (i * 80) + 'ms';
+      inner.style.transform = 'translateY(0)';
+    });
+    el.setAttribute('data-shown', '1');
+  }
+
+  _hideEl(el) {
+    if (el.hasAttribute('data-reveal-lines')) {
+      el.querySelectorAll('[data-rl-inner]').forEach((inner) => { inner.style.transitionDelay = '0ms'; inner.style.transform = 'translateY(110%)'; });
+    } else {
+      const kids = el.hasAttribute('data-reveal-stagger') ? this._kidsOf(el) : [el];
+      kids.forEach((k) => { k.style.transitionDelay = '0ms'; k.style.opacity = '0'; k.style.transform = 'translateY(28px)'; });
+    }
+    el.removeAttribute('data-shown');
+  }
+
+  _revealCheck = () => {
+    if (!this._motion) return;
+    const root = this._root || document;
+    const vh = window.innerHeight || 800;
+    root.querySelectorAll('[data-reveal]:not([data-shown]), [data-reveal-stagger]:not([data-shown])').forEach((el) => {
+      if (el.getBoundingClientRect().top < vh * 0.9) this._revealKids(el);
+    });
+    root.querySelectorAll('[data-reveal-lines]:not([data-shown])').forEach((el) => {
+      if (el.getBoundingClientRect().top < vh * 0.92) this._revealLines(el);
+    });
+    // replay: re-hide elements that have fully left the viewport so they animate again on return
+    if (!this._replay) return;
+    root.querySelectorAll('[data-reveal][data-shown], [data-reveal-stagger][data-shown], [data-reveal-lines][data-shown]').forEach((el) => {
+      const r = el.getBoundingClientRect();
+      if (r.bottom < -60 || r.top > vh + 60) this._hideEl(el);
+    });
+  };
+
+  _revealAll = () => {
+    const root = this._root || document;
+    root.querySelectorAll('[data-reveal]:not([data-shown]), [data-reveal-stagger]:not([data-shown])').forEach((el) => this._revealKids(el));
+    root.querySelectorAll('[data-reveal-lines]:not([data-shown])').forEach((el) => { el.style.opacity = '1'; this._revealLines(el); });
+  };
+
+  // Split each plain-text leaf inside a container into line-masks (zetta-joule style)
+  _splitContainer(container) {
+    if (container.__rl) return;
+    container.__rl = true;
+    const TAGS = { H1: 1, H2: 1, H3: 1, H4: 1, P: 1, SPAN: 1, BLOCKQUOTE: 1, LI: 1 };
+    let targets = [];
+    if (!container.children.length) {
+      targets = [container];
+    } else {
+      container.querySelectorAll('h1,h2,h3,h4,p,span,blockquote,li').forEach((el) => {
+        if (el.children.length === 0 && el.textContent.trim()) targets.push(el);
+      });
+    }
+    if (!targets.length) { targets = [container]; }
+    const EASE = 'cubic-bezier(.22,.75,.2,1)';
+    let idx = 0;
+    targets.forEach((el) => {
+      const txt = el.textContent;
+      if (!txt.trim()) return;
+      el.setAttribute('data-rl-orig', txt);
+      const words = txt.split(/\s+/).filter((w) => w.length);
+      if (!words.length) return;
+      el.textContent = '';
+      const wspans = words.map((w) => {
+        const s = document.createElement('span');
+        s.textContent = w;
+        s.style.display = 'inline-block';
+        el.appendChild(s);
+        el.appendChild(document.createTextNode(' '));
+        return s;
+      });
+      const lines = [];
+      let curTop = null, cur = null;
+      wspans.forEach((s) => {
+        const t = Math.round(s.getBoundingClientRect().top);
+        if (curTop === null || Math.abs(t - curTop) > 3) { cur = []; lines.push(cur); curTop = t; }
+        cur.push(s.textContent);
+      });
+      el.textContent = '';
+      lines.forEach((lineWords) => {
+        const mask = document.createElement('span');
+        mask.style.display = 'block';
+        mask.style.overflow = 'hidden';
+        mask.style.paddingBottom = '0.16em';
+        mask.style.marginBottom = '-0.16em';
+        const inner = document.createElement('span');
+        inner.style.display = 'block';
+        inner.style.transform = 'translateY(125%)';
+        inner.style.transition = 'transform .95s ' + EASE;
+        inner.style.willChange = 'transform';
+        inner.setAttribute('data-rl-inner', '');
+        inner.setAttribute('data-rl-i', String(idx++));
+        inner.textContent = lineWords.join(' ');
+        mask.appendChild(inner);
+        el.appendChild(mask);
+      });
+    });
+  }
+
+  _fontsReady(ms) {
+    return new Promise((res) => {
+      let done = false;
+      const d = () => { if (!done) { done = true; res(); } };
+      try { if (document.fonts && document.fonts.ready) document.fonts.ready.then(d); } catch (e) {}
+      setTimeout(d, ms);
+    });
+  }
+
+  async _setupMotion() {
+    const root = this._root;
+    try {
+      if (!root || this._reduced) return;
+      const lineContainers = Array.from(root.querySelectorAll('[data-reveal-lines]'));
+      await this._fontsReady(1400);
+      lineContainers.forEach((c) => this._splitContainer(c));
+      lineContainers.forEach((c) => { c.style.opacity = '1'; });
+      this._hideForReveal();
+      this._motion = true;
+      this._replay = true;
+      this._lastW = window.innerWidth;
+      this._scheduleReveals();
+    } catch (err) {
+      if (root) {
+        root.querySelectorAll('[data-reveal-lines]').forEach((c) => { c.style.opacity = '1'; });
+        this._motion = true;
+        this._revealAll();
+      }
+    }
+  }
+
+  _onResize = () => { clearTimeout(this._rz); this._rz = setTimeout(this._resplit, 260); };
+
+  _resplit = () => {
+    const root = this._root;
+    if (!root || !this._motion || this._reduced) return;
+    const w = window.innerWidth;
+    if (w === this._lastW) return;
+    this._lastW = w;
+    root.querySelectorAll('[data-reveal-lines]').forEach((c) => {
+      const wasShown = c.hasAttribute('data-shown');
+      c.querySelectorAll('[data-rl-orig]').forEach((el) => { el.textContent = el.getAttribute('data-rl-orig'); el.removeAttribute('data-rl-orig'); });
+      c.__rl = false;
+      c.removeAttribute('data-shown');
+      this._splitContainer(c);
+      if (wasShown) {
+        c.querySelectorAll('[data-rl-inner]').forEach((inner) => { inner.style.transition = 'none'; inner.style.transform = 'translateY(0)'; });
+        c.setAttribute('data-shown', '1');
+      }
+    });
+    this._revealCheck();
+  };
+
+  _hideForReveal() {
+    const root = this._root;
+    if (!root || this._reduced) return;
+    const EASE = 'cubic-bezier(.16,.84,.44,1)';
+    const hide = (el) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(28px)';
+      el.style.transition = 'opacity .8s ' + EASE + ', transform .8s ' + EASE;
+      el.style.willChange = 'opacity, transform';
+    };
+    root.querySelectorAll('[data-reveal], [data-reveal-stagger]').forEach((el) => {
+      const kids = el.hasAttribute('data-reveal-stagger') ? this._kidsOf(el) : [el];
+      kids.forEach(hide);
+    });
+    this._motion = true;
+  }
+
+  _scheduleReveals() {
+    if (!this._motion) return;
+    this._timers = [];
+    requestAnimationFrame(() => this._revealCheck());
+    this._timers.push(setTimeout(() => this._revealCheck(), 140));
+    this._timers.push(setTimeout(() => this._revealCheck(), 700));
+    this._timers.push(setTimeout(() => this._revealAll(), 4000));
+  }
+
+  toggleFaq(i) { this.setState(s => ({ openFaq: s.openFaq === i ? -1 : i })); }
+
+  renderVals() {
+    const benefits = [
+      { icon: 'phone-incoming', title: 'Lepší zákaznická zkušenost', description: 'Hovory vám přestanou utíkat. Systém automaticky zavolá zpět zákazníkům, kterým dojde trpělivost. 86 % zákazníků nakoupí znovu, pokud má dobrou zkušenost.' },
+      { icon: 'timer', title: 'Zákazníci nečekají na lince', description: 'Průměrné čekání jde z minut na sekundy — a frustrovaný zákazník neběží ke konkurenci. 81 % zákazníků odejde po 2 negativních zkušenostech.' },
+      { icon: 'users', title: 'Vyšší produktivita: agent ví, s kým mluví', description: 'Historie zákazníka naskočí v okamžiku přijetí hovoru. Žádné „počkejte, prověřím to v našem systému“ — odpověď leží před agentem, než stihne říct dobrý den.' },
+      { icon: 'bar-chart-3', title: 'Víc vyřízených požadavků bez navýšení týmu', description: 'Díky podrobným statistikám, vyhodnocování úspěšnosti hovorů a automatickému přidělování úkolů získáte dokonalý přehled o svém obchodním týmu.' },
+    ];
+
+    const stats = [
+      { value: '12–25 %', label: 'Hovorů zachráněno', description: 'Callback fronta dovolá zpět zákazníkům, co by jinak spadli.' },
+      { value: '0:45', label: 'Průměrné čekání', description: 'Z 2:30 v prvním měsíci.' },
+      { value: '5 dnů', label: 'Od podpisu k prvnímu hovoru', description: 'Základní Volání. Portace čísel, IVR, účty operátorů — naše práce.' },
+      { value: '99,95 %', label: 'Uptime SLA', description: 'Servery v Česku a EU, zálohované na 2 místech. Když něco vypadne, hned to vidíte.' },
+    ];
+
+    const chapters = [
+      { timestamp: '0:00', title: 'Přijetí hovoru', description: 'Operátor zvedne telefon. Historie zákazníka, skript a akce naskočí ve stejném okně.' },
+      { timestamp: '0:20', title: 'Omnichannel v jedné obrazovce', description: 'Vedle hovoru: email, chat, WhatsApp. Kontext se nikam neztrácí.' },
+      { timestamp: '0:40', title: 'AI shrnutí a předání', description: 'Po zavěšení: automatický zápis do CRM a předání obchodníkovi s notifikací.' },
+    ];
+
+    const tiers = [
+      { tier: 1, title: 'Chytré volání', addOn: false, description: 'Končí životnost vaší analogové ústředny? BC4 — moderní cloudová náhrada bez nového hardwaru. Rychlé nasazení bez investic a složitého IT.', features: ['Přehled všech příchozích i odchozích hovorů v reálném čase', 'Nahrávání hovorů pro kontrolu kvality, šifrovaně', 'IVR editor v prohlížeči — IT technika nepotřebujete', 'Statistiky výkonu per směna a per operátor'] },
+      { tier: 2, title: 'Kontaktní centrum', addOn: false, description: 'Pro firmy, které chtějí povýšit zákaznické oddělení — nebo už call centrum mají. Telefon, SMS a WhatsApp v jednom rozhraní, jedním chytrým směrováním.', features: ['Chytré směrování podle dovedností operátora a hodnoty zákazníka', 'WhatsApp Business API + hromadné SMS s šablonami', 'Odchozí kampaně s prediktivním dialerem a importem z XLSX', 'Dashboardy a reporting výkonu týmu v reálném čase'] },
+      { tier: 3, title: 'AI', addOn: true, description: 'Modul nad Voláním i Kontaktním centrem. Voicebot a chatbot pro rutinní dotazy, speech analytics pro každý hovor. AI řeší opakované, operátoři složité.', features: ['Voicebot — ověření identity, rezervace, směrování hovorů', 'Chatbot napojený na ChatGPT a vaše vlastní data', 'Automatický přepis hovoru do textu v češtině', 'Sentiment analýza a detekce rizikových konverzací'] },
+      { tier: 4, title: 'Integrace', addOn: true, description: 'Modul, který napojí libovolnou úroveň na CRM, ERP, ticketing nebo NIS. Kontakty tečou dovnitř, záznamy o hovorech zpátky — bez ručního přepisování.', features: ['Import kontaktů z CRM, ERP, ticketing nebo NIS', 'Záznamy hovorů (kdo, kdy, výsledek) zpět do CRM', 'REST API a webhooks pro vlastní integrace', 'Hotové konektory: MS Teams, SAP, Salesforce, HubSpot'] },
+    ];
+
+    const featureData = [
+      { icon: 'monitor', eyebrow: 'Omnichannel inbox', headline: 'Hovor, SMS a WhatsApp v jedné obrazovce', description: 'Operátor nepřeskakuje mezi aplikacemi. Hovor, SMS i vlákno z WhatsAppu má vedle sebe. Karta zákazníka s historií z CRM naskočí v okamžiku přijetí.', highlights: ['WebRTC dialer — volání z prohlížeče, bez instalace', 'Hovor, SMS a WhatsApp v jedné obrazovce', 'Karta hovoru s poznámkou, kategorií a historií volajícího', 'Volání přes headset nebo CTI ovládání pevného telefonu'], img: 'assets/product/agent-panel.webp', alt: 'BC4 Karta hovoru — detaily hovoru, kategorie, historie čísla a poznámky operátora' },
+      { icon: 'git-branch', eyebrow: 'Routing a call flow', headline: 'Hovor jde tam, kam má — podle pravidel, ne podle náhody', description: 'Vy nastavíte pravidla v call flow, systém je dodrží u každého hovoru. Podle času, čísla volajícího, předvolby i historie. Hovor nikdy nezmizí do ztracena.', highlights: ['Mimo pracovní dobu → hláška a callback ráno, ne vyzvánění do prázdna', 'Předvolba +49 → německá hláška a německy mluvící operátor', 'Stálý zákazník vždy na svého technika; když nevezme, padá na centrálu', 'Číslo na blacklistu systém odmítne dřív, než kdokoli zvedne'], img: 'assets/product/smart-routing.webp', alt: 'Smart routing — kartičky front s počty čekajících a obsloužených hovorů' },
+      { icon: 'eye', eyebrow: 'Monitoring a koučování', headline: 'Vidíte, co se děje, hned jak se to děje', description: 'Real-time monitoring i historical reporting v jednom. 360° pohled na celé kontaktní centrum, náslech ongoing hovorů pro koučování, wallboard na velký displej.', highlights: ['Real-time dashboard per operátor, per fronta, per směna', 'Náslech ongoing hovorů pro QA i koučování nováčků', 'CDR a výkonnostní reporty s exportem do XLSX', 'Wallboard pro nástěnnou TV v týmovém prostoru'], img: 'assets/product/supervizor.webp', alt: 'BC4 Supervizor panel — KPI metriky a tabulka aktivních hovorů s tichým příposlechem' },
+      { icon: 'sparkles', eyebrow: 'AI automatizace', headline: 'Voicebot, který umí vaši firmu', description: 'Konverzační AI napojená na ChatGPT, trénovaná na vašich datech. Vyřídí rutinní dotazy. Když nestačí, předá hovor operátorovi s kontextem.', highlights: ['Voicebot a chatbot napojené na ChatGPT', 'Trénink na vaší knowledge base, FAQ, produktech', 'Předání operátorovi s kontextem, když AI nestačí', 'ASR přepis a sentiment analýza každého hovoru'], img: 'assets/product/call-flow.webp', alt: 'BC4 vizuální editor call flow — uzly Otevíračka, IVR hláška, větve podle volby' },
+      { icon: 'smartphone', eyebrow: 'Mobilita, bez VPN', headline: 'Operátor volá z mobilu jako z kanceláře', description: 'Oficiální aplikace BC4 Agent Panel v App Store i Google Play. Stejné funkce jako desktop Panel: fronty, callback, kontakty, transfer. Bez VPN díky integrovanému SBC.', highlights: ['Stáhnete přímo z App Store a Google Play, instalace za minutu', 'Stejný workflow jako desktop — fronty, callback, kategorie a poznámky', 'VPN-less díky integrovanému SBC — bezpečný přístup zvenku', 'Pro terén, hybridní práci nebo pohotovost'], img: 'assets/product/mobile.webp', alt: 'BC4 Mobile Client — mobilní obrazovky: dialer, aktivní hovor, panel operátora a callback' },
+    ];
+    const features = featureData.map((f, i) => ({ ...f, rowStyle: { display: 'flex', flexWrap: 'wrap', gap: 'clamp(32px,4vw,64px)', alignItems: 'center', flexDirection: i % 2 === 1 ? 'row-reverse' : 'row' } }));
+
+    const segments = [
+      { icon: 'shopping-cart', name: 'E-shopy', tagline: 'Zvládnete špičku bez navyšování lidí. Navíc oslovíte zákazníky, kteří nedokončili objednávku.' },
+      { icon: 'wrench', name: 'Servisní firmy', tagline: 'Technik v terénu má vše po ruce — volá přes mobil a okamžitě vidí historii komunikace.' },
+      { icon: 'shield-check', name: 'Banky a finance', tagline: 'Audit trail ke každému hovoru. Šifrovaná nahrávka. GDPR ready.' },
+      { icon: 'stethoscope', name: 'Zdravotnictví', tagline: 'Rezervační linka bez čekání. SMS i WhatsApp připomínky termínů snižují počet nedostavených pacientů.' },
+      { icon: 'antenna', name: 'Telco operátoři', tagline: 'Prediktivní dialer na retention kampaně. Statistiky ke směně.' },
+    ];
+
+    const whyUs = [
+      { icon: 'headphones', title: 'Česká podpora. Mluví s vámi člověk.', description: 'Když zavoláte, na druhé straně je někdo, kdo vaše CC zná. Bez překladu do angličtiny, bez fronty do zahraničního supportu.' },
+      { icon: 'map-pin', title: 'Data zůstávají v EU.', description: 'Nahrávky i osobní údaje neopouštějí Evropu. DPA k podpisu vám pošleme. GDPR nestojí na vás, ale na nás.' },
+      { icon: 'trending-up', title: 'Rostete s námi. Od 1 do 500.', description: 'Začnete s 1 operátorem, rostete na 500. Z Volání na plný omnichannel přejdete pár kliknutími v administraci.' },
+      { icon: 'clock', title: '20+ let zkušeností, ne startupová zkouška.', description: 'BusinessCom provozuje komunikační řešení od roku 2003. BC4Cloud je pokračováním desítek implementací pro české firmy.' },
+    ];
+
+    const testimonials = [
+      { quote: 'Po nasazení BC4Cloudu jsme v prvním kvartálu zachránili 18 % hovorů, co by jinak skončily ve frontě bez odezvy. Callback funguje, operátoři to mají rádi.', author: 'Petra Nováková', role: 'Vedoucí kontaktního centra', initials: 'PN' },
+      { quote: 'Přechod ze staré ústředny trval 5 dní. Kompletní portace čísel, IVR, zaškolení operátorů. Méně času, než jsme čekali — a žádný výpadek.', author: 'Tomáš Dvořák', role: 'IT manažer', initials: 'TD' },
+      { quote: 'Šlo nám o jednoduchost. Operátoři zvládli zaškolení za 2 hodiny, supervizoři vidí všechno v reálném čase. Žádné Excely, žádná chaotická data.', author: 'Jana Procházková', role: 'Provozní ředitelka', initials: 'JP' },
+    ];
+
+    const trustLogos = [
+      { name: 'Klient 01' }, { name: 'Klient 02' }, { name: 'Klient 03' }, { name: 'Klient 04' }, { name: 'Klient 05' },
+    ];
+
+    const faqData = [
+      { question: 'Jak dlouho trvá nasazení?', answer: 'Volání rozjedeme do 5 pracovních dnů od podpisu — portaci čísel, základní IVR, účty operátorů. Plné kontaktní centrum s integrací na CRM 2–4 týdny. AI moduly nasazujeme samostatně, kdykoli později.' },
+      { question: 'Potřebujeme vlastní IT tým?', answer: 'Ne. BC4Cloud běží v cloudu. Operátoři se přihlásí přes prohlížeč nebo naši mobilní aplikaci. Stačí stabilní internet a headset — zbytek je náš problém.' },
+      { question: 'Kolik to stojí?', answer: 'Účtujeme per operátor za měsíc, minimum je 1 operátor. Konkrétní cenu pro váš case spočítáme do 1 pracovního dne od vyplnění poptávky.' },
+      { question: 'Funguje to s naším CRM?', answer: 'Máme otevřené REST API a webhooks pro příchozí hovory, click-to-call a zápis interakcí. Z krabice máme integraci s MS Teams. Napojení na vaše CRM nebo ERP přes API obvykle 2–5 pracovních dnů.' },
+      { question: 'Nejsme s vámi uvězněni na roky?', answer: 'Smlouva má tříměsíční výpovědní lhůtu. Žádný lock-in na 24 měsíců, žádné sankce za odchod. Kdykoli vám vytáhneme data a odevzdáme je.' },
+      { question: 'Kde jsou naše data?', answer: 'V datových centrech v Praze a Evropské unii. Nikdy mimo EU. Nahrávky jsou šifrované at rest i při přenosu. Jsme GDPR compliant, DPA vám pošleme automaticky k podpisu smlouvy.' },
+      { question: 'Co když nás teprve čeká růst?', answer: 'Platforma škáluje od 1 do 500+ operátorů. Přidání operátora je klikem v administraci, žádná nová smlouva. Přechod z Volání na plný omnichannel se aktivuje do 24 hodin.' },
+    ];
+    const open = this.state.openFaq;
+    const faqItems = faqData.map((q, i) => ({
+      question: q.question,
+      answer: q.answer,
+      panelStyle: { overflow: 'hidden', transition: 'max-height .3s ease, opacity .3s ease', maxHeight: open === i ? '460px' : '0px', opacity: open === i ? 1 : 0 },
+      iconStyle: { flex: 'none', transition: 'transform .25s ease', transform: open === i ? 'rotate(180deg)' : 'rotate(0deg)' },
+      toggle: () => this.toggleFaq(i),
+    }));
+
+    return {
+      benefits, stats, chapters, tiers, features, segments, whyUs, testimonials, trustLogos, faqItems,
+      showVideo: this.props.showProductVideo ?? true,
+      showTrust: this.props.showTrustBand ?? true,
+      submitted: this.state.submitted,
+      notSubmitted: !this.state.submitted,
+      onSubmit: (e) => { e.preventDefault(); this.setState({ submitted: true }); },
+      rootRef: (el) => { this._root = el; },
+      progressRef: (el) => { this._progress = el; },
+      headerRef: (el) => { this._header = el; },
+    };
+  }
+}
+</script>
+</body>
+</html>

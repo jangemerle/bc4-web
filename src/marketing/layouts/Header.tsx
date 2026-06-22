@@ -1,21 +1,21 @@
 import { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, ChevronDown } from 'lucide-react';
-import { Button } from '@/components/Button';
-import { Container } from '@/marketing/primitives/Container';
+import { Menu, X } from 'lucide-react';
 import { common } from '@/content/cs/common';
+import { CtaButton } from '@/marketing/primitives/CtaButton';
 
 /**
- * Header — sticky top navigation pro BC4 marketing.
- * Desktop: logo + dropdown nav + primary CTA.
- * Mobile: logo + hamburger → full-screen drawer.
+ * Header — sticky 72px bar. Transparent at the top (the hero shows through),
+ * fading to a translucent white + blur + shadow once scrolled. Route-based nav
+ * (Funkce, Kontakt) plus the primary "Domluvit ukázku" CTA.
  */
+
+const navStyle = 'text-[17px] font-bold no-underline text-[var(--color-on-surface)]';
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [productsOpen, setProductsOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -25,80 +25,52 @@ export function Header() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Zavřít menu při změně stránky
-  useEffect(() => {
-    setMobileOpen(false);
-    setProductsOpen(false);
-  }, [location.pathname]);
+  useEffect(() => setMobileOpen(false), [location.pathname]);
 
   return (
     <header
       className={[
-        'sticky top-0 z-40 w-full transition-shadow duration-200',
-        'bg-[var(--color-surface-1)]/90 backdrop-blur-md',
-        scrolled ? 'shadow-[0_1px_0_0_var(--color-border)]' : 'border-b border-transparent',
+        'sticky top-0 z-50 transition-[background-color,box-shadow] duration-200',
+        scrolled
+          ? 'bg-[rgba(255,255,255,0.82)] backdrop-blur-[14px] shadow-[0_8px_30px_-16px_rgba(4,18,59,0.28)]'
+          : 'bg-transparent',
       ].join(' ')}
     >
-      <Container width="wide" className="flex h-16 items-center justify-between gap-4">
+      <div className="mx-auto flex h-[72px] max-w-[1200px] items-center justify-between gap-6 px-6">
         {/* Logo */}
-        <Link
-          to="/"
-          aria-label={common.brand.name + ' — domů'}
-          className="flex items-center gap-2 font-display text-lg font-extrabold text-[var(--color-on-surface)]"
-          style={{ fontFamily: 'var(--font-display)' }}
-        >
-          {common.brand.name}
+        <Link to="/" aria-label={`${common.brand.name} — domů`} className="flex items-center gap-2.5 no-underline">
+          <img src="/logos/bc4cloud-mark.svg" alt="" aria-hidden="true" className="h-[34px] w-auto" />
+          <span className="relative top-[3px] font-display text-[20px] font-extrabold tracking-[-0.02em] text-[var(--color-on-surface)]">
+            BC4 Cloud
+          </span>
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-1" aria-label="Hlavní">
-          {common.nav.primary.map(item =>
-            item.children ? (
-              <ProductsDropdown
-                key={item.label}
-                label={item.label}
-                items={item.children}
-                open={productsOpen}
-                onOpenChange={setProductsOpen}
-              />
-            ) : (
-              <NavLink
-                key={item.href}
-                to={item.href}
-                className={({ isActive }) =>
-                  [
-                    'rounded-m px-3 py-2 text-sm font-semibold transition-colors',
-                    isActive
-                      ? 'text-[var(--color-on-surface)]'
-                      : 'text-[var(--color-on-surface-subtle-1)] hover:text-[var(--color-on-surface)]',
-                  ].join(' ')
-                }
-              >
-                {item.label}
-              </NavLink>
-            ),
-          )}
+        <nav className="hidden items-center gap-[30px] lg:flex" aria-label="Hlavní">
+          {common.nav.primary.map((item) => (
+            <NavLink key={item.href} to={item.href} className={navStyle}>
+              {item.label}
+            </NavLink>
+          ))}
         </nav>
 
         {/* Desktop CTA */}
         <div className="hidden lg:block">
-          <Link to={common.nav.primaryCta.href}>
-            <Button variant="primary" size="sm">
-              {common.nav.primaryCta.label}
-            </Button>
-          </Link>
+          <CtaButton href={common.nav.primaryCta.href} variant="primary" size="md" trackingId={common.nav.primaryCta.trackingId}>
+            {common.nav.primaryCta.label}
+          </CtaButton>
         </div>
 
-        {/* Mobile menu trigger */}
+        {/* Mobile trigger */}
         <button
           type="button"
           onClick={() => setMobileOpen(true)}
-          className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-m text-[var(--color-on-surface)]"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-m text-[var(--color-on-surface)] lg:hidden"
           aria-label="Otevřít menu"
         >
           <Menu className="h-6 w-6" />
         </button>
-      </Container>
+      </div>
 
       {/* Mobile drawer */}
       <AnimatePresence>
@@ -113,8 +85,13 @@ export function Header() {
             aria-modal="true"
             aria-label="Mobilní menu"
           >
-            <Container width="wide" className="flex h-16 items-center justify-between">
-              <span className="font-display text-lg font-extrabold">{common.brand.name}</span>
+            <div className="mx-auto flex h-[72px] max-w-[1200px] items-center justify-between px-6">
+              <span className="flex items-center gap-2.5">
+                <img src="/logos/bc4cloud-mark.svg" alt="" aria-hidden="true" className="h-[34px] w-auto" />
+                <span className="relative top-[3px] font-display text-[20px] font-extrabold tracking-[-0.02em] text-[var(--color-on-surface)]">
+                  BC4 Cloud
+                </span>
+              </span>
               <button
                 type="button"
                 onClick={() => setMobileOpen(false)}
@@ -123,104 +100,27 @@ export function Header() {
               >
                 <X className="h-6 w-6" />
               </button>
-            </Container>
-            <Container width="wide" className="flex flex-col gap-2 pt-6 pb-12">
-              {common.nav.primary.flatMap(item =>
-                item.children
-                  ? [
-                      <p key={item.label} className="px-3 pt-3 pb-1 text-xs font-bold uppercase tracking-wider text-[var(--color-on-surface-subtle-2)]">
-                        {item.label}
-                      </p>,
-                      ...item.children.map(child => (
-                        <Link
-                          key={child.href}
-                          to={child.href}
-                          className="rounded-m px-3 py-3 text-base font-semibold text-[var(--color-on-surface)] hover:bg-[var(--color-secondary-1)]"
-                        >
-                          {child.label}
-                        </Link>
-                      )),
-                    ]
-                  : [
-                      <Link
-                        key={item.href}
-                        to={item.href}
-                        className="rounded-m px-3 py-3 text-base font-semibold text-[var(--color-on-surface)] hover:bg-[var(--color-secondary-1)]"
-                      >
-                        {item.label}
-                      </Link>,
-                    ],
-              )}
+            </div>
+            <div className="mx-auto flex max-w-[1200px] flex-col gap-2 px-6 pb-12 pt-6">
+              {common.nav.primary.map((item) => (
+                <NavLink
+                  key={item.href}
+                  to={item.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="rounded-m px-3 py-3 text-base font-semibold text-[var(--color-on-surface)] no-underline hover:bg-[var(--color-secondary-1)]"
+                >
+                  {item.label}
+                </NavLink>
+              ))}
               <div className="mt-6">
-                <Link to={common.nav.primaryCta.href}>
-                  <Button variant="primary" size="lg" className="w-full">
-                    {common.nav.primaryCta.label}
-                  </Button>
-                </Link>
+                <CtaButton href={common.nav.primaryCta.href} variant="primary" size="lg" className="w-full">
+                  {common.nav.primaryCta.label}
+                </CtaButton>
               </div>
-            </Container>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
     </header>
-  );
-}
-
-interface ProductsDropdownProps {
-  label: string;
-  items: Array<{ label: string; href: string }>;
-  open: boolean;
-  onOpenChange: (open: boolean) => void;
-}
-
-function ProductsDropdown({ label, items, open, onOpenChange }: ProductsDropdownProps) {
-  let closeTimer: ReturnType<typeof setTimeout> | undefined;
-
-  const handleEnter = () => {
-    if (closeTimer) clearTimeout(closeTimer);
-    onOpenChange(true);
-  };
-
-  const handleLeave = () => {
-    // Diagonal accommodation — dvořte 250ms na move kurzor do dropdownu
-    closeTimer = setTimeout(() => onOpenChange(false), 250);
-  };
-
-  return (
-    <div className="relative" onMouseEnter={handleEnter} onMouseLeave={handleLeave}>
-      <button
-        type="button"
-        className="inline-flex items-center gap-1 rounded-m px-3 py-2 text-sm font-semibold text-[var(--color-on-surface-subtle-1)] hover:text-[var(--color-on-surface)]"
-        aria-expanded={open}
-        aria-haspopup="menu"
-        onClick={() => onOpenChange(!open)}
-      >
-        {label}
-        <ChevronDown className="h-4 w-4" aria-hidden="true" />
-      </button>
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0, y: -4 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -4 }}
-            transition={{ duration: 0.15 }}
-            className="absolute left-0 top-full mt-1 min-w-[220px] rounded-m border border-[var(--color-border)] bg-[var(--color-surface-1)] p-2 shadow-lg"
-            role="menu"
-          >
-            {items.map(item => (
-              <Link
-                key={item.href}
-                to={item.href}
-                className="block rounded-m px-3 py-2 text-sm font-semibold text-[var(--color-on-surface)] hover:bg-[var(--color-secondary-1)]"
-                role="menuitem"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
   );
 }
