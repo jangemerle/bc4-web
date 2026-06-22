@@ -1,11 +1,10 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { motion } from 'motion/react';
-import { ShieldCheck, MapPin, Headphones, Play } from 'lucide-react';
-import { Button } from '@/components/Button';
-import { Container } from '@/marketing/primitives/Container';
-import { EyebrowLabel } from '@/marketing/primitives/EyebrowLabel';
+import { ShieldCheck, MapPin, Headphones } from 'lucide-react';
 import type { HomeContent } from '@/content/types';
+import { RevealLines } from '@/marketing/motion/RevealLines';
+import { Reveal } from '@/marketing/motion/Reveal';
+import { NavGlow } from '@/marketing/motion/NavGlow';
+import { CtaButton } from '@/marketing/primitives/CtaButton';
+import { Bound } from './shared';
 
 const trustBadges = [
   { icon: ShieldCheck, label: 'GDPR ready' },
@@ -19,144 +18,106 @@ interface HeroProps {
 
 export function Hero({ content }: HeroProps) {
   return (
-    <section className="relative overflow-hidden pb-12 pt-12 sm:pb-20 sm:pt-20" aria-labelledby="hero-headline">
-      {/* Subtle radial gradient — primary color ~5% opacity */}
+    <section
+      id="top"
+      className="relative overflow-hidden bg-[var(--color-surface-1)] pb-[clamp(56px,7vw,96px)]"
+      style={{ marginTop: '-72px', paddingTop: 'calc(72px + clamp(48px, 6vw, 84px))' }}
+      aria-labelledby="hero-headline"
+    >
+      {/* Large logo-style glow, emanating from the top edge behind the headline */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+        <NavGlow
+          sizes={[552, 960, 1368]}
+          alphas={[0.16, 0.09, 0.045]}
+          blur={12}
+          inDuration={0.9}
+          loop
+          loopDuration={4.2}
+          style={{ left: '50%', top: 'calc(4% - 160px)' }}
+        />
+      </div>
+      {/* Masked dotted grid */}
       <div
-        className="pointer-events-none absolute inset-0 -z-0"
-        style={{
-          background:
-            'radial-gradient(80% 60% at 50% 0%, color-mix(in oklab, var(--color-primary-1) 8%, transparent) 0%, transparent 70%)',
-        }}
         aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+        style={{
+          backgroundImage: 'radial-gradient(rgba(4,18,59,0.07) 1px, transparent 1px)',
+          backgroundSize: '26px 26px',
+          WebkitMaskImage: 'radial-gradient(72% 62% at 62% 2%, #000 0%, transparent 72%)',
+          maskImage: 'radial-gradient(72% 62% at 62% 2%, #000 0%, transparent 72%)',
+        }}
       />
 
-      <Container width="wide" className="relative">
-        <div className="grid gap-12 lg:grid-cols-[1.05fr_1fr] lg:items-center lg:gap-16">
-          {/* Levý sloupec — text + CTA */}
+      <Bound className="relative">
+        <div className="grid items-center gap-[clamp(40px,5vw,72px)] lg:grid-cols-[1.15fr_0.85fr]">
+          {/* Left — copy + CTAs */}
           <div className="flex flex-col gap-6">
-            {content.eyebrow && <EyebrowLabel>{content.eyebrow}</EyebrowLabel>}
-
-            <motion.h1
+            <RevealLines
+              as="h1"
               id="hero-headline"
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: [0, 0, 0.2, 1] }}
-              className="font-display text-4xl font-extrabold tracking-[-0.02em] text-[var(--color-on-surface)] sm:text-5xl lg:text-6xl text-balance leading-[1.05]"
+              className="m-0 font-display text-[clamp(2.2rem,1.1rem+2.7vw,3.2rem)] font-extrabold leading-[1.06] tracking-[-0.025em] text-balance text-[var(--color-on-surface)]"
               style={{ fontFamily: 'var(--font-display)' }}
             >
               {content.headline}
-            </motion.h1>
+            </RevealLines>
 
-            <motion.p
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.08, ease: [0, 0, 0.2, 1] }}
-              className="text-lg text-[var(--color-on-surface-subtle-1)] sm:text-xl text-pretty max-w-xl"
+            <RevealLines
+              as="p"
+              className="m-0 max-w-[560px] text-[clamp(1.05rem,0.95rem+0.5vw,1.25rem)] leading-[1.6] text-pretty text-[var(--color-on-surface-subtle-1)]"
             >
               {content.subheadline}
-            </motion.p>
+            </RevealLines>
 
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.16, ease: [0, 0, 0.2, 1] }}
-              className="mt-2 flex flex-wrap items-center gap-3"
-            >
-              <Link to={content.primaryCta.href}>
-                <Button variant="primary" size="lg">
-                  {content.primaryCta.label}
-                </Button>
-              </Link>
+            <Reveal className="mt-1 flex flex-wrap gap-3">
+              <CtaButton href="#poptavka" variant="primary" size="lg" arrow trackingId={content.primaryCta.trackingId}>
+                {content.primaryCta.label}
+              </CtaButton>
               {content.secondaryCta && (
-                <Link to={content.secondaryCta.href}>
-                  <Button variant="secondary" size="lg">
-                    {content.secondaryCta.label}
-                  </Button>
-                </Link>
+                <CtaButton href={content.secondaryCta.href} variant="outline" size="lg">
+                  {content.secondaryCta.label}
+                </CtaButton>
               )}
-            </motion.div>
+            </Reveal>
 
-            {/* Trust badges — GDPR, EU data, česká podpora */}
-            <motion.ul
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.24 }}
-              className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-[var(--color-on-surface-subtle-1)]"
-              aria-label="Trust signály"
+            <Reveal
+              as="ul"
+              className="mt-2 flex list-none flex-wrap items-center gap-x-[18px] gap-y-2 p-0"
             >
-              {trustBadges.map(badge => (
-                <li key={badge.label} className="inline-flex items-center gap-1.5">
-                  <badge.icon className="h-4 w-4 text-[var(--color-on-secondary-1)]" aria-hidden="true" />
-                  <span className="font-medium">{badge.label}</span>
+              {trustBadges.map((badge) => (
+                <li
+                  key={badge.label}
+                  className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[var(--color-on-surface-subtle-1)]"
+                >
+                  <badge.icon className="h-[14px] w-[14px]" aria-hidden="true" />
+                  {badge.label}
                 </li>
               ))}
-            </motion.ul>
+            </Reveal>
           </div>
 
-          {/* Pravý sloupec — hero visual */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96, y: 12 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1, ease: [0, 0, 0.2, 1] }}
-            className="relative"
-          >
-            <div className="relative">
-              <HeroVisual src={content.heroVisual.src} alt={content.heroVisual.alt} />
-              {/* Play overlay — naznačuje, že hero vizuál vede k video ukázce */}
-              <a
-                href="#product-video"
-                aria-label="Přejít na video ukázku BC4Cloud"
-                className="absolute inset-0 flex items-center justify-center group"
-              >
-                <span className="inline-flex h-20 w-20 items-center justify-center rounded-full bg-[var(--color-primary-1)] text-[var(--color-on-primary)] shadow-2xl transition group-hover:scale-105">
-                  <Play className="h-8 w-8 translate-x-0.5 fill-current" aria-hidden="true" />
-                </span>
-              </a>
+          {/* Right — framed product screenshot */}
+          <Reveal className="relative">
+            <div
+              aria-hidden="true"
+              className="absolute"
+              style={{
+                inset: '-6% -4% -10% -4%',
+                background: 'radial-gradient(60% 60% at 50% 40%, rgba(53,100,239,0.22), rgba(53,100,239,0) 70%)',
+                filter: 'blur(8px)',
+              }}
+            />
+            <div className="relative overflow-hidden rounded-[16px] border border-[var(--color-border)] bg-[var(--color-surface-1)] shadow-[0_30px_70px_-28px_rgba(4,18,59,0.5),0_8px_24px_-12px_rgba(4,18,59,0.25)]">
+              <img
+                src={content.heroVisual.src}
+                alt={content.heroVisual.alt}
+                loading="eager"
+                fetchPriority="high"
+                className="block h-auto w-full"
+              />
             </div>
-          </motion.div>
+          </Reveal>
         </div>
-      </Container>
+      </Bound>
     </section>
-  );
-}
-
-/**
- * HeroVisual — renderuje screenshot, ale s onError fallbackem na placeholder.
- * Důvod: image src může být platná cesta, ale soubor ještě neexistuje
- * (jsme v MVP fázi, screenshoty zatím nedodány).
- */
-function HeroVisual({ src, alt }: { src: string; alt: string }) {
-  const [imageFailed, setImageFailed] = useState(false);
-  const isImageExtension =
-    src.endsWith('.png') || src.endsWith('.jpg') || src.endsWith('.webp');
-
-  if (!isImageExtension || imageFailed) {
-    return <HeroPlaceholder alt={alt} />;
-  }
-
-  return (
-    <img
-      src={src}
-      alt={alt}
-      className="block h-auto w-full"
-      loading="eager"
-      fetchPriority="high"
-      onError={() => setImageFailed(true)}
-    />
-  );
-}
-
-function HeroPlaceholder({ alt }: { alt: string }) {
-  return (
-    <div
-      className="aspect-[4/3] bg-gradient-to-br from-[var(--color-surface-2)] to-[var(--color-secondary-1)] flex items-center justify-center"
-      role="img"
-      aria-label={alt}
-    >
-      {/* Play ikonka v kruhu — konzistentní s ProductVideo placeholderem */}
-      <span className="inline-flex h-20 w-20 items-center justify-center rounded-full bg-[var(--color-primary-1)] text-[var(--color-on-primary)] shadow-2xl">
-        <Play className="h-8 w-8 translate-x-0.5 fill-current" aria-hidden="true" />
-      </span>
-    </div>
   );
 }

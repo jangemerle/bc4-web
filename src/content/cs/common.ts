@@ -69,7 +69,7 @@ export const common: CommonContent = {
       { label: 'Obchodní podmínky', href: '/obchodni-podminky' },
     ],
     social: [
-      { platform: 'linkedin', href: 'https://www.linkedin.com/company/businesscom' }, // TODO: ověřit URL
+      { platform: 'linkedin', href: 'https://www.linkedin.com/company/businesscom-a-s/' },
     ],
   },
   preFooterCta: {

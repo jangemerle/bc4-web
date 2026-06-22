@@ -88,3 +88,6 @@ public/code-panel-gradient.png
 public/videos/*.mp4
 public/videos/*.webm
 public/videos/*.mov
+
+# Archived site snapshots (frozen builds; source preserved via git tags)
+archive/

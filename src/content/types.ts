@@ -361,6 +361,8 @@ export interface ProductContent {
     items: Array<{
       pain: string;
       resolution: string;
+      /** Lucide icon name — vizuální kotva karty */
+      icon?: string;
     }>;
   };
   features: {

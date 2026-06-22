@@ -39,14 +39,17 @@ export const features: ProductContent = {
       {
         pain: 'Nechcete platit za funkce, které nikdo nepoužívá.',
         resolution: 'Volání je vstupní úroveň — náhrada ústředny. Kontaktní centrum a AI přidáte, až je opravdu potřebujete.',
+        icon: 'Layers',
       },
       {
         pain: 'Někdo potřebuje desktop, jiný mobil, recepce zase něco jiného.',
         resolution: 'Panel operátora, Mobile Client, Office Panel a Wallboard — různé moduly pro různé role. V ceně tarifu.',
+        icon: 'Users',
       },
       {
-        pain: 'Změny v produktu vyžadují technika a týdenní čekání.',
+        pain: 'Nechcete kvůli každé úpravě fronty nebo IVR čekat týden na technika.',
         resolution: 'Většinu nastavení (fronty, IVR, operátorské pauzy, kategorie hovorů) si měníte sami v centrální administraci.',
+        icon: 'SlidersHorizontal',
       },
     ],
   },

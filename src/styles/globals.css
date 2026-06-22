@@ -150,3 +150,17 @@
 .font-mono {
   font-family: 'JetBrains Mono', monospace;
 }
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   BC4 MARKETING — NavGlow animations. bc4WaveIn = one-time scale-in entrance;
+   bc4WaveLoop = continuous outward pulse (opt-in via the `loop` prop). The
+   prefers-reduced-motion block neutralises both.
+───────────────────────────────────────────────────────────────────────────── */
+@keyframes bc4WaveIn {
+  from { transform: scale(0.3); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+@keyframes bc4WaveLoop {
+  0%, 100% { transform: scale(1);    opacity: 1;    }
+  50%      { transform: scale(1.12); opacity: 0.45; }
+}

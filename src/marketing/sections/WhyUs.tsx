@@ -1,60 +1,46 @@
-import { motion } from 'motion/react';
-import * as Icons from 'lucide-react';
-import type { LucideIcon } from 'lucide-react';
-import { Container } from '@/marketing/primitives/Container';
-import { EyebrowLabel } from '@/marketing/primitives/EyebrowLabel';
-import { SectionHeading } from '@/marketing/primitives/SectionHeading';
 import type { HomeContent } from '@/content/types';
+import { Reveal, RevealStagger, RevealItem } from '@/marketing/motion/Reveal';
+import { Bound, SECTION_PAD, SectionIntro, Icon } from './shared';
 
 interface WhyUsProps {
   content: HomeContent['whyUs'];
 }
 
+/** Why us — 4 reasons, icon chip + title + copy in a row. */
 export function WhyUs({ content }: WhyUsProps) {
   return (
-    <section className="py-20 sm:py-28" aria-labelledby="why-us-headline">
-      <Container width="wide">
-        <div className="mb-12 max-w-3xl flex flex-col gap-3">
-          {content.eyebrow && <EyebrowLabel>{content.eyebrow}</EyebrowLabel>}
-          <SectionHeading size="xl" id="why-us-headline">
-            {content.headline}
-          </SectionHeading>
-        </div>
-
-        <motion.ul
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-50px' }}
-          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.06 } } }}
-          className="grid gap-x-8 gap-y-10 sm:grid-cols-2"
-        >
-          {content.reasons.map(reason => {
-            const Icon = (Icons[reason.icon as keyof typeof Icons] as LucideIcon | undefined) ?? Icons.CheckCircle;
-            return (
-              <motion.li
-                key={reason.title}
-                variants={{
-                  hidden: { opacity: 0, y: 12 },
-                  visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
-                }}
-                className="flex gap-4"
-              >
-                <div className="shrink-0">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-m bg-[var(--color-secondary-1)] text-[var(--color-on-secondary-1)]">
-                    <Icon className="h-5 w-5" aria-hidden="true" />
-                  </div>
-                </div>
-                <div>
-                  <h3 className="mb-1.5 font-display text-lg font-bold text-[var(--color-on-surface)]" style={{ fontFamily: 'var(--font-display)' }}>
-                    {reason.title}
-                  </h3>
-                  <p className="text-[var(--color-on-surface-subtle-1)]">{reason.description}</p>
-                </div>
-              </motion.li>
-            );
-          })}
-        </motion.ul>
-      </Container>
+    <section
+      id="why-us"
+      className={`scroll-mt-[84px] bg-[var(--color-surface-1)] ${SECTION_PAD}`}
+      aria-labelledby="why-headline"
+    >
+      <Bound>
+        <Reveal>
+          <SectionIntro
+            eyebrow={content.eyebrow}
+            headline={content.headline}
+            headingId="why-headline"
+            className="mb-12 max-w-[720px]"
+          />
+        </Reveal>
+        <RevealStagger className="grid grid-cols-1 gap-x-12 gap-y-10 sm:grid-cols-2">
+          {content.reasons.map((w) => (
+            <RevealItem key={w.title} className="flex items-start gap-[18px]">
+              <span className="flex h-12 w-12 flex-none items-center justify-center rounded-[12px] bg-[var(--color-secondary-1)] text-[var(--color-primary-1)]">
+                <Icon name={w.icon} className="h-6 w-6" aria-hidden="true" />
+              </span>
+              <div className="flex flex-col gap-[7px]">
+                <h3 className="m-0 text-[18px] font-bold tracking-[-0.01em] text-[var(--color-on-surface)]">
+                  {w.title}
+                </h3>
+                <p className="m-0 text-[15px] leading-[1.58] text-[var(--color-on-surface-subtle-1)]">
+                  {w.description}
+                </p>
+              </div>
+            </RevealItem>
+          ))}
+        </RevealStagger>
+      </Bound>
     </section>
   );
 }

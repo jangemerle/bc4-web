@@ -20,6 +20,7 @@ export const home: HomeContent = {
   },
 
   hero: {
+    eyebrow: 'Omnichannel kontaktní centrum',
     headline: 'Rychlejší zákaznická podpora bez chaosu a zbytečného čekání',
     subheadline: 'BC4Cloud sjednocuje hovory, e-maily i chat do jednoho prostředí. Díky tomu zvýšíte efektivitu podpory až o 40 %, zrychlíte odbavení zákazníků a získáte plnou kontrolu nad komunikací.',
     primaryCta: {

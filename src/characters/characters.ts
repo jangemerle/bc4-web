@@ -783,6 +783,13 @@ const bc4: Character = {
     // Borders
     '--color-border': '#DEDFE4',
     '--color-border-strong': '#C3C6CF',
+    '--bc4-border-light': '#EDEEF1',
+
+    // On-dark accents — used on navy (#04123B) sections where the standard
+    // on-secondary tokens are too dark. No DS slot exists for "blue on navy".
+    '--bc4-accent': '#6F86F4',         // stat numerals, links on navy
+    '--bc4-accent-soft': '#95A3F7',    // body copy on navy
+    '--bc4-accent-softer': '#AAB5F8',  // eyebrows / headings accent on navy
 
     // Hero a overlay
     '--color-hero-title': '#04123B',

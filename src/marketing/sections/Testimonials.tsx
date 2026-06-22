@@ -1,114 +1,59 @@
-import { motion } from 'motion/react';
-import { Quote, User } from 'lucide-react';
-import { Container } from '@/marketing/primitives/Container';
-import { EyebrowLabel } from '@/marketing/primitives/EyebrowLabel';
-import { SectionHeading } from '@/marketing/primitives/SectionHeading';
 import type { HomeContent } from '@/content/types';
+import { Reveal, RevealStagger, RevealItem } from '@/marketing/motion/Reveal';
+import { Bound, SECTION_PAD, SectionIntro } from './shared';
 
 interface TestimonialsProps {
   content: HomeContent['testimonials'];
 }
 
-/**
- * Testimonials — citace zákazníků s fotkou, jménem a pozicí.
- *
- * Pattern: velká dekorativní uvozovka v pozadí, kvalitní fotka autora,
- * stručná citace s konkrétním číslem (ideálně). Bez filmových produkcí —
- * ale také žádné stock foto; placeholder ikona je lepší než fake osoba.
- *
- * Baymard 2023: konkrétní citace s číslem > generická chvála 3× v CTR.
- */
+const initialsOf = (name: string) =>
+  name
+    .split(/\s+/)
+    .slice(0, 2)
+    .map((w) => w[0])
+    .join('')
+    .toUpperCase();
+
+/** Testimonials — light curtain panel. 3 quote cards. */
 export function Testimonials({ content }: TestimonialsProps) {
   return (
-    <section className="py-20 sm:py-28" aria-labelledby="testimonials-headline">
-      <Container width="wide">
-        <div className="mb-12 max-w-3xl flex flex-col gap-3 sm:mb-16">
-          {content.eyebrow && <EyebrowLabel>{content.eyebrow}</EyebrowLabel>}
-          <SectionHeading size="xl" id="testimonials-headline" subheadline={content.subheadline}>
-            {content.headline}
-          </SectionHeading>
-        </div>
-
-        <motion.ul
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-60px' }}
-          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }}
-          className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+    <section className={`bg-[var(--color-surface-1)] ${SECTION_PAD}`} aria-labelledby="testimonials-headline">
+      <Bound>
+        <Reveal>
+          <SectionIntro
+            eyebrow={content.eyebrow}
+            headline={content.headline}
+            headingId="testimonials-headline"
+            className="mb-12 max-w-[720px]"
+          />
+        </Reveal>
+        <RevealStagger
+          className="grid gap-5"
+          style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' }}
         >
-          {content.items.map(item => (
-            <TestimonialCard key={item.author} item={item} />
+          {content.items.map((t) => (
+            <RevealItem key={t.author}>
+              <figure className="m-0 flex h-full flex-col gap-5 rounded-[16px] border border-[var(--color-border)] bg-[var(--color-surface-2)] p-7">
+                <span aria-hidden="true" className="text-[40px] font-extrabold leading-[0.6] text-[#BBC3FA]">
+                  &ldquo;
+                </span>
+                <blockquote className="m-0 flex-1 text-[16.5px] leading-[1.6] text-[var(--color-on-surface)]">
+                  {t.quote}
+                </blockquote>
+                <figcaption className="flex items-center gap-[13px] border-t border-[var(--color-border)] pt-[18px]">
+                  <span className="flex h-11 w-11 flex-none items-center justify-center rounded-full bg-[var(--color-on-secondary-2)] text-[15px] font-bold text-white">
+                    {initialsOf(t.author)}
+                  </span>
+                  <span className="flex flex-col">
+                    <span className="text-[15px] font-bold text-[var(--color-on-surface)]">{t.author}</span>
+                    <span className="text-[13.5px] text-[var(--color-on-surface-subtle-1)]">{t.role}</span>
+                  </span>
+                </figcaption>
+              </figure>
+            </RevealItem>
           ))}
-        </motion.ul>
-      </Container>
+        </RevealStagger>
+      </Bound>
     </section>
-  );
-}
-
-function TestimonialCard({ item }: { item: HomeContent['testimonials']['items'][number] }) {
-  const hasPhoto =
-    item.authorPhoto &&
-    !item.authorPhoto.startsWith('/testimonials/placeholder') &&
-    (item.authorPhoto.endsWith('.png') ||
-      item.authorPhoto.endsWith('.jpg') ||
-      item.authorPhoto.endsWith('.webp'));
-
-  return (
-    <motion.li
-      variants={{
-        hidden: { opacity: 0, y: 16 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0, 0, 0.2, 1] } },
-      }}
-      className="relative flex flex-col gap-5 rounded-m border border-[var(--color-border)] bg-[var(--color-surface-1)] p-7 overflow-hidden transition hover:border-[var(--color-border-strong)]"
-    >
-      {/* Dekorativní velká uvozovka v pozadí */}
-      <Quote
-        className="absolute -right-2 -top-2 h-24 w-24 text-[var(--color-secondary-1)] rotate-180"
-        aria-hidden="true"
-        strokeWidth={1.5}
-      />
-
-      {/* Citace */}
-      <blockquote className="relative z-10 text-base text-[var(--color-on-surface)] sm:text-lg leading-relaxed text-pretty">
-        <p>„{item.quote}"</p>
-      </blockquote>
-
-      {/* Autor */}
-      <figcaption className="relative z-10 mt-auto flex items-center gap-3 pt-4 border-t border-[var(--color-border)]">
-        {/* Fotka nebo placeholder */}
-        <div className="shrink-0">
-          {hasPhoto ? (
-            <img
-              src={item.authorPhoto}
-              alt=""
-              className="h-12 w-12 rounded-full object-cover"
-              loading="lazy"
-            />
-          ) : (
-            <div
-              className="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--color-secondary-1)] text-[var(--color-on-secondary-1)]"
-              aria-hidden="true"
-            >
-              <User className="h-5 w-5" />
-            </div>
-          )}
-        </div>
-
-        {/* Jméno + role */}
-        <div className="flex flex-col min-w-0">
-          <p
-            className="font-display font-bold text-[var(--color-on-surface)] truncate"
-            style={{ fontFamily: 'var(--font-display)' }}
-          >
-            {item.author}
-          </p>
-          <p className="text-sm text-[var(--color-on-surface-subtle-1)] truncate">
-            {item.role}
-            {item.role && item.company && ', '}
-            {item.company}
-          </p>
-        </div>
-      </figcaption>
-    </motion.li>
   );
 }

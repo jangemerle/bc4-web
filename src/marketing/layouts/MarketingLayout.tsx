@@ -28,10 +28,14 @@ export function MarketingLayout() {
         reducedMotion="user"
         transition={{ duration: 0.4, ease: [0, 0, 0.2, 1] }}
       >
-        {/* Scroll progress bar — subtle, jen vizuální orientace */}
+        {/* Scroll progress bar — 3px gradient, primary → on-dark accent */}
         <motion.div
-          className="fixed top-0 left-0 right-0 h-[2px] bg-[var(--color-primary-1)] origin-left z-50"
-          style={{ scaleX: scrollYProgress }}
+          aria-hidden="true"
+          className="fixed top-0 left-0 right-0 h-[3px] origin-left z-[60]"
+          style={{
+            scaleX: scrollYProgress,
+            background: 'linear-gradient(90deg, var(--color-primary-1), var(--bc4-accent))',
+          }}
         />
 
         <div className="min-h-screen bg-[var(--color-bg)] text-[var(--color-on-surface)] flex flex-col">
