@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X } from 'lucide-react';
-import { common } from '@/content/cs/common';
+import { useMarketingContent } from '@/marketing/editor/useMarketingContent';
 import { CtaButton } from '@/marketing/primitives/CtaButton';
 
 /**
@@ -14,6 +14,7 @@ import { CtaButton } from '@/marketing/primitives/CtaButton';
 const navStyle = 'text-[17px] font-bold no-underline text-[var(--color-on-surface)]';
 
 export function Header() {
+  const common = useMarketingContent('common');
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();

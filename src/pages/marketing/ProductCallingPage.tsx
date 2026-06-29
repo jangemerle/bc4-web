@@ -1,8 +1,9 @@
 import { useSEO } from '@/marketing/seo';
-import { productCalling } from '@/content/cs/product-calling';
+import { useMarketingContent } from '@/marketing/editor/useMarketingContent';
 import { Container } from '@/marketing/primitives/Container';
 
 export default function ProductCallingPage() {
+  const productCalling = useMarketingContent('productCalling');
   useSEO(productCalling.seo, '/produkt/volani');
   return (
     <Container width="default" className="py-20">

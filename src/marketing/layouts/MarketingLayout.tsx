@@ -18,6 +18,7 @@ import { MotionConfig, useScroll, motion } from 'motion/react';
 import { CharacterProvider } from '@/characters';
 import { Header } from './Header';
 import { Footer } from './Footer';
+import { LiveEditor } from '@/marketing/editor/LiveEditor';
 
 export function MarketingLayout() {
   const { scrollYProgress } = useScroll();
@@ -45,6 +46,9 @@ export function MarketingLayout() {
           </main>
           <Footer />
         </div>
+
+        {/* In-page copy editor — inert unless the URL carries ?edit */}
+        <LiveEditor />
       </MotionConfig>
     </CharacterProvider>
   );

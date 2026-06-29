@@ -1,9 +1,10 @@
 import { useSEO } from '@/marketing/seo';
-import { contact } from '@/content/cs/contact';
+import { useMarketingContent } from '@/marketing/editor/useMarketingContent';
 import { Container } from '@/marketing/primitives/Container';
 import { MarketingHero } from '@/marketing/sections/MarketingHero';
 
 export default function ContactPage() {
+  const contact = useMarketingContent('contact');
   useSEO(contact.seo, '/kontakt');
   return (
     <>

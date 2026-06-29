@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { home } from '@/content/cs/home';
+import { useMarketingContent } from '@/marketing/editor/useMarketingContent';
 import { useSEO, organizationSchema, faqPageSchema } from '@/marketing/seo';
 import { Hero } from '@/marketing/sections/Hero';
 import { LogoCloud } from '@/marketing/sections/LogoCloud';
@@ -17,8 +17,6 @@ import { LeadForm } from '@/marketing/sections/LeadForm';
 import { Curtain } from '@/marketing/motion/Curtain';
 import { Reveal } from '@/marketing/motion/Reveal';
 import { SectionIntro } from '@/marketing/sections/shared';
-
-const content = home;
 
 // Section toggles — trust band + product video (were tweakable design props).
 const SHOW_TRUST = true;
@@ -64,7 +62,8 @@ const leadFormContent = {
 };
 
 export default function HomePage() {
-  useSEO(home.seo, '/', { locale: 'cs' });
+  const content = useMarketingContent('home');
+  useSEO(content.seo, '/', { locale: 'cs' });
   const { hash } = useLocation();
 
   // Inject JSON-LD (Organization + FAQPage)
@@ -78,7 +77,7 @@ export default function HomePage() {
     const faqScript = document.createElement('script');
     faqScript.type = 'application/ld+json';
     faqScript.id = 'jsonld-faq';
-    faqScript.textContent = JSON.stringify(faqPageSchema(home.faq.items));
+    faqScript.textContent = JSON.stringify(faqPageSchema(content.faq.items));
     document.head.appendChild(faqScript);
 
     return () => {
