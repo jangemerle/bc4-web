@@ -1,5 +1,5 @@
 import { useSEO } from '@/marketing/seo';
-import { productContactCenter } from '@/content/cs/product-cc';
+import { useMarketingContent } from '@/marketing/editor/useMarketingContent';
 import { Container } from '@/marketing/primitives/Container';
 
 /**
@@ -7,6 +7,7 @@ import { Container } from '@/marketing/primitives/Container';
  * Content už je v src/content/cs/product-cc.ts připravený.
  */
 export default function ProductContactCenterPage() {
+  const productContactCenter = useMarketingContent('productContactCenter');
   useSEO(productContactCenter.seo, '/produkt/kontaktni-centrum');
   return (
     <Container width="default" className="py-20">

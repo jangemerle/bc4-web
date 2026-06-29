@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Linkedin, Github, Twitter, Youtube } from 'lucide-react';
-import { common } from '@/content/cs/common';
+import { useMarketingContent } from '@/marketing/editor/useMarketingContent';
 import { RevealLines } from '@/marketing/motion/RevealLines';
 import { Reveal } from '@/marketing/motion/Reveal';
 import { CtaButton } from '@/marketing/primitives/CtaButton';
@@ -18,6 +18,7 @@ const legalSignals = ['GDPR ready', 'Data v EU', '99,95 % SLA'];
 const HIDDEN_FOOTER_COLUMNS = ['Společnost', 'Podpora', 'Právní'];
 
 export function Footer() {
+  const common = useMarketingContent('common');
   const year = new Date().getFullYear();
   const cta = common.preFooterCta;
 

@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import * as Icons from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { useSEO } from '@/marketing/seo';
-import { features } from '@/content/cs/features';
+import { useMarketingContent } from '@/marketing/editor/useMarketingContent';
 import { Container } from '@/marketing/primitives/Container';
 import { SectionHeading } from '@/marketing/primitives/SectionHeading';
 import { CtaButton } from '@/marketing/primitives/CtaButton';
@@ -18,6 +18,7 @@ import type { ProductContent } from '@/content/types';
  * sekce každého modulu s screenshot + popisem + bullets.
  */
 export default function FeaturesPage() {
+  const features = useMarketingContent('features');
   useSEO(features.seo, '/funkce');
 
   return (
