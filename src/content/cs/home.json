@@ -92,7 +92,7 @@
       },
       {
         "title": "Zákazníci nečekají na lince",
-        "description": "Díky chytrému směrování hovorů, frontám a automatizaci zkrátíte čekací dobu a výrazně zlepšíte zákaznickou zkušenost. 82% zákazníků neobjedná pokud má pozitivní první kontakt.",
+        "description": "Díky chytrému směrování hovorů, frontám a automatizaci zkrátíte čekací dobu a výrazně zlepšíte zákaznickou zkušenost. 82% zákazníků neobjedná pokud nemá pozitivní první kontakt.",
         "icon": "Timer"
       },
       {
@@ -125,14 +125,14 @@
       {
         "id": "agent-panel",
         "title": "Panel operátora",
-        "eyebrow": "OMNICHANNEL INBOX",
+        "eyebrow": "Veškerá komunikace se zákazníkem na jedné obrazovce",
         "headline": "Hovor, SMS a WhatsApp v jedné obrazovce",
-        "description": "Operátor nepřeskakuje mezi aplikacemi. Hovor, SMS i vlákno z WhatsAppu má vedle sebe. Karta zákazníka s historií z CRM naskočí v okamžiku přijetí — žádné „počkejte, prověřím to v ERPku\".",
+        "description": "Telefon, SMS i WhatsApp přehledně v jednom rozhraní. Operátor má při každém kontaktu okamžitě k dispozici historii komunikace i údaje ze CRM, takže může reagovat rychleji a bez zbytečného přepínání mezi aplikacemi.",
         "highlights": [
-          "WebRTC dialer — volání z prohlížeče, bez instalace",
-          "Hovor, SMS a WhatsApp v jedné obrazovce",
-          "Karta hovoru s poznámkou, kategorií a historií volajícího",
-          "Volání přes headset nebo CTI ovládání pevného Htek telefonu"
+          "WebRTC dialer – telefonování přímo z internetového prohlížeče, bez instalace\n",
+          "Hovor, SMS a WhatsApp na jedné obrazovce",
+          "Automatické zobrazení zákaznické karty a historie komunikace",
+          "Volání přes web aplikaci pomocí headsetu nebo CTI ovládání pevného IP telefonu"
         ],
         "screenshot": {
           "src": "/product/bronet/imgBCCP-small-6.fa9b9904_3840.webp",
@@ -144,14 +144,14 @@
       {
         "id": "smart-routing",
         "title": "Smart routing",
-        "eyebrow": "ROUTING A CALL FLOW",
-        "headline": "Hovor jde tam, kam má — podle pravidel, ne podle náhody",
-        "description": "Vy nastavíte pravidla v call flow, systém je dodrží u každého hovoru. Podle času, čísla volajícího, předvolby i historie. Když operátor nevezme nebo má dovolenou, hovor padá dál — nikdy nezmizí do ztracena.",
+        "eyebrow": "INTELIGENTNÍ SMĚROVÁNÍ HOVORŮ (ROUTING A CALL FLOW)",
+        "headline": "Každý hovor se dostane ke správnému člověku",
+        "description": "Nastavte si vlastní pravidla směrování a nechte systém rozhodovat za vás. Hovory se automaticky přesměrují podle času, čísla volajícího, jazyka, zákazníka nebo dostupnosti operátorů. Díky tomu se žádný důležitý hovor neztratí a zákazníci se dovolají rychleji.",
         "highlights": [
-          "Mimo pracovní dobu → hláška a callback ráno, ne vyzvánění do prázdna",
-          "Předvolba +49 → německá hláška a německy mluvící operátor",
-          "Stálý zákazník vždy na svého technika; když nevezme nebo má dovolenou, padá na centrálu",
-          "Číslo na blacklistu systém odmítne dřív, než kdokoli zvedne"
+          "Mimo pracovní dobu přehraje systém uvítací hlášku a nabídne automatický callback, žádné vyzvánění do prázdna",
+          "Zahraniční hovory jsou směrovány podle předvolby na jazykově odpovídající tým a uvítací hláška zazní automaticky v cizím jazyce",
+          "VIP nebo stálí zákazníci jsou automaticky spojeni se svým obchodníkem či technikem",
+          "Blacklist automaticky zablokuje nežádoucí hovory ještě před jejich spojením"
         ],
         "screenshot": {
           "src": "/product/bronet/imgBCCP-small-5.4295f61b_3840.webp",
@@ -163,13 +163,13 @@
         "id": "supervizor-panel",
         "title": "Supervizor Panel + Wallboard",
         "eyebrow": "MONITORING A KOUČOVÁNÍ",
-        "headline": "Vidíte, co se děje, hned jak se to děje",
-        "description": "Real-time monitoring i historical reporting v jednom. 360° pohled na celé kontaktní centrum, náslech ongoing hovorů pro koučování, wallboard pro velký displej v open-space.",
+        "headline": "Rozhodujte na základě dat, ne odhadů",
+        "description": "Okamžitě vidíte, co se právě děje i jak si tým vede dlouhodobě. Přehledné dashboardy, živý monitoring a detailní reporty vám pomohou zvyšovat produktivitu, zkracovat čekací doby a zlepšovat kvalitu zákaznické péče.",
         "highlights": [
-          "Real-time dashboard per operátor, per fronta, per směna",
-          "Náslech ongoing hovorů pro QA i koučování nováčků",
-          "CDR a výkonnostní reporty s exportem do XLSX",
-          "Wallboard pro nástěnnou TV v týmovém prostoru"
+          "Online přehled výkonu operátorů, front i celého kontaktního centra",
+          "Náslech živých hovorů pro školení, koučování a kontrolu kvality",
+          "Detailní statistiky, CDR reporty a export dat do Excelu",
+          "Wallboard s klíčovými metrikami pro tým i management"
         ],
         "screenshot": {
           "src": "/product/bronet/imgBCCP-full-3.d9e80df0_3840.webp",
@@ -186,9 +186,9 @@
         "description": "Konverzační AI napojená na ChatGPT, trénovaná na vašich datech. Vyřídí rutinní dotazy. Když nestačí, předá hovor operátorovi s kontextem. Bonus: každý hovor přepíšeme do textu a vyhodnotíme sentiment.",
         "highlights": [
           "Voicebot a chatbot napojené na ChatGPT",
-          "Trénink na vaší knowledge base, FAQ, produktech",
+          "Trénování na vašich datech, FAQ, produktech a interní znalostní bázi",
           "Předání operátorovi s kontextem, když AI nestačí",
-          "ASR přepis a sentiment analýza každého hovoru"
+          "Analýza každého hovoru - ASR přepis a sentiment"
         ],
         "screenshot": {
           "src": "/product/bronet/imgBCCP-small-4.05c00ce2_3840.webp",
