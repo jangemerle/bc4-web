@@ -71,7 +71,7 @@
       {
         "value": "5 dnů",
         "label": "Od podpisu k prvnímu hovoru",
-        "description": "Základní Volání. Portace čísel, IVR, účty operátorů — naše práce."
+        "description": "Chytré volání. Portace čísel, IVR, účty operátorů — naše práce."
       },
       {
         "value": "99,95 %",
@@ -253,28 +253,28 @@
   "howItWorks": {
     "eyebrow": "JAK TO FUNGUJE",
     "headline": "4 úrovně — začnete tam, kde to dává smysl",
-    "subheadline": "Volání a Kontaktní centrum jsou základní úrovně. AI a Integrace jsou přídavné moduly — přidáte je k libovolné úrovni, kdykoli to bude potřeba.",
+    "subheadline": "Začněte s úrovní Chytré volání nebo Kontaktní centrum a řešení postupně rozšiřujte. Moduly AI a Integrace můžete kdykoliv aktivovat podle toho, jak porostou vaše potřeby.",
     "tiers": [
       {
         "tier": 1,
         "title": "Chytré volání",
-        "description": "Končí životnost vaší analogové ústředny? BC4 — moderní cloudová náhrada bez nového hardwaru. Rychlé a snadné nasazení bez investic a složitého IT.",
+        "description": "Končí životnost vaší analogové ústředny? BC4 — moderní cloudová náhrada bez drahého hardwaru. Rychlé a snadné nasazení bez investic a složitého IT.",
         "features": [
-          "Přehled všech příchozích i odchozích hovorů v reálném čase",
-          "Nahrávání hovorů pro kontrolu kvality, šifrovaně",
-          "IVR editor v prohlížeči — žádný IT technik ne­potřebujete",
-          "Statistiky výkonu per směna a per operátor"
+          "Okamžitý přehled o všech příchozích i odchozích hovorech",
+          "Bezpečné nahrávání hovorů pro kontrolu kvality a audit",
+          "Snadná správa hlasových menu (IVR) přímo v prohlížeči",
+          "Přehledné statistiky výkonu operátorů, front i směn"
         ],
         "learnMoreHref": "/produkt/volani"
       },
       {
         "tier": 2,
         "title": "Kontaktní centrum",
-        "description": "Pro firmy, které chtějí povýšit zákaznické oddělení — nebo už call centrum mají. Telefon, SMS a WhatsApp v jednom rozhraní, jedním chytrým směrováním.",
+        "description": "Pro firmy, které chtějí posunout zákaznickou podporu na vyšší úroveň. Telefon, SMS a WhatsApp v jednom prostředí s inteligentním směrováním komunikace, pokročilým reportingem a nástroji pro efektivní řízení týmu",
         "features": [
           "Chytré směrování hovorů podle dovedností operátora a hodnoty zákazníka",
-          "WhatsApp Business API + hromadné SMS s šablonami",
-          "Odchozí kampaně s prediktivním dialerem a importem z XLSX",
+          "Telefon, SMS a WhatsApp Business v jednom přehledném rozhraní",
+          "Odchozí kampaně s prediktivním vytáčením a importem kontaktů z Excelu",
           "Dashboardy a reporting výkonu týmu v reálném čase"
         ],
         "learnMoreHref": "/produkt/kontaktni-centrum"
@@ -282,7 +282,7 @@
       {
         "tier": 3,
         "title": "AI",
-        "description": "Modul nad Voláním i Kontaktním centrem. Voicebot a chatbot pro rutinní dotazy, speech analytics pro každý hovor. Operátoři se věnují složitým věcem, AI řeší ty opakované.",
+        "description": "Rozšiřte Kontaktní centrum o umělou inteligenci. AI automaticky vyřídí rutinní požadavky, pomůže zákazníkům 24/7 a operátorům předá pouze složitější případy.",
         "features": [
           "Voicebot — ověření identity, rezervace, směrování hovorů",
           "Chatbot napojený na ChatGPT a vaše vlastní data",
@@ -295,12 +295,12 @@
       {
         "tier": 4,
         "title": "Integrace",
-        "description": "Modul, který napojí libovolnou úroveň na CRM, ERP, ticketing nebo nemocniční informační systém. Kontakty tečou dovnitř, záznamy o hovorech zpátky — bez ručního přepisování.",
+        "description": "Kontakty, historie komunikace i výsledky hovorů se automaticky synchronizují s vaším CRM, ERP nebo dalšími podnikovými systémy. Bez ručního přepisování dat a duplicitní práce.",
         "features": [
-          "Import kontaktů z CRM, ERP, ticketing nebo NIS",
+          "Automatická synchronizace kontaktů a zákaznických dat z CRM, ERP, ticketing nebo NIS",
           "Záznamy hovorů (kdo, kdy, výsledek) zpět do CRM",
-          "REST API a webhooks pro vlastní integrace",
-          "Hotové konektory: MS Teams, SAP, Salesforce, HubSpot"
+          "Otevřené REST API a webhooks pro integraci na vlastní systémy",
+          ""
         ],
         "addOn": true,
         "learnMoreHref": "/funkce"
