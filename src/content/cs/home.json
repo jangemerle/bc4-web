@@ -309,12 +309,12 @@
   },
   "segments": {
     "eyebrow": "PRO JAKÉ FIRMY",
-    "headline": "Pro firmy všech velikostí a oborů — od 1 operátora po velká call centra",
+    "headline": "Pro firmy všech velikostí a oborů. Od jednoho operátora až po rozsáhlá kontaktní centra s desítkami či stovkami agentů. Bez ohledu na obor získáte moderní platformu pro efektivnější komunikaci se zákazníky.",
     "subheadline": "BC4Cloud roste s vámi — ať řešíte desítky nebo tisíce hovorů denně.",
     "items": [
       {
         "name": "E-shopy",
-        "tagline": "Zvládnete špičku bez navyšování lidí. Navíc můžete automaticky oslovit zákazníky, kteří nedokončili objednávku.",
+        "tagline": "Zvládněte sezónní špičky bez navyšování počtu operátorů. Callback, automatizace i AI pomohou odbavit více zákazníků a oslovit ty, kteří nedokončili objednávku.",
         "icon": "ShoppingCart"
       },
       {
@@ -324,7 +324,7 @@
       },
       {
         "name": "Banky a finance",
-        "tagline": "Audit trail ke každému hovoru. Šifrovaná nahrávka. GDPR ready.",
+        "tagline": "Bezpečné zpracování komunikace, auditní záznamy, nahrávání hovorů a podpora regulatorních požadavků včetně GDPR.",
         "icon": "ShieldCheck"
       },
       {
@@ -334,11 +334,11 @@
       },
       {
         "name": "Telco operátoři",
-        "tagline": "Prediktivní dialer na retention kampaně. Statistiky ke směně.",
+        "tagline": "Efektivně řiďte zákaznickou podporu, retenční kampaně i aktivní oslovování klientů s využitím inteligentního vytáčení a pokročilých statistik",
         "icon": "Antenna"
       }
     ],
-    "footnote": "Váš obor v seznamu není? Nevadí — BC4Cloud používají firmy z desítek odvětví. Řekněte nám, co řešíte, a ukážeme vám, jak to funguje konkrétně u vás."
+    "footnote": "Nenašli jste svůj obor? To nevadí. BC4Cloud využívají společnosti z celé řady odvětví. Rádi vám ukážeme, jak lze řešení přizpůsobit vašim procesům a konkrétním potřebám."
   },
   "testimonials": {
     "eyebrow": "CO ŘÍKAJÍ ZÁKAZNÍCI",
@@ -375,26 +375,26 @@
   },
   "whyUs": {
     "eyebrow": "PROČ S NÁMI",
-    "headline": "BusinessCom — 20+ let v české telekomunikaci",
+    "headline": "BusinessCom — 20+ let v české telekomunikaci. BC4Cloud vznikl na základě zkušeností z desítek úspěšných implementací a je navržen tak, aby rostl společně s vaším podnikáním.",
     "reasons": [
       {
-        "title": "Česká podpora. Mluví s vámi člověk.",
-        "description": "Když zavoláte, na druhé straně je někdo, kdo vaše CC zná. Bez překladu do angličtiny, bez fronty do zahraničního supportu.",
+        "title": "Česká technická podpora",
+        "description": "Komunikujete přímo s našimi specialisty, kteří znají vaše prostředí i konfiguraci. Rychlá pomoc bez jazykové bariéry a zbytečného přepojování.",
         "icon": "Headphones"
       },
       {
         "title": "Data zůstávají v EU.",
-        "description": "Nahrávky i osobní údaje neopouštějí Evropu. DPA k podpisu vám pošleme. GDPR nestojí na vás, ale na nás.",
+        "description": "Vaše data i nahrávky zůstávají v evropských datových centrech. Řešení je navrženo s důrazem na bezpečnost, ochranu osobních údajů a podporu souladu s GDPR.",
         "icon": "MapPin"
       },
       {
-        "title": "Rostete s námi. Od 1 do 500.",
-        "description": "Začnete s 1 operátorem, rostete na 500. Z Volání na plný omnichannel přejdete pár kliknutími v administraci.",
+        "title": "Řešení, které roste s vaší firmou",
+        "description": "Začněte s několika operátory a postupně rozšiřujte kontaktní centrum podle potřeb firmy. Bez výměny systému a složitých migrací.",
         "icon": "TrendingUp"
       },
       {
         "title": "20+ let zkušeností, ne startupová zkouška.",
-        "description": "BusinessCom provozuje komunikační řešení od roku 2003. BC4Cloud je pokračováním desítek implementací pro české firmy. Na experimenty máte jiné.",
+        "description": "BusinessCom provozuje komunikační řešení od roku 2003.Partner pro dlouhodobou spolupráci – od návrhu řešení až po podporu a rozvoj. Na experimenty máte jiné.",
         "icon": "Clock"
       }
     ]
