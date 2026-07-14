@@ -183,7 +183,7 @@
         "title": "AI Voicebot s ChatGPT",
         "eyebrow": "AI AUTOMATIZACE",
         "headline": "Voicebot, který umí vaši firmu",
-        "description": "Konverzační AI napojená na ChatGPT, trénovaná na vašich datech. Vyřídí rutinní dotazy. Když nestačí, předá hovor operátorovi s kontextem. Bonus: každý hovor přepíšeme do textu a vyhodnotíme sentiment.",
+        "description": "AI automaticky vyřídí rutinní požadavky, odpoví na nejčastější dotazy a pomůže zákazníkům kdykoliv během dne. Operátor přebírá pouze složitější případy – včetně celé historie komunikace. Výsledkem jsou nižší náklady, kratší čekací doby a vyšší spokojenost zákazníků.",
         "highlights": [
           "Voicebot a chatbot napojené na ChatGPT",
           "Trénování na vašich datech, FAQ, produktech a interní znalostní bázi",
@@ -202,11 +202,11 @@
         "title": "Mobile Client",
         "eyebrow": "MOBILITA, BEZ VPN",
         "headline": "Operátor volá z mobilu jako z kanceláře",
-        "description": "Oficiální aplikace BC4 Agent Panel v App Store a Google Play — pro iOS i Android. Stejné funkce jako desktop Panel operátora: fronty, callback, kontakty, transfer. Bez VPN díky integrovanému SBC. Pro terénní techniky, hybridní práci nebo pohotovost.",
+        "description": "Operátoři mohou obsluhovat zákazníky odkudkoliv – z domova, z pobočky nebo přímo z terénu. Veškeré hovory, kontakty i historie komunikace jsou vždy k dispozici.Oficiální aplikace BC4 Agent Panel v App Store a Google Play — pro iOS i Android. ",
         "highlights": [
-          "Stáhnete přímo z App Store a Google Play, instalace za minutu",
-          "Stejný workflow jako desktop — fronty, callback, kategorie a poznámky k hovoru",
-          "VPN-less díky integrovanému SBC — bezpečný přístup zvenku",
+          "Mobilní aplikace pro iOS a Android",
+          "Stejné funkce jako desktopová aplikace – fronty, callback, přepojování i kontakty",
+          "Bezpečný přístup bez VPN, díky integrovanému SBC ",
           "Pro snadnou obsluhu mimo kancelář — terén, hybridní práce, pohotovost"
         ],
         "screenshot": {
