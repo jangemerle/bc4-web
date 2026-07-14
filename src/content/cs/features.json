@@ -21,16 +21,16 @@
   },
   "painPoints": {
     "eyebrow": "JAK TO POSKLÁDÁTE",
-    "headline": "Začnete s Voláním, doplníte podle potřeby",
+    "headline": "Začněte jednoduše. Rozšiřujte podle potřeby.",
     "items": [
       {
         "pain": "Nechcete platit za funkce, které nikdo nepoužívá.",
-        "resolution": "Volání je vstupní úroveň — náhrada ústředny. Kontaktní centrum a AI přidáte, až je opravdu potřebujete.",
+        "resolution": "Chytré volání je vstupní úroveň — náhrada ústředny. Kontaktní centrum a AI přidáte, až je opravdu potřebujete.",
         "icon": "Layers"
       },
       {
-        "pain": "Někdo potřebuje desktop, jiný mobil, recepce zase něco jiného.",
-        "resolution": "Panel operátora, Mobile Client, Office Panel a Wallboard — různé moduly pro různé role. V ceně tarifu.",
+        "pain": "Někdo potřebuje desktop, jiný mobil, recepce zase IP Telefon",
+        "resolution": "Panel operátora, Mobile aplikace, Office Panel a Wallboard — různé moduly pro různé role. V ceně tarifu.",
         "icon": "Users"
       },
       {
@@ -47,7 +47,7 @@
     "items": [
       {
         "title": "Panel operátora",
-        "description": "Modul pro obsluhu příchozích i odchozích hovorů, emailů, chatů a zpráv. Hovory přes WebRTC z prohlížeče nebo přes CTI ovládání pevného telefonu.",
+        "description": "Kompletní pracovní prostředí pro každodenní komunikaci se zákazníky. Operátor vyřizuje hovory, e-maily, chat, SMS i WhatsApp z jedné aplikace a má okamžitý přístup ke všem důležitým informacím.",
         "screenshot": "/product/bronet/Agent Panel 1.png",
         "icon": "Monitor",
         "bullets": [
@@ -58,24 +58,24 @@
       },
       {
         "title": "Karta hovoru",
-        "description": "Detail aktivního i historického hovoru. Operátor zapíše poznámku, vybere hlavní kategorii a podkategorii, vidí historii volajícího a souvislosti z CRM.",
+        "description": "Všechny důležité informace o zákazníkovi na jednom místě. Operátor během hovoru vidí historii komunikace, údaje z CRM a může okamžitě zaznamenat výsledek hovoru. Díky tomu je každá další komunikace rychlejší a lépe navazuje na předchozí kontakt.",
         "screenshot": "/product/bronet/imgBCCP-small-6.fa9b9904_3840.webp",
         "icon": "FileText",
         "bullets": [
           "Poznámky k hovoru přímo z operátorského panelu",
-          "Hierarchická kategorizace pro reporting",
-          "Historie volajícího + RealTask integrace"
+          "Přehledná kategorizace pro reporting a analýzy",
+          "Historie volajícího a veškerá následná aktivita  RealTask integrace"
         ]
       },
       {
         "title": "Panel front",
-        "description": "Operátor se jedním klikem přihlašuje a odhlašuje z front podle svých dovedností. Pauzy s typem (oběd, školení, administrativa) systém respektuje při směrování.",
+        "description": "Operátor se vždy připojí tam, kde je právě potřeba. Jedním kliknutím se přihlásí do front podle svých dovedností a systém automaticky zohlední jeho dostupnost i typ přestávky. Díky tomu se hovory směrují efektivněji a zákazníci čekají kratší dobu.",
         "screenshot": "/product/bronet/imgBCCP-small-5.4295f61b_3840.webp",
         "icon": "Users",
         "bullets": [
-          "Skill-based přihlášení do front",
-          "Kategorizované pauzy",
-          "Real-time stav fronty per skupina"
+          "Přihlašování do front podle dovedností operátora (Skill-based Routing)",
+          "Inteligentní správa pauz – oběd, školení, administrativa a další",
+          "Přehled o vytížení front - týmů v reálném čase"
         ]
       },
       {
@@ -113,12 +113,12 @@
       },
       {
         "title": "CDR — Call Detail Records",
-        "description": "Kompletní seznam všech hovorů na ústředně podle práv uživatele. Filtrování, hledání, export.",
+        "description": "Vyhledejte jakýkoliv hovor během několika sekund. Kompletní historie komunikace s pokročilým filtrováním, řízeným přístupem a exportem dat pro reporting.",
         "screenshot": "/product/bronet/imgBCCP-full-4.2c8a597b_3840.webp",
         "icon": "List",
         "bullets": [
-          "Detailní záznam každého hovoru",
-          "Přístup podle uživatelských práv",
+          "Detailní záznam a anylýza každého hovoru",
+          "Přístup podle uživatelských oprávnění",
           "Export do XLSX"
         ]
       },
@@ -168,12 +168,12 @@
       },
       {
         "title": "Administrace",
-        "description": "Centrální web administrace pro nastavení celého systému. Fronty, IVR call flow, time conditions, uživatelské role, lines a trunky.",
+        "description": "Mějte celý systém pod kontrolou. Od přidání nového operátora až po úpravu IVR nebo směrování hovorů – vše nastavíte jednoduše v přehledné webové administraci bez závislosti na technické podpoře.",
         "screenshot": "/product/bronet/imgBCCP-full-8.bff84ca9_3840.webp",
         "icon": "Settings",
         "bullets": [
-          "Vizuální call flow editor",
-          "Granulární uživatelská práva",
+          "Vizuální intuitivní editor IVR a call flow",
+          "Detailní správa uživatelů a oprávnění",
           "Multi-tenant administrace"
         ]
       }
