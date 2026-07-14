@@ -129,7 +129,7 @@
         "headline": "Hovor, SMS a WhatsApp v jedné obrazovce",
         "description": "Telefon, SMS i WhatsApp přehledně v jednom rozhraní. Operátor má při každém kontaktu okamžitě k dispozici historii komunikace i údaje ze CRM, takže může reagovat rychleji a bez zbytečného přepínání mezi aplikacemi.",
         "highlights": [
-          "WebRTC dialer – telefonování přímo z internetového prohlížeče, bez instalace\n",
+          "Telefonování přímo z internetového prohlížeče, bez instalace - WebRTC dialer\n",
           "Hovor, SMS a WhatsApp na jedné obrazovce",
           "Automatické zobrazení zákaznické karty a historie komunikace",
           "Volání přes web aplikaci pomocí headsetu nebo CTI ovládání pevného IP telefonu"
