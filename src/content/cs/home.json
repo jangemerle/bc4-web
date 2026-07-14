@@ -298,9 +298,9 @@
         "description": "Kontakty, historie komunikace i výsledky hovorů se automaticky synchronizují s vaším CRM, ERP nebo dalšími podnikovými systémy. Bez ručního přepisování dat a duplicitní práce.",
         "features": [
           "Automatická synchronizace kontaktů a zákaznických dat z CRM, ERP, ticketing nebo NIS",
-          "Záznamy hovorů (kdo, kdy, výsledek) zpět do CRM",
+          "Ukládání záznamů o hovorech, aktivitách a výsledcích přímo do nebo z CRM",
           "Otevřené REST API a webhooks pro integraci na vlastní systémy",
-          ""
+          "Hotové konektory a další aplikace"
         ],
         "addOn": true,
         "learnMoreHref": "/funkce"
