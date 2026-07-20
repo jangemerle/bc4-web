@@ -87,7 +87,7 @@
     "items": [
       {
         "title": "Lepší zákaznická zkušenost",
-        "description": "Hovory vám přestanou utíkat. Systém automaticky zavolá zpět zákazníkům, kterým dojde trpělivost. O žádný hovor nepřijdete. Získáte tak více spokojených klientů.",
+        "description": "Hovory Vám přestanou utíkat. Systém automaticky zavolá zpět zákazníkům, kterým dojde trpělivost. O žádný hovor nepřijdete. Získáte tak více spokojených klientů.",
         "icon": "PhoneIncoming"
       },
       {
@@ -120,7 +120,7 @@
   "featureShowcase": {
     "eyebrow": "FUNKCE, CO SKUTEČNĚ POUŽIJETE",
     "headline": "5 věcí, které vám ušetří nejvíc času každý den",
-    "subheadline": "Vybrali jsme funkce, na které se vaši operátoři i vy budete dívat nejčastěji. Všechny v ceně tarifu Kontaktní centrum.",
+    "subheadline": "Vybrali jsme funkce, na které se Vaši operátoři i vy budete dívat nejčastěji. Všechny v ceně tarifu Kontaktní centrum.",
     "items": [
       {
         "id": "agent-panel",
@@ -146,7 +146,7 @@
         "title": "Smart routing",
         "eyebrow": "INTELIGENTNÍ SMĚROVÁNÍ HOVORŮ (ROUTING A CALL FLOW)",
         "headline": "Každý hovor se dostane ke správnému člověku",
-        "description": "Nastavte si vlastní pravidla směrování a nechte systém rozhodovat za vás. Hovory se automaticky přesměrují podle času, čísla volajícího, jazyka, zákazníka nebo dostupnosti operátorů. Díky tomu se žádný důležitý hovor neztratí a zákazníci se dovolají rychleji.",
+        "description": "Nastavte si vlastní pravidla směrování a nechte systém rozhodovat za Vás. Hovory se automaticky přesměrují podle času, čísla volajícího, jazyka, zákazníka nebo dostupnosti operátorů. Díky tomu se žádný důležitý hovor neztratí a zákazníci se dovolají rychleji.",
         "highlights": [
           "Mimo pracovní dobu přehraje systém uvítací hlášku a nabídne automatický callback, žádné vyzvánění do prázdna",
           "Zahraniční hovory jsou směrovány podle předvolby na jazykově odpovídající tým a uvítací hláška zazní automaticky v cizím jazyce",
@@ -164,7 +164,7 @@
         "title": "Supervizor Panel + Wallboard",
         "eyebrow": "MONITORING A KOUČOVÁNÍ",
         "headline": "Rozhodujte na základě dat, ne odhadů",
-        "description": "Okamžitě vidíte, co se právě děje i jak si tým vede dlouhodobě. Přehledné dashboardy, živý monitoring a detailní reporty vám pomohou zvyšovat produktivitu, zkracovat čekací doby a zlepšovat kvalitu zákaznické péče.",
+        "description": "Okamžitě vidíte, co se právě děje i jak si tým vede dlouhodobě. Přehledné dashboardy, živý monitoring a detailní reporty Vám pomohou zvyšovat produktivitu, zkracovat čekací doby a zlepšovat kvalitu zákaznické péče.",
         "highlights": [
           "Online přehled výkonu operátorů, front i celého kontaktního centra",
           "Náslech živých hovorů pro školení, koučování a kontrolu kvality",
@@ -182,7 +182,7 @@
         "id": "ai-voicebot",
         "title": "AI Voicebot s ChatGPT",
         "eyebrow": "AI AUTOMATIZACE",
-        "headline": "Voicebot, který umí vaši firmu",
+        "headline": "Voicebot, který umí Vaši firmu",
         "description": "AI automaticky vyřídí rutinní požadavky, odpoví na nejčastější dotazy a pomůže zákazníkům kdykoliv během dne. Operátor přebírá pouze složitější případy – včetně celé historie komunikace. Výsledkem jsou nižší náklady, kratší čekací doby a vyšší spokojenost zákazníků.",
         "highlights": [
           "Voicebot a chatbot napojené na ChatGPT",
@@ -253,7 +253,7 @@
   "howItWorks": {
     "eyebrow": "JAK TO FUNGUJE",
     "headline": "4 úrovně — začnete tam, kde to dává smysl",
-    "subheadline": "Začněte s úrovní Chytré volání nebo Kontaktní centrum a řešení postupně rozšiřujte. Moduly AI a Integrace můžete kdykoliv aktivovat podle toho, jak porostou vaše potřeby.",
+    "subheadline": "Začněte s úrovní Chytré volání nebo Kontaktní centrum a řešení postupně rozšiřujte. Moduly AI a Integrace můžete kdykoliv aktivovat podle toho, jak porostou Vaše potřeby.",
     "tiers": [
       {
         "tier": 1,
@@ -285,7 +285,7 @@
         "description": "Rozšiřte Kontaktní centrum o umělou inteligenci. AI automaticky vyřídí rutinní požadavky, pomůže zákazníkům 24/7 a operátorům předá pouze složitější případy.",
         "features": [
           "Voicebot — ověření identity, rezervace, směrování hovorů",
-          "Chatbot napojený na ChatGPT a vaše vlastní data",
+          "Chatbot napojený na ChatGPT a Vaše vlastní data",
           "Automatický přepis hovoru do textu v češtině",
           "Sentiment analýza a detekce rizikových konverzací"
         ],
@@ -295,7 +295,7 @@
       {
         "tier": 4,
         "title": "Integrace",
-        "description": "Kontakty, historie komunikace i výsledky hovorů se automaticky synchronizují s vaším CRM, ERP nebo dalšími podnikovými systémy. Bez ručního přepisování dat a duplicitní práce.",
+        "description": "Kontakty, historie komunikace i výsledky hovorů se automaticky synchronizují s Vaším CRM, ERP nebo dalšími podnikovými systémy. Bez ručního přepisování dat a duplicitní práce.",
         "features": [
           "Automatická synchronizace kontaktů a zákaznických dat z CRM, ERP, ticketing nebo NIS",
           "Ukládání záznamů o hovorech, aktivitách a výsledcích přímo do nebo z CRM",
@@ -375,11 +375,11 @@
   },
   "whyUs": {
     "eyebrow": "PROČ S NÁMI",
-    "headline": "BusinessCom — 20+ let v české telekomunikaci. BC4Cloud vznikl na základě zkušeností z desítek úspěšných implementací a je navržen tak, aby rostl společně s vaším podnikáním.",
+    "headline": "BusinessCom — 20+ let v českých telekomunikacích. BC4Cloud vznikl na základě zkušeností z desítek úspěšných implementací a je navržen tak, aby rostl společně s Vaším podnikáním.",
     "reasons": [
       {
         "title": "Česká technická podpora",
-        "description": "Komunikujete přímo s našimi specialisty, kteří znají vaše prostředí i konfiguraci. Rychlá pomoc bez jazykové bariéry a zbytečného přepojování.",
+        "description": "Komunikujete přímo s našimi specialisty, kteří znají Vaše prostředí i konfiguraci. Rychlá pomoc bez jazykové bariéry a zbytečného přepojování.",
         "icon": "Headphones"
       },
       {
@@ -394,7 +394,7 @@
       },
       {
         "title": "20+ let zkušeností, ne startupová zkouška.",
-        "description": "BusinessCom provozuje komunikační řešení od roku 2003.Partner pro dlouhodobou spolupráci – od návrhu řešení až po podporu a rozvoj. Na experimenty máte jiné.",
+        "description": "BusinessCom provozuje komunikační řešení od roku 2003. Partner pro dlouhodobou spolupráci – od návrhu řešení až po podporu a rozvoj. Na experimenty máte jiné.",
         "icon": "Clock"
       }
     ]
@@ -413,7 +413,7 @@
       },
       {
         "question": "Kolik to stojí?",
-        "answer": "Účtujeme per operátor za měsíc, minimum je 1 operátor. Konkrétní cenu pro váš case spočítáme do 1 pracovního dne od vyplnění [poptávky](/poptavka)."
+        "answer": "Účtujeme per operátor za měsíc, minimum je 1 operátor. Konkrétní cenu pro Váš case spočítáme do 1 pracovního dne od vyplnění [poptávky](/poptavka)."
       },
       {
         "question": "Funguje to s naším CRM?",
